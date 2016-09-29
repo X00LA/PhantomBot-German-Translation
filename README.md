@@ -1,0 +1,1 @@
+# PhantomBot-German-Translation
