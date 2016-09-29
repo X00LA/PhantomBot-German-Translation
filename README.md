@@ -36,6 +36,11 @@ Will man nur das Web Panel in deutsch, benötigt man nur den Ordner "web", will 
 
 An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden Zeilen geändert. An der Funktion der Scripte wurde nicht herum manipuliert. Es kann auch jeder gerne die Scripte miteinander vergleichen um sicher zu gehen.
 
+# Versionen
+
+    # PhantomBot Version 2.3.1
+        Übersetzung Version 2.3.1a
+
 
 # Lizenzinformation
 
