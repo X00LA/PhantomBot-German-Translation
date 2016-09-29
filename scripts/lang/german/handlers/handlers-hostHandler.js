@@ -1,0 +1,14 @@
+$.lang.register('hosthandler.host.message', '(name) wird nun gehostet!');
+$.lang.register('hosthandler.hostcount', 'Dieser Kanal wird gerade von $1 Kanälen gehostet!');
+$.lang.register('hosthandler.hostcount.404', 'Dieser Kanal wird gerade von niemandem gehostet.');
+$.lang.register('hosthandler.hostlist', 'Dieser Kanal wird gerade von $1 gehostet!');
+$.lang.register('hosthandler.hostlist.404', 'Dieser Kanal wird aktuell von niemandem gehostet.');
+$.lang.register('hosthandler.newhost', 'Danke $1, für den Host!');
+$.lang.register('hosthandler.newhost.reward', 'Danke $1, für den Host! Du bekommst $2 dafür, dass du so fantastisch bist!!');
+$.lang.register('hosthandler.set.hostmessage.success', 'Neue Hosternachricht gesetzt!');
+$.lang.register('hosthandler.set.hostmessage.usage', 'Verwendung: !hostmessage (Nachricht) - Tags: (name) (reward)');
+$.lang.register('hosthandler.set.hostreward.success', 'Neue Hosterbelohnung geändert zu: $1.');
+$.lang.register('hosthandler.set.hostreward.usage', 'Verwendung: !hostreward [$1]');
+$.lang.register('hosthistory.usage', 'Verwendung: !hosthistory [on / off] (Aktuell: $1)');
+$.lang.register('hosthistory.change', 'Host-Verlauf $1');
+$.lang.register('hosthandler.host.usage', 'Verwendung: !host (Kanal)');

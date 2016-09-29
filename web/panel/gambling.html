@@ -1,0 +1,167 @@
+<!--
+
+ Copyright (C) 2016 phantombot.tv
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ @author IllusionaryOne
+-->
+
+<!-- This is outside of the accordion, so will always be on top of the tab -->
+
+<!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
+<div id="gamblingAccordion">
+    <h3>Auktion</h3>
+    <div>
+    <div id="_auctionPanelDisabled" />
+    <div id="_auctionPanel">
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="auctionOpen">Eröffne/Schließe eine Auktion</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.auctionClose()">Schließe Auktion</button>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.auctionOpen()">Eröffne Auktion</button>
+                <input type="number" min="0" class="form-control" id="auctionIncrementInput" placeholder="Steigerungen" />
+                <input type="number" min="0" class="form-control" id="auctionBetInput" placeholder="Minimalgebot" />
+                <input type="number" min="0" class="form-control" id="auctionTimerInput" placeholder="Länge der Auktion in Sekunden (Optional, Standard ist bis geschlossen)" />
+            </div>
+        </form>
+
+        <div id="auctionResults" />
+    </div>
+    </div>
+
+    <h3>Verlosung</h3>
+    <div>
+    <div id="_rafflePanelDisabled" />
+    <div id="_rafflePanel">
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="raffleOpen">Eröffne/Schließe Verlosung</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.raffleRepick()">Neuer Gewinner</button>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.raffleClose()">Verlosung Schließen</button>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.raffleOpen()">Verlosung eröffnen</button>
+                <input type="text" class="form-control" id="raffleKeywordInput" placeholder="Schlüsselwort" />
+                <input type="number" min="0" class="form-control" id="raffleCostInput" placeholder="Teilnahmekosten" />
+                <input type="number" min="0" class="form-control" id="raffleTimerInput" placeholder="Länge der Verlosung in Sekunden (Optional, Standard ist bis geschlossen)" />
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="raffleFollowerInput" value="-followers">Nur Follower
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="raffleMultipleRepick" onclick="$.toggleRaffleMultipleRepick()">Erlaube mehrfache Teilnahme
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="raffleEnterMsg" onclick="$.toggleRaffleMsg()">Warnmeldungen
+                </label>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="raffleMsg">Verlosungsnachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateRaffleSettings('raffleMsg')">Übermitteln</button>
+                <input type="text" class="form-control" id="raffleMsg" placeholder="Nachricht" data-toggle="tooltip" title="Automatische Bekanntgabe der Verlosung. Wird angenommen, wenn eine neue Verlosung gestartet wird. Tags: (keyword) und (entries)."/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="raffleTimer">Nachrichten Timer (Minuten)</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateRaffleSettings('raffleTimer')">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="raffleTimer" placeholder="Länge" data-toggle="tooltip" 
+                title="Automatische Bekanntgabe der Zeit für Verlosung. Verwende 0 zum Deaktivieren. Wird angenommen, wenn eine neue Verlosung gestartet wird."/>
+            </div>
+        </form>
+
+        <div id="raffleResults" />
+    <br>
+        <td>Einträge insgesamt: <span id="raffleentries">0</span></td>
+        <br>
+    <br>
+        <label for="raffleListTable">Verlosungsteilnehmer Liste</label>
+        <div id="raffleListTable" style="height: 200px; overflow: auto;" />
+        <br>
+        <small><i>Bitte beachte, dass die Liste erst beim Start einer neuen Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, einen neuen Gewinner zu wählen.</i></small>
+    </div>
+    </div>
+
+    <h3>Ticket Verlosung</h3>
+    <div>
+    <div id="_trafflePanelDisabled" />
+    <div id="_trafflePanel">
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="traffleOpen">Eröffne/Schließe Ticket Verlosung</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.traffleRepick()">Neuer Gewinner</button>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.traffleClose()">Verlosung Schließen</button>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.traffleOpen()">Verlosung eröffnen</button>
+                <input type="number" min="0" class="form-control" id="traffleMaxInput" placeholder="Max. Einträge" />
+                <input type="number" min="0" class="form-control" id="traffleCostInput" placeholder="Kosten pro Ticket" />
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="traffleFollowerInput" value="-followers">Nur Follower
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="traffleEnterMsg" onclick="$.toggleTRaffleMsg()">Warnmeldungen
+                </label>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="traffleMsg">Verlosungsnachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateTRaffleSettings('traffleMsg')">Übernehmen</button>
+                <input type="text" class="form-control" id="traffleMsg" placeholder="Nachricht" data-toggle="tooltip" title="Automatische Bekanntgabe der Verlosung. Wird angenommen, wenn eine neue Verlosung gestartet wird. Tag: (entries)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="traffleTimer">Nachrichten Timer (Minuten)</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateTRaffleSettings('traffleTimer')">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="traffleTimer" placeholder="Länge" data-toggle="tooltip" 
+                title="Automatische Bekanntgabe der Zeit für Verlosung. Verwende 0 zum Deaktivieren. Wird angenommen, wenn eine neue Verlosung gestartet wird."/>
+            </div>
+        </form>
+
+        <div id="traffleResults" />
+    <br>
+        <td>Einträge insgesamt: <span id="traffleentries">0</span></td>
+        <br>
+    <br>
+        <label for="traffleListTable">Verlosungsteilnehmer Liste</label>
+        <div id="traffleListTable" style="height: 200px; overflow: auto;" />
+        <br>
+        <small><i>Bitte beachte, dass die Liste erst beim Start einer neuen Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, einen neuen Gewinner zu wählen.</i></small>
+    </div>
+    </div>
+    </div>
+
+</div>
+
+<!-- Run the Acordion -->
+<script>$("#gamblingAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
+<script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
+<script>handleInputFocus();</script>

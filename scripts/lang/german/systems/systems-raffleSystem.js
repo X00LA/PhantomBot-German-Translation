@@ -1,0 +1,26 @@
+$.lang.register('rafflesystem.err.raffle.opened', 'Ein Gewinnspiel  ist bereits geöffnet.');
+$.lang.register('rafflesystem.err.missing.syntax', 'Verwendung: !raffle open (Schlüsselwort) (Preis) (-followers) (timer in seconds)');
+$.lang.register('rafflesystem.msg.need.to.be.follwing', 'Du musst Follower sein, um teilnehmen zu können.');
+$.lang.register('rafflesystem.raffle.opened', 'Gewinnspiel ist nun eröffnet! $1 verwende !$2 $3 zur Teilnahme.');
+$.lang.register('rafflesystem.cost.lang', 'Die Teilnahme kostet $1.');
+$.lang.register('rafflesystem.err.raffle.not.opened', 'Es ist kein Gewinnspiel geöffnet.');
+$.lang.register('rafflesystem.raffle.closed', 'Das Gewinnspiel ist nun beendet.');
+$.lang.register('rafflesystem.raffle.close.err', 'Das Gewinnspiel ist beendet. Keine Teilnehmer gefunden.');
+$.lang.register('rafflesystem.raffle.repick', 'Neuer Gewinner ist: $1!');
+$.lang.register('rafflesystem.winner', 'Der Gewinner dieses Gewinnspieles ist: $1!');
+$.lang.register('rafflesystem.err.not.following', 'Du musst Follower sein, um teilnehmen zu können.');
+$.lang.register('rafflesystem.err.points', 'Du hast nicht genügend $1 um teilzunehmen.');
+$.lang.register('rafflesystem.entered', '$1 Teilnehmer für das Gewinnspiel eingetragen!');
+$.lang.register('rafflesystem.usage', 'Verwendung: !raffle open (Schlüsselwort) (Preis) (Timer in Sekunden. Verwende 0 , wenn du keinen Timer verwenden willst.) (-followers)');
+$.lang.register('rafflesystem.msg.enabled', 'Gewinnspielbenachrichtigungen sind aktiviert.');
+$.lang.register('rafflesystem.msg.disabled', 'Gewinnspielbenachrichtigungen sind deaktiviert.');
+$.lang.register('rafflesystem.enter.error.alreadyentered', 'Du nimmst bereits am Gewinnspiel teil.');
+$.lang.register('rafflesystem.warn', 'Das Gewinnspiel steht kurz vor dem Ende! Sichere dir deine Gewinnchance mit !$1!');
+$.lang.register('rafflesystem.err.negative', 'Du kannst keinen negativen Preis setzen');
+$.lang.register('rafflesystem.no.repick.false', 'Gewinner können jetzt nur noch einmal neu ermittelt werden.');
+$.lang.register('rafflesystem.no.repick.true', 'Gewinner können jetzt mehr als einmal neu ermittelt werden.');
+$.lang.register('rafflesystem.auto.msginterval.set', 'Meldungsintervall auf $1 Minuten gesetzt.');
+$.lang.register('rafflesystem.auto.msg.set', 'Meldung zu $1 gesetzt.');
+$.lang.register('rafflesystem.auto.msg.usage', 'Verwendung: !raffle autoannouncemessage [Anzahl in Minuten]');
+$.lang.register('rafflesystem.auto.msginterval.usage', 'Verwendung: !raffle autoannounceinterval [Anzahl in Minuten]');
+

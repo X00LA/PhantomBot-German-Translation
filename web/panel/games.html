@@ -1,0 +1,295 @@
+<!--
+
+ Copyright (C) 2016 phantombot.tv
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ @author IllusionaryOne
+-->
+
+<!-- This is outside of the accordion, so will always be on top of the tab -->
+
+<!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
+<div id="gamesAccordion">
+  <h3>Wetten</h3>
+  <div>
+  <div id="_betPanelDisabled" />
+  <div id="_betPanel">
+      <form role="form">
+          <div class="form-group" onkeypress="return event.keyCode != 13">
+              <label for="betOpen">Starte eine Wette </label>
+              <button type="button" class="btn btn-primary inline pull-right"
+                      onclick="$.betHandler('open', 'betOpenInput')">Öffnen</button>
+              <input type="text" class="form-control" id="betOpenInput" placeholder="Option1 Option2 ...">
+          </div>
+      </form>
+
+      <form role="form">
+          <div class="form-group" onkeypress="return event.keyCode != 13">
+              <label for="betClose">Schließe die Wette </label>
+              <button type="button" class="btn btn-primary inline pull-right"
+                      onclick="$.betHandler('close', 'betCloseInput')">Schließen</button>
+              <input type="text" class="form-control" id="betCloseInput" placeholder="Gewinnoption"
+                     data-toggle="tooltip" title="Erstattet dem Benutzer, der die Gewinnoption gewählt hat, alle Punkte und seinen Gewinn zurück." />
+          </div>
+      </form>
+
+
+      <form role="form">
+          <div class="form-group" onkeypress="return event.keyCode != 13">
+              <label for="betSetMinimum">Minimalen Wetteinsatz Festlegen</label>
+              <button type="button" class="btn btn-primary inline pull-right"
+                      onclick="$.betHandler('setminimum', 'betMinimumInput')">Übermitteln</button>
+              <input type="number" min="1" class="form-control" id="betMinimumInput" placeholder="Punkte">
+          </div>
+      </form>
+
+      <form role="form">
+          <div class="form-group" onkeypress="return event.keyCode != 13">
+              <label for="betSetMaximum">Maximalen Wetteinsatz Festlegen</label>
+              <button type="button" class="btn btn-primary inline pull-right"
+                      onclick="$.betHandler('setmaximum', 'betMaximumInput')">Übermitteln</button>
+              <input type="number" min="1" class="form-control" id="betMaximumInput" placeholder="Punkte">
+          </div>
+      </form>
+
+      <form role="form">
+          <div class="form-group" onkeypress="return event.keyCode != 13">
+              <label for="betSetTimer">Wett Timer (Sekunden) Festlegen</label>
+              <button type="button" class="btn btn-primary inline pull-right"
+                      onclick="$.betHandler('settimer', 'betTimerInput')">Übermitteln</button>
+              <input type="number" min="0" class="form-control" id="betTimerInput" placeholder="Länge in Sekunden">
+          </div>
+      </form>
+
+      <div id="betResults" />
+  </div>
+  </div>
+    <h3>Roulette Einstellungen</h3>
+    <div>
+    <div id="_roulettePanelDisabled" />
+    <div id="_roulettePanel">
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="rouletteTimeout">Roulette Abklingzeit (Sekunden)</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.rouletteTimeout()">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="rouletteTimeoutInput" placeholder="Sekunden">
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Abenteuer Konfiguration</h3>
+    <div>
+    <div id="_adventurePanelDisabled" />
+    <div id="_adventurePanel">
+        <table>
+            <tr class="textList">
+                <td>Warnmeldung pro Benutzer</td>
+                <td style="width: 25px"><div id="adventurewarningMessage" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktiviert" class="button"
+                         onclick="$.adventureUpdateSetting('warningMessage', 'true');"><i class="fa fa-circle" />
+                     </div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktiviert" class="button"
+                         onclick="$.adventureUpdateSetting('warningMessage', 'false');"><i class="fa fa-circle-o" />
+                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Beitrittsmeldung pro Benutzer</td>
+                <td style="width: 25px"><div id="adventureenterMessage" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktiviert" class="button"
+                         onclick="$.adventureUpdateSetting('enterMessage', 'true');"><i class="fa fa-circle" />
+                     </div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktiviert" class="button"
+                         onclick="$.adventureUpdateSetting('enterMessage', 'false');"><i class="fa fa-circle-o" />
+                     </div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="adventureStart">Starte ein Abenteuer - Setzte Punkte zum Start</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.adventureStart()">Start</button>
+                <input type="number" min="0" class="form-control" id="adventureStartInput" placeholder="Punkte um Abenteuer zu starten.">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="adventureJoinTime">Zeit (Sekunden) um einem Abenteuer beitreten zu können.</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.adventureUpdateSetting('joinTime')">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="adventurejoinTimeInput" placeholder="Sekunden">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="adventureCooldown">Abklingzeit (Sekunden) zwischen den Abenteuern</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.adventureUpdateSetting('coolDown')">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="adventurecoolDownInput" placeholder="Sekunden">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="adventureGainPct">Gewinnanteil in Prozent</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.adventureUpdateSetting('gainPercent')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="adventuregainPercentInput" placeholder="Zahlenwert">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="adventureMinBet">Minimaler Einsatz um ein Abenteuer zu starten</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.adventureUpdateSetting('minBet')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="adventureminBetInput" placeholder="Zahlenwert">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="adventureMaxBet">Maximaler Einsatz um ein Abenteuer zu starten</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.adventureUpdateSetting('maxBet')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="adventuremaxBetInput" placeholder="Zahlenwert">
+            </div>
+        </form>
+    </div>    
+    </div>    
+
+    <h3>Spielautomat Konfiguration</h3>
+    <div>
+    <div id="_slotPanelDisabled" />
+    <div id="_slotPanel">
+        <div><strong>Spielautomaten-Gewinne</strong></div><br>
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.setSlotRewards()">Übermitteln</button>
+                <input style="width: 10%" type="number" min="0" id="slotRewards0Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für ersten Wert">
+                <input style="width: 10%" type="number" min="0" id="slotRewards1Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für zweiten Wert">
+                <input style="width: 10%" type="number" min="0" id="slotRewards2Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für dritten Wert">
+                <input style="width: 10%" type="number" min="0" id="slotRewards3Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für vierten Wert">
+                <input style="width: 10%" type="number" min="0" id="slotRewards4Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für fünften Wert">
+            </div>
+        </form>
+    <div><strong>Spielautomaten-Emotes</strong></div><br>
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.setSlotEmotes()">Übermitteln</button>
+                <input style="width: auto" type="text" id="slotEmotes0Input" placeholder="Emote"
+                       data-toggle="tooltip" title="Emote für ersten Wert">
+                <input style="width: auto" type="text" id="slotEmotes1Input" placeholder="Emote"
+                       data-toggle="tooltip" title="Emote für zweiten Wert">
+                <input style="width: auto" type="text" id="slotEmotes2Input" placeholder="Emote"
+                       data-toggle="tooltip" title="Emote für dritten Wert">
+                <input style="width: auto" type="text" id="slotEmotes3Input" placeholder="Emote"
+                       data-toggle="tooltip" title="Emote für vierten Wert">
+                <input style="width: auto" type="text" id="slotEmotes4Input" placeholder="Emote"
+                       data-toggle="tooltip" title="Emote für fünften Wert">
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Würfelspiel Konfiguration</h3>
+    <div>
+    <div id="_rollPanelDisabled" />
+    <div id="_rollPanel">
+        <div><strong>Würfeln-Gewinne</strong></div><br>
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.setRollRewards()">Übermitteln</button>
+                <input style="width: 10%" type="number" min="0" id="rollRewards0Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für 1er Pasch">
+                <input style="width: 10%" type="number" min="0" id="rollRewards1Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für 2er Pasch">
+                <input style="width: 10%" type="number" min="0" id="rollRewards2Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für 3er Pasch">
+                <input style="width: 10%" type="number" min="0" id="rollRewards3Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für 4er Pasch">
+                <input style="width: 10%" type="number" min="0" id="rollRewards4Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für 5er Pasch">
+                <input style="width: 10%" type="number" min="0" id="rollRewards5Input" placeholder="Punkte"
+                       data-toggle="tooltip" title="Punkte für 6er Pasch">
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Glücksspiel Konfiguration</h3>
+    <div>
+    <div id="_gamlbingPanelDisabled" />
+    <div id="_gamlbingPanel">
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="gamblingMax2">Maximaler Gewinnspieleinsatz</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('Max')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="gamblingMax" placeholder="Einsatz">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="gamblingMin2">Minimaler Glücksspieleinsatz</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('Min')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="gamblingMin" placeholder="Einsatz">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="gamblingWinPercent2">Gewinnchance in Prozent</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('WinPercent')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="gamblingWinPercent" placeholder="Zahlenwert">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="gamblingWinRange2">Gewinnspanne</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('WinRange')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="gamblingWinRange" placeholder="Spanne">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<!-- Run the Acordion -->
+<script>$("#gamesAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
+<script>handleInputFocus();</script>
+<script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>

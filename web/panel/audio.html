@@ -1,0 +1,127 @@
+<!--
+
+ Copyright (C) 2016 phantombot.tv
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ @author IllusionaryOne
+-->
+
+<!-- This is outside of the accordion, so will always be on top of the tab -->
+
+<!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
+<div id="audioAccordion">
+    <h3>
+        Audio Panel
+        <span id="ionSoundLoaded"><span style="float: right" class="redPill-sm">Initialisiere</span></span>
+    </h3>
+
+    <div>
+        <table>
+        <div class="form-group" onkeypress="return event.keyCode != 13">
+            <i> Stelle sicher. dass du <a href="https://docs.phantombot.tv/kb/audio"><b>hier</b></a> die Anleitung zum Hinzufügen von benutzerdefinierten Sounds liest.</i>
+            <br>
+            <br>
+            <label for="soundName">Sound hinzufügen</label>
+            <button type="button" class="btn btn-primary inline pull-right" onclick="$.addSound()">Hinzufügen</button>
+            <input type="text" class="form-control" id="soundImput" placeholder="Dateiname" />
+            <input type="text" class="form-control" id="soundImputDesc" placeholder="Soundname" />
+            <br>
+            <div id="audioHooks" style="height: 100px; overflow: auto;" /></div>
+        </div>
+        <br>
+            <tr style="background: transparent">
+              <td><div id="audioPanelButtons" /></td>
+              <td style="width: 30px; float: right"><div id="ionSoundPlaying"><i class="fa fa-volume-up fa-3x" /></div></td>
+              <script>$("#ionSoundPlaying").hide();</script>
+            </tr>
+        </table>
+    </div>
+
+    <h3>YouTube Player</h3>
+    <div>
+    <div id="_youtubePlayerPanelDisabled">Dieses Modul ist deaktiviert.</div>
+    <div id="_youtubePlayerPanel">
+        <span id="youTubeLauncher">
+            <button type="button" class="btn btn-primary inline pull-left" onclick="$.launchYouTubePlayer()">Starte YouTube Player</button>
+        </span>
+        <button type="button" class="btn btn-primary inline pull-left" onclick="$.toggleYouTubePlayerRequests()">Song-Wunschliste An/Aus</button>
+        <button type="button" class="btn btn-primary inline pull-left" onclick="$.toggleYouTubePlayerNotify()">Chat-Benachrichtigungen An/Aus</button>
+        <br><br><br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="playlistName">Lade Playlist</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.loadYtplaylist()">Laden</button>
+                <input type="text" class="form-control" id="playlistImput" placeholder="Playlistname" />
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="ytpDJName">Festlegen des Playlist DJ Namens</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.setYouTubePlayerDJName()">Übermitteln</button>
+                <input type="text" class="form-control" id="ytpDJNameInput" placeholder="DJ Name">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="ytpMaxRequests">Max. Parallele Anfragen</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.setYouTubePlayerMaxReqs()">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="ytpMaxReqsInput" placeholder="Anfragen Maximum">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="addKeyword">Max. Videolänge (Sekunden)</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.setYouTubePlayerMaxLength()">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="ytpMaxLengthInput" placeholder="Max. Videolänge (Sekunden)">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="blacklistedSongs">Lied auf die schwarze Liste setzen</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.blacklistSong()">Auf Liste setzen</button>
+                <input type="text" class="form-control" id="songBlacklist" placeholder="Liedtitel oder Schlüsselwort">
+            </div>
+            <div id="ytplayerBSong" style="height: 100px; overflow: auto;" />
+            <br>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="blacklistedusers">Benutzer auf die schwarze Liste setzen</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.blacklistUser()">Auf Liste setzen</button>
+                <input type="text" class="form-control" id="userBlacklist" placeholder="Benutzername">
+            </div>
+            <div id="ytplayerBUser" style="height: 100px; overflow: auto;" />
+        </form>
+
+        <div id="youTubePlayerIframe" />
+        <script>$('#youTubePlayerIframe').hide();</script>
+    </div>
+    </div>
+</div>
+
+
+<!-- Run the Acordion -->
+<script>$("#audioAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
+<script>$(function() {var playlist = $.playlists; $("#playlistImput").autocomplete({source: playlist, minLength:2});});</script>
+<script>handleInputFocus();</script>
