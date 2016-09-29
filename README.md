@@ -14,7 +14,7 @@ Ausgenommen der Lognachrichten ist alles übersetzt.
 Geändert wurde auch die Zeitzone von "GMT" zu "CET", Standardsprache von Englisch auf Deutsch, Videoplayer wurde auf das Format 16:9 geändert. Es wurden diverse weitere kleine Änderungen vorgenommen, aber diese sind nicht der Rede wert.
 Das Web Panel, der Youtube Player und der Playlist Viewer sind ebenfalls vollständig übersetzt worden.
 
-Ich habe bei der Übersetzung versucht, stets verständlich und klar zu übersetzen. Sollte der Eine oder Andere dennoch Probleme damit haben, bitte ich um Vorschläge wie ich es besser machen könnte. Ich bin ein Mensch und deshalb auch nciht vor Rechtschreibfehlern gefeit. Sollten welche gefunden werden, wäre ich dankbar, wenn ihr sie hier oder im <a href="https://community.phantombot.tv/">PhantomBot Forum</a> anzeigt, damit ich sie beheben kann. Natürlich steht es auch jedem frei, sich an dem Projekt zu beteiligen.
+Ich habe bei der Übersetzung versucht, stets verständlich und klar zu übersetzen. Sollte der Eine oder Andere dennoch Probleme damit haben, bitte ich um Vorschläge wie ich es besser machen könnte. Ich bin ein Mensch und deshalb auch nciht vor Rechtschreibfehlern gefeit. Sollten welche gefunden werden, wäre ich dankbar, wenn ihr sie hier oder im <a href="https://community.phantombot.tv/" target="_blank">PhantomBot Forum</a> anzeigt, damit ich sie beheben kann. Natürlich steht es auch jedem frei, sich an dem Projekt zu beteiligen.
 
 Ich bitte auch um Verständnis, dass bei einer neuen Version des Bots, die Übersetzung erst ein paar Tage später erscheint.
 
