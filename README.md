@@ -38,7 +38,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
 
 # Versionen
 
-    # PhantomBot Version 2.3.1
+    PhantomBot Version 2.3.1
         Übersetzung Version 2.3.1a
 
 
