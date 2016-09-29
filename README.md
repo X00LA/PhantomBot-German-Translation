@@ -19,6 +19,24 @@ Ich habe bei der Übersetzung versucht, stets verständlich und klar zu überset
 Ich bitte auch um Verständnis, dass bei einer neuen Version des Bots, die Übersetzung erst ein paar Tage später erscheint.
 
 
+# Installation der Übersetzung
+
+Die einfachste Art und Weise die Übersetzung zu installieren ist folgende:
+
+Die Dateien aus dem Download einfach in den Hauptordner des Bots kopieren und die heruntergeladenen Dateien gegen die bestehenden austauschen.
+Danach den Bot neu starten und fertig.
+Eventuell müssen in der Konsole noch die Befehle "lang german" und "timezone CET" eingegeben werden.
+
+Das Beste Ergebnis erzielt man, wenn man eine komplett frische Installation des Bots verwendet.
+
+Will man nur das Web Panel in deutsch, benötigt man nur den Ordner "web", will man nur die Ausgabe im Chat auf deutsch, nur den Ordner "scripts".
+
+
+# Wichtige Infos
+
+An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden Zeilen geändert. An der Funktion der Scripte wurde nicht herum manipuliert. Es kann auch jeder gerne die Scripte miteinander vergleichen um sicher zu gehen.
+
+
 # Lizenzinformation
 
 Die Übersetzung wird unter der GNU GPL V.3 publiziert.
