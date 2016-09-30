@@ -6,6 +6,10 @@ Changed the timezone from "GMT" to "CET", default language from "english" to "ge
 
 Because this is the german translation I do not write more informations in english.
 
+# License Information
+
+This translation is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL V3.0</a>.
+
 
 # Deutsche PhantomBot-Übersetzung
 
@@ -44,4 +48,4 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
 
 # Lizenzinformation
 
-Die Übersetzung wird unter der GNU GPL V.3 publiziert.
+Die Übersetzung ist unter der <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">GNU GPL V3.0</a> lizensiert.
