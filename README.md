@@ -43,10 +43,10 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
 # Versionen
 
     PhantomBot Version 2.3.1
-        Übersetzung Version 2.3.1a
+        [Übersetzung Version 2.3.1a](https://github.com/X00LA/PhantomBot-German-Translation/releases/tag/2.3.1a)
         
     PhantomBot Version 2.3.2
-        Übersetzung Version 2.3.2a
+        [Übersetzung Version 2.3.2a](https://github.com/X00LA/PhantomBot-German-Translation/releases/tag/2.3.2a)
 
 
 # Lizenzinformation
