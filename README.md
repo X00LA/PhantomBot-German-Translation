@@ -8,7 +8,7 @@ Because this is the german translation I do not write more informations in engli
 
 # License Information
 
-This translation is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL V3.0</a>.
+This translation is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU GPL V3.0</a>.
 
 
 # Deutsche PhantomBot-Übersetzung
@@ -43,10 +43,10 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
 # Versionen
 
     PhantomBot Version 2.3.1
-        <a href="https://github.com/X00LA/PhantomBot-German-Translation/releases/tag/2.3.1a">Übersetzung Version 2.3.1a</a>
+        Übersetzung Version 2.3.1a
         
     PhantomBot Version 2.3.2
-        <a href="https://github.com/X00LA/PhantomBot-German-Translation/releases/tag/2.3.2a">Übersetzung Version 2.3.2a</a>
+        Übersetzung Version 2.3.2a
 
 
 # Lizenzinformation
