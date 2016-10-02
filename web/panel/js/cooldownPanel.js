@@ -89,7 +89,7 @@
                 html += "</table>";
 
                 if (!foundData) {
-                    html = "<i>Keine Einträge in der Verzögerungstabelle.</i>";
+                    html = "<i>Keine Einträge in der Abklingzeittabelle.</i>";
                 }
                 $("#cooldownList").html(html);
     
@@ -185,7 +185,7 @@
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
         if (active == 4 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere Verzögerungs-Daten...', 'success', 1000);
+            newPanelAlert('Aktualisiere Abklingzeit-Daten...', 'success', 1000);
             doQuery();
         }
     }, 3e4);

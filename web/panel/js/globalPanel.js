@@ -52,7 +52,7 @@
                         doQuery(); // Run the query again to populate fields.
                     }
                 } else {
-                    $('#panelStatsEnabled').html('<span>Panelstatistiken sind aktiviert.</span>');
+                    $('#panelStatsEnabled').html('<span>Panelstatistiken sind deaktiviert.</span>');
                 }
             }
 

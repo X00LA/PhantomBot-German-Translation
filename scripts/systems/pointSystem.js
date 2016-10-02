@@ -340,7 +340,7 @@
             newTime = $.getTimeStringMinutes((time * 6e4) / 1000);
         }
 
-        $.say('FÃ¼r die nÃ¤chsten ' + newTime + ' gibts ' + pointsBonusAmount + ' Extra-' + pointNameMultiple + ' bei jeder Gutschrift!');
+        $.say('Für die nächsten ' + newTime + ' gibt es ' + pointsBonusAmount + ' Extra-' + pointNameMultiple + ' bei jeder Gutschrift!');
     };
 
     /**
@@ -644,7 +644,7 @@
                  */
                 else if (action.equalsIgnoreCase('bonus')) {
                     if (!actionArg1 || !actionArg2) {
-                        $.say($.whisperPrefix(sender) + 'Verwendung: !points bonus (HÃ¶he) (fÃ¼r Zeit)');
+                        $.say($.whisperPrefix(sender) + 'Verwendung: !points bonus (Höhe) (für Zeit)');
                         return;
                     }
                     setTempBonus(actionArg1, actionArg2);

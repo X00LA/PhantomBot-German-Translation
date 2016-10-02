@@ -81,7 +81,7 @@
                         case 'polldelay_hometimeline' :
                         case 'polldelay_usertimeline' :
                         case 'postdelay_update' :
-                            $('#' + setting + 'TweetInput').attr('placeholder', value).blur();
+                            $('#' + setting + 'TweetInput').val(value);
                             break;
                     }
 
@@ -246,7 +246,7 @@
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
         if (active == 16 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere Twitter-Daten', 'success', 1000);
+            newPanelAlert('Aktualisiere Twitter-Daten...', 'success', 1000);
             doQuery();
         }
     }, 3e4);

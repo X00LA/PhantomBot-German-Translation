@@ -19,7 +19,6 @@ $.lang.register('gamemessages.win.18', 'Das Ding muss manipuliert worden sein!')
 $.lang.register('gamemessages.win.19', 'Die Göttin Fortuna lächelt zu dir herunter!');
 $.lang.register('gamemessages.win.20', '?!......... (Ernstahaft?!)');
 
-
 $.lang.register('gamemessages.lost.1', 'Mehr Glück beim nächsten Mal!');
 $.lang.register('gamemessages.lost.2', 'Ich verstehe, es gibt Spiel, die sind einfach zu schwer für dich.');
 $.lang.register('gamemessages.lost.3', 'Nicht traurig sein, einfach weiter versuchen $1.');

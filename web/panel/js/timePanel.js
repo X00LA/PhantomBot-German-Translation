@@ -268,7 +268,7 @@
                 sendDBUpdate("times", "time", username, timeAdjust);
             }
         }
-        $("#adjustUserTimeNameInput").val("Ãœbermittle...");
+        $("#adjustUserTimeNameInput").val("Übermittle...");
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         setTimeout(function() {
             $("#adjustUserTimeNameInput").val("");
@@ -306,7 +306,7 @@
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
         if (active == 3 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere Zeit-Daten', 'success', 1000);
+            newPanelAlert('Aktualisiere Zeit-Daten...', 'success', 1000);
             doLiteQuery();
         }
     }, 3e4);

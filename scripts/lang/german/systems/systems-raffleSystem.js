@@ -23,4 +23,3 @@ $.lang.register('rafflesystem.auto.msginterval.set', 'Meldungsintervall auf $1 M
 $.lang.register('rafflesystem.auto.msg.set', 'Meldung zu $1 gesetzt.');
 $.lang.register('rafflesystem.auto.msg.usage', 'Verwendung: !raffle autoannouncemessage [Anzahl in Minuten]');
 $.lang.register('rafflesystem.auto.msginterval.usage', 'Verwendung: !raffle autoannounceinterval [Anzahl in Minuten]');
-

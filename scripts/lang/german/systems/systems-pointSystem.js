@@ -8,14 +8,12 @@ $.lang.register('pointsystem.add.success', '$1 an $2 gesendet. Neuer Kontostand 
 $.lang.register('pointsystem.add.usage', 'Verwendung: "!points add [Benutzername] [Menge]"');
 $.lang.register('pointsystem.get.self.nopoints', 'Du hast derzeit keine $1. Bleibe im Chat um $1 zu sammeln!');
 $.lang.register('pointsystem.get.self.withtime', 'Du hast derzeit $2 und du bist insgesamt $3 im Chat.');
-$.lang.register('pointsystem.user.usage', 'Verwendung: !points user [Benutzername]');
 $.lang.register('pointsystem.user.success', ' $1 hat aktuell $2.');
 $.lang.register('pointsystem.makeitrain.error.invalid', 'Entschuldigung, aber es ist derzeit nicht möglich, $1 regnen zu lassen.');
 $.lang.register('pointsystem.makeitrain.error.needpoints', 'Du kannst es dir derzeit nicht leisten, es $1 regnen zu lassen.');
 $.lang.register('pointsystem.makeitrain.error.negative', 'Du kannst keine negativen $1 regnen lassen.');
 $.lang.register('pointsystem.makeitrain.success', 'Ein Gewittersturm zieht auf! $1 warf insgesamt $2 $3 in die Luft!');
 $.lang.register('pointsystem.makeitrain.usage', 'Verwendung: !makeitrain [Menge]');
-$.lang.register('pointsystem.modpermtoggle.success', 'Benutzer in der Gruppe $1 oder höher, sind nun in der Lage, Pnkte-Management-Befehle zu verwenden.');
 $.lang.register('pointsystem.set.bonus.error.negative', 'Du kannst den Bunos-per-Gruppe nicht auf negativ $1 setzen.');
 $.lang.register('pointsystem.set.bonus.success', 'Setzt den $1 Bonus auf $2 pro Gruppenlevel.');
 $.lang.register('pointsystem.set.bonus.usage', 'Verwendung: !points bonus [Menge]');

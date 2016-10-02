@@ -39,7 +39,7 @@
         loggingModeFile = false,
         modeIcon = [],
         settingIcon = [];
-        gameTitle = '__nicht_geladen__';
+        gameTitle = '__not_loaded__';
 
         modeIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
         modeIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
@@ -258,7 +258,7 @@
                 if (msgObject['results']['otherChannels'] !== undefined && msgObject['results']['otherChannels'] !== null) {
                     $('#multiLinkInput').val(msgObject['results']['otherChannels'].replace(/\//g, ' '));
                 } else {
-                    $('#multiLinkInput').attr('placeholder', 'Channel-1 Channel-2');
+                    $('#multiLinkInput').attr('placeholder', 'Kanal-1 Kanal-2');
                 }
             }
 
@@ -348,7 +348,7 @@
      * @param {String} action
      */
     function adjustDeathCounter(action) {
-        if (panelMatch(gameTitle, '__nicht_geladen__')) {
+        if (panelMatch(gameTitle, '__not_loaded__')) {
             return;
         }
         $('#deathCounterValue').html('<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />');
@@ -535,7 +535,7 @@
      * @function clearMultiLink
      */
     function clearMultiLink() {
-        sendDBUpdate("multiLinkClear", "dualStreamCommand", "otherChannels", "Channel-1 Channel-2");
+        sendDBUpdate("multiLinkClear", "dualStreamCommand", "otherChannels", "Kanal-1 Kanal-2");
         sendDBUpdate("multiLinkClear", "dualStreamCommand", "timerToggle", "false");
         setTimeout(function() { sendCommand("reloadmulti"); }, TIMEOUT_WAIT_TIME);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);

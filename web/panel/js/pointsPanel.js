@@ -392,9 +392,9 @@
 
         if (time.length != 0 && user.length != 0) {
             sendCommand('penalty ' + user + ' ' + time);
-            $("#penaltyUser").val(user + ' wird fÃ¼r ' + time + ' Minuten keine Punkte bekommen.');
+            $("#penaltyUser").val(user + ' wird für ' + time + ' Minuten keine Punkte bekommen.');
         } else {
-            $("#penaltyUser").val('Fehler.');
+            $("#penaltyUser").val('Error.');
         }
         $("#penaltyUserTime").val('');
         setTimeout(function () { $("#penaltyUser").val(''); }, TIMEOUT_WAIT_TIME * 10);
@@ -443,7 +443,7 @@
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
         if (active == 4 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere Punkte-Daten', 'success', 1000);
+            newPanelAlert('Aktualisiere Punkte-Daten...', 'success', 1000);
             doLiteQuery();
         }
     }, 3e4);

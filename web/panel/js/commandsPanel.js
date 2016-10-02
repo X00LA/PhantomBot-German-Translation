@@ -217,7 +217,7 @@
 
             if (panelCheckQuery(msgObject, 'commands_payment')) {
                 if (msgObject['results'].length === 0) {
-                    $('#payCommandsList').html('<i>Es sind keine Befehle mit Zahlungen definiert.</i>');
+                    $('#payCommandsList').html('<i>Es sind keine Befehle mit Vergütungen definiert.</i>');
                     return;
                 }
                 for (idx in msgObject['results']) {
@@ -262,11 +262,11 @@
                     if (commandName.indexOf(' ') === -1) {
                         if (disabledCommands[commandName] !== undefined) {
                             html +=  "<td><div id=\"commandEnabled_" + commandName + "\"" +
-                                     "         data-toggle=\"tooltip\" title=\"Enable Command\" class=\"button\" onclick=\"$.commandEnable('" + commandName + "', 'enable');\">" +
+                                     "         data-toggle=\"tooltip\" title=\"Aktiviere Befehl\" class=\"button\" onclick=\"$.commandEnable('" + commandName + "', 'enable');\">" +
                                      "    <i style=\"color: #6136b1\" class=\"fa fa-toggle-off\" /></div></td>";
                         } else {
                             html +=  "<td><div id=\"commandEnabled_" + commandName + "\"" +
-                                     "         data-toggle=\"tooltip\" title=\"Disable Command\" class=\"button\" onclick=\"$.commandEnable('" + commandName + "', 'disable');\">" +
+                                     "         data-toggle=\"tooltip\" title=\"Deaktiviere Befehl\" class=\"button\" onclick=\"$.commandEnable('" + commandName + "', 'disable');\">" +
                                      "    <i style=\"color: #6136b1\" class=\"fa fa-toggle-on\" /></div></td>";
                         }
                     } else {
@@ -276,25 +276,25 @@
                     html += "<td /><td><div id=\"commandsList_" + commandName + "\"><strong><font style=\"color: #6136b1\">" + groupIcons[commandValue] + 
                             "    </font></strong></div></td>" +
 
-                            "<td><div data-toggle=\"tooltip\" title=\"Setze Hoster\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 0);\">" +
+                            "<td><div data-toggle=\"tooltip\" title=\"An Hoster vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 0);\">" +
                             "    <i class=\"fa fa-television\" /></div></td>" +
 
-                            "<td><div data-toggle=\"tooltip\" title=\"Setze Admin\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 1);\">" +
+                            "<td><div data-toggle=\"tooltip\" title=\"An Admins vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 1);\">" +
                             "    <i class=\"fa fa-cog\" /></div></td>" +
 
-                            "<td><div data-toggle=\"tooltip\" title=\"Setze Mod\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 2);\">" +
+                            "<td><div data-toggle=\"tooltip\" title=\"An Mods vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 2);\">" +
                             "    <i class=\"fa fa-shield\" /></div></td>" +
 
-                            "<td><div data-toggle=\"tooltip\" title=\"Setze Spender\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 4);\">" +
+                            "<td><div data-toggle=\"tooltip\" title=\"An Spender vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 4);\">" +
                             "    <i class=\"fa fa-dollar\" /></div></td>" +
 
-                            "<td><div data-toggle=\"tooltip\" title=\"Setze Abonnent\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 3);\">" +
+                            "<td><div data-toggle=\"tooltip\" title=\"An Abonnenten vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 3);\">" +
                             "    <i class=\"fa fa-credit-card\" /></div></td>" +
 
-                            "<td><div data-toggle=\"tooltip\" title=\"Setze Stammzusch.\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 6);\">" +
+                            "<td><div data-toggle=\"tooltip\" title=\"An Stammzuschauer vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 6);\">" +
                             "    <i class=\"fa fa-clock-o\" /></div></td>" +
 
-                            "<td><div data-toggle=\"tooltip\" title=\"Setze Zuschauer\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 7);\">" +
+                            "<td><div data-toggle=\"tooltip\" title=\"An Zuschauer vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 7);\">" +
                             "    <i class=\"fa fa-user\" /></div></td>" +
 
                             "</tr>";
@@ -663,8 +663,8 @@
         
         if (input.length > 0 && command.length != 0) {
             sendDBUpdate("commands_cooldown_add", "cooldown", String(command), String(input));
-            $("#cooldownCmdInput").val("Ãœbermittelt");
-            $("#cooldownCmdInputCommand").val("Ãœbermittelt");
+            $("#cooldownCmdInput").val("Übermittelt");
+            $("#cooldownCmdInputCommand").val("Übermittelt");
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
             setTimeout(function() { $("#cooldownCmdInputCommand").val(""); $("#cooldownCmdInput").val(""); }, TIMEOUT_WAIT_TIME);
         }

@@ -76,7 +76,6 @@ $.lang.register('chatmoderator.regulars.long.messages.allowed', 'Stammviewer wer
 $.lang.register('chatmoderator.regulars.long.messages.not.allowed', 'Stammviewer werden nun nicht mehr länger durch den lange Nachrichten-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.regulars.toggle.link', 'Stammviewer sind derzeit $1 um Links zu posten.');
 $.lang.register('chatmoderator.regulars.toggle.caps', 'Stammviewer sind derzeit $1 um alles in Caps zu schreiben.');
-$.lang.register('chatmoderator.silenttimeout.toggle.spamtracker', 'Stilles Timeout ist derzeit für Spam-Tracker $1.');
 $.lang.register('chatmoderator.regulars.toggle.symbols', 'Stammviewer sind derzeit $1 um Symbole zu spammen.');
 $.lang.register('chatmoderator.regulars.toggle.spam', 'Stammviewer sind derzeit $1 um zu spammen.');
 $.lang.register('chatmoderator.regulars.toggle.emotes', 'Stammviewer sind derzeit $1 um übermäßig Emotes zu benutzen.');
@@ -87,6 +86,7 @@ $.lang.register('chatmoderator.silenttimeout.usage.all', 'Verwendung: !moderatio
 $.lang.register('chatmoderator.silenttimeout.true', 'Stilles Timeout wurde für alle Filter aktiviert.');
 $.lang.register('chatmoderator.silenttimeout.false', 'Stilles Timeout wurde für alle Filter deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.toggle.caps', 'Stilles Timeout ist derzeit für Caps $1.');
+$.lang.register('chatmoderator.silenttimeout.toggle.spamtracker', 'Stilles Timeout ist derzeit für Spam-Tracker $1.');
 $.lang.register('chatmoderator.silenttimeout.toggle.symbols', 'Stilles Timeout ist derzeit für Symbole $1.');
 $.lang.register('chatmoderator.silenttimeout.toggle.spam', 'Stilles Timeout ist derzeit für Spam $1.');
 $.lang.register('chatmoderator.silenttimeout.toggle.emotes', 'Stilles Timeout ist derzeit für Emotes $1.');
@@ -333,7 +333,7 @@ $.lang.register('timesystem.take.usage', 'Verwendung: "!time take [Benutzername]
 $.lang.register('get.long.time.string.short', ' $1 Tage, $2 Stunden und $3 Minuten.');
 $.lang.register('get.long.time.string.long', '$1 Monate, $2 Stunden und $3 Minuten.');
 $.lang.register('user.time.string.hours', ' $1 Stunden und $2 Minuten');
-$.lang.register('user.time.string.minutes', ' $1 minutes');
+$.lang.register('user.time.string.minutes', ' $1 Minuten');
 $.lang.register('whisper.whispers.disabled', '[Flüster-Modus] wurde deaktiviert.');
 $.lang.register('whisper.whispers.enabled', '[Flüster-Modus] wurde aktiviert.');
 $.lang.register('pausecommands.usage', 'Verwendung: !pausecommands [Sekunden | clear]');

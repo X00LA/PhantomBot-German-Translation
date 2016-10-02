@@ -51,9 +51,9 @@
                     moduleEnabled = msgObject['results'][idx]['value'];
                     if (module.indexOf('/core/') === -1 && module.indexOf('/lang/') === -1) {
                         if (panelMatch(moduleEnabled, 'true')) {
-                            pill = "<span class=\"greenPill-sm\">Aktivieren&nbsp;</span>";
+                            pill = "<span class=\"greenPill-sm\">Aktiviert&nbsp;</span>";
                         } else {
-                            pill = "<span class=\"redPill-sm\">Deaktivieren</span>";
+                            pill = "<span class=\"redPill-sm\">Deaktiviert</span>";
                         }
                         html += "<tr><td><div id=\"moduleStatus_" + idx + "\" class=\"textList\" style=\"padding: 2px\">" + pill + "</div></td>" +
                                 "<td><div class=\"textList\" style=\"padding: 2px\">" + module + "</div></td>" +

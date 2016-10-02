@@ -73,4 +73,3 @@ $.lang.register('ytplayer.blacklist.add.success.song', 'Song/Schlüsselwort: "$1
 $.lang.register('ytplayer.blacklist.remove.usage.song', 'Verwendung: !ytp blacklist remove [Name]');
 $.lang.register('ytplayer.blacklist.remove.success.song', 'Song/Schlüsselwort: "$1" wurde von der Blacklist entfernt.');
 $.lang.register('ytplayer.blacklist.404', 'Liedtitel wurde auf die schwarze Liste gesetzt.');
-

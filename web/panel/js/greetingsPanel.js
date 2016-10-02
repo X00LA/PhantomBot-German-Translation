@@ -235,7 +235,7 @@
                     value = msgObject['results'][idx]['value'];
                     tier = key[key.indexOf('_') + 1];
                     html = '<tr class="textList">' +
-                           '    <td>Tier ' + tier + '</td>' +
+                           '    <td>Rang ' + tier + '</td>' +
                            '    <td style="vertical-align: middle">' +
                            '        <input type="number" min="0" id="inline_' + key + '"' +
                            '               placeholder="' + value + '" value="' + value + '"' +
@@ -462,7 +462,7 @@
     setInterval(function() {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 7 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere BegrÃ¼ÃŸungs-Daten...', 'success', 1000);
+            newPanelAlert('Aktualisiere Begrüßungs-Daten...', 'success', 1000);
             doQuery();
         }
     }, 3e4);

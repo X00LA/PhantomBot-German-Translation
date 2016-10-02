@@ -14,4 +14,3 @@ $.lang.register('audiohook.customcommand.add.success', 'Befehl !$1 wird nun den 
 $.lang.register('audiohook.customcommand.remove.usage', 'Verwendung: !audiohook customcommand remove [Befehl]');
 $.lang.register('audiohook.customcommand.remove.error.404', 'Dieser Befehl existiert nicht!');
 $.lang.register('audiohook.customcommand.remove.success', 'Befehl !$1 wurde entfernt.');
-

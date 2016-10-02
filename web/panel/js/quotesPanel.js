@@ -135,7 +135,7 @@
     function setQuoteMessage() {
         var value = $('#quoteMessageInput').val();
         if (value.length > 0) {
-            $('#quoteMessageInput').val('Aktulisieren...');
+            $('#quoteMessageInput').val('Aktulisiere...');
             sendDBUpdate('quotes_quotemessage', 'settings', 'quoteMessage', value);
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         }
@@ -183,7 +183,7 @@
     function addQuote() {
         var value = $('#addQuoteInput').val();
         if (value.length > 0) {
-            $('#addQuoteInput').val('HinzufÃ¼gen...').blur();
+            $('#addQuoteInput').val('Hinzufügen...').blur();
             sendCommand('addquotesilent ' + value);
             setTimeout(function() { doQuery(); $('#addQuoteInput').val(''); }, TIMEOUT_WAIT_TIME * 4);
         }
@@ -216,7 +216,7 @@
     setInterval(function() {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 10 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere Zitate-Daten', 'success', 1000);
+            newPanelAlert('Aktualisiere Zitate-Daten...', 'success', 1000);
             doQuery();
         }
     }, 3e4);

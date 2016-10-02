@@ -30,58 +30,58 @@
         <div id="tagHelpDialog" title="Benutzerdefinierte Befehls-Tags" style="font-size: 90%">
             <table>
                 <tr>
-                    <td>(sender) </td><td> User who triggered the command.<td>
+                    <td>(sender) </td><td> Benutzer der den Befehl auslöste.<td>
                     </tr><tr>
-                    <td>(@sender) </td><td> User who triggered the command and adds a @ symbol to his name.<td>
+                    <td>(@sender) </td><td> Benutzer der den Befehla ausgelöst hat und es wird ein @ Zeichen seinem Namen hinzugefügt.<td>
                     </tr><tr>
-                    <td>(baresender) </td><td> User who triggered the command in lower case.<td>
+                    <td>(baresender) </td><td> Benutzer der den Befehl auslöste, in Kleinbuchstaben.<td>
                     </tr><tr>
-                    <td>(touser) </td><td> Replaces with the argument you say after the command. If nothing is said after its the user who triggered the command.<td>
+                    <td>(touser) </td><td> Ersetzt mit dem Argument, welches nach dem Befehl gesagt wird. Wenn danach nichts angegeben wird, dann ist es der Benutzer der den Befehl auslöst.<td>
                     </tr><tr>
-                    <td>(#) </td><td> Random number<td>
+                    <td>(#) </td><td> Zufällige Nummer<td>
                     </tr><tr>
-                    <td>(1), (2), (3) etc </td><td> Command arguments.<td>
+                    <td>(1), (2), (3) etc </td><td> Befehlsargumente<td>
                     </tr><tr>
-                    <td>(age) </td><td> Tells you how long you have been on twitch for.<td>
+                    <td>(age) </td><td> Zeigt an, wie lange du schon auf Twitch bist.<td>
                     </tr><tr>
-                    <td>(random) </td><td> Random person in chat.<td>
+                    <td>(random) </td><td> Zufällige Person im Chat.<td>
                     </tr><tr>
-                    <td>(pointname) </td><td> Current point name.<td>
+                    <td>(pointname) </td><td> Aktueller Punktename.<td>
                     </tr><tr>
-                    <td>(uptime) </td><td> Current stream uptime.<td>
+                    <td>(uptime) </td><td> Aktuelle Streamlaufzeit.<td>
                     </tr><tr>
-                    <td>(game) </td><td> Current game set on twitch.<td>
+                    <td>(game) </td><td> Aktuelles Spiel auf dem Kanal.<td>
                     </tr><tr>
-                    <td>(status) </td><td> Current title set on twitch.<td>
+                    <td>(status) </td><td> Aktueller Kanaltitel.<td>
                     </tr><tr>
-                    <td>(price) </td><td> Current command price.<td>
+                    <td>(price) </td><td> Aktueller Befehlspreis. (Viewer & Stammzuschauer)<td>
                     </tr><tr>
-                    <td>(pay) </td><td> Payment of the command.<td>
+                    <td>(pay) </td><td> Aktuelle Kosten eines Befehls. (Mods)<td>
                     </tr><tr>
-                    <td>(onlineonly) </td><td> Will make the command work when the stream is online.<td>
+                    <td>(onlineonly) </td><td> Befehl ist nur ausführbar, wenn Stream online.<td>
                     </tr><tr>
-                    <td>(offlineonly) </td><td> Will make the command work when the stream is offline.<td>
+                    <td>(offlineonly) </td><td> Befehl ist nur ausführbar, wenn Stream offline.<td>
                     </tr><tr>
-                    <td>(viewers) </td><td> Current viewer count.<td>
+                    <td>(viewers) </td><td> Aktuelle Zuschauerzahl.<td>
                     </tr><tr>
-                    <td>(count) </td><td> Amount of time the command has been used.<td>
+                    <td>(count) </td><td> Zeit, die der Befehl bereits verwendet wurde.<td>
                     </tr><tr>
-                    <td>(echo) </td><td> Will say any message as the bot.<td>
+                    <td>(echo) </td><td> Sagt jede Nachricht als Bot.<td>
                     </tr><tr>
-                    <td>(1=) </td><td> Argument 1. Add a the tag name of your choice after the = for if the argument is empty.<td>
+                    <td>(1=) </td><td> Argument 1. Füge ein Argument nach dem = ein. Für wen, wenn das Argument leer ist.<td>
                     </tr><tr>
-                    <td>(countdown=) </td><td> Add the date you want to count down too. Ex (countdown=July 2 2016 7:00).<td>
+                    <td>(countdown=) </td><td> Füge das Datum ein, zu dem du herunterzählen willst. Beispiel: (countdown=Juli 2 2016 7:00).<td>
                     </tr><tr>
-                    <td>(downtime) </td><td> Time since the last stream.<td>
+                    <td>(downtime) </td><td> Zeit seit dem letzten Stream.<td>
                     </tr><tr>
-                    <td>(readfile filename.txt) </td><td> Reads what is in the file. The file must be in the bots addons folder.<td>
+                    <td>(readfile filename.txt) </td><td> Liest, was in der Datei steht. Die Datei muss im addons Ordner des Bots liegen.<td>
                     </tr><tr>
                     <td>(customapijson URL key | {literal string} ...) </td>
-                    <td> Call a remote URL that returns JSON. key or object.key or object.object.key to access JSON data.
+                    <td> Rufe eine Remote-URL auf, die JSON zurückgibt. key oder object.key oder object.object.key für Zugriff auf JSON-Daten.
                     </tr><tr>
-                    <td>(command [command_name]) </td><td> Call a command. Must be first item in custom command. Do not include ! before command_name</td>
+                    <td>(command [command_name]) </td><td> Befahl aufrufen. Muss das ertse Element im benutzerdefiniertem Befehl sein. Inkludiere kein ! vor command_name!</td>
                     </tr><tr>
-                    <td>(customapi [requesturl]) </td><td> Call a remote URL<td>
+                    <td>(customapi [requesturl]) </td><td> Eine Remote-URL aufrufen.<td>
                 </tr>
             </table>
         </div>
@@ -117,7 +117,7 @@
     </div>
     </div>
 
-    <h3>Aliase</h3>
+    <h3>Aliasse</h3>
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -151,20 +151,20 @@
     </div>
     </div>
 
-    <h3>Bezahlung</h3>
+    <h3>Vergütung</h3>
     <div>
     <div id="_commandPayPanelDisabled" />
     <div id="_commandPayPanel">
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="setCommandPay">Neue Bezahlung hinzufügen</label>
+                <label for="setCommandPay">Neue Vergütung hinzufügen</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.setCommandPay()">Übermitteln</button>
                 <input type="text" class="form-control" id="setCommandPayInputCommand" placeholder="Name des Befehls" />
-                <input type="text" class="form-control" id="setCommandPayInput" placeholder="Preis" />
+                <input type="text" class="form-control" id="setCommandPayInput" placeholder="Vergütung" />
             </div>
         </form>
 
-        <strong>Aktuelle Befehlspreise</strong><br><br>
+        <strong>Aktuelle Befehlsvergütungen</strong><br><br>
         <div id="payCommandsList" style="height: 200px; overflow: auto;" />
     </div>
     </div>

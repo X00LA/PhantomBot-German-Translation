@@ -394,7 +394,7 @@
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
         if (active == 14 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere GlÃ¼ksspiel-Daten...', 'success', 1000);
+            newPanelAlert('Aktualisiere Glücksspiel-Daten...', 'success', 1000);
             doQuery();
         }
     }, 2e4);

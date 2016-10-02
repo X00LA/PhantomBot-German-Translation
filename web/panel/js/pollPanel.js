@@ -151,7 +151,7 @@
     setInterval(function() {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 12 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere Umfragedaten', 'success', 1000);
+            newPanelAlert('Aktualisiere Umfragedaten...', 'success', 1000);
             doQuery();
         }
     }, 3e4);

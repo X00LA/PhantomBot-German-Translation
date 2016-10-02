@@ -450,7 +450,7 @@ var DateFormat = {};
         } else if(diff < 120) {
           return 'vor 1 Minute';
         } else if(diff < 3600) {
-          return Math.floor(diff / 60) + ' minutes ago';
+          return Math.floor(diff / 60) + ' vor ein paar Minuten';
         } else if(diff < 7200) {
           return 'vor 1 Stunde';
         } else if(diff < 86400) {

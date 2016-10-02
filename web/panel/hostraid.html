@@ -42,76 +42,20 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="raidChannel">Kanal Überfallen</label>
                 <button type="button" class="btn btn-primary inline pull-right" 
-                        onclick="$.raidChannel()">Übernehmen</button>
+                        onclick="$.raidChannel()">Übermitteln</button>
                 <input type="text" class="form-control" id="raidChannelInput" placeholder="Twitch Kanal">
             </div>
         </form> 
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="raiderChannel">Announce Incoming Raid</label>
+                <label for="raiderChannel">Eingehenden Überfall ankündigen</label>
                 <button type="button" class="btn btn-primary inline pull-right" 
-                        onclick="$.raiderChannel()">Submit</button>
-                <input type="text" class="form-control" id="raiderChannelInput" placeholder="Twitch Channel">
+                        onclick="$.raiderChannel()">Übermitteln</button>
+                <input type="text" class="form-control" id="raiderChannelInput" placeholder="Twitch Kanal">
             </div>
         </form> 
         </div>
-    </div>
-
-    <h3>Auto Hosting (beta)</h3>
-    <div>
-    <div id="_autoHostPanelDisabled" />
-    <div id="_autoHostPanel">
-        <i>Hey! Dieses System ist noch in der Beta-Phase und funktioniert vielleicht noch nicht so, wie du es erwartest. Falls du irgendwelche Fehler findest, dann poste sie bitte in unserem Forum. Sollte etwas nicht funktionieren, dann deaktiviere dieses Modul um das Spammen des Host-Befehls zu verhindern. Danke.</i>
-        <br>
-        <br>
-            <table>
-            <tr class="textList">
-                <td>Auto Hosting An/Aus</td>
-                <td style="width: 25px"><div id="autoHostToggle" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Aktivieren" class="button"
-                         onclick="$.setAutoHostSetting('enable');"><i class="fa fa-circle" />
-                     </div>
-                </td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Deaktivieren" class="button"
-                         onclick="$.setAutoHostSetting('disable');"><i class="fa fa-circle-o" />
-                     </div>
-                </td>
-            </tr>
-        </table>
-        <br>
-
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="autoHostDelay">Verzögerung (Minuten)</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
-                        onclick="$.setAutoHostSetting('delay', 'autoHostDelay')">Übermitteln</button>
-                <input type="text" class="form-control" id="autoHostDelay" placeholder="Minuten" data-toggle="tooltip" title="Wartezeit nachdem der Stream als Offline erkannt wird."/>
-            </div>
-        </form>
-
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="autoHostTime">Zeit (Minuten)</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
-                        onclick="$.setAutoHostSetting('time', 'autoHostTime')">Übermitteln</button>
-                <input type="text" class="form-control" id="autoHostTime" placeholder="Minuten" data-toggle="tooltip" title="Minuten in denen der Kanal gehostet wird, 0 hostet den Kanal bis er offline geht."/>
-            </div>
-        </form>
-
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="autoHostListAdd">Benutzer hinzufügen</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
-                        onclick="$.setAutoHostSetting('add', 'autoHostListAdd')">Hinzufügen</button>
-                <input type="text" class="form-control" id="autoHostListAdd" placeholder="Benutzername" data-toggle="tooltip" title="Füge einen Benutzer zur Auto-Host Liste hinzu."/>
-            </div>
-        </form>
-
-        <div id="autoHostList" style="height: 150px; overflow: auto;" />
-    </div>
     </div>
 
     <h3>Hosts</h3>

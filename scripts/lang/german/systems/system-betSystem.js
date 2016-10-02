@@ -17,7 +17,7 @@ $.lang.register('betsystem.set.max', 'Maximaleinsatz gesetzt zu $1 $2');
 $.lang.register('betsystem.bet.err.neg', 'Du kannst nicht negativ $1 wetten!');
 $.lang.register('betsystem.bet.err.less', 'Du kannst nicht weniger als $1 wetten!');
 $.lang.register('betsystem.bet.err.more', 'Du kannst nicht mehr als $1 wetten!');
-$.lang.register('betsystem.err.points', 'Du hast nciht genug, $1, um zu wetten.');
+$.lang.register('betsystem.err.points', 'Du hast nicht genug, $1, um zu wetten.');
 $.lang.register('betsystem.err.voted', 'Du hast bereits deine Wette platziert.');
 $.lang.register('betsystem.bet.updated', 'Wette aktualisiert! $1 Einsätze $2 auf $3! Neuer Pot $4');
 $.lang.register('betsystem.err.option.err', 'Verwendung: !bet (Option) (Punkte)');

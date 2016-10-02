@@ -258,7 +258,7 @@
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
         if (active == 6 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere Ränge-Daten', 'success', 1000);
+            newPanelAlert('Aktualisiere Ränge-Daten...', 'success', 1000);
             doQuery();
         }
     }, 3e4);

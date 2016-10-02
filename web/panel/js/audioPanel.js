@@ -70,7 +70,7 @@
 
         if (panelCheckQuery(msgObject, 'audio_songblacklist')) {
             if (msgObject['results'].length === 0) {
-                $('#ytplayerBSong').html('<i>Es sind keine Lieder auf der Blacklist.</i>');
+                $('#ytplayerBSong').html('<i>Es sind keine Lieder auf der schwarzen Liste.</i>');
                 return;
             }
             var html = '<table>';
@@ -147,7 +147,7 @@
 
         if (panelCheckQuery(msgObject, 'audio_userblacklist')) {
             if (msgObject['results'].length === 0) {
-                $('#ytplayerBUser').html('<i>Keine Benutzer auf der Blacklist.</i>');
+                $('#ytplayerBUser').html('<i>Keine Benutzer auf der schwarzen Liste.</i>');
                 return;
             }
             html = '<table>';
@@ -380,7 +380,7 @@
     function loadYtplaylist() {
         var value = $('#playlistImput').val();
         if (value.length > 0) {
-            $('#playlistImput').val('Laden...');
+            $('#playlistImput').val('Lade...');
             sendCommand('playlist playlistloadpanel ' + value);
             setTimeout(function() { doQuery(); $('#playlistImput').val(''); }, TIMEOUT_WAIT_TIME * 4);
         }

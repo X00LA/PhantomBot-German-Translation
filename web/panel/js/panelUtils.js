@@ -93,7 +93,7 @@ connection.onmessage = function(e) {
     if (messageObject['authresult'] == false) {
         if (!messageObject['authresult']) {
             isConnected = false;
-            newPanelAlert('Authorisierung fehlgeschlagen! Überprüfe Konfigurationsdatei!', 'danger', 0);
+            newPanelAlert('Authorisierung fehlgeschlagen! Überprüfe die Konfigurationsdatei!', 'danger', 0);
             return;
         }
         return;
