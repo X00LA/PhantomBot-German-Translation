@@ -1,5 +1,5 @@
-$.lang.register('highlightcommand.highlight.offline', 'Highlights can only be set when the stream is online.');
-$.lang.register('highlightcommand.highlight.usage', 'usage: !highlight [description] (Using date stamp for timezone: $1)');
-$.lang.register('highlightcommand.highlight.success', 'Highlight successfully saved with a timestamp of $1.');
-$.lang.register('highlightcommand.gethighlights.no-highlights', 'There are currently no highlights.');
-$.lang.register('highlightcommand.clearhighlights.success', 'Highlights have been cleared.');
+$.lang.register('highlightcommand.highlight.offline', 'Höhepunkte können nur gesetzt werden, wenn der Stream online ist!');
+$.lang.register('highlightcommand.highlight.usage', 'Verwendung: !highlight [Beschreibung] (Verwende Datumsstempel für Zeitzone: $1)');
+$.lang.register('highlightcommand.highlight.success', 'Höhepunkt erfolgreich mit Zeitstempel, $1, gespeichert.');
+$.lang.register('highlightcommand.gethighlights.no-highlights', 'Es liegen aktuell keine Höhepunkte vor.');
+$.lang.register('highlightcommand.clearhighlights.success', 'Höhepunkte wurden bereinigt!');

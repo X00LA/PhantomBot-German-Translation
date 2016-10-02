@@ -1,10 +1,10 @@
-$.lang.register("deathcounter.set-error", "Provide a new valid death counter value.");
-$.lang.register("deathcounter.set-success", "Death counter for $1 set to $2.");
-$.lang.register("deathcounter.add-success", "$1 has died again in $2, bringing the total to $3.");
-$.lang.register("deathcounter.sub-success", "Calling back a death, the total is now $2 in $1.");
-$.lang.register("deathcounter.sub-zero", "The death counter for $1 is already zero, can't go any lower!");
-$.lang.register("deathcounter.counter", "$1 has died $3 times in $2.");
-$.lang.register("deathcounter.none", "$1 has not died in $2....yet.");
-$.lang.register("deathcounter.reset", "Reset the death counter back to 0 from $2 for $1.");
-$.lang.register("deathcounter.reset-nil", "The death counter for $1 is already 0.");
+$.lang.register("deathcounter.set-error", "Gib einen neuen, gültigen Todeszählerwert ein.");
+$.lang.register("deathcounter.set-success", "Todeszähler für $1 auf $2 geändert.");
+$.lang.register("deathcounter.add-success", "$1 ist in $2 wieder gestorben, womit die Gesamtzahl auf $3 steigt.");
+$.lang.register("deathcounter.sub-success", "Rücknahme eines Todes, die Gesamtzahl ist jetzt $2 in $1.");
+$.lang.register("deathcounter.sub-zero", "Der Todeszähler für $1 steht derzeit auf 0 und kann nicht weiter runter!");
+$.lang.register("deathcounter.counter", "$1 starb $3 Mal in $2!");
+$.lang.register("deathcounter.none", "$1 ist in $2 noch nicht gestorben... bis jetzt.");
+$.lang.register("deathcounter.reset", "Setze den Todeszähler von $1 von $1 auf 0 zurück.");
+$.lang.register("deathcounter.reset-nil", "Der Todeszähler für $1 steht aktuell auf 0.");
 

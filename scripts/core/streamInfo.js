@@ -390,12 +390,12 @@
                     $.deathUpdateFile(game);
                 }
             } else {
-                $.say($.whisperPrefix(sender) + 'Ändern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+                $.say($.whisperPrefix(sender) + '�ndern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
                 $.consoleDebug(http.getString('message'));
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.say($.whisperPrefix(sender) + 'Ändern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+            $.say($.whisperPrefix(sender) + '�ndern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
             $.consoleDebug(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
@@ -421,12 +421,12 @@
                 }
                 $.log.event(sender + ' changed the current status to ' + http.getString('status'));
             } else {
-                $.say($.whisperPrefix(sender) + 'Ändern der Überschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+                $.say($.whisperPrefix(sender) + '�ndern der Überschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
                 $.consoleDebug(http.getString('message'));
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.say($.whisperPrefix(sender) + 'Ändern der Überschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+            $.say($.whisperPrefix(sender) + '�ndern der Überschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
             $.consoleDebug(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }

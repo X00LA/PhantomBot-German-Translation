@@ -1,3 +1,3 @@
-$.lang.register('lastseen.404', 'I haven\'t seen $1 yet.');
-$.lang.register('lastseen.response', '$1 has last been seen on $2 @ $3');
-$.lang.register('lastseen.usage', 'Usage: !lastseen [username].');
+$.lang.register('lastseen.404', 'Ich habe $1 noch nciht gesehen.');
+$.lang.register('lastseen.response', '$1 wurde zuletz um $2 @ $3 gesehen.');
+$.lang.register('lastseen.usage', 'Verwendung: !lastseen [Benutzername].');
