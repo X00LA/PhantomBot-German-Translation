@@ -29,9 +29,9 @@ Die einfachste Art und Weise die Übersetzung zu installieren ist folgende:
 
 Die Dateien aus dem Download einfach in den Hauptordner des Bots kopieren und die heruntergeladenen Dateien gegen die bestehenden austauschen.
 Danach den Bot neu starten und fertig.
-Eventuell müssen in der Konsole noch die Befehle "lang german" und "timezone CET" eingegeben werden.
+Eventuell müssen in der Konsole noch die Befehle "lang german" und "timezone CET" eingegeben werden (Wird in der Konsole neben dem Datum MESZ oder CET angezeigt ist alles in Ordnung).
 
-Das Beste Ergebnis erzielt man, wenn man eine komplett frische Installation des Bots verwendet.
+Das Beste Ergebnis erzielt man, wenn man eine komplett frische Installation des Bots verwendet und die Dateien der Übersetzung vor dem ersten Start installiert.
 
 Will man nur das Web Panel in deutsch, benötigt man nur den Ordner "web", will man nur die Ausgabe im Chat auf deutsch, nur den Ordner "scripts".
 
