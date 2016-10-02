@@ -44,6 +44,9 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
 
     PhantomBot Version 2.3.1
         Übersetzung Version 2.3.1a
+        
+    PhantomBot Version 2.3.2
+        Übersetzung Version 2.3.2a
 
 
 # Lizenzinformation
