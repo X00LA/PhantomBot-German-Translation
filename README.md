@@ -47,7 +47,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         
     PhantomBot Version 2.3.2
         Übersetzung Version 2.3.2a
-        Übersetzung Version 2.3.2b --> Erster, vollständig übersetzte Version!
+        Übersetzung Version 2.3.2b --> Erste, vollständig übersetzte Version!
 
 
 # Lizenzinformation
