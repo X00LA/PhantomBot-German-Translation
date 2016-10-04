@@ -51,7 +51,7 @@ $.lang.register('gamemessages.lost.29', 'Du solltest den Weltrekord im Atem anha
 $.lang.register('gamemessages.lost.30', 'Sei still!');
 $.lang.register('gamemessages.lost.31', 'Du verdienst es nicht, dieses Spiel zu spielen. Geh zurück und spiel mit deinen Wachsmalstiften!');
 $.lang.register('gamemessages.lost.32', 'Schade. Das Spiel ist zu Ende. Bitte 50 Cent einwerfen um weiter zu spielen.');
-$.lang.register('gamemessages.lost.33', 'Die Göttin Fortuna runzelt ihre STirn über dich.');
+$.lang.register('gamemessages.lost.33', 'Die Göttin Fortuna runzelt ihre Stirn über dich.');
 $.lang.register('gamemessages.lost.34', 'In einer perfekten Gesellschaft gäbe es niemanden, der so schwach ist wie du!');
 $.lang.register('gamemessages.lost.35', 'Was für ein Witz!');
 $.lang.register('gamemessages.lost.36', 'Lerne aus deiner Niederlage, Kind!');
