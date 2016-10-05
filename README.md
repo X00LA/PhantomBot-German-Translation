@@ -49,6 +49,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         Übersetzung Version 2.3.2a
         Übersetzung Version 2.3.2b --> Erste, vollständig übersetzte, Version!
         Übersetzung Version 2.3.2c --> Bugfix
+        Übersetzung Version 2.3.2d --> Bugfix
 
 
 # Lizenzinformation
