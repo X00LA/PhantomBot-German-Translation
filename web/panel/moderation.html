@@ -30,7 +30,7 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="moderationAccordion">
-    <h3>Global Moderationseinstellungen</h3>
+    <h3>Globale Moderationseinstellungen</h3>
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -38,7 +38,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#msgCooldownSec', 'msgCooldownSecs')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="msgCooldownSec" placeholder="seconds"
-                     data-toggle="tooltip" title="Setze eine Verzögerungszeit für Strafnachrichten fest." />
+                     data-toggle="tooltip" title="Lege eine Verzögerungszeit für Strafnachrichten fest." />
             </div>
         </form>
         <form role="form">
@@ -83,7 +83,7 @@
                     <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Streng, ignoriere Abonnenten." onclick="$.quickSetModeration('high', true, false, false)">
                         Zuschauer/Stammzuschauer
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Streng, ignoriere Abonnentenh und Stammzuschauer." onclick="$.quickSetModeration('high', true, true, false)">
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Streng, ignoriere Abonnenten und Stammzuschauer." onclick="$.quickSetModeration('high', true, true, false)">
                         Nur Zuschauer
                     </button>
                 </td>
@@ -95,7 +95,7 @@
                     <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Moderate Moderation für alle Benutzer." onclick="$.quickSetModeration('medium', false, false, false)">
                         Alle Benutzer
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Noderat, ignoriere Abonnenten." onclick="$.quickSetModeration('medium', true, false, false)">
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Moderat, ignoriere Abonnenten." onclick="$.quickSetModeration('medium', true, false, false)">
                         Zuschauer/Stammzuschauer
                     </button>
                     <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Moderat, ignoriere Abonnenten und Stammzuschauer." onclick="$.quickSetModeration('medium', true, true, false)">
@@ -637,7 +637,7 @@
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="longMessageMessage">Nachrciht</label>
+                <label for="longMessageMessage">Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#longMessageMessageInput', 'longMessageMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="longMessageMessageInput" placeholder="Laden..."
@@ -801,7 +801,7 @@
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="addModBlacklist">Phrase, Wort oder Regex</label>
+                <label for="addModBlacklist">Phrase, Wort oder regulärer Ausdruck</label>
                 <button type="button" class="btn btn-warning inline pull-right" onclick="$.addModBlacklist()">Hinzufügen</button>
                 <input type="text" class="form-control" id="addModBlacklistInput" placeholder="Phrase, Wort oder regülärer Ausdruck" 
                     data-toggle="tooltip" title="Das hinzufügen einer Phrase oder eines Wortes verpasst jedem eine Auszeit der dies im Chat verwendet. Wenn du einen regulären Ausdruck verwendest, starte bitte mit \'regex:\'. Alle regulären Ausdrücke gelten immer Global. " />

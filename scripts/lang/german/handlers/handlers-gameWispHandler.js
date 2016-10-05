@@ -14,7 +14,7 @@ $.lang.register('gamewisp.resubreward.success', 'GameWisp Resub Belohnung geänd
 $.lang.register('gamewisptier.usage', 'Verwendung: !gamewisptier [ $1 ]');
 $.lang.register('gamewisptier.songrequests.usage', 'Verwendung: !gamewisptier songrequests [Level] [Nummer]');
 $.lang.register('gamewisptier.songrequests.usage.tier', 'Verwendung: !gamewisptier songrequests [Level] [Nummer] (Level $1 ist aktuell: $2)');
-$.lang.register('gamewisptier.songrequests.success','GameWisp Musikwünsche für Level $1 von $2 zu $3 geändert.');
+$.lang.register('gamewisptier.songrequests.success', 'GameWisp Musikwünsche für Level $1 von $2 zu $3 geändert.');
 $.lang.register('gamewisptier.bonuspoints.usage', 'Verwendung: !gamewisptier bonuspoints [Level] [Nummer]');
 $.lang.register('gamewisptier.bonuspoints.usage.tier', 'Verwendung: !gamewisptier bonuspoints [Level] [Nummer] (Level $1 ist aktuell $2)');
 $.lang.register('gamewisptier.bonuspoints.success', 'GameWisp Bonusmultiplikator für Level $1 von $2 auf $3 geändert.');

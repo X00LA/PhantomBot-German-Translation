@@ -346,4 +346,3 @@ $.lang.register('common.seconds', ' Sekunden');
 $.lang.register('common.get.age.days', '$1 $2 ist seit $3 auf Twitch. (Vor $4 Tagen beigetreten.)');
 $.lang.register('common.get.age', '$1 $2 sind seit $3 auf Twitch.');
 $.lang.register('channel.age.user.404', 'Dieser Benutzer ist nicht auf Twitch.');
-

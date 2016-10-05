@@ -3,3 +3,4 @@ $.lang.register('highlightcommand.highlight.usage', 'Verwendung: !highlight [Bes
 $.lang.register('highlightcommand.highlight.success', 'Höhepunkt erfolgreich mit Zeitstempel, $1, gespeichert.');
 $.lang.register('highlightcommand.gethighlights.no-highlights', 'Es liegen aktuell keine Höhepunkte vor.');
 $.lang.register('highlightcommand.clearhighlights.success', 'Höhepunkte wurden bereinigt!');
+$.lang.register('highlightcommand.highlights', 'Höhepunkte: $1');

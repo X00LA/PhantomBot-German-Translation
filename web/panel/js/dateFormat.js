@@ -454,13 +454,13 @@ var DateFormat = {};
         } else if(diff < 7200) {
           return 'vor 1 Stunde';
         } else if(diff < 86400) {
-          return ' vor ' Math.floor(diff / 3600) + ' Stunden';
+          return ' vor ' + Math.floor(diff / 3600) + ' Stunden';
         } else if(day_diff === 1) {
           return 'Gestern';
         } else if(day_diff < 7) {
-          return ' vor ' day_diff + ' Tagen';
+          return ' vor ' + day_diff + ' Tagen';
         } else if(day_diff < 31) {
-          return ' vor ' Math.ceil(day_diff / 7) + ' Wochen';
+          return ' vor ' + Math.ceil(day_diff / 7) + ' Wochen';
         } else if(day_diff >= 31) {
           return 'vor mehr als 5 Wochen';
         }

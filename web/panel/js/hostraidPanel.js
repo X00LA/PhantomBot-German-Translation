@@ -74,7 +74,7 @@
 
             if (panelCheckQuery(msgObject, 'hostraid_hosthistory')) {
                 if (msgObject['results'].length === 0) {
-                    $('#hostHistoryList').html('<i>Kein Host-Geschichte-Daten anzuzeigen!</i>');
+                    $('#hostHistoryList').html('<i>Keine Host-Geschichte-Daten anzuzeigen!</i>');
                     return;
                 }
 

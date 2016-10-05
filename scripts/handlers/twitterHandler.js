@@ -335,11 +335,11 @@
              */
             if (commandArg.equalsIgnoreCase('lasttweet')) {
                 if ($.getIniDbBoolean('twitter', 'poll_hometimeline', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet', $.getIniDbString('twitter', 'last_hometimeline', 'No Tweets have been pulled yet!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet', $.getIniDbString('twitter', 'last_hometimeline', 'Es wurden noch keine Tweets abgerufen!')));
                     return;
                 }
                 if ($.getIniDbBoolean('twitter', 'poll_usertimeline', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet', $.getIniDbString('twitter', 'last_usertimeline', 'No Tweets have been pulled yet!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet', $.getIniDbString('twitter', 'last_usertimeline', 'Es wurde noch keine Tweets abgerufen!')));
                     return;
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet.disabled'));
@@ -351,7 +351,7 @@
              */
             if (commandArg.equalsIgnoreCase('lastmention')) {
                 if ($.getIniDbBoolean('twitter', 'poll_mentions', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention', $.getIniDbString('twitter', 'last_mentions', 'No Mentions have been pulled yet!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention', $.getIniDbString('twitter', 'last_mentions', 'Es wurden noch keine Erwähnungen abgerufen!')));
                     return;
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention.disabled'));
@@ -363,7 +363,7 @@
              */
             if (commandArg.equalsIgnoreCase('lastretweet')) {
                 if ($.getIniDbBoolean('twitter', 'poll_retweets', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastretweet', $.getIniDbString('twitter', 'last_retweets', 'No Retweets have been pulled yet!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastretweet', $.getIniDbString('twitter', 'last_retweets', 'Es wurden noch keine ReTweets abgerufen!')));
                     return;
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastretweet.disabled'));

@@ -237,7 +237,7 @@
     function getStreamStartedAt(channelName) {
         if ($.twitchCacheReady.equals('true') && channelName.equalsIgnoreCase($.channelName)) {
             if ($.twitchcache.getStreamOnlineString === 'false') {
-                return 'Stream is offline';
+                return 'Stream ist offline';
             }
             createdAtDate = new Date($.twitchcache.getStreamCreatedAt() + '');
             return $.dateToString(createdAtDate);
@@ -382,7 +382,7 @@
                 $.twitchcache.setGameTitle(http.getString('game'));
                 $.inidb.set('streamInfo', 'game', http.getString('game'));
                 if (!silent) {
-                    $.say('Changed the game to "' + http.getString('game') + '"!');
+                    $.say('Spiel geändert zu "' + http.getString('game') + '"!');
                 }
                 $.log.event($.username.resolve(sender) + ' changed the current game to ' + http.getString('game'));
 
@@ -426,7 +426,7 @@
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.say($.whisperPrefix(sender) + 'Ändern der Ãœberschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+            $.say($.whisperPrefix(sender) + 'Ändern der Überschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
             $.consoleDebug(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
