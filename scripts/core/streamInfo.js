@@ -382,7 +382,7 @@
                 $.twitchcache.setGameTitle(http.getString('game'));
                 $.inidb.set('streamInfo', 'game', http.getString('game'));
                 if (!silent) {
-                    $.say('Spiel geändert zu "' + http.getString('game') + '"!');
+                    $.say('Spiel geÃ¤ndert zu "' + http.getString('game') + '"!');
                 }
                 $.log.event($.username.resolve(sender) + ' changed the current game to ' + http.getString('game'));
 
@@ -390,12 +390,12 @@
                     $.deathUpdateFile(game);
                 }
             } else {
-                $.say($.whisperPrefix(sender) + 'Ändern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+                $.say($.whisperPrefix(sender) + 'Ã„ndern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
                 $.consoleDebug(http.getString('message'));
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.say($.whisperPrefix(sender) + 'Ändern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+            $.say($.whisperPrefix(sender) + 'Ã„ndern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
             $.consoleDebug(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
@@ -421,12 +421,12 @@
                 }
                 $.log.event(sender + ' changed the current status to ' + http.getString('status'));
             } else {
-                $.say($.whisperPrefix(sender) + 'Ändern der Ãœberschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+                $.say($.whisperPrefix(sender) + 'Ã„ndern der Ãœerschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
                 $.consoleDebug(http.getString('message'));
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.say($.whisperPrefix(sender) + 'Ändern der Überschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+            $.say($.whisperPrefix(sender) + 'Ã„ndern der Ãœberschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
             $.consoleDebug(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }

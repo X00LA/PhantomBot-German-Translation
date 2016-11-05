@@ -1,9 +1,9 @@
 $.lang.register('streamcommand.vod.404', 'Es wurden keine Videos gefunden.');
 $.lang.register('streamcommand.vod.online', 'Stream Onlinezeit: $1 [$2]');
-$.lang.register('streamcommand.vod.offline', 'Stream ist offline. Letztes Video erstellt: [$1] [Länge: $2]');
+$.lang.register('streamcommand.vod.offline', 'Stream ist offline. Letztes erstelltes Video: [$1] [Länge: $2]');
 $.lang.register('streamcommand.playtime.offline', '$1 streamt derzeit nicht.');
 $.lang.register('streamcommand.playtime.online', '$1 spielte $2 für $3.');
-$.lang.register('streamcommand.title.offline', 'Aktueller STatus: $1');
+$.lang.register('streamcommand.title.offline', 'Aktueller Status: $1');
 $.lang.register('streamcommand.title.no.title', 'Kein Status festgelegt.');
 $.lang.register('streamcommand.title.online', 'Aktueller Status: $1. Online seit: $2');
 $.lang.register('streamcommand.title.set.usage', 'Verwendung: !title set [Streamtitel]. Aktuell: $1');

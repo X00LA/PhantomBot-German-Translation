@@ -7,8 +7,8 @@ $.lang.register('roulette.win.6', 'Der Abzug wurde betätigt, aber die Kugel wur
 $.lang.register('roulette.win.7', 'Der Abzug wurde betätigt, aber $1 starb nicht duch die Kugel, sonder die Kugel starb duch $1.');
 
 $.lang.register('roulette.lost.1', 'Der Abzug wurde betätigt und der Revolver geht mit einem lauten Knall los! $1 liegt nun tot im Chat.');
-$.lang.register('roulette.lost.2', 'Der Abzug wurde betätigt und $1 ist nun etwas Kopflos!');
-$.lang.register('roulette.lost.3', '$1s Finger gleitet über den Abzug, $1s Körper fällt auf den Boden wie ein Sack Mehl!');
+$.lang.register('roulette.lost.2', 'Der Abzug wurde betätigt und $1 ist nun etwas kopflos!');
+$.lang.register('roulette.lost.3', '$1\'s Finger gleitet über den Abzug, $1s Körper fällt auf den Boden wie ein Sack Mehl!');
 $.lang.register('roulette.lost.4', 'Der Abzug wurde betätigt und $1s Kopf hat nun einen Gehörgang mehr!');
 $.lang.register('roulette.lost.5', 'Der Hammer fällt und die .44er brüllt! $1 liegt nun tot im Chat.');
 $.lang.register('roulette.lost.6', 'Der Abzug wurde betätigt und $1 hat die Wand neu eingefärbt.');

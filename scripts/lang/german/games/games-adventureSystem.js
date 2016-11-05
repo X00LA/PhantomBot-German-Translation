@@ -30,13 +30,13 @@ $.lang.register('adventuresystem.stories.2.chapter.2', 'Vorsicht! Die Elfen habe
 $.lang.register('adventuresystem.stories.2.chapter.3', 'Verdammt, das war knapp! Aber es ist geschafft! (survivors) kehrte(n) mit vollen Taschen zurück!');
 
 $.lang.register('adventuresystem.stories.3.title', 'Draculas Vermächtnis');
-$.lang.register('adventuresystem.stories.3.chapter.1', 'Oh, meine lieben Freunde! Ich habe möglicherweise das Abenteuer unseres Lebens gefunden. Nämlich das Haus des Grafen Darcula, von dem angenommen wird, dass er unermessliche Reichtümer besaß. Ich schlage vor, dass wir sofort aufbrechen!');
+$.lang.register('adventuresystem.stories.3.chapter.1', 'Oh, meine lieben Freunde! Ich habe möglicherweise das Abenteuer unseres Lebens gefunden. Nämlich das Schloss des Grafen Darcula, von dem angenommen wird, dass er unermessliche Reichtümer besaß. Ich schlage vor, dass wir sofort aufbrechen!');
 $.lang.register('adventuresystem.stories.3.chapter.2', 'Er ist es wahrhaftig! (caught) wurde(n) bestialisch geschlachtet.');
 $.lang.register('adventuresystem.stories.3.chapter.3', 'Das war eine knappe Entscheidung, ich glaube nicht, dass ich gebissen wurde. Wie gut, (survivors), hier ist der Versprochene Anteil.  ~Verwandelt sich in eine Fledermaus und flattert davon.~');
 
-$.lang.register('adventuresystem.stories.4.title', 'Mannbärschein');
+$.lang.register('adventuresystem.stories.4.title', 'Mannbärschwein');
 $.lang.register('adventuresystem.stories.4.chapter.1', 'Ich denke, wir haben sehr gute Chancen, das sagenumwobene Monster in dieser Höhle zu finden... Es ist zu einem Drittel Mensch, einem Drittel Bär und einem Drittel Schwein. Lacht nicht, ICH MEINE ES TOT ERNST!');
-$.lang.register('adventuresystem.stories.4.chapter.2', '/me Als sich die Abenteurer ihren Weg durch die Tunnel bahnen, hören sie ein leises Geräusch hinter ihnen...');
+$.lang.register('adventuresystem.stories.4.chapter.2', '/me Als sich der/die Abenteurer seinen/ihren Weg durch die Tunnel bahnt/en, hören sie ein leises Geräusch hinter sich...');
 $.lang.register('adventuresystem.stories.4.chapter.3', 'Achtung! Es ist Mannbärschwein! (caught) wurde(n) in die Dunkelheit gezogen und verschwand(en) auf nimmer Wiedersehen.');
 $.lang.register('adventuresystem.stories.4.chapter.4', '(survivors), lasst uns hier verschwinden! Wir können es nicht mit ihm aufnehmen!');
 

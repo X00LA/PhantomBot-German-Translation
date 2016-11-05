@@ -1,7 +1,7 @@
 $.lang.register('followhandler.check.follows', '$1 folgt dem Kanal.');
 $.lang.register('followhandler.check.notfollows', '$1 folgt dem Kanal nicht.');
 $.lang.register('followhandler.check.usage', 'Verwendung: !follows [Benutzername]');
-$.lang.register('followhandler.follow.message', '(name) folgt dir jetzt! Hier sind +(reward)!');
+$.lang.register('followhandler.follow.message', '(name) folgt dir jetzt! Hier sind +(reward) als Dankeschön!');
 $.lang.register('followhandler.followers', '$1 Benutzer folgen dem Kanal!');
 $.lang.register('followhandler.followtrain.mega', 'Mega Follow Zug!! ($1)');
 $.lang.register('followhandler.followtrain.penta', 'Penta Follow!!');

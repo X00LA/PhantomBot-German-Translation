@@ -6,7 +6,7 @@ $.lang.register('dualstreamcommand.timer.usage', 'Verwendung: !multi timer [An/A
 $.lang.register('dualstreamcommand.timer.enabled', 'Multi-Timer aktiviert.');
 $.lang.register('dualstreamcommand.timer.disabled', 'Multi-Timer deaktiviert.');
 $.lang.register('dualstreamcommand.timerinterval.usage', 'Verwendung: !multi timerinterval (Zeit in Minuten)');
-$.lang.register('dualstreamcommand.timerinterval.err', 'Minimum für den Timer sind 5 MInuten.');
+$.lang.register('dualstreamcommand.timerinterval.err', 'Minimum für den Timer sind 5 Minuten.');
 $.lang.register('dualstreamcommand.timerinterval.set', 'Timer-Intervall auf $1 Minuten festgelegt!');
 $.lang.register('dualstreamcommand.link', 'http://multistre.am/');
 $.lang.register('dualstreamcommand.req.usage', 'Verwendung: !multi reqmessage (Anzahl der Nachrichten)');

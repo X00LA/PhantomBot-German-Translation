@@ -41,7 +41,7 @@ $.lang.register('customcommands.disable.success', 'Der Befehl, !$1, wurde deakti
 $.lang.register('customcommands.enable.usage', 'Verwendung: !enablecom (Befehl)');
 $.lang.register('customcommands.enable.404', 'Dieser Befehl existiert nicht!');
 $.lang.register('customcommands.enable.err', 'Dieser Befehl ist bereits aktiviert!');
-$.lang.register('customcommands.enable.success', 'cDer Befehl, !$1, wurde reaktiviert.');
+$.lang.register('customcommands.enable.success', 'Der Befehl, !$1, wurde reaktiviert.');
 $.lang.register('customcommands.botcommands', 'Befehle: $1');
 $.lang.register('customcommands.botcommands.error', 'Gib eine Zahl ein um eine Seite zu finden.');
 $.lang.register('customcommands.botcommands.total', 'Seiten gesamt: $1 [Siehe auch: https://phantombot.tv/commands]');

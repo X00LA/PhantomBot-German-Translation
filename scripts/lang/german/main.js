@@ -201,8 +201,6 @@ $.lang.register('chatmoderator.timeouttime.emotes.usage', '!moderation timeout t
 $.lang.register('chatmoderator.timeouttime.emotes', 'Timeout-Länge für Emotes wurde auf $1 Sekunden gesetzt.');
 $.lang.register('chatmoderator.timeouttime.longmsg.usage', '!moderation timeout time longmessages [Zeit in Sekunden] (Aktuelles Timeout für lange Nachrichten beträgt $1 Sekunden.)');
 $.lang.register('chatmoderator.timeouttime.longmsg', 'Timeout-Länge für lange Nachrichten wurde auf $1 Sekunden gesetzt.');
-$.lang.register('chatmoderator.timeouttime.err', 'Deine Timeoutlänge für den Spam-Tracker kann nicht kleiner als die Spam-Tracker-Zeit sein.');
-$.lang.register('chatmoderator.warningtime.err', 'Deine Warnzeitlänge für den Spam-Tracker kann nicht kleiner als die Spam-Tracker-Zeit sein.');
 $.lang.register('cmd.404', 'Der Befehl !$1 existiert entweder nicht oder ist nicht registriert.');
 $.lang.register('cmd.adminonly', 'Nur ein Administrator hat Zugriff auf diesen Befehl!');
 $.lang.register('cmd.casteronly', 'Nur der Streamer hat Zugriff auf diesen Befehl!');
@@ -268,6 +266,7 @@ $.lang.register('init.blacklist.removed', '$1 von Bot-Blacklist entfernt!');
 $.lang.register('init.mod.toggle.on.pay', 'Moderatoren+ müssen nun für Befehle bezahlen.');
 $.lang.register('init.mod.toggle.off.pay', 'Moderatoren+ müssen nun nicht mehr für Befehle bezahlen.');
 $.lang.register('init.mod.toggle.perm.msg.off', 'Keine-Erlaubnis-Meldungen wurden deaktiviert.');
+$.lang.register('init.mod.toggle.perm.msg.on', 'Es wurden keine Berechtigungsnachrichten aktiviert.');
 $.lang.register('init.toggle.cooldown.msg.on', 'Die Abklingzeit-Meldungen wurden aktiviert.');
 $.lang.register('init.toggle.cooldown.msg.off', 'Die Abklingzeit-Meldungen wurden deaktiviert.');
 $.lang.register('init.cooldown.msg', 'Befehl !$1 ist immer noch auf Abklingzeit. ($2 Sekunden)');

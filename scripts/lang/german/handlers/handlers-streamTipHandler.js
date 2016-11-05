@@ -1,5 +1,5 @@
 $.lang.register('streamtip.donation.new', 'Vielen Dank (name) für deine Spende von (currencysymbol) (amount) (currency)!');
-$.lang.register('streamtip.donation.newreward', 'Vielen Dank (name) für die Spende von € (amount) (currency)! Hier sind (points) (pointname)!');
+$.lang.register('streamtip.donation.newreward', 'Vielen Dank (name) für die Spende von € (amount) (currency)! Hier sind (points) (pointname) als Dankeschön!');
 $.lang.register('streamtip.lastdonation.no-donations', 'Derzeit gibt es keine Spenden.');
 $.lang.register('streamtip.lastdonation.404', 'Kann keine letzten Spenden finden!');
 $.lang.register('streamtip.lastdonation.success', 'Die letzte Spende war von (name) und war in der Höhe von (currencysymbol) (amount) (currency).');

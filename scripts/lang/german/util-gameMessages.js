@@ -17,17 +17,17 @@ $.lang.register('gamemessages.win.16', 'Ein Gewinner ist nur ein Verlierer, der 
 $.lang.register('gamemessages.win.17', 'Wow!');
 $.lang.register('gamemessages.win.18', 'Das Ding muss manipuliert worden sein!');
 $.lang.register('gamemessages.win.19', 'Die Göttin Fortuna lächelt zu dir herunter!');
-$.lang.register('gamemessages.win.20', '?!......... (Ernstahaft?!)');
+$.lang.register('gamemessages.win.20', '?!......... (Ernsthaft?!)');
 
 $.lang.register('gamemessages.lost.1', 'Mehr Glück beim nächsten Mal!');
-$.lang.register('gamemessages.lost.2', 'Ich verstehe, es gibt Spiel, die sind einfach zu schwer für dich.');
+$.lang.register('gamemessages.lost.2', 'Ich verstehe, es gibt Spiele, die sind einfach zu schwer für dich.');
 $.lang.register('gamemessages.lost.3', 'Nicht traurig sein, einfach weiter versuchen $1.');
 $.lang.register('gamemessages.lost.4', 'Du hast einen Atomkrieg ausgelöst! Und nein, es gibt keine Animation, in der ein Atompilz und herumfliegende Körperteile zu sehen sind! Wir belohnen keine Verlierer.');
 $.lang.register('gamemessages.lost.5', 'Könntest du vielleicht mal....... gewinnen?');
 $.lang.register('gamemessages.lost.6', 'Game Over.');
 $.lang.register('gamemessages.lost.7', 'Nicht die Hoffnung aufgeben.');
 $.lang.register('gamemessages.lost.8', 'Du warst einfach nicht gut genug.');
-$.lang.register('gamemessages.lost.9', 'Wird $1 schließlich gewinnen? Finde es heruas in der nächsten Folge von DragonBall Z!');
+$.lang.register('gamemessages.lost.9', 'Wird $1 schließlich gewinnen? Finde es heraus in der nächsten Folge von DragonBall Z!');
 $.lang.register('gamemessages.lost.10', '$1 hat heute etwas großartiges verloren!');
 $.lang.register('gamemessages.lost.11', 'Vielleicht, wenn du in den Bergen der Einsamkeit trainierst, könntest du die Kunst zu gewinnen erlernen.');
 $.lang.register('gamemessages.lost.12', 'Glaube an das Herz der Karten!');
@@ -44,7 +44,7 @@ $.lang.register('gamemessages.lost.22', 'Sieht aus als hättest du meine Fallenk
 $.lang.register('gamemessages.lost.23', 'Du bist nicht verpflichtet zu gewinnen. Du bist nur verpflichtet, es weiter zu versuchen.');
 $.lang.register('gamemessages.lost.24', 'Dies ist nicht das Ende, dies ist auch nicht der Anfang vom Ende, das ist vielleicht nur das Ende des Anfangs.');
 $.lang.register('gamemessages.lost.25', 'Manchmal ist nicht zu bekommen was man will, ein brillianter Glücksfall!');
-$.lang.register('gamemessages.lost.26', 'Gewinnen braucht Talent, es zu wiederhlen, Charakter.');
+$.lang.register('gamemessages.lost.26', 'Gewinnen braucht Talent, es zu wiederholen, Charakter.');
 $.lang.register('gamemessages.lost.27', 'Schlange? Schlange?! Schlaaaaange!!.');
 $.lang.register('gamemessages.lost.28', 'Du bist wie Forrest Gump, nur ohne das laufen Ding.');
 $.lang.register('gamemessages.lost.29', 'Du solltest den Weltrekord im Atem anhalten beantragen!');
@@ -56,8 +56,8 @@ $.lang.register('gamemessages.lost.34', 'In einer perfekten Gesellschaft gäbe e
 $.lang.register('gamemessages.lost.35', 'Was für ein Witz!');
 $.lang.register('gamemessages.lost.36', 'Lerne aus deiner Niederlage, Kind!');
 $.lang.register('gamemessages.lost.37', 'Du hast nicht genug Erfahrung! Hörst du mir überhaupt zu!?');
-$.lang.register('gamemessages.lost.38', 'Hoffe du hörst zu. Level up homie!');
-$.lang.register('gamemessages.lost.39', 'Deine Technik benötigt noch etwas arbeit.');
+$.lang.register('gamemessages.lost.38', 'Hoffe du hörst zu. Level up Homie!');
+$.lang.register('gamemessages.lost.39', 'Deine Technik benötigt noch etwas Arbeit.');
 $.lang.register('gamemessages.lost.40', 'Hey, hast du dich verletzt?');
 $.lang.register('gamemessages.lost.41', 'Ist das dein Bestes?');
 $.lang.register('gamemessages.lost.42', 'Hah ha ha ha ha ha ha!');
@@ -71,10 +71,10 @@ $.lang.register('gamemessages.lost.49', 'Ich werde dir nicht sagen, dass du schl
 $.lang.register('gamemessages.lost.50', 'Ich denke, dass ich etwas daraus gelernt habe. Du bist nichts...');
 $.lang.register('gamemessages.lost.51', 'Hey! Mach dir keine Sorgen darüber! Du weisst schon... so schlecht zu sein!');
 $.lang.register('gamemessages.lost.52', 'Die Tragödie aller Verlierer ist, dass sie denken, dass sie am Rande des Sieges wären!');
-$.lang.register('gamemessages.lost.53', 'Hm! Du solltest wieder zu deinen Puzzlen zurück kehren!');
+$.lang.register('gamemessages.lost.53', 'Hm! Du solltest wieder zu deinen Puzzles zurück kehren!');
 $.lang.register('gamemessages.lost.54', 'Die Vergangenheit ist die Vergangenheit Mann! Wenn du jetzt ein Verlierer bist, dann warst du vorher auch schon einer!');
 $.lang.register('gamemessages.lost.55', 'Der Grund, warum du verloren hast ist ganz einfach: Du bist schlecht!');
-$.lang.register('gamemessages.lost.56', 'Erinnerst du dich an die Zeit während des Spieles als es so aussah, dass du gewinnen könntest? Nein? Ich auch nicht!');
+$.lang.register('gamemessages.lost.56', 'Erinnerst du dich an die Zeit während des Spieles, als es so aussah, dass du gewinnen könntest? Nein? Ich auch nicht!');
 $.lang.register('gamemessages.lost.57', 'Ist das alles was du kannst? Dann wundert es mich nicht, dass du nicht weiter kommst!');
 $.lang.register('gamemessages.lost.58', 'Nicht Pech oder Schicksal sind schuld. Du hast verloren, weil du ein Lutscher bist!');
 $.lang.register('gamemessages.lost.59', 'Du warst nicht schlecht. Du warst erbärmlich! Geh nach Hause!');

@@ -1,7 +1,7 @@
 $.lang.register('donationhandler.donation.new', 'Vielen Dank (name) für die Spende von $(amount) (currency)!');
-$.lang.register('donationhandler.donation.newreward', 'Vielen Dank (name) für die Spende von $(amount) (currency)! Hier sind (points) (pointname)!');
+$.lang.register('donationhandler.donation.newreward', 'Vielen Dank (name) für die Spende von $(amount) (currency)! Hier sind (points) (pointname) als Dankeschön!');
 $.lang.register('donationhandler.lastdonation.no-donations', 'Derzeit gibt es keine Spenden.');
-$.lang.register('donationhandler.lastdonation.404', 'Kann die letzte Spende nciht finden!');
+$.lang.register('donationhandler.lastdonation.404', 'Kann die letzte Spende nicht finden!');
 $.lang.register('donationhandler.lastdonation.success', 'Die letzte Spende kam von (name) und betrug $(amount) (currency).');
 $.lang.register('donationhandler.donations.usage', 'Verwendung: !streamlabs (announce | rewardmultiplier n.n | message | lastmessage)');
 $.lang.register('donationhandler.donations.announce.disable', 'Spenden werden nicht mehr länger angekündigt.');
