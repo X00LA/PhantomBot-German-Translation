@@ -135,7 +135,7 @@
     function setQuoteMessage() {
         var value = $('#quoteMessageInput').val();
         if (value.length > 0) {
-            $('#quoteMessageInput').val('Aktulisiere...');
+            $('#quoteMessageInput').val('Aktualisiere...');
             sendDBUpdate('quotes_quotemessage', 'settings', 'quoteMessage', value);
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         }
@@ -183,7 +183,7 @@
     function addQuote() {
         var value = $('#addQuoteInput').val();
         if (value.length > 0) {
-            $('#addQuoteInput').val('Hinzufügen...').blur();
+            $('#addQuoteInput').val('HinzufÃ¼gen...').blur();
             sendCommand('addquotesilent ' + value);
             setTimeout(function() { doQuery(); $('#addQuoteInput').val(''); }, TIMEOUT_WAIT_TIME * 4);
         }

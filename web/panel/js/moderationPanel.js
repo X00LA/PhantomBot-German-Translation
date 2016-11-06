@@ -32,10 +32,10 @@
 
     var modSettingMap = [];
         modSettingMap['symbolsToggle'] = "Symbol Schutz";
-        modSettingMap['capsToggle'] = "CAPS Schutz";
+        modSettingMap['capsToggle'] = "Großbuchstaben Schutz";
         modSettingMap['spamToggle'] = "Spam Schutz";
         modSettingMap['emotesToggle'] = "Emotes Schutz";
-        modSettingMap['colorsToggle'] = "Farb (/me) Schutz";
+        modSettingMap['colorsToggle'] = "Farbiger Text (/me) Schutz";
         modSettingMap['linksToggle'] = "Links Schutz";
         modSettingMap['longMessageToggle'] = "Lange Nachrichten Schutz";
         modSettingMap['spamTrackerToggle'] = "Spam Tracker Schutz";
@@ -58,15 +58,15 @@
         modSettingMap['regularsModerateLongMsg'] = "Stammzuschauer " + modSettingMap['longMessageToggle'];
         modSettingMap['subscribersModerateSpamTracker'] = "Stammzuschauer " + modSettingMap['spamTrackerToggle'];
 
-        modSettingMap['silentTimeoutLinks'] = "Stilles Timeout an " + modSettingMap['linksToggle'];
-        modSettingMap['silentTimeoutCaps'] = "Stilles Timeout an " + modSettingMap['capsToggle'];
-        modSettingMap['silentTimeoutSymbols'] = "Stilles Timeout an " + modSettingMap['symbolsToggle'];
-        modSettingMap['silentTimeoutSpam'] = "Stilles Timeout an " + modSettingMap['spamToggle'];
-        modSettingMap['silentTimeoutEmotes'] = "Stilles Timeout an " + modSettingMap['emotesToggle'];
-        modSettingMap['silentTimeoutColors'] = "Stilles Timeout an " + modSettingMap['colorsToggle'];
-        modSettingMap['silentTimeoutLongMsg'] = "Stilles Timeout an " + modSettingMap['longMessageToggle'];
-        modSettingMap['silentTimeoutSpamTracker'] = "Stilles Timeout an " + modSettingMap['spamTrackerToggle'];
-        modSettingMap['silentTimeoutBlacklist'] = "Stilles Timeout an für schwarze Liste";
+        modSettingMap['silentTimeoutLinks'] = "Stille Auszeit an " + modSettingMap['linksToggle'];
+        modSettingMap['silentTimeoutCaps'] = "Stille Auszeit an " + modSettingMap['capsToggle'];
+        modSettingMap['silentTimeoutSymbols'] = "Stille Auszeit an " + modSettingMap['symbolsToggle'];
+        modSettingMap['silentTimeoutSpam'] = "Stille Auszeit an " + modSettingMap['spamToggle'];
+        modSettingMap['silentTimeoutEmotes'] = "Stille Auszeit an " + modSettingMap['emotesToggle'];
+        modSettingMap['silentTimeoutColors'] = "Stille Auszeit an " + modSettingMap['colorsToggle'];
+        modSettingMap['silentTimeoutLongMsg'] = "Stille Auszeit an " + modSettingMap['longMessageToggle'];
+        modSettingMap['silentTimeoutSpamTracker'] = "Stille Auszeit an " + modSettingMap['spamTrackerToggle'];
+        modSettingMap['silentTimeoutBlacklist'] = "Stille Auszeit an für schwarze Liste";
 
     /**
      * Not used at this time.

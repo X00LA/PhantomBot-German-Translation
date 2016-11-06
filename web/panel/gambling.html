@@ -45,61 +45,298 @@
     <div>
     <div id="_rafflePanelDisabled" />
     <div id="_rafflePanel">
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="raffleOpen">Eröffne/Schließe Verlosung</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.raffleRepick()">Neuer Gewinner</button>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.raffleClose()">Verlosung Schließen</button>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.raffleOpen()">Verlosung eröffnen</button>
-                <input type="text" class="form-control" id="raffleKeywordInput" placeholder="Schlüsselwort" />
-                <input type="number" min="0" class="form-control" id="raffleCostInput" placeholder="Teilnahmekosten" />
-                <input type="number" min="0" class="form-control" id="raffleTimerInput" placeholder="Länge der Verlosung in Sekunden (Optional, Standard ist bis geschlossen)" />
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="raffleFollowerInput" value="-followers">Nur Follower
-                </label>
-            </div>
 
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="raffleMultipleRepick" onclick="$.toggleRaffleMultipleRepick()">Erlaube mehrfache Teilnahme
-                </label>
-            </div>
+    <button type="button" class="btn btn-primary inline pull-right" onclick="$.raffle.repick()">Neuwahl</button>
+    <button type="button" class="btn btn-primary inline pull-right" onclick="$.raffle.end()">Schließen</button>
+    <div class="dropdown">
+        <button class="btn btn-primary inline pull-right dropdown-toggle" type="button" data-toggle="dropdown">Öffnen&nbsp;<span class="caret pull-right" style="margin-top: 8px;"></span></button>
+        <ul class="dropdown-menu pull-right" style="cursor: pointer; margin-top: 39px; margin-right: 40px;">
+            <li><a data-toggle="modal" data-target="#timeRaffle">Verlosung nach Zeit</a></li>
+            <li><a data-toggle="modal" data-target="#pointsRaffle">Verlosung gegen Punkte</a></li>
+            <li><a data-toggle="modal" data-target="#normalRaffle">Normale Verlosung</a></li>
+        </ul>
+    </div>
 
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="raffleEnterMsg" onclick="$.toggleRaffleMsg()">Warnmeldungen
-                </label>
-            </div>
-        </form>
+    <div id="pointsRaffle" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h4 class="modal-title">Verlosung gegen Punkte</h4>
+                </div>
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="raffleMsg">Verlosungsnachricht</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateRaffleSettings('raffleMsg')">Übermitteln</button>
-                <input type="text" class="form-control" id="raffleMsg" placeholder="Nachricht" data-toggle="tooltip" title="Automatische Bekanntgabe der Verlosung. Wird angenommen, wenn eine neue Verlosung gestartet wird. Tags: (keyword) und (entries)."/>
-            </div>
-        </form>
+                <div class="modal-body">
+                    <lable>Schlüsselwort</lable>
+                    <div class="btn-group">
+                        <input style="width: 400px; margin-left: 55px;" type="text" class="form-control" id="raffle-keyword" placeholder="Schlüsselwort" />
+                    </div>
 
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="raffleTimer">Nachrichten Timer (Minuten)</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateRaffleSettings('raffleTimer')">Übermitteln</button>
-                <input type="number" min="0" class="form-control" id="raffleTimer" placeholder="Länge" data-toggle="tooltip" 
-                title="Automatische Bekanntgabe der Zeit für Verlosung. Verwende 0 zum Deaktivieren. Wird angenommen, wenn eine neue Verlosung gestartet wird."/>
-            </div>
-        </form>
+                    <br>
+                    <br>
+                    <lable>Beitrittsgebühr</lable>
+                    <div class="btn-group">
+                        <input style="width: 400px; margin-left: 51px;" type="number" min="1" class="form-control" id="raffle-cost" placeholder="Punkte" />
+                    </div>
 
-        <div id="raffleResults" />
+                    <br>
+                    <br>
+                    <lable>Teilnahmeberechtigt</lable>&nbsp;
+                    <div class="btn-group">
+                        <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 48px; width: 405px; background: #000" data-toggle="dropdown">
+                            Alle<span class="caret pull-right" style="margin-top: 8px;"></span></button>
+
+                        <ul class="dropdown-menu" style="margin-left: 48px;">
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('followers')">Follower</a>
+                            </li>
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('everyone')">Alle</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <lable>Laufzeit</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-points-timer" style="width: 400px; margin-left: 33px;" type="range" min="0" max="120" value="0" step="1" oninput="rangeUpdate(this.value, 'raffle-points-timer2', 'Minuten')" />
+                        <span id="raffle-points-timer2" style="margin-left: 33px;">Bis Abschluß</span>
+                    </div>
+
+                    <br>
+                    <lable>Stammzuschauer-Glück</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-points-regluck" style="width: 400px; margin-left: 28px;" type="range" min="1" max="10" value="1" step="1" oninput="rangeUpdate(this.value, 'raffle-points-reg', 'Male')" />
+                        <span id="raffle-points-reg" style="margin-left: 28px;">1 Mal</span>
+                    </div>
+
+                    <br>
+                    <lable>Abonnenten-Glück</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-points-subluck" style="width: 400px; margin-left: 10px;" type="range" min="1" max="10" value="1" step="1" oninput="rangeUpdate(this.value, 'raffle-points-sub', 'Male')" />
+                        <span id="raffle-points-sub" style="margin-left: 10px;">1 Mal</span>
+                    </div>
+                    </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-toggle="modal" data-target="#raffleSettings"><i class="fa fa-cog"/></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.raffle.openPoints()">Öffnen</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="timeRaffle" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h4 class="modal-title">Verlosung nach Zeit</h4>
+                </div>
+
+                <div class="modal-body">
+                    <lable>Schlüsselwort</lable>
+                    <div class="btn-group">
+                        <input style="width: 400px; margin-left: 55px;" type="text" class="form-control" id="raffle-time-keyword" placeholder="Schlüsselwort" />
+                    </div>
+
+                    <br>
+                    <br>
+                    <lable>Minimale Zeit</lable>
+                    <div class="btn-group">
+                        <input style="width: 400px; margin-left: 15px;" type="number" min="1" class="form-control" id="raffle-time-cost" placeholder="Zeit" />
+                    </div>
+
+                    <br>
+                    <br>
+                    <lable>Teilnahmeberechtigt</lable>&nbsp;
+                    <div class="btn-group">
+                        <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 48px; width: 405px; background: #000" data-toggle="dropdown">
+                            Alle<span class="caret pull-right" style="margin-top: 8px;"></span></button>
+
+                        <ul class="dropdown-menu" style="margin-left: 48px;">
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('followers')">Follower</a>
+                            </li>
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('everyone')">Alle</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <lable>Laufzeit</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-time-timer" style="width: 400px; margin-left: 33px;" type="range" min="0" max="120" value="0" step="1" oninput="rangeUpdate(this.value, 'raffle-time-timer2', 'Minuten')" />
+                        <span id="raffle-time-timer2" style="margin-left: 33px;">Bis Abschluß</span>
+                    </div>
+
+                    <br>
+                    <lable>Stammzuschauer-Glück</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-time-regluck" style="width: 400px; margin-left: 28px;" type="range" min="1" max="10" value="1" step="1" oninput="rangeUpdate(this.value, 'raffle-time-reg', 'Male')" />
+                        <span id="raffle-time-reg" style="margin-left: 28px;">1 Mal</span>
+                    </div>
+
+                    <br>
+                    <lable>Abonnenten-Glück</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-time-subluck" style="width: 400px; margin-left: 10px;" type="range" min="1" max="10" value="1" step="1" oninput="rangeUpdate(this.value, 'raffle-time-sub', 'Male')" />
+                        <span id="raffle-time-sub" style="margin-left: 10px;">1 Mal</span>
+                    </div>
+                    </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-toggle="modal" data-target="#raffleSettings"><i class="fa fa-cog"/></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.raffle.openTime()">Öffnen</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="normalRaffle" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> </button>
+                    <h4 class="modal-title">Normale Verlosung</h4>
+                </div>
+
+                <div class="modal-body">
+                    <lable>Schlüsselwort</lable>
+                    <div class="btn-group">
+                        <input style="width: 400px; margin-left: 55px;" type="text" class="form-control" id="raffle-normal-keyword" placeholder="Schlüsselwort" />
+                    </div>
+
+                    <br>
+                    <br>
+                    <lable>Teilnahmeberechtigt</lable>&nbsp;
+                    <div class="btn-group">
+                        <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 48px; width: 405px; background: #000" data-toggle="dropdown">
+                            Alle<span class="caret pull-right" style="margin-top: 8px;"></span></button>
+
+                        <ul class="dropdown-menu" style="margin-left: 48px;">
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('followers')">Follower</a>
+                            </li>
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('everyone')">Alle</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <lable>Laufzeit</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-normal-timer" style="width: 400px; margin-left: 33px;" type="range" min="0" max="120" value="0" step="1" oninput="rangeUpdate(this.value, 'raffle-normal-timer2', 'Minuten')" />
+                        <span id="raffle-normal-timer2" style="margin-left: 33px;">Bis Abschluß</span>
+                    </div>
+
+                    <br>
+                    <lable>Stammzuschauer-Glück</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-normal-regluck" style="width: 400px; margin-left: 28px;" type="range" min="1" max="10" value="1" step="1" oninput="rangeUpdate(this.value, 'raffle-normal-regluck2', 'Male')" />
+                        <span id="raffle-normal-regluck2" style="margin-left: 28px;">1 Mal</span>
+                    </div>
+
+                    <br>
+                    <lable>Abonnenten-Glück</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-normal-subluck" style="width: 400px; margin-left: 10px;" type="range" min="1" max="10" value="1" step="1" oninput="rangeUpdate(this.value, 'raffle-normal-subluck2', 'Male')" />
+                        <span id="raffle-normal-subluck2" style="margin-left: 10px;">1 Mal</span>
+                    </div>
+                    </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-toggle="modal" data-target="#raffleSettings"><i class="fa fa-cog"/></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.raffle.openNormal()">Öffnen</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="raffleSettings" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> </button>
+                    <h4 class="modal-title">Globale Einstellungen</h4>
+                </div>
+
+                <div class="modal-body">
+                    <lable>Automatische Nachrichten</lable>
+                    <div class="btn-group">
+                        <input id="raffle-message-input" style="width: 400px; margin-left: 56px;" type="text" class="form-control" placeholder="Nachricht" />
+                    </div>
+
+                    <br>
+                    <lable>Nachrichtenintervall</lable>
+                    <div class="btn-group">&nbsp;&nbsp;&nbsp;
+                        <input id="raffle-message-timer" style="width: 400px; margin-left: 39px;" type="range" min="0" max="120" value="0" step="1" oninput="rangeUpdate(this.value, 'raffle-message-timer2', 'Minuten')" />
+                        <span id="raffle-message-timer2" style="margin-left: 39px;">Deaktiviert</span>
+                    </div>
+
+                    <br>
+                    <br>
+                    <lable>Warnnachrichten</lable>&nbsp;
+                    <div class="btn-group">
+                        <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 22px; width: 405px; background: #000" data-toggle="dropdown">
+                            <span id="raffle-message">Deaktiviert</span><span class="caret pull-right" style="margin-top: 8px;"></span></button>
+
+                        <ul class="dropdown-menu" style="margin-left: 22px;">
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'raffleMSGToggle', 'true')">Aktiviert</a>
+                            </li>
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'raffleMSGToggle', 'false')">Deaktiviert</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <br>
+                    <lable>Mehrfache Neuwahl</lable>&nbsp;
+                    <div class="btn-group">
+                        <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 39px; width: 405px; background: #000" data-toggle="dropdown">
+                            <span id="raffle-repick">Nein</span><span class="caret pull-right" style="margin-top: 8px;"></span></button>
+
+                        <ul class="dropdown-menu" style="margin-left: 39px;">
+                            <li ><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'noRepickSame', 'false')">Ja</a>
+                            </li>
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'noRepickSame', 'true')">Nein</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <br>
+                    <lable>Gewinner anflüstern</lable>&nbsp;
+                    <div class="btn-group">
+                        <button class="btn dropdown-toggle btn-select" style="text-align: left; margin-left: 44px; width: 405px; background: #000" data-toggle="dropdown">
+                            <span id="raffle-whisper-winner">Nein</span><span class="caret pull-right" style="margin-top: 8px;"></span></button>
+
+                        <ul class="dropdown-menu" style="margin-left: 44px;">
+                            <li ><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'raffleWhisperWinner', 'true')">Ja</a>
+                            </li>
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.raffle.set('raffleSettings', 'raffleWhisperWinner', 'false')">Nein</a>
+                            </li>
+                        </ul>
+                    </div>
+                
+                <br><br>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.raffle.settings()">Speichern</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <br><br><br>
+    <div id="raffleResults" />
+    <td>Teilnehmer: <span id="raffleentries">0</span></td>
+
+    <br><br>
+    <label for="raffleListTable">Teilnehmerliste</label>
+    <div id="raffleListTable" style="height: 200px; overflow: auto;" />
     <br>
-        <td>Einträge gesamt: <span id="raffleentries">0</span></td>
-        <br>
-    <br>
-        <label for="raffleListTable">Verlosungsteilnehmer Liste</label>
-        <div id="raffleListTable" style="height: 200px; overflow: auto;" />
-        <br>
-        <small><i>Bitte beachte, dass die Liste erst beim Start einer neuen Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, einen neuen Gewinner zu wählen.</i></small>
+    <small><i>Bitte beachte, dass die Liste erst bei Eröffnung der nächsten Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, einen neuen Gewinner zu wählen.</i></small>
+
     </div>
     </div>
 
@@ -151,17 +388,18 @@
         <td>Einträge gesamt: <span id="traffleentries">0</span></td>
         <br>
     <br>
-        <label for="traffleListTable">Verlosungsteilnehmer Liste</label>
+        <label for="traffleListTable">Teilnehmer Liste</label>
         <div id="traffleListTable" style="height: 200px; overflow: auto;" />
         <br>
         <small><i>Bitte beachte, dass die Liste erst beim Start einer neuen Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, einen neuen Gewinner zu wählen.</i></small>
     </div>
     </div>
     </div>
-
 </div>
 
 <!-- Run the Acordion -->
 <script>$("#gamblingAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
 <script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
+<script>function rangeUpdate(value, id, string) { document.getElementById(id).innerHTML = value + ' ' + string; }</script>
+<script>$(".dropdown-menu li a").click(function() { $(this).parents('.btn-group').find('.dropdown-toggle').html($(this).text() + '</span> <span class="caret pull-right" style="margin-top: 8px;"></span>');});</script>
 <script>handleInputFocus();</script>

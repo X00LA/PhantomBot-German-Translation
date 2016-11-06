@@ -217,7 +217,7 @@
 
             if (panelCheckQuery(msgObject, 'commands_payment')) {
                 if (msgObject['results'].length === 0) {
-                    $('#payCommandsList').html('<i>Es sind keine Befehle mit Vergütungen definiert.</i>');
+                    $('#payCommandsList').html('<i>Es sind keine Befehle mit VergÃ¼tungen definiert.</i>');
                     return;
                 }
                 for (idx in msgObject['results']) {
@@ -663,8 +663,8 @@
         
         if (input.length > 0 && command.length != 0) {
             sendDBUpdate("commands_cooldown_add", "cooldown", String(command), String(input));
-            $("#cooldownCmdInput").val("Übermittelt");
-            $("#cooldownCmdInputCommand").val("Übermittelt");
+            $("#cooldownCmdInput").val("Ãœbermittelt");
+            $("#cooldownCmdInputCommand").val("Ãœbermittelt");
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
             setTimeout(function() { $("#cooldownCmdInputCommand").val(""); $("#cooldownCmdInput").val(""); }, TIMEOUT_WAIT_TIME);
         }

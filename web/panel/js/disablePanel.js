@@ -157,7 +157,7 @@
             }
             if (panelMatch(module, './handlers/panelHandler.js')) {
                 if (!moduleEnabled) {
-                    $('#panelStatsStatus').html('<span class="purplePill" data-toggle="tooltip" title="Panel-Statistiken deaktiviert. Aktiviere Modul ./handlers/panelHandler.js für Twitch online/offline Information, Onlinezeit und Chat-Statistiken im Panel."><i class="fa fa-exclamation-triangle fa-lg" /></span>');
+                    $('#panelStatsStatus').html('<span class="purplePill" data-toggle="tooltip" title="Panel-Statistiken deaktiviert. Aktiviere Modul ./handlers/panelHandler.js fÃ¼r Twitch online/offline Information, Onlinezeit und Chat-Statistiken im Panel."><i class="fa fa-exclamation-triangle fa-lg" /></span>');
                 } else {
                     $('#panelStatsStatus').html('');
                 }

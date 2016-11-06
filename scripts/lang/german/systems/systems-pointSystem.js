@@ -1,4 +1,4 @@
-$.lang.register('pointsystem.add.all.success', '$1 wurden an alle im Kanal gesendetl!');
+$.lang.register('pointsystem.add.all.success', '$1 wurden an alle im Kanal gesendet!');
 $.lang.register('pointsystem.add.all.usage', 'Verwendung: !points all [Menge]');
 $.lang.register('pointsystem.take.all.success', '$1 wurden von jedem im Kanal entfernt!');
 $.lang.register('pointsystem.take.all.usage', 'Verwendung: !points takeall [Menge]');
@@ -14,7 +14,7 @@ $.lang.register('pointsystem.makeitrain.error.needpoints', 'Du kannst es dir der
 $.lang.register('pointsystem.makeitrain.error.negative', 'Du kannst keine negativen $1 regnen lassen.');
 $.lang.register('pointsystem.makeitrain.success', 'Ein Gewittersturm zieht auf! $1 warf insgesamt $2 $3 in die Luft!');
 $.lang.register('pointsystem.makeitrain.usage', 'Verwendung: !makeitrain [Menge]');
-$.lang.register('pointsystem.set.bonus.error.negative', 'Du kannst den Bunos-per-Gruppe nicht auf negativ $1 setzen.');
+$.lang.register('pointsystem.set.bonus.error.negative', 'Du kannst den Bonus-per-Gruppe nicht auf negativ $1 setzen.');
 $.lang.register('pointsystem.set.bonus.success', 'Setzt den $1 Bonus auf $2 pro Gruppenlevel.');
 $.lang.register('pointsystem.set.bonus.usage', 'Verwendung: !points bonus [Menge]');
 $.lang.register('pointsystem.set.gain.error.negative', 'Du kannst die Menge von verdienten $1 nicht auf eine negative Zahl setzen.');
@@ -28,14 +28,14 @@ $.lang.register('pointsystem.set.interval.offline.usage', 'Verwendung: !points s
 $.lang.register('pointsystem.set.interval.success', '$1 Auszahlungsintervall auf $2 Minute(n), wenn der Stream online ist, gesetzt..');
 $.lang.register('pointsystem.set.interval.usage', 'Verwendung: !points setinterval [Menge]');
 $.lang.register('pointsystem.set.name.both.success', 'Der Name der Punkte wurde von "$1" zu "$2" geändert. Setze den Namen für ein(e)(n) $2 mit !points setname single [Name].');
-$.lang.register('pointsystem.set.name.multiple.success', 'Name der Mehrzahl erfolgreich geändert von "$1" zu "$2". Setze den Namen für ein(e)(n) $2 mit !points setname single [Name].');
-$.lang.register('pointsystem.set.name.single.success', 'Name der Einzahl erfolgreich geändert von "$1" zu "$2". Setze den Namen für mehrere $2 mit !points setname multiple [Name].');
+$.lang.register('pointsystem.set.name.multiple.success', 'Name der Mehrzahl erfolgreich geändert von "$1" zu "$2". Setze den Namen für mehrere $2 mit !points setname multiple [Name].');
+$.lang.register('pointsystem.set.name.single.success', 'Name der Einzahl erfolgreich geändert von "$1" zu "$2". Setze den Namen für ein(e)(n) $2 mit !points setname single [Name].');
 $.lang.register('pointsystem.set.name.usage', 'Verwendung: !points setname [single | multiple | delete] [Name]. Setzt die Namen für einzelne oder mehrere Punkte, oder löscht die Werte.');
 $.lang.register('pointsystem.set.name.delete', 'Benutzerdefinierte Punktenamen entfernt.');
 $.lang.register('pointsystem.setbalance.error.negative', 'Du kannst den Kontostand nicht auf negative $1 setzen.');
 $.lang.register('pointsystem.setbalance.success', '$1 Kontostand von $2 zu $3 geändert.');
 $.lang.register('pointsystem.setbalance.usage', 'Verwendung: !points set [Benutzername] [Menge]');
-$.lang.register('pointsystem.take.error.toomuch', 'Du kannst nicht mehr nehmen, als $1 in seinem $2 hat.');
+$.lang.register('pointsystem.take.error.toomuch', 'Du kannst nicht mehr nehmen, als $1 in seinem/ihrem $2 hat.');
 $.lang.register('pointsystem.take.success', '$1 von $2 genommen. Neuer Kontostand beträgt $3.');
 $.lang.register('pointsystem.take.usage', 'Verwendung: !points take [Benutzername] [Menge]');
 $.lang.register('pointsystem.gift.usage', 'Verwendung: !gift [Benutzername] [Menge]');

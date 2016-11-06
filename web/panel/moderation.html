@@ -346,7 +346,7 @@
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="capsLimitPercent">CAPS Prozentsatz</label>
+                <label for="capsLimitPercent">Großbuchstaben Prozentsatz</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#capsLimitPercentInput', 'capsLimitPercent')">Übermitteln</button>
                 <input type="number" min="0" max="100" class="form-control" id="capsLimitPercentInput" placeholder="Laden..."
@@ -356,7 +356,7 @@
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="capsTriggerLength">CAPS Auslöser Limit</label>
+                <label for="capsTriggerLength">Großbuchstaben Auslöser Limit</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#capsTriggerLengthInput', 'capsTriggerLength')">Übermitteln</button>
                 <input type="number" min="0" class="form-control" id="capsTriggerLengthInput" placeholder="Laden..."
@@ -385,7 +385,7 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleModerationCaps" onclick="$.toggleModerations('Caps', 'capsToggle')">CAPS Moderieren
+                    <input type="checkbox" id="toggleModerationCaps" onclick="$.toggleModerations('Caps', 'capsToggle')">Großbuchstaben Moderieren
                 </label>
             </div>
         </form>

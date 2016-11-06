@@ -1,5 +1,5 @@
 $.lang.register('queuesystem.queue.closed', 'Die Warteschlange ist derzeit geschlossen.');
-$.lang.register('queuesystem.err.missing.tag', 'Du musst dein Gamertag angeben.');
+$.lang.register('queuesystem.err.missing.tag', 'Du musst deinen Gamertag angeben.');
 $.lang.register('queuesystem.err.in.queue', 'Du bist bereits in der Warteschlange!');
 $.lang.register('queuesystem.err.queue.full', 'Die Warteschlange ist derzeit voll.');
 $.lang.register('queuesystem.added.queue', 'Du wurdest der Warteschlange hinzugefügt!');

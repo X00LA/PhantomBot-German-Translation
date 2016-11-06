@@ -392,7 +392,7 @@
 
         if (time.length != 0 && user.length != 0) {
             sendCommand('penalty ' + user + ' ' + time);
-            $("#penaltyUser").val(user + ' wird für ' + time + ' Minuten keine Punkte bekommen.');
+            $("#penaltyUser").val(user + ' wird fÃ¼r ' + time + ' Minuten keine Punkte bekommen.');
         } else {
             $("#penaltyUser").val('Error.');
         }

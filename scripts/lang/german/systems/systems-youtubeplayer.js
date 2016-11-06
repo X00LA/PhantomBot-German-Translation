@@ -14,7 +14,7 @@ $.lang.register('ytplayer.command.ytp.setrequestmax.success', 'Maximale Anzahl g
 $.lang.register('ytplayer.command.ytp.setmaxvidlength.usage', 'Verwendung: !ytp setmaxvidlength [Sekunden]');
 $.lang.register('ytplayer.command.ytp.setmaxvidlength.success', 'Maximale Musiktitel-Länge auf $1 Sekunden gesetzt.');
 $.lang.register('ytplayer.command.ytp.setdjname.usage', 'Verwendung: !ytp setdjname [Name]');
-$.lang.register('ytplayer.command.ytp.setdjname.success', 'DJ Name auf $1 geändert.');
+$.lang.register('ytplayer.command.ytp.setdjname.success', 'DJ Name zu $1 geändert.');
 $.lang.register('ytplayer.command.playlist.usage', 'Verwendung: !playlist [add | delete | loadpl | deletepl | listpl | importpl]');
 $.lang.register('ytplayer.command.playlist.add.failed', 'Hinzufügen zur Playlist fehlgeschlagen: $1');
 $.lang.register('ytplayer.command.playlist.add.usage', 'Verwendung: !ytp playlist add [Youtube Link]');
@@ -34,7 +34,7 @@ $.lang.register('ytplayer.command.songrequest.usage', 'Verwendung: !songrequest 
 $.lang.register('ytplayer.command.songrequest.success', 'Dein Titel "$1", wurde zur Warteliste hinzugefügt. (Position: $3 ID: $4)');
 $.lang.register('ytplayer.command.songrequest.failed', 'Hinzufügen von $1 zur Warteschlange fehlgeschlagen.');
 $.lang.register('ytplayer.command.previoussong', 'Vorheriger Musikwunsch war [$1], gewünscht von $2 aus $3.');
-$.lang.register('ytplayer.command.previoussong.404', 'Es gibt keinen vorherigen Sontitel anzuzeigen.');
+$.lang.register('ytplayer.command.previoussong.404', 'Es gibt keinen vorherigen Songtitel anzuzeigen.');
 $.lang.register('ytplayer.command.currentsong', 'Aktueller Musikwunsch ist [$1], gewünscht von $2 aus $3.');
 $.lang.register('ytplayer.command.currentsong.404', 'Es gibt keinen aktuellen Song.');
 $.lang.register('ytplayer.command.delrequest.success', 'Song mit der ID [$1], dem Titel [$2], aus den Musikwünschen entfernt.');
@@ -55,7 +55,7 @@ $.lang.register('ytplayer.requestsong.error.maxrequests', 'Überschreitet die ma
 $.lang.register('ytplayer.requestsong.error.disabled', 'Musikwünsche sind deaktiviert!');
 $.lang.register('ytplayer.requestsong.error.yterror', 'YouTube Fehler ($1)!');
 $.lang.register('ytplayer.requestsong.error.exists', 'Musikwunsch ist bereits auf der Warteliste!');
-$.lang.register('ytplayer.requestsong.error.maxlength', 'Musititellänge beträgt $1 und überschreitet die maximal zulässige Länge!');
+$.lang.register('ytplayer.requestsong.error.maxlength', 'Musiktitellänge beträgt $1 und überschreitet die maximal zulässige Länge!');
 $.lang.register('ytplayer.command.importpl.file.start', 'Import gestartet, bitte warten...');
 $.lang.register('ytplayer.command.importpl.file.success', 'Import abgeschlossen! Erfolgreich $1 Musiktitel importiert, hinzufügen von $2 Musiktitel(n) aus $3 zur Playlist $4 fehlgeschlagen.');
 $.lang.register('ytplayer.command.importpl.file.404', 'Kann Datei $1 nicht finden!');
@@ -73,3 +73,10 @@ $.lang.register('ytplayer.blacklist.add.success.song', 'Song/Schlüsselwort: "$1
 $.lang.register('ytplayer.blacklist.remove.usage.song', 'Verwendung: !ytp blacklist remove [Name]');
 $.lang.register('ytplayer.blacklist.remove.success.song', 'Song/Schlüsselwort: "$1" wurde von der Blacklist entfernt.');
 $.lang.register('ytplayer.blacklist.404', 'Liedtitel wurde auf die schwarze Liste gesetzt.');
+$.lang.register('ytplayer.command.skip.success', 'Überspringen angefragt! Der aktuelle Titel wird mit $1 mehr Stimmen übersprungen!');
+$.lang.register('ytplayer.command.skip.disabled', 'Die Abstimmfunktion ist derzeit deaktiviert.');
+$.lang.register('ytplayer.command.skip.failure', 'Du hast bereits das Überspringen des Titels beantragt.');
+$.lang.register('ytplayer.command.skip.skipping', 'Die Stimmen wurden gezählt uns die Zuschauer haben gesprochen!!! Überspringe den aktuellen Titel!');
+$.lang.register('ytplayer.command.votecount.set', 'Minimale Anzahl an Stimmen um Musiktitel zu überspringen: $1');
+$.lang.register('ytplayer.command.votecount.negative', 'Die Anzahl an Stimmen muss positiv sein!');
+$.lang.register('ytplayer.command.votecount.usage', '!ytp votecount [Anzahl]  ---  Aktuelle Einstellung: $1');

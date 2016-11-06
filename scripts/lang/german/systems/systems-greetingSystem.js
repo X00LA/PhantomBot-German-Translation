@@ -1,7 +1,7 @@
 $.lang.register('greetingsystem.set.autogreet.enabled', 'Auto-Begrüßung aktiviert. $1 wird nun jeden begrüßen.');
 $.lang.register('greetingsystem.set.autogreet.disabled', 'Auto-Begrüßung deaktiviert. $1 wird nun niemanden mehr Grüßen.');
-$.lang.register('greetingsystem.set.autogreet.usage', 'Verwendung: !greeting setdefault [Nachricht].  Verwende "(name)" um den Benut6ernamen zu integrieren.');
-$.lang.register('greetingsystem.set.autogreet.noname', 'Die Standard-Begrüßungsnachricht benötigt den Tag "(name)" um zu wissen wo man den Benutzernamen hingehört.');
+$.lang.register('greetingsystem.set.autogreet.usage', 'Verwendung: !greeting setdefault [Nachricht]. Verwende "(name)" um den Benutzernamen zu integrieren.');
+$.lang.register('greetingsystem.set.autogreet.noname', 'Die Standard-Begrüßungsnachricht benötigt den Tag "(name)" um zu wissen wo der Benutzername hingehört.');
 $.lang.register('greetingsystem.set.autogreet.success', 'Standard-Begrüßungsnachricht geändert zu "$1". Auto-Begrüßung ist nun $2.');
 $.lang.register('greetingsystem.set.personal.success', 'Persönliche Begrüßung geändert zu "$1".');
 $.lang.register('greetingsystem.remove.personal.success', 'Persönliche Begrüßungsnachricht erfolgreich entfernt.');

@@ -32,7 +32,8 @@ var YOUTUBE_IFRAME = false;
 
 var url = window.location.host.split(":");
 var addr = 'ws://' + url[0] + ':' + getPanelPort();
-var connection = new WebSocket(addr, []);
+//var connection = new WebSocket(addr, []);
+var connection = new ReconnectingWebSocket(addr, null, {reconnectInterval: 5000});
 var isConnected = false;
 var panelStatsEnabled = false;
 var inputFieldInFocus = false;
@@ -189,6 +190,21 @@ function sendDBKeys(unique_id, table) {
     jsonObject = {};
     jsonObject["dbkeys"] = unique_id;
     jsonObject["query"] = { "table": table };
+    connection.send(JSON.stringify(jsonObject));
+}
+
+/**
+ * @function sendDBKeysList
+ * @param {String} unique_id
+ * @param {Array}{String} tables
+ */
+function sendDBKeysList(unique_id, tableList) {
+    jsonObject = {};
+    jsonObject["dbkeyslist"] = unique_id;
+    jsonObject["query"] = [];
+    for (i in tableList) {
+        jsonObject["query"].push({ "table": tableList[i] });
+    }
     connection.send(JSON.stringify(jsonObject));
 }
 

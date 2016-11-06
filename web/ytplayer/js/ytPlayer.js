@@ -114,7 +114,7 @@ connection.onmessage = function(e) {
 
     if (messageObject['authresult'] == false) {
         if (!messageObject['authresult']) {
-            newSongAlert('Authorisierung fehlgeschlagen!', 'Lade Seite neu, wenn das fehlschlägt, dann starte den Bot neu.', 'danger', 0);
+            newSongAlert('Authorisierung fehlgeschlagen!', 'Lade die Seite neu, wenn das fehlschlägt, dann starte den Bot neu.', 'danger', 0);
             return;
         }
         return;

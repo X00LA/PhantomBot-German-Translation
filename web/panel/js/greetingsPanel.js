@@ -462,7 +462,7 @@
     setInterval(function() {
         var active = $('#tabs').tabs('option', 'active');
         if (active == 7 && isConnected && !isInputFocus()) {
-            newPanelAlert('Aktualisiere Begrüßungs-Daten...', 'success', 1000);
+            newPanelAlert('Aktualisiere BegrÃ¼ÃŸungs-Daten...', 'success', 1000);
             doQuery();
         }
     }, 3e4);
