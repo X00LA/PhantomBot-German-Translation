@@ -1,3 +1,5 @@
+<iframe src="https://discordapp.com/widget?id=240072919722622977&theme=dark" width="150" height="80" allowtransparency="true" frameborder="0"></iframe>
+
 # PhantomBot-German-Translation
 
 This is the german translation for the popular Multipurpose-Twitch-Chat-Bot PhantomBot.
