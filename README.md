@@ -8,7 +8,7 @@ Because this is the german translation I do not write more informations in engli
 
 # License Information
 
-This translation is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU GPL V3.0</a>.
+This translation is licensed under the MIT-License+.
 
 
 # Deutsche PhantomBot-Übersetzung
@@ -57,4 +57,4 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
 
 # Lizenzinformation
 
-Die Übersetzung ist unter der <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">GNU GPL V3.0</a> lizensiert.
+Die Übersetzung ist unter der MIT-Lizenz lizensiert.
