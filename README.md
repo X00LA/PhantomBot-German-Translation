@@ -52,7 +52,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         Übersetzung Version 2.3.2d --> Bugfix
 		
 	PhantomBot Version 2.3.3
-		Übersetzung Version 2.3.3a --> Update auf Bot-Version 2.3.3, viele Tippfehler korrigiert, Log- und Konsoleneinträge wieder zu englisch geändert, einige Einträge abgeändert.
+		Übersetzung Version 2.3.3a --> Update auf Bot-Version 2.3.3, viele Tippfehler korrigiert, Log- und Konsoleneinträge wieder zu englisch geändert, einige Einträge abgeändert, Englische original Dateien miteingefügt.
 
 
 # Lizenzinformation
