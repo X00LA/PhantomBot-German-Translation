@@ -1,4 +1,4 @@
-$.lang.register('hosthandler.host.message', '(name) wird nun gehostet!');
+$.lang.register('hosthandler.host.message', '(name) hostet dich jetzt!');
 $.lang.register('hosthandler.hostcount', 'Dieser Kanal wird gerade von $1 Kanälen gehostet!');
 $.lang.register('hosthandler.hostcount.404', 'Dieser Kanal wird gerade von niemandem gehostet.');
 $.lang.register('hosthandler.hostlist', 'Dieser Kanal wird gerade von $1 gehostet!');
