@@ -20,7 +20,7 @@
     /* Set default values for all configuration items. */
     $.getSetIniDbString('twitter', 'message_online', 'Habe gerade begonnen (game) zu streamen! (twitchurl)');
     $.getSetIniDbString('twitter', 'message_gamechange', 'Wechsle gerade zu (game)! (twitchurl)');
-    $.getSetIniDbString('twitter', 'message_update', 'Ich streame seit (uptime) [(game)]! (twitchurl)');
+    $.getSetIniDbString('twitter', 'message_update', 'Ich streame (uptime) [(game)]! (twitchurl)');
 
     $.getSetIniDbNumber('twitter', 'polldelay_mentions', 60);
     $.getSetIniDbNumber('twitter', 'polldelay_retweets', 60);
