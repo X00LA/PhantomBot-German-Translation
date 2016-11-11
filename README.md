@@ -53,6 +53,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
 		
 	PhantomBot Version 2.3.3
 		Übersetzung Version 2.3.3a --> Update auf Bot-Version 2.3.3, viele Tippfehler korrigiert, Log- und Konsoleneinträge wieder zu englisch geändert, einige Einträge abgeändert, Englische original Dateien miteingefügt, zu MIT Lizenz gewechselt.
+		Übersetzung Version 2.3.3a --> Discord Nachricht geändert damit diese auch den Kanal-Avatar anzeigt.
 
 
 # Lizenzinformation
