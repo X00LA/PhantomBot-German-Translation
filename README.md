@@ -1,3 +1,5 @@
+[![Discord](https://discordapp.com/api/guilds/240072919722622977/widget.png)](https://discord.gg/JKJU3Zd)
+
 # PhantomBot-German-Translation
 
 This is the german translation for the popular Multipurpose-Twitch-Chat-Bot PhantomBot.
