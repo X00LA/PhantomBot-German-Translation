@@ -2,6 +2,7 @@ $.lang.register('chatmoderator.usage.toggles', 'Verwendung: !moderation [links /
 $.lang.register('chatmoderator.usage.messages', 'Verwendung: !moderation [linksmessage / capsmessage / symbolsmessage / spammessage / emotesmessage / colorsmessage / blacklistmessage / longmsgmessage / spamtrackermessage]');
 $.lang.register('chatmoderator.options', 'Verwendung: !moderation [capstriggerlength / capslimit / symbolstriggerlength / symbolslimit / symbolsgrouplimit / spamlimit / emoteslimit / spamtrackerlimit / spamtrackertime / permittime / warningtime / timeouttime / messagecooldown / messagecharacterlimit / blacklisttimeouttime / warningresettime]');
 $.lang.register('chatmoderator.link.usage', 'Verwendung: !moderation links [on / off] (Linkfilter ist aktuell $1)');
+$.lang.register('chatmoderator.fakepurge.usage', 'Verwendung: !moderation fakepurge [on / off] (Gefakte Reinigung ist aktuell $1)');
 $.lang.register('chatmoderator.link.filter.enabled', 'Link-Filter wurde aktiviert.');
 $.lang.register('chatmoderator.msgcooldown.usage', 'Verwendung: !moderation messagecooldown [Zeit in Sekunden]');
 $.lang.register('chatmoderator.msgcooldown.set', 'Nachrichten Abklingzeit wurde auf $1 Sekunden festgelegt.');
@@ -11,6 +12,7 @@ $.lang.register('chatmoderator.link.filter.disabled', 'Link-Filter wurde deaktiv
 $.lang.register('chatmoderator.message.limit.usage', 'Verwendung: !moderation messagecharacterlimit [Anzahl]');
 $.lang.register('chatmoderator.message.limit.set', 'Max. Zeichen in einer Nachricht auf $1 Zeichen festgelegt.');
 $.lang.register('chatmoderator.message.message.usage', 'Verwendung: !moderation longmsgmessage [Nachricht]');
+$.lang.register('chatmoderator.message.fakepurge.usage', 'Verwendung: !moderation fakepurgemessage [Nachricht]');
 $.lang.register('chatmoderator.message.message.set', 'long-message Nachricht wurde zu $1 geändert.');
 $.lang.register('chatmoderator.message.usage', 'Verwendung: !moderation longmessages [on / off] (lange Nachrichten-Filter ist derzeit $1)');
 $.lang.register('chatmoderator.message.filter.enabled', 'Lange Nachrichten-Filter wurde aktiviert.');
@@ -33,8 +35,10 @@ $.lang.register('chatmoderator.emotes.filter.disabled', 'Emotes-Filter wurde dea
 $.lang.register('chatmoderator.colors.usage', 'Verwendung: !moderation colors [on / off] (Farb-Filter ist derzeit $1)');
 $.lang.register('chatmoderator.colors.filter.enabled', 'Farb-Filter wurde aktiviert.');
 $.lang.register('chatmoderator.colors.filter.disabled', 'Farb-Filter wurde deaktiviert.');
-$.lang.register('chatmoderator.regulars.usage', 'Verwendung: !moderation regulars [links / caps / symbols / spam / emotes / colors / longmessages / spamtracker] [true / false]');
-$.lang.register('chatmoderator.subscribers.usage', 'Verwendung: !moderation subscribers [links / caps / symbols / spam / emotes / colors / longmessages / spamtracker] [true / false]');
+$.lang.register('chatmoderator.fakepurge.filter.enabled', 'Gefakte Reinigung wurde aktiviert.');
+$.lang.register('chatmoderator.fakepurge.filter.disabled', 'Gefakte Reinigung wurde deaktiviert.');
+$.lang.register('chatmoderator.regulars.usage', 'Verwendung: !moderation regulars [links / caps / symbols / spam / emotes / colors / longmessages / spamtracker / fakepurge] [true / false]');
+$.lang.register('chatmoderator.subscribers.usage', 'Verwendung: !moderation subscribers [links / caps / symbols / spam / emotes / colors / longmessages / spamtracker / fakepurge] [true / false]');
 $.lang.register('chatmoderator.subscribers.links.allowed', 'Abonnenten werden nun durch den Link-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.subscribers.links.not.allowed', 'Abonnenten werden nun nicht mehr länger durch den Link-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.subscribers.caps.allowed', 'Abonnenten werden nun durch den Großbuchstabenfilter beeinträchtigt werden.');
@@ -51,12 +55,15 @@ $.lang.register('chatmoderator.subscribers.colors.allowed', 'Abonnenten werden n
 $.lang.register('chatmoderator.subscribers.colors.not.allowed', 'Abonnenten werden nun nicht mehr länger durch den Farb-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.subscribers.long.messages.allowed', 'Abonnenten werden nun durch den lange Nachrichten-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.subscribers.long.messages.not.allowed', 'Abonnenten werden nun nicht mehr länger durch den lange Nachrichten-Filter beeinträchtigt werden.');
+$.lang.register('chatmoderator.subscribers.fakepurge.allowed', 'Abonnenten werden nun durch den gefakte Reinigungen-Filter beeinträchtigt werden.');
+$.lang.register('chatmoderator.subscribers.fakepurge.not.allowed', 'Abonnenten werden nun nicht mehr länger durch den gefakte Reinigungen-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.subscribers.toggle.link', 'Abonnenten sind derzeit $1 um Links zu posten.');
 $.lang.register('chatmoderator.subscribers.toggle.caps', 'Abonnenten sind derzeit $1 um alles in Großbuchstaben zu schreiben.');
 $.lang.register('chatmoderator.subscribers.toggle.symbols', 'Abonnenten sind derzeit $1 um Symbole zu spammen.');
 $.lang.register('chatmoderator.subscribers.toggle.spam', 'Abonnenten sind derzeit $1 um zu spammen.');
 $.lang.register('chatmoderator.subscribers.toggle.emotes', 'Abonnenten sind derzeit $1 um übermäßig Emotes zu benutzen.');
 $.lang.register('chatmoderator.subscribers.toggle.colors', 'Abonnenten sind derzeit $1 um /me für farbigen Text zu benutzen.');
+$.lang.register('chatmoderator.subscribers.toggle.fakepurge', 'Abonnenten sind derzeit $1 um gefakte Reinigungen zu benutzen.');
 $.lang.register('chatmoderator.subscribers.toggle.long.msg', 'Abonnenten sind derzeit $1 um lange Texte zu verfassen.');
 $.lang.register('chatmoderator.regulars.links.allowed', 'Stammzuschauer werden nun durch den Link-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.regulars.links.not.allowed', 'Stammzuschauer werden nun nicht mehr länger durch den Link-Filter beeinträchtigt werden.');
@@ -74,12 +81,15 @@ $.lang.register('chatmoderator.regulars.colors.allowed', 'Stammzuschauer werden 
 $.lang.register('chatmoderator.regulars.colors.not.allowed', 'Stammzuschauer werden nun nicht mehr länger durch den Farb-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.regulars.long.messages.allowed', 'Stammzuschauer werden nun durch den lange Nachrichten-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.regulars.long.messages.not.allowed', 'Stammzuschauer werden nun nicht mehr länger durch den lange Nachrichten-Filter beeinträchtigt werden.');
+$.lang.register('chatmoderator.regulars.fakepurge.allowed', 'Stammzuschauer werden nun durch den gefakte Reinigungen-Filter beeinträchtigt werden.');
+$.lang.register('chatmoderator.regulars.fakepurge.not.allowed', 'Stammzuschauer werden nun nicht mehr länger durch den gefakte Reinigungen-Filter beeinträchtigt werden.');
 $.lang.register('chatmoderator.regulars.toggle.link', 'Stammzuschauer sind derzeit $1 um Links zu posten.');
 $.lang.register('chatmoderator.regulars.toggle.caps', 'Stammzuschauer sind derzeit $1 um alles in Großbuchstaben zu schreiben.');
 $.lang.register('chatmoderator.regulars.toggle.symbols', 'Stammzuschauer sind derzeit $1 um Symbole zu spammen.');
 $.lang.register('chatmoderator.regulars.toggle.spam', 'Stammzuschauer sind derzeit $1 um zu spammen.');
 $.lang.register('chatmoderator.regulars.toggle.emotes', 'Stammzuschauer sind derzeit $1 um übermäßig Emotes zu benutzen.');
 $.lang.register('chatmoderator.regulars.toggle.colors', 'Abonnenten sind derzeit $1 um /me für farbigen Text zu benutzen.');
+$.lang.register('chatmoderator.regulars.toggle.fakepurge', 'Stammzuschauer sind derzeit $1 um gefakte Reinigungen zu benutzen.');
 $.lang.register('chatmoderator.regulars.toggle.long.msg', 'Stammzuschauer sind derzeit $1 um lange Texte zu verfassen.');
 $.lang.register('chatmoderator.silenttimeout.toggle.links', 'Stilles Timeout ist derzeit für Links $1.');
 $.lang.register('chatmoderator.silenttimeout.usage.all', 'Verwendung: !moderation silenttimeout all [true / false]');
@@ -91,6 +101,7 @@ $.lang.register('chatmoderator.silenttimeout.toggle.symbols', 'Stilles Timeout i
 $.lang.register('chatmoderator.silenttimeout.toggle.spam', 'Stilles Timeout ist derzeit für Spam $1.');
 $.lang.register('chatmoderator.silenttimeout.toggle.emotes', 'Stilles Timeout ist derzeit für Emotes $1.');
 $.lang.register('chatmoderator.silenttimeout.toggle.colors', 'Stilles Timeout ist derzeit für Farben $1.');
+$.lang.register('chatmoderator.silenttimeout.toggle.fakepurge', 'Stilles Timeout ist derzeit für gefakte Reinigungen $1');
 $.lang.register('chatmoderator.silenttimeout.toggle.long.message', 'Stilles Timeout ist derzeit für lange Nachrichten $1.');
 $.lang.register('chatmoderator.silenttimeout.toggle.blacklist', 'Stilles Timeout ist derzeit für die Blacklist $1.');
 $.lang.register('chatmoderator.silenttimeout.links.true', 'Stilles Timeout wurde für Links aktiviert.');
@@ -100,6 +111,7 @@ $.lang.register('chatmoderator.silenttimeout.spam.true', 'Stilles Timeout wurde 
 $.lang.register('chatmoderator.silenttimeout.spamtracker.true', 'Stilles Timeout wurde für Spam-Tracker aktiviert.');
 $.lang.register('chatmoderator.silenttimeout.emotes.true', 'Stilles Timeout wurde für Emotes aktiviert.');
 $.lang.register('chatmoderator.silenttimeout.colors.true', 'Stilles Timeout wurde für Farben aktiviert.');
+$.lang.register('chatmoderator.silenttimeout.fakepurge.true', 'Stilles Timeout wurde für gefakte Reinigungen aktiviert.');
 $.lang.register('chatmoderator.silenttimeout.long.msg.true', 'Stilles Timeout wurde für lange Nachrichten aktiviert.');
 $.lang.register('chatmoderator.silenttimeout.links.false', 'Stilles Timeout wurde für Links deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.caps.false', 'Stilles Timeout wurde für Großbuchstaben deaktiviert.');
@@ -108,6 +120,7 @@ $.lang.register('chatmoderator.silenttimeout.spam.false', 'Stilles Timeout wurde
 $.lang.register('chatmoderator.silenttimeout.spamtracker.false', 'Stilles Timeout wurde für Spam-Tracker deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.emotes.false', 'Stilles Timeout wurde für Emotes deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.colors.false', 'Stilles Timeout wurde für Farben deaktiviert.');
+$.lang.register('chatmoderator.silenttimeout.fakepurge.false', 'Stilles Timeout wurde für gefakte Reinigungen deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.long.msg.false', 'Stilles Timeout wurde für lange Nachrichten deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.blacklist.messages.false', 'Stilles Timeout wurde für die Blacklist deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.blacklist.messages.true', 'Stilles Timeout wurde für die Blacklist aktiviert.');
@@ -126,6 +139,8 @@ $.lang.register('chatmoderator.spamtracker.message.usage', 'Verwendung: !moderat
 $.lang.register('chatmoderator.spamtracker.message.set', 'Spam-Tracker-Warnnachricht geändert zu: $1');
 $.lang.register('chatmoderator.colors.message.usage', 'Verwendung: !moderation colorsmessage [Nachricht]');
 $.lang.register('chatmoderator.colors.message.set', 'Farben-Warnnachricht geändert zu: $1');
+$.lang.register('chatmoderator.fakepurge.message.usage', 'Verwendung: !moderation fakepurgemessage [Nachricht]');
+$.lang.register('chatmoderator.fakepurge.message.set', 'Gefakte Reinigungen-Warnnachricht geändert zu: $1');
 $.lang.register('chatmoderator.blacklist.message.usage', 'Verwendung: !moderation blacklistmessage [Nachricht]');
 $.lang.register('chatmoderator.blacklist.message.set', 'Blacklist-Warnnachricht geändert zu: $1');
 $.lang.register('chatmoderator.permit.time.usage', 'Verwendung: !moderation permittime [Zeit]');
@@ -183,6 +198,8 @@ $.lang.register('chatmoderator.warningtime.colors', 'Warnzeit für farbigen Taxt
 $.lang.register('chatmoderator.warningtime.emotes.usage', '!moderation warning time emotes [Zeit in Sekunden] (Aktuelle Warnzeit für Emotes beträgt $1 Sekunden.)');
 $.lang.register('chatmoderator.warningtime.emotes', 'Warnzeit für Emotes wurde auf $1 Sekunden festgelegt.');
 $.lang.register('chatmoderator.warningtime.longmsg.usage', '!moderation warning time longmessages [Zeit in Sekunden] (Aktuelle Warnzeit für lange Nachrichten beträgt $1 Sekunden.)');
+$.lang.register('chatmoderator.warningtime.longmsg', 'Warnzeit für gefakte Reinigungen wurde auf $1 Sekunden festgelegt.');
+$.lang.register('chatmoderator.warningtime.fakepurge.usage', '!moderation warningtime fakepurge [time in seconds] (Aktuelle Warnzeit für gefakte Reinigungen beträgt $1 Sekunden.)');
 $.lang.register('chatmoderator.warningtime.longmsg', 'Warnzeit für lange Nachrichten wurde auf $1 Sekunden festgelegt.');
 $.lang.register('chatmoderator.timeouttime.usage', '!moderation timeouttime [links / caps / symbols / spam / emotes / colors / longmessages / spamtracker] [Zeit in Sekunden]');
 $.lang.register('chatmoderator.timeouttime.links.usage', '!moderation timeout time links [Zeit in Sekunden] (Aktuelle Auszeit für Links beträgt $1 Sekunden.)');
@@ -200,6 +217,8 @@ $.lang.register('chatmoderator.timeouttime.colors', 'Auszeit-Länge für farbige
 $.lang.register('chatmoderator.timeouttime.emotes.usage', '!moderation timeout time emotes [Zeit in Sekunden] (Aktuelles Timeout für Emotes beträgt $1 Sekunden.)');
 $.lang.register('chatmoderator.timeouttime.emotes', 'Auszeit-Länge für Emotes wurde auf $1 Sekunden festgelegt.');
 $.lang.register('chatmoderator.timeouttime.longmsg.usage', '!moderation timeout time longmessages [Zeit in Sekunden] (Aktuelles Timeout für lange Nachrichten beträgt $1 Sekunden.)');
+$.lang.register('chatmoderator.timeouttime.longmsg', 'Auszeit-Länge für gefakte Reinigungen wurde auf $1 Sekunden festgelegt.');
+$.lang.register('chatmoderator.timeouttime.fakepuge.usage', '!moderation timeoutime fakepurge [Zeit in Sekunden] (Aktuelles Timeout für gefakte Reinigungen beträgt $1 Sekunden.)');
 $.lang.register('chatmoderator.timeouttime.longmsg', 'Auszeit-Länge für lange Nachrichten wurde auf $1 Sekunden festgelegt.');
 $.lang.register('cmd.404', 'Der Befehl !$1 existiert nicht oder ist nicht registriert.');
 $.lang.register('cmd.adminonly', 'Nur ein Administrator hat Zugriff auf diesen Befehl!');

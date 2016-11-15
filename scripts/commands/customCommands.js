@@ -200,7 +200,7 @@
         }
 
         if (message.match(/\(code=/g)) {
-            var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ƒ‰÷ˆ‹¸ﬂ',
+            var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789√Ñ√§√ñ√∂√ú√º√ü',
                 length = message.substr(6).replace(')', '');
                 text = '',
                 i;
@@ -930,7 +930,7 @@
         }
 
         /**
-         * @commandpath enablecom [command] - Enable a command thats been disabled from being used in chat 
+         * @commandpath enablecom [command] - Enable a command thats been disabled from being used in chat
          */
         if (command.equalsIgnoreCase('enablecom')) {
             if (!action) {
@@ -947,7 +947,7 @@
 
             $.inidb.del('disabledCommands', action);
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.enable.success', action));
-            $.registerChatCommand('./commands/customCommands.js', action.toLowerCase());
+            $.registerChatCommand(($.inidb.exists('tempDisabledCommandScript', action.toLowerCase()) ? $.inidb.get('tempDisabledCommandScript', action.toLowerCase()) : './commands/customCommands.js'), action.toLowerCase());
             $.log.event(sender + ' re-enabled command !' + command);
         }
     });

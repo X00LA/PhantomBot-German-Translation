@@ -124,6 +124,7 @@
         try {
             ps.println(line);
             fos.flush();
+            ps.close();
         } catch (e) {
             $.log.error('Schreiben in \'' + path + '\' fehlgeschlagen: ' + e);
         }

@@ -39,6 +39,7 @@
         modSettingMap['linksToggle'] = "Links Schutz";
         modSettingMap['longMessageToggle'] = "Lange Nachrichten Schutz";
         modSettingMap['spamTrackerToggle'] = "Spam Tracker Schutz";
+        modSettingMap['fakePurgeToggle'] = "Fake Reinigungs Schutz";
 
         modSettingMap['subscribersModerateLinks'] = "Abonnent " + modSettingMap['linksToggle'];
         modSettingMap['subscribersModerateCaps'] = "Abonnent " + modSettingMap['capsToggle'];
@@ -48,6 +49,7 @@
         modSettingMap['subscribersModerateColors'] = "Abonnent " + modSettingMap['colorsToggle'];
         modSettingMap['subscribersModerateLongMsg'] = "Abonnent " + modSettingMap['longMessageToggle'];
         modSettingMap['subscribersModerateSpamTracker'] = "Abonnent " + modSettingMap['spamTrackerToggle'];
+        modSettingMap['subscribersModerateFakePurge'] = "Abonnent " + modSettingMap['fakePurgeToggle'];
 
         modSettingMap['regularsModerateLinks'] = "Stammzuschauer " + modSettingMap['linksToggle'];
         modSettingMap['regularsModerateCaps'] = "Stammzuschauer " + modSettingMap['capsToggle'];
@@ -56,7 +58,8 @@
         modSettingMap['regularsModerateEmotes'] = "Stammzuschauer " + modSettingMap['emotesToggle'];
         modSettingMap['regularsModerateColors'] = "Stammzuschauer " + modSettingMap['colorsToggle'];
         modSettingMap['regularsModerateLongMsg'] = "Stammzuschauer " + modSettingMap['longMessageToggle'];
-        modSettingMap['subscribersModerateSpamTracker'] = "Stammzuschauer " + modSettingMap['spamTrackerToggle'];
+        modSettingMap['regularsModerateSpamTracker'] = "Stammzuschauer " + modSettingMap['spamTrackerToggle'];
+        modSettingMap['regularsModerateFakePurge'] = "Stammzuschauer " + modSettingMap['fakePurgeToggle'];
 
         modSettingMap['silentTimeoutLinks'] = "Stille Auszeit an " + modSettingMap['linksToggle'];
         modSettingMap['silentTimeoutCaps'] = "Stille Auszeit an " + modSettingMap['capsToggle'];
@@ -66,6 +69,7 @@
         modSettingMap['silentTimeoutColors'] = "Stille Auszeit an " + modSettingMap['colorsToggle'];
         modSettingMap['silentTimeoutLongMsg'] = "Stille Auszeit an " + modSettingMap['longMessageToggle'];
         modSettingMap['silentTimeoutSpamTracker'] = "Stille Auszeit an " + modSettingMap['spamTrackerToggle'];
+        modSettingMap['silentTimeoutFakePurge'] = "Stille Auszeit an " + modSettingMap['fakePurgeToggle'];
         modSettingMap['silentTimeoutBlacklist'] = "Stille Auszeit an für schwarze Liste";
 
     /**
@@ -178,6 +182,8 @@
                         case 'spamTrackerMessage' :
                         case 'spamTrackerLimit' :
                         case 'spamTrackerTime' :
+                        case 'fakePurgeToggle' :
+                        case 'fakePurgeMessage' :
                             $("#" + modSetting + "Input").attr("placeholder", modValue).blur();
                             break;
                     }
@@ -200,6 +206,14 @@
 
                     if (panelMatch(modSetting, 'timeoutTimeLinks')) {
                         $("#timeoutTimeLinks").attr("placeholder", modValue).blur();
+                    }
+
+                    if (panelMatch(modSetting, 'warningTimeFakePurge')) {
+                        $("#warningTimeFakePurge").attr("placeholder", modValue).blur();
+                    }
+
+                    if (panelMatch(modSetting, 'timeoutTimeFakePurge')) {
+                        $("#timeoutTimeFakePurge").attr("placeholder", modValue).blur();
                     }
 
                     if (panelMatch(modSetting, 'warningTimeCaps')) {
@@ -270,6 +284,10 @@
                         $("#LinkMessageReason").attr("placeholder", modValue).blur();
                     }
 
+                    if (panelMatch(modSetting, 'silentFakePurgeMessage')) {
+                        $("#FakePurgeReason").attr("placeholder", modValue).blur();
+                    }
+
                     if (panelMatch(modSetting, 'silentSymbolsMessage')) {
                         $("#SymbolMessageReason").attr("placeholder", modValue).blur();
                     }
@@ -313,6 +331,12 @@
                     if (panelMatch(modSetting, 'linksToggle')) {
                         if (panelMatch(modValue, 'true')) {
                             $('#toggleModerationLinks').attr('checked', 'checked');
+                        }
+                    }
+
+                    if (panelMatch(modSetting, 'fakePurgeToggle')) {
+                        if (panelMatch(modValue, 'true')) {
+                            $('#toggleModerationFakePurge').attr('checked', 'checked');
                         }
                     }
 
@@ -363,6 +387,12 @@
                             $('#toggleRegularLinks').attr('checked', 'checked');
                         }
                     }
+
+                    if (panelMatch(modSetting, 'regularsModerateFakePurge')) {
+                        if (panelMatch(modValue, 'false')) {
+                            $('#toggleRegularFakePurge').attr('checked', 'checked');
+                        }
+                    }
                 
                     if (panelMatch(modSetting, 'regularsModerateCaps')) {
                         if (panelMatch(modValue, 'false')) {
@@ -405,6 +435,12 @@
                             $('#toggleSubscriberLinks').attr('checked', 'checked');
                         }
                     }
+
+                    if (panelMatch(modSetting, 'subscribersModerateFakePurge')) {
+                        if (panelMatch(modValue, 'false')) {
+                            $('#toggleSubscriberFakePurge').attr('checked', 'checked');
+                        }
+                    }
                 
                     if (panelMatch(modSetting, 'subscribersModerateCaps')) {
                         if (panelMatch(modValue, 'false')) {
@@ -445,6 +481,12 @@
                     if (panelMatch(modSetting, 'silentTimeoutLinks')) {
                         if (panelMatch(modValue, 'true')) {
                             $('#toggleSilentTimeoutLinks').attr('checked', 'checked');
+                        }
+                    }
+
+                    if (panelMatch(modSetting, 'silentTimeoutFakePurge')) {
+                        if (panelMatch(modValue, 'true')) {
+                            $('#toggleSilentTimeoutFakePurge').attr('checked', 'checked');
                         }
                     }
 
@@ -563,17 +605,17 @@
     function toggleModeration(group, type) {
         var modDbKeys = [];
         if (group.indexOf('viewers') === 0) {
-            modDbKeys = [ "linksToggle", "capsToggle", "spamToggle", "symbolsToggle", "emotesToggle", "longMessageToggle", "colorsToggle", "spamTrackerToggle" ];
+            modDbKeys = [ "linksToggle", "capsToggle", "spamToggle", "symbolsToggle", "emotesToggle", "longMessageToggle", "colorsToggle", "spamTrackerToggle", "fakePurgeToggle" ];
         }
 
         if (group.indexOf('subscribers') === 0) {
             modDbKeys = [ "subscribersModerateLinks", "subscribersModerateCaps", "subscribersModerateSymbols", "subscribersModerateSpam",
-                          "subscribersModerateEmotes", "subscribersModerateColors", "subscribersModerateLongMsg", "subscribersModerateSpamTacker" ];
+                          "subscribersModerateEmotes", "subscribersModerateColors", "subscribersModerateLongMsg", "subscribersModerateSpamTacker", "subscribersModerateFakePurge" ];
         }
 
         if (group.indexOf('regulars') === 0) {
             modDbKeys = [ "regularsModerateLinks", "regularsModerateCaps", "regularsModerateSymbols", "regularsModerateSpam",
-                          "regularsModerateEmotes", "regularsModerateColors", "regularsModerateLongMsg", "regularsModerateSpamTacker" ];
+                          "regularsModerateEmotes", "regularsModerateColors", "regularsModerateLongMsg", "regularsModerateSpamTacker", "regularsModerateFakePurge" ];
         }
 
         for (key in modDbKeys) {

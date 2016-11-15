@@ -132,6 +132,7 @@ $.lang.register('randomcommand.131', 'Mein Telefon klingelt um 2 Uhr früh und m
 $.lang.register('randomcommand.132', 'Ich sagte zu diesem Lokführer: "Ich will nach Paris." Er sagte: "Eurostar?" Ich sagte: "Ich bin zwar mal im Fernsehen gewesen, aber ich bin kein Dean Martin."');
 $.lang.register('randomcommand.133', 'Zwei Eskimos sitzen in einem Kajak und frieren. Aber wenn sie in ihrem Fahrzeug ein Feuer anmachen, würde es sinken. Das beweist ein für alle Mal, man kann kein Kajak und Wärme haben.');
 $.lang.register('randomcommand.134', 'Ich habe einen Freund, der sich in zwei Schulranzen verliebt hat, er ist Bi-Ranzen.');
+
 $.lang.register('randomcommand.135', 'Ich war neulich in einem Cafe und sagte: "Einen Kaffee ohne Sahne bitte." Nach 5 min kommt der Kellner wieder. Kellner: "Tut mir leid der Herr, die Sahne ist leider alle, kann es auch ein Kaffee ohne Milch sein?"');
 $.lang.register('randomcommand.136', 'Warum ist Lippenstift auf der Lenksäule, wenn eine Blondine das Auto gefahren hat? Weil sie meint, dass man beim Hupen ins Horn blasen muss!');
 $.lang.register('randomcommand.137', 'Treffen sich zwei Yetis. Sagt der Eine: "Du, ich hab den Reinhold Messner gesehen." - "Wie, den gibt\'s wirklich?"');

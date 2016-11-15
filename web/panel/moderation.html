@@ -489,6 +489,74 @@
         </form>
     </div>
 
+    <h3>Fake Reinigungs-Einstellungen</h3>
+    <div>
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="fakePurgeMessage">Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                     onclick="$.updateRedrawModSetting('#fakePurgeMessageInput', 'fakePurgeMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="fakePurgeMessageInput" placeholder="Lade..."
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Verwenden einer gefakten Reinigung bestraft wird." />
+            </div>
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="FakePurgeReason">Banngund</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                     onclick="$.banReason('#FakePurgeReason', 'FakePurgeMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="FakePurgeReason" placeholder="Laden..."
+                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="warningTimeFakePurge">Warndauer</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                     onclick="$.updateRedrawModSetting('#warningTimeFakePurge', 'warningTimeFakePurge')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="warningTimeFakePurge" placeholder="Laden..."
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim erstmaligen verwenden einer gefakten Reinigung, aussetzen muss." />
+            </div>
+        </form>
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="timeoutTimeFakePurge">Auszeitdauer</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                     onclick="$.updateRedrawModSetting('#timeoutTimeFakePurge', 'timeoutTimeFakePurge')">Übermitteln</button>
+                <input type="number" min="1" class="form-control" id="timeoutTimeFakePurge" placeholder="Laden..."
+                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal eine gefakte Reinigung benutzte (nachdem er alle Verwarnungen ignoriert hat)." />
+            </div>
+        </form>
+    </form>
+        <form role="form">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="toggleModerationFakePurge" onclick="$.toggleModerations('FakePurge', 'fakePurgeToggle')">Moderiere gefälschte Reinigungen
+                </label>
+            </div>
+        </form>
+        <form role="form">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="toggleRegularFakePurge" onclick="$.toggleRegular('FakePurge')">Stammzuschauer ausschließen
+                </label>
+            </div>
+        </form>
+        <form role="form">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="toggleSubscriberFakePurge" onclick="$.toggleSubscriber('FakePurge')">Abonnenten ausschließen
+                </label>
+            </div>
+        </form>
+        <form role="form">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="toggleSilentTimeoutFakePurge" onclick="$.toggleSilentTimeout('FakePurge')">Lautlos Modus
+                </label>
+            </div>
+        </form>
+    </div>
+    
     <h3>Emotes Einstellungen</h3>
     <div>
         <form role="form">
