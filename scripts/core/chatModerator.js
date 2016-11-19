@@ -90,7 +90,7 @@
             LongMessage: $.getSetIniDbString('chatModerator', 'silentLongMessage', 'Posten einer zu langen Nachricht. (Automatisiert von ' + $.botName + ')'),
             BlacklistMessage: $.getSetIniDbString('chatModerator', 'silentBlacklistMessage', 'Verwenden eines verbotenen Wortes. (Automatisiert von ' + $.botName + ')'),
             SpamTrackerMessage: $.getSetIniDbString('chatModerator', 'silentSpamTrackerMessage', 'Chat Spamming. (Automatisiert von ' + $.botName + ')'),
-            FakePurgeMessage: $.getSetIniDbString('chatModerator', 'silentFakePurgeMessage', 'Verwenden einer gefalten Reinigung. (Automatisiert von ' + $.botName + ')'),
+            FakePurgeMessage: $.getSetIniDbString('chatModerator', 'silentFakePurgeMessage', 'Verwenden einer gefakten Reinigung. (Automatisiert von ' + $.botName + ')'),
         },
 
         warningTime = {

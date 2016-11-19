@@ -59,6 +59,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
 
     PhantomBot Version 2.3.4
         Übersetzung Version 2.3.4a --> Update auf Bot-Version 2.3.4.
+        Übersetzung Version 2.3.4b --> Update auf Bugfix-Version 2.3.4.1.
 
 
 

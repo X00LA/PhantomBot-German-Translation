@@ -62,6 +62,9 @@
                     if (panelMatch(msgObject['results'][idx]['key'], 'hostMessage')) {
                         $('#hostAnnounceInput').attr('placeholder', msgObject['results'][idx]['value']).blur();
                     }
+                    if (panelMatch(msgObject['results'][idx]['key'], 'autoHostMessage')) {
+                        $('#hostAutoAnnounceInput').attr('placeholder', msgObject['results'][idx]['value']).blur();
+                    }
                     if (panelMatch(msgObject['results'][idx]['key'], 'hostHistory')) {
                         hostHistory = msgObject['results'][idx]['value'];
                         $('#hostHistoryMode').html(modeIcon[msgObject['results'][idx]['value']]);
@@ -180,7 +183,20 @@
         if (value.length > 0) {
             sendDBUpdate('hostraid_settings', 'settings', 'hostMessage', value);
             sendCommand('reloadhost');
-            $('#hostAnnounceInput').attr('placeholder', 'Aktualisierung...').blur();
+            $('#hostAnnounceInput').attr('placeholder', 'Aktualisiere...').blur();
+            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        }
+    }
+
+    /** 
+     * @function updateAutoHostAnnounce
+     */
+    function updateAutoHostAnnounce() {
+        var value = $('#hostAutoAnnounceInput').val();
+        if (value.length > 0) {
+            sendDBUpdate('hostraid_settings', 'settings', 'autoHostMessage', value);
+            sendCommand('reloadhost');
+            $('#hostAutoAnnounceInput').attr('placeholder', 'Aktualisiere...').blur();
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         }
     }
@@ -219,7 +235,7 @@
         var value = $('#raidMessageInput').val();
         if (value.length > 0) {
             sendDBUpdate('hostraid_settings', 'settings', 'raidMessage', value);
-            $('#raidMessageInput').attr('placeholder', 'Aktualisierung...').blur();
+            $('#raidMessageInput').attr('placeholder', 'Aktualisiere...').blur();
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         }
     }

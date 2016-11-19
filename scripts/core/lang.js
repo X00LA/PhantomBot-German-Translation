@@ -56,7 +56,7 @@
             i;
 
         if (!string) {
-            $.log.warn('Übersetzung für "' + key + '" fehlt. Dies könnte auf eine fehlende Aktualisierung der Überstzungsdatei zurück zu führen sein.');
+            $.log.warn('Language string missing for "' + key + '". This could be due to a update to the lang files.');
             return ''; // Don't say anything in chat.
         }
 
