@@ -1,4 +1,4 @@
-[![Discord](https://discordapp.com/api/guilds/240072919722622977/widget.png)](https://discord.gg/JKJU3Zd)
+[![Discord](https://discordapp.com/api/guilds/240072919722622977/widget.png)](https://discord.gg/JKJU3Zd)		***[Donate a cup of coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QF69JHHKBYV9A)***
 
 # PhantomBot-German-Translation
 
