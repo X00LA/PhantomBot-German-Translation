@@ -5,7 +5,7 @@
         reCustomAPIJson = new RegExp(/\(customapijson ([\w\.:\/\$=\?\&]+)\s([\w\W]+)\)/), // URL[1], JSONmatch[2..n]
         reCustomAPITextTag = new RegExp(/{([\w\W]+)}/),
         reCommandTag = new RegExp(/\(command\s([\w]+)\)/),
-        tagCheck = new RegExp(/\(age\)|\(sender\)|\(@sender\)|\(baresender\)|\(random\)|\(1\)|\(count\)|\(pointname\)|\(price\)|\(#\)|\(uptime\)|\(follows\)|\(game\)|\(status\)|\(touser\)|\(echo\)|\(alert [,.\w]+\)|\(readfile|\(1=|\(countdown=|\(downtime\)|\(paycom\)|\(onlineonly\)|\(offlineonly\)|\(code=|\(followage\)|\(gameinfo\)|\(titleinfo\)|\(gameonly=|\(playtime\)|\(gamesplayed\)|\(pointtouser\)|\(customapi |\(customapijson /);
+        tagCheck = new RegExp(/\(age\)|\(sender\)|\(@sender\)|\(baresender\)|\(random\)|\(1\)|\(count\)|\(pointname\)|\(currenttime|\(price\)|\(#\)|\(uptime\)|\(follows\)|\(game\)|\(status\)|\(touser\)|\(echo\)|\(alert [,.\w]+\)|\(readfile|\(1=|\(countdown=|\(downtime\)|\(paycom\)|\(onlineonly\)|\(offlineonly\)|\(code=|\(followage\)|\(gameinfo\)|\(titleinfo\)|\(gameonly=|\(playtime\)|\(gamesplayed\)|\(pointtouser\)|\(lasttip\)|\(writefile .+\)|\(commandcostlist\)|\(playsound |\(customapi |\(customapijson /);
 
     /**
      * @function getCustomAPIValue
@@ -55,10 +55,17 @@
 
         if (message.match(/\(pointtouser\)/)) {
             if (event.getArgs()[0] !== undefined) {
-                message = $.replace(message, '(pointtouser)', (event.getArgs()[0] + ' -> '));
+                message = $.replace(message, '(pointtouser)', (event.getArguments().split(' ')[0] + ' -> '));
             } else {
                 message = $.replace(message, '(pointtouser)', $.userPrefix(event.getSender(), true));
             }
+        }
+
+        if (message.match(/\(currenttime/)) {
+            var timezone = message.match(/\(currenttime ([a-zA-Z\/]+), (.*)\)/)[1],
+                format = message.match(/\(currenttime ([a-zA-Z\/]+), (.*)\)/)[2];
+
+            message = $.replace(message, message.match(/\(currenttime ([a-zA-Z\/]+), (.*)\)/)[0], $.getCurrentLocalTimeString(format, timezone));
         }
 
         if (message.match(/\(1\)/g)) {
@@ -69,6 +76,19 @@
                     break;
                 }
             }
+        }
+
+        if (message.match(/\(commandcostlist\)/)) {
+            var keys = $.inidb.GetKeyList('pricecom', ''),
+                temp = [],
+                i;
+            for (i in keys) {
+                if (!keys[i].includes(' ')) {
+                    temp.push('!' + keys[i] + ': ' + $.getPointsString($.inidb.get('pricecom', keys[i])));
+                }
+            }
+            $.paginateArray(temp, 'NULL' + message.replace('(commandcostlist)', ''), ', ', true, event.getSender());
+            return null;
         }
 
         if (message.match(/\(1=[^)]+\)/g)) {
@@ -96,6 +116,7 @@
 
         if (message.match(/\(onlineonly\)/g)) {
             if (!$.isOnline($.channelName)) {
+                returnCommandCost(event.getSender(), event.getCommand(), $.isModv3(event.getSender(), event.getTags()));
                 return null;
             }
             message = $.replace(message, '(onlineonly)', '');
@@ -103,6 +124,7 @@
 
         if (message.match(/\(offlineonly\)/g)) {
             if ($.isOnline($.channelName)) {
+                returnCommandCost(event.getSender(), event.getCommand(), $.isModv3(event.getSender(), event.getTags()));
                 return null;
             }
             message = $.replace(message, '(offlineonly)', '');
@@ -184,11 +206,11 @@
         }
 
         if (message.match(/\(touser\)/g)) {
-            message = $.replace(message, '(touser)', (!event.getArgs()[0] ? $.username.resolve(event.getSender()) : $.username.resolve(event.getArgs()[0])));
+            message = $.replace(message, '(touser)', (event.getArgs()[0] === undefined ? $.username.resolve(event.getSender()) : String(event.getArgs()[0]).replace(/[^a-z1-9_@]/ig, '')));
         }
 
         if (message.match(/\(echo\)/g)) {
-            message = $.replace(message, '(echo)', event.getArguments());
+            message = $.replace(message, '(echo)', (event.getArguments() ? event.getArguments() : ''));
         }
 
         if (message.match(/\(gamesplayed\)/g)) {
@@ -274,8 +296,27 @@
             message = $.replace(message, '(uptime)', String($.getStreamUptime($.channelName)));
         }
 
+        if (message.match(/\(lasttip\)/g)) {
+            message = $.replace(message, '(lasttip)', ($.inidb.exists('donations', 'last_donation_message') ? $.inidb.get('donations', 'last_donation_message') : 'No donations found.'));
+        }
+
+        if (message.match(/\(playsound/g)) {
+            message = $.replace(message, message.match(/\(playsound ([a-zA-Z_]+)\)/)[0], '');
+            $.panelsocketserver.triggerAudioPanel(message.match(/\(playsound ([a-zA-Z_]+)\)/)[1]);
+        }
+
         if (message.match(/\(age\)/g)) {
             $.getChannelAge(event);
+            return null;
+        }
+
+        if (message.match(/\(writefile .+\)/)) {
+            if (message.match(/\(writefile (.+), (.+), (.+)\)/)) {
+                var file = message.match(/\(writefile (.+), (.+), (.+)\)/)[1],
+                    append = (message.match(/\(writefile (.+), (.+), (.+)\)/)[2] == 'true' ? true : false),
+                    string = message.match(/\(writefile (.+), (.+), (.+)\)/)[3];
+                $.writeToFile(string, './addons/' + file, append);
+            }
             return null;
         }
 
@@ -544,7 +585,7 @@
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.add.success', action));
             $.inidb.set('command', action.toLowerCase(), argString);
             $.registerChatCommand('./commands/customCommands.js', action);
-            $.log.event(sender + ' added command !' + action + ' with the message "' + argString + '"');
+            $.log.event(sender + ' added command !' + action + ' with the message "' + argString + '".');
         }
 
         /**
@@ -576,7 +617,7 @@
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.edit.success', action));
             $.inidb.set('command', action.toLowerCase(), argString);
             $.registerChatCommand('./commands/customCommands.js', action);
-            $.log.event(sender + ' edited the command !' + action + ' with the message "' + argString + '"');
+            $.log.event(sender + ' edited the command !' + action + ' with the message "' + argString + '".');
         }
 
         /**
@@ -604,7 +645,7 @@
             $.inidb.del('pricecom', action);
             $.inidb.del('aliases', action);
             $.unregisterChatCommand(action);
-            $.log.event(sender + ' deleted the command !' + action);
+            $.log.event(sender + ' deleted the command !' + action + '.');
         }
 
         /**
@@ -644,7 +685,7 @@
             $.inidb.set('aliases', subAction, action + aliasArgs);
             $.registerChatCommand('./commands/customCommands.js', subAction);
             $.registerChatAlias(subAction);
-            $.log.event(sender + ' added alias "!' + subAction + '" for "!' + action + aliasArgs + '"');
+            $.log.event(sender + ' added alias "!' + subAction + '" for "!' + action + aliasArgs + '".');
         }
 
         /**
@@ -670,7 +711,6 @@
 
         /**
          * @commandpath permcom [command] [groupId] - Set the permissions for a command
-         * @commandpath permcom [command] [subcommand] [groupId] - Set the permissions for a subcommand
          */
         if (command.equalsIgnoreCase('permcom')) {
             if (!action || !subAction) {
@@ -703,7 +743,7 @@
                     } 
                 }
                 $.inidb.set('permcom', action, group);
-                $.log.event(sender + ' set permission on command !' + action + ' to group ' + group);
+                $.log.event(sender + ' set permission on command !' + action + ' to group ' + group + '.');
                 $.updateCommandGroup(action, group);
                 return;
             }
@@ -722,14 +762,12 @@
 
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.set.perm.success', action + " " + subcommand, $.getGroupNameById(group)));
             $.inidb.set('permcom', action + " " + subcommand, group);
-            $.log.event(sender + ' set permission on sub command !' + action + ' ' + subcommand + ' to group ' + group);
+            $.log.event(sender + ' set permission on sub command !' + action + ' ' + subcommand + ' to group ' + group + '.');
             $.updateSubcommandGroup(action, subcommand, group);
         }
 
         /**
          * @commandpath pricecom [command] [amount] - Set the amount of points a command should cost
-         * @commandpath pricecom [command] [subcommand] [amount] - Set the amount of points a command should cost
-         * @commandpath pricecom [command] [subcommand] [subaction] [amount] - Set the amount of points a command should cost
          */
         if (command.equalsIgnoreCase('pricecom')) {
             if (!action || !subAction || args.length > 4) {
@@ -761,7 +799,7 @@
                         $.inidb.set('pricecom', list[i], parseInt(subAction));
                     }
                 }
-                $.log.event(sender + ' set price on command !' + action + ' to ' + subAction + ' ' + $.pointNameMultiple);
+                $.log.event(sender + ' set price on command !' + action + ' to ' + subAction + ' ' + $.pointNameMultiple + '.');
                 return;
             }
 
@@ -784,7 +822,7 @@
 
                 $.say($.whisperPrefix(sender) + $.lang.get('customcommands.set.price.success', action + ' ' + subAction, args[2], $.pointNameMultiple));
                 $.inidb.set('pricecom', action + ' ' + subAction, args[2]);
-                $.log.event(sender + ' set price on command !' + action + ' ' + subAction + ' to ' + args[2] + ' ' + $.pointNameMultiple);
+                $.log.event(sender + ' set price on command !' + action + ' ' + subAction + ' to ' + args[2] + ' ' + $.pointNameMultiple + '.');
                 return;
             }
 
@@ -797,7 +835,7 @@
 
                 $.say($.whisperPrefix(sender) + $.lang.get('customcommands.set.price.success', action + ' ' + subAction + ' ' + args[2], args[3], $.pointNameMultiple));
                 $.inidb.set('pricecom', action + ' ' + subAction +  ' ' + args[2], args[3]);
-                $.log.event(sender + ' set price on command !' + action + ' ' + subAction + ' to ' + args[2] + ' ' + $.pointNameMultiple);
+                $.log.event(sender + ' set price on command !' + action + ' ' + subAction + ' to ' + args[2] + ' ' + $.pointNameMultiple + '.');
                 return;
             }
         }
@@ -833,14 +871,7 @@
                     $.inidb.set('paycom', list[i], parseInt(subAction));
                 }
             }
-            $.log.event(sender + ' set payment on command !' + action + ' to ' + subAction + ' ' + $.pointNameMultiple);
-        }
-
-        /**
-         * @commandpath listtags - Displays a list of tags that may be used in custom commands
-         */
-        if (command.equalsIgnoreCase('listtags')) {
-            $.say($.whisperPrefix(sender) + 'Befehlstags: (sender), (@sender), (baresender), (random), (#), (uptime), (game), (status), (follows), (count), (touser), (price), (viewers), (pointname), (customapi), (echo), (customjsonapi), (age), (command command_name). (command command_name) muss als erstes angegeben werden, wenn verwendet. Das ! im benutzerdefinierten Befehl nicht mit angeben!');
+            $.log.event(sender + ' set payment on command !' + action + ' to ' + subAction + ' ' + $.pointNameMultiple + '.');
         }
 
         /**
@@ -926,7 +957,7 @@
             $.inidb.set('disabledCommands', action, true);
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.disable.success', action));
             $.tempUnRegisterChatCommand(action.toLowerCase());
-            $.log.event(sender + ' disabled command !' + command);
+            $.log.event(sender + ' disabled command !' + command + '.');
         }
 
         /**
@@ -965,7 +996,6 @@
             $.registerChatCommand('./commands/customCommands.js', 'delcom', 2);
             $.registerChatCommand('./commands/customCommands.js', 'editcom', 2);
             $.registerChatCommand('./commands/customCommands.js', 'permcom', 1);
-            $.registerChatCommand('./commands/customCommands.js', 'listtags', 2);
             $.registerChatCommand('./commands/customCommands.js', 'commands', 7);
             $.registerChatCommand('./commands/customCommands.js', 'disablecom', 1);
             $.registerChatCommand('./commands/customCommands.js', 'enablecom', 1);

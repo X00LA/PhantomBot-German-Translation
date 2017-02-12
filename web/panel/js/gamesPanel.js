@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,9 @@
  */
 
 (function() {
-    var toggleIcon = [];
+    var toggleIcon = [],
+        saveBets = false,
+        toggleWarningMessage = false;
 
         toggleIcon['false'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle-o\" />";
         toggleIcon['true'] = "<i style=\"color: #6136b1\" class=\"fa fa-circle\" />";
@@ -69,12 +71,6 @@
                 }
             }
 
-            if (panelCheckQuery(msgObject, 'games_slotmachine')) {
-                for (idx in msgObject['results']) {
-                    $('#slotEmotes' + idx + 'Input').val(msgObject['results'][idx]['value']);
-                }
-            }
-
             if (panelCheckQuery(msgObject, 'games_rollprizes')) {
                 for (idx in msgObject['results']) {
                     $('#rollRewards' + idx + 'Input').val(msgObject['results'][idx]['value']);
@@ -96,6 +92,35 @@
             if (panelCheckQuery(msgObject, 'games_gambling_min')) {
                 $('#gamblingMin').val(msgObject['results']['min']);
             }
+
+            if (panelCheckQuery(msgObject, 'games_betting')) {
+                for (idx in msgObject['results']) {
+                    if (msgObject['results'][idx]['key'] == 'gain') {
+                        $('#gainPercent').val(msgObject['results'][idx]['value']);
+                    } 
+
+                    if (msgObject['results'][idx]['key'] == 'format') {
+                        $('#dateFormat').val(msgObject['results'][idx]['value']);
+                    }
+
+                    if (msgObject['results'][idx]['key'] == 'save') {
+                        $('#toggleSaveBets').html(toggleIcon[msgObject['results'][idx]['value']]);
+                        saveBets = msgObject['results'][idx]['value'];
+                    }
+
+                    if (msgObject['results'][idx]['key'] == 'warningMessages') {
+                        $('#toggleWarningMessages').html(toggleIcon[msgObject['results'][idx]['value']]);
+                        toggleWarningMessage = msgObject['results'][idx]['value'];
+                    }
+
+                    if (msgObject['results'][idx]['key'] == 'lastBet') {
+                        var split = msgObject['results'][idx]['value'].split('___');
+                        $('#betResults').html('<strong>Resultate der letzten Wette: </strong><br> Gewinner/innen: ' + split[0] + '<br> Ausgezahlt: ' + split[1]);
+                    } else {
+                        $('#betResults').html('<strong>Resultate der letzten Wette: </strong><br> Gewinner/innen: 0 <br> Ausgezahlt: 0 points');
+                    }
+                }
+            }
         }
     }
 
@@ -106,12 +131,102 @@
         sendDBQuery('games_roulette', 'roulette', 'timeoutTime');
         sendDBKeys('games_adventure', 'adventureSettings');
         sendDBKeys('games_slotmachine', 'slotmachine');
+        sendDBKeys('games_betting', 'bettingSettings');
         sendDBKeys('games_slotmachineemotes', 'slotmachineemotes');
         sendDBKeys('games_rollprizes', 'rollprizes');
         sendDBQuery('games_gambling_range', 'gambling', 'winRange');
         sendDBQuery('games_gambling_percent', 'gambling', 'winGainPercent');
         sendDBQuery('games_gambling_max', 'gambling', 'max');
         sendDBQuery('games_gambling_min', 'gambling', 'min');
+    }
+
+    /**
+     * @function openBet
+     */
+    function openBet() {
+        var title = $('#betTitle').val(),
+            options = $('#betOptions').val(),
+            min = $('#minBet').val(),
+            max = $('#maxBet').val(),
+            timer = $('#bet-timer').val();
+
+        sendCommand('bet open \"' + title + '\" \"' + options + '\" ' + min + ' ' + max + ' ' + timer);
+        $('#betTitle').val(''),
+        $('#betOptions').val(''),
+        $('#minBet').val(''),
+        $('#maxBet').val(''),
+        $('#bet-timer').val('');
+        document.getElementById('bet-timer').value = 0;
+    }
+
+    /**
+     * @function toggleInput
+     */
+    function toggleInput() {
+        if ($('#tempclose').is(':checked') === true) {
+            document.getElementById("betCloseI").disabled = true;
+            document.getElementById("betCloseI").title = "Du kannst keine Gewinnoption wählen und gleichzeitig die Teilnahme deaktivieren!";
+        } else {
+            document.getElementById("betCloseI").disabled = false;
+            document.getElementById("betCloseI").title = "";
+        }
+    }
+
+    /**
+     * @function closeBet
+     */
+    function closeBet() {
+        if ($('#tempclose').is(':checked') === true) {
+            sendCommand('bet close');
+        } else {
+            sendCommand('bet close ' + $('#betCloseI').val());
+        }
+        $('#betCloseI').val('');
+        $('#tempclose').val('');
+    }
+
+    /**
+     * @function updateBet
+     */
+    function updateBet() {
+        if ($('#dateFormat').val().length != 0 || $('#gainPercent').val().length != 0) {
+            sendDBUpdate('bet_dateformat', 'bettingSettings', 'format', $('#dateFormat').val());
+            sendDBUpdate('bet_dateformat', 'bettingSettings', 'gain', $('#gainPercent').val());
+        }
+        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function() { sendCommand('reloadbet'); }, TIMEOUT_WAIT_TIME);
+    }
+
+    /**
+     * @function toggleSaveBets
+     */
+    function toggleSaveBets() {
+        $("#toggleSaveBets").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        if (saveBets == 'true') {
+            sendDBUpdate('bet_dateformat', 'bettingSettings', 'save', 'false');
+            saveBets = 'false';
+        } else {
+            sendDBUpdate('bet_dateformat', 'bettingSettings', 'save', 'true');
+            saveBets = 'true';
+        }
+        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function() { sendCommand('reloadbet'); }, TIMEOUT_WAIT_TIME);
+    }
+
+    /**
+     * @function toggleSaveBets
+     */
+    function toggleWarningMessages() {
+        $("#toggleWarningMessages").html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        if (toggleWarningMessage == 'true') {
+            sendDBUpdate('bet_dateformat', 'bettingSettings', 'warningMessages', 'false');
+            toggleWarningMessage = 'false';
+        } else {
+            sendDBUpdate('bet_dateformat', 'bettingSettings', 'warningMessages', 'true');
+            toggleWarningMessage = 'true';
+        }
+        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
+        setTimeout(function() { sendCommand('reloadbet'); }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -275,16 +390,14 @@
             if (argument == 'Min') {
                 sendDBUpdate('games_gambling_min', 'gambling', 'min', value);
             }
-            if (argument == 'WinRange') {
+            if (argument == 'WinRange' && value <= 100) {
                 sendDBUpdate('games_gambling_range', 'gambling', 'winRange', value);
             }
-            if (argument == 'WinPercent') {
+            if (argument == 'WinPercent' && value <= 100) {
                 sendDBUpdate('games_gambling_percent', 'gambling', 'winGainPercent', value);
             }
         }
-        $('#gambling' + argument).val(value);
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-        setTimeout(function() { sendCommand('reloadgamble') }, TIMEOUT_WAIT_TIME);
+        setTimeout(function() { doQuery(); sendCommand('reloadgamble'); }, TIMEOUT_WAIT_TIME);
     };
 
     // Import the HTML file for this panel.
@@ -294,7 +407,7 @@
     var interval = setInterval(function() {
         if (isConnected && TABS_INITIALIZED) {
             var active = $("#tabs").tabs("option", "active");
-            if (active == 0) {
+            if (active == 15) {
                 doQuery();
                 clearInterval(interval);
             }
@@ -321,4 +434,8 @@
     $.setRollRewards = setRollRewards;
     $.gambling = gambling;
     $.setSlotEmotes = setSlotEmotes;
+    $.toggleSaveBets = toggleSaveBets;
+    $.toggleInput = toggleInput;
+    $.toggleWarningMessages = toggleWarningMessages;
+    $.bet = {open: openBet, close: closeBet, update: updateBet };
 })();

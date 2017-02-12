@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -82,11 +82,19 @@
                 for (idx in donationData) {
                     if (!isNaN(donationData[idx]['key'])) {
                         donationObj = JSON.parse(donationData[idx]['value']);
-                        html += '<tr class="textList">' +
-                                '    <td>' + donationObj['name'] + '</td>' +
-                                '    <td>' + $.format.date(parseInt(donationObj['created_at']) * 1e3, 'MM.dd.yy hh:mm:ss') + '</td>' +
-                                '    <td style="float: right">' + donationObj['currency'] + ' ' + parseInt(donationObj['amount']).toFixed(2) + '</td>' +
-                                '</tr>';
+                        if (donationObj['currency'] != null || donationObj['name'] != null) {
+                            html += '<tr class="textList">' +
+                                    '    <td>' + donationObj['name'] + '</td>' +
+                                    '    <td>' + $.format.date(parseInt(donationObj['created_at']) * 1e3, 'MM.dd.yy hh:mm:ss') + '</td>' +
+                                    '    <td style="float: right">' + donationObj['currency'] + ' ' + parseInt(donationObj['amount']).toFixed(2) + '</td>' +
+                                    '</tr>';
+                        } else {
+                            html += '<tr class="textList">' +
+                                    '    <td>' + donationObj['parameters']['username'] + '</td>' +
+                                    '    <td>' + $.format.date(new Date(donationObj['created_at']), 'MM.dd.yy hh:mm:ss') + '</td>' +
+                                    '    <td style="float: right">' + donationObj['parameters']['currency'] + ' ' + parseInt(donationObj['parameters']['amount']).toFixed(2) + '</td>' +
+                                    '</tr>';
+                        }
                     }
                 }
 

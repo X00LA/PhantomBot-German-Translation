@@ -7,8 +7,14 @@ $.lang.register('hosthandler.set.hostmessage.success', 'Neue Hosternachricht ges
 $.lang.register('hosthandler.set.hostmessage.usage', 'Verwendung: !hostmessage (Nachricht) - Tags: (name) (reward)');
 $.lang.register('hosthandler.set.hostreward.success', 'Neue Hostingbelohnung geändert zu: $1.');
 $.lang.register('hosthandler.set.hostreward.usage', 'Verwendung: !hostreward [$1]');
+$.lang.register('hosthandler.set.autohostreward.success', 'Neue Auto-Host Belohnung festgelegt zu: $1.');
+$.lang.register('hosthandler.set.autohostreward.usage', 'Verwendung: !autohostreward [$1]');
 $.lang.register('hosthandler.set.autohostmessage.success', 'Neue Auto-Hosting-Nachricht festgelegt!');
 $.lang.register('hosthandler.set.autohostmessage.usage', 'Verwendung: !autohostmessage (Nachricht) - Tags: (name)');
+$.lang.register('hosthandler.set.hostrewardminviewers.success', 'Ein Minimum von $1 sind notwendig, um eine Hosting-Belohnung zu erhalten.');
+$.lang.register('hosthandler.set.hostrewardminviewers.usage', 'Verwendung: !hostrewardminviewers [count]');
 $.lang.register('hosthistory.usage', 'Verwendung: !hosthistory [on / off] (Aktuell: $1)');
 $.lang.register('hosthistory.change', 'Host-Verlauf $1');
 $.lang.register('hosthandler.host.usage', 'Verwendung: !host (Kanal)');
+$.lang.register('hosthandler.host.toggle', 'Host Benachrichtigungen wurden $1!');
+$.lang.register('hosthandler.auto.host.toggle', 'Auto-Host Benachrichtigungen wurden $1!');

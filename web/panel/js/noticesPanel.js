@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -149,6 +149,7 @@
             $(tagId).attr("placeholder", newValue).blur();
             setTimeout(function() { sendCommand("reloadnotice"); }, TIMEOUT_WAIT_TIME);
         }
+        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -156,12 +157,13 @@
      */
     function updateNoticeReq(tagId, tableKey) {
         var newValue = $(tagId).val();
-        if (parseInt(newValue) >= 1 && newValue.length > 0) {
+        if (parseInt(newValue) >= 0 && newValue.length > 0) {
             sendDBUpdate("noticeReqInput", "noticeSettings", tableKey, newValue);
             $(tagId).val('')
             $(tagId).attr("placeholder", newValue).blur();
             setTimeout(function() { sendCommand("reloadnotice"); }, TIMEOUT_WAIT_TIME);
         }
+        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     }
 
     /**
@@ -182,6 +184,7 @@
      * @param {String} id
      */
     function deleteNotice(id) {
+        $('#deleteNotice_' + id).html(spinIcon);
         sendCommand('notice removesilent ' + id);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
     }

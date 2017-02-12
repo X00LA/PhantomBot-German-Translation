@@ -173,7 +173,7 @@ function handlePlayList(d) {
 
 function handleSongList(d) {
     debugMsg("handleSongList(" + d + ")");
-    var tableData = "<tr><th /><th /><th>Song Titel</th><th>Anforderer</th><th>Dauer</th><th>YouTube ID</th></tr>";
+    var tableData = "<tr><th /><th /><th>Song Titel</th><th>AnforderIn</th><th>Dauer</th><th>YouTube ID</th></tr>";
     for (var i in d['songlist']) {
         var id = d['songlist'][i]['song'];
         var title = d['songlist'][i]['title'];

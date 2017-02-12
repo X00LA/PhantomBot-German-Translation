@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2016 phantombot.tv
+ Copyright (C) 2017 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -34,11 +34,11 @@
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="msgCooldownSec">Nachrichtenverzögerung</label>
+                <label for="msgCooldownSec">Nachrichten Abklingzeit</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#msgCooldownSec', 'msgCooldownSecs')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="msgCooldownSec" placeholder="seconds"
-                     data-toggle="tooltip" title="Lege eine Verzögerungszeit für Strafnachrichten fest." />
+                     data-toggle="tooltip" title="Lege eine Verzögerungszeit, in Sekunden, für Strafnachrichten fest." />
             </div>
         </form>
         <form role="form">
@@ -47,7 +47,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningResetTime', 'warningResetTime')">Übermitteln</button>
                 <input type="number" min="10" class="form-control" id="warningResetTime" placeholder="seconds"
-                     data-toggle="tooltip" title="Festlegen, wie lange eine Warnung, in Minuten, einem Benutzer auferlegt wird." />
+                     data-toggle="tooltip" title="Lege fest, wie lange eine Warnung, in Minuten, vorhalten soll." />
             </div>
         </form>
     </div> 
@@ -896,7 +896,7 @@
                 <label for="blacklistTimeoutTime">Auszeitdauer</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#blacklistTimeoutTime', 'blacklistTimeoutTime')">Übermitteln</button>
-                <input type="number" min="1" class="form-control" id="blacklistTimeoutTime" placeholder="Loading..."
+                <input type="number" min="1" class="form-control" id="blacklistTimeoutTime" placeholder="Lade..."
                      data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er ein verbotenes Wort sendet." />
             </div>
         </form>

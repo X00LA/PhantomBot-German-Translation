@@ -178,7 +178,7 @@
         var jsonString = $.gamewisp.getUserSubInfoString(username) + '',
             jsonData = JSON.parse(jsonString);
 
-        $.consoleDebug('checkGameWispSub(' + username + '): ' + jsonString);
+        $.consoleDebug('checkGameWispSub(' + username + '): ' + jsonString.replace(/access_token=\w+&/, ''));
 
         if (jsonData['error_description'] !== undefined) {
             if (jsonData['error_description'].equals('The resource owner or authorization server denied the request.')) {
@@ -222,7 +222,7 @@
         } else {
             $.consoleDebug('checkGameWispSub(' + username + '): adding to sub users list');
             $.addGWSubUsersList(username, parseInt(jsonData['data'][0]['tier']['data']['level']));
-            $.consoleDebug('checkGameWispSub(' + username + '): calling DB update; mods are ignored');
+            $.consoleDebug('checkGameWispSub(' + username + '): calling DB update; Mods are ignored!');
             $.restoreSubscriberStatus(username, false);
             $.consoleDebug('checkGameWispSub(' + username + '): handler complete');
         }

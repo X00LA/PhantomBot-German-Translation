@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,11 +42,6 @@
 
 
         if (panelHasQuery(msgObject)) {
-            if (panelCheckQuery(msgObject, 'gambling_betsettings')) {
-                for (idx in msgObject['results']) {
-                    $('#' + msgObject['results'][idx]['key'] + 'Input').attr('placeholder', msgObject['results'][idx]['value']).blur();
-                }
-            }
 
             if (panelCheckQuery(msgObject, 'gambling_rafflesettings')) {
                 for (idx in msgObject['results']) {
@@ -93,22 +88,6 @@
                 }
             }
 
-            if (panelCheckQuery(msgObject, 'gambling_betresults')) {
-                for (idx in msgObject['results']) {
-                    if (panelMatch(msgObject['results'][idx]['key'], 'winners')) {
-                        winner = msgObject['results'][idx]['value'];
-                    }
-                    if (panelMatch(msgObject['results'][idx]['key'], 'amount')) {
-                        amount = msgObject['results'][idx]['value'];
-                    }
-                }
-                if (winner.length > 0) {
-                    $('#betResults').html('<strong>Ergebnisse der letzten Wette:</strong><br>' +
-                                          'Gewinner: ' + winner + '<br>' +
-                                          'Gewinn: ' + amount);
-                }
-            }
-
             if (panelCheckQuery(msgObject, 'gambling_auctionresults')) {
                 for (idx in msgObject['results']) {
                     if (panelMatch(msgObject['results'][idx]['key'], 'winner')) {
@@ -121,7 +100,7 @@
                 if (winner.length > 0) {
                     $('#auctionResults').html('<strong>Ergebnisse der letzten Auktion:</strong><br>' +
                                           'Gewinner: ' + winner + '<br>' +
-                                          'Gezahlt: ' + amount);
+                                          'Ausgezahlt: ' + amount);
                 } 
             }
 
@@ -219,7 +198,6 @@
      * @function doQuery
      */
     function doQuery() {
-        sendDBKeys('gambling_betsettings', 'betSettings');
         sendDBKeys('gambling_rafflesettings', 'raffleSettings');
         sendDBKeys('gambling_betresults', 'betresults');
         sendDBKeys('gambling_auctionresults', 'auctionresults');
@@ -232,25 +210,6 @@
         sendDBQuery('gambling_trafflemessage', 'settings', 'traffleMessage');
         sendDBQuery('gambling_rafflelistentries', 'raffleresults', 'raffleEntries');
         sendDBQuery('gambling_trafflelistentries', 'raffleresults', 'ticketRaffleEntries');
-    }
-
-    /**
-     * @function betHandler
-     * @param {String} action
-     * @param {String} id
-     */
-    function betHandler(action, id) {
-        var value = $('#' + id).val();
-
-        if (value.length > 0) {
-            sendCommand('bet ' + action + ' ' + value);
-            setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
-
-            if (panelMatch(action, 'close')) {
-                $('#betOpenInput').val('');
-                $('#betCloseInput').val('');
-            }
-        }
     }
 
     /**
@@ -301,17 +260,25 @@
 
         sendDBUpdate('raffle_sub_luck', 'raffleSettings', 'subscriberBonusRaffle', String(sub));
         sendDBUpdate('raffle_sub_luck', 'raffleSettings', 'regularBonusRaffle', String(reg));
-        sendCommand('reloadraffle');
-
-        sendCommand('raffle open ' + minimumTime + ' ' + keyword + ' ' + timer + ' ' + eligibility + ' -usetime');
-        $('#raffle-keyword').val('');
-        $('#raffle-cost').val('');
+        
+        // For some slower drives sometimes this makes it before it has time to write the new data.
+        setTimeout(function() {
+            sendCommand('reloadraffle');
+            sendCommand('raffle open ' + minimumTime + ' ' + keyword + ' ' + timer + ' ' + eligibility + ' -usetime');
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+        $('#raffle-time-keyword').val('');
+        $('#raffle-time-cost').val('');
         $('#raffle-time-sub').html('1 Times');
         $('#raffle-time-reg').html('1 Times');
         $('#raffle-time-timer2').html('Until closed');
         $('#raffle-normal-timer').val('0');
         $('#raffle-normal-regluck').val('0');
         $('#raffle-normal-subluck').val('0');
+        document.getElementById('raffle-time-regluck').value = 0;
+        document.getElementById('raffle-time-subluck').value = 0;
+        document.getElementById('raffle-time-timer').value = 0;
+
     }
 
     /**
@@ -330,9 +297,13 @@
 
         sendDBUpdate('raffle_sub_luck', 'raffleSettings', 'subscriberBonusRaffle', String(sub));
         sendDBUpdate('raffle_sub_luck', 'raffleSettings', 'regularBonusRaffle', String(reg));
-        sendCommand('reloadraffle');
-
-        sendCommand('raffle open ' + minimumTime + ' ' + keyword + ' ' + timer + ' ' + eligibility + ' -usepoints');
+        
+        // For some slower drives sometimes this makes it before it has time to write the new data.
+        setTimeout(function() {
+            sendCommand('reloadraffle');
+            sendCommand('raffle open ' + minimumTime + ' ' + keyword + ' ' + timer + ' ' + eligibility + ' -usepoints');
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
         $('#raffle-keyword').val('');
         $('#raffle-cost').val('');
         $('#raffle-points-sub').html('1 Times');
@@ -341,6 +312,9 @@
         $('#raffle-normal-timer').val('0');
         $('#raffle-normal-regluck').val('0');
         $('#raffle-normal-subluck').val('0');
+        document.getElementById('raffle-points-regluck').value = 0;
+        document.getElementById('raffle-points-subluck').value = 0;
+        document.getElementById('raffle-points-timer').value = 0;
     }
 
     /**
@@ -358,16 +332,23 @@
 
         sendDBUpdate('raffle_sub_luck', 'raffleSettings', 'subscriberBonusRaffle', String(sub));
         sendDBUpdate('raffle_sub_luck', 'raffleSettings', 'regularBonusRaffle', String(reg));
-        sendCommand('reloadraffle');
-
-        sendCommand('raffle open ' + keyword + ' ' + timer + ' ' + eligibility);
+        
+        // For some slower drives sometimes this makes it before it has time to write the new data.
+        setTimeout(function() {
+            sendCommand('reloadraffle');
+            sendCommand('raffle open ' + keyword + ' ' + timer + ' ' + eligibility);
+        }, TIMEOUT_WAIT_TIME);
+        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
         $('#raffle-normal-keyword').val('');
-        $('#raffle-normal-sub').html('1 Times');
-        $('#raffle-normal-reg').html('1 Times');
+        $('#raffle-normal-subluck2').html('1 Times');
+        $('#raffle-normal-regluck2').html('1 Times');
         $('#raffle-normal-timer2').html('Until closed');
         $('#raffle-normal-timer').val('0');
         $('#raffle-normal-regluck').val('0');
         $('#raffle-normal-subluck').val('0');
+        document.getElementById('raffle-normal-regluck').value = 0;
+        document.getElementById('raffle-normal-subluck').value = 0;
+        document.getElementById('raffle-normal-timer').value = 0;
     }
 
     /**
@@ -377,12 +358,9 @@
         var message = $('#raffle-message-input').val(),
             interval = $('#raffle-message-timer').val();
 
-        console.log(message + ' ' + interval);
-
         sendDBUpdate('raffle_settings_set', 'raffleSettings', 'raffleMessage', message);
         sendDBUpdate('raffle_settings_set', 'raffleSettings', 'raffleMessageInterval', String(interval));
-        sendCommand('reloadraffle');
-        setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
+        setTimeout(function() { doQuery(); sendCommand('reloadraffle'); }, TIMEOUT_WAIT_TIME * 2);
     }
 
     /**
@@ -406,6 +384,8 @@
     function setEligibility(value) {
         if (value == 'followers') {
             eligibility = '-followers';
+        } else if (value == 'subscribers') {
+            eligibility = '-subscribers';
         } else {
             eligibility = '';
         }
@@ -490,20 +470,19 @@
         }
     }, INITIAL_WAIT_TIME);
 
-    // Query the DB every 25 seconds for updates.
+    // Query the DB every 20 seconds for updates.
     setInterval(function() {
         var active = $("#tabs").tabs("option", "active");
         if (active == 14 && isConnected && !isInputFocus()) {
             newPanelAlert('Aktualisiere Glücksspiel-Daten...', 'success', 1000);
             doQuery();
         }
-    }, 2e5);
+    }, 2e4);
 
 
     // Export to HTML
     $.gamblingOnMessage = onMessage;
     $.gamblingDoQuery = doQuery;
-    $.betHandler = betHandler;
     $.auctionOpen = auctionOpen;
     $.auctionClose = auctionClose;
     $.traffleRepick = traffleRepick;

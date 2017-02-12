@@ -1,0 +1,656 @@
+<!--
+
+ Copyright (C) 2017 phantombot.tv
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ @author ScaniaTV
+-->
+
+<div id="discordAccordion">
+    <h3>Benutzerdefinierte Befehle</h3>
+    <div>
+    <div id="_discord_customCommandsDisabled" />
+    <div id="_discord_customCommands">
+        <button type="button" class="btn btn-primary inline pull-right" data-toggle="modal" data-target="#command-add">Befehl hinzufügen</button>
+
+        <br><br>
+        <div id="command-list" style="height: 250px; overflow: auto;"/>
+
+        <div id="command-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> </button>
+                    <h4 class="modal-title">Befehl editieren</h4>
+                </div>
+
+                <div class="modal-body">
+                    <lable><b>Befehl:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <input id="command-name-modal" type="text" class="form-control" placeholder="Befehl" data-toggle="tooltip" 
+                        title="Das ist der Befehlsname. Dieser kann nicht bearbeitet werden." disabled />
+                    </div>
+
+                    <lable><b>Antwort:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <textarea id="command-response-modal" type="text" class="form-control" placeholder="Nachricht" data-toggle="tooltip" 
+                        title="Dies ist die Antwort auf den Befehl."/>
+                    </div>
+
+                    <lable><b>Berechtigung:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <input id="command-permission-modal" type="number" min="0" max="1" class="form-control" placeholder="Berechtigung" data-toggle="tooltip" 
+                        title="Berechtigung für den Befehl, 0 bedeutet, dass alle darauf zugreifen können und 1, dass er nur für Administratoren ausführbar ist." />
+                    </div>
+
+                    <lable><b>Abklingzeit:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <input id="command-cooldown-modal" type="number" class="form-control" placeholder="Abklingzeit" data-toggle="tooltip" 
+                        title="Abklingzeit für den Befehl, in Sekunden." />
+                    </div>
+
+                    <lable><b>Kanal:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <input id="command-channel-modal" type="text" class="form-control" placeholder="Kanalname" data-toggle="tooltip" 
+                        title="Kanal in dem dieser Befehl ausschließlich funktionieren soll, lass es frei, wenn du ihn global verfügar lassen willst."/>
+                    </div> 
+               </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.updateDiscordCommand(null, false)">Aktualisieren</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div id="command-add" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> </button>
+                    <h4 class="modal-title">Befehl hinzufügen</h4>
+                </div>
+
+                <div class="modal-body">
+                    <lable><b>Befehl:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <input id="command-add-name-modal" type="text" class="form-control" placeholder="Befehl" data-toggle="tooltip" 
+                        title="Name den du dem Befehl geben willst, kann später nicht mehr geändert werden."/>
+                    </div>
+
+                    <lable><b>Antwort:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <textarea id="command-add-response-modal" type="text" class="form-control" placeholder="Nachricht" data-toggle="tooltip" 
+                        title="Antwort dieses Befehls."/>
+                    </div>
+
+                    <lable><b>Berechtigung:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <input id="command-add-permission-modal" type="number" min="0" max="1" class="form-control" value="0" placeholder="0" data-toggle="tooltip" 
+                        title="Berechtigung für den Befehl, 0 bedeutet, dass alle darauf zugreifen können und 1, dass er nur für Administratoren ausführbar ist." />
+                    </div>
+
+                    <lable><b>Abklingzeit:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <input id="command-add-cooldown-modal" type="number" class="form-control" value="0" placeholder="0" data-toggle="tooltip" 
+                        title="Abklingzeit für den Befehl, in Sekunden." />
+                    </div>
+
+                    <lable><b>Kanal:</b></lable>
+                    <div class="form-group" onkeypress="return event.keyCode != 13">
+                        <input id="command-add-channel-modal" type="text" class="form-control" placeholder="Kanalname" data-toggle="tooltip" 
+                        title="Kanal in dem dieser Befehl ausschließlich funktionieren soll, lass es frei, wenn du ihn global verfügar lassen willst."/>
+                    </div> 
+               </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.updateDiscordCommand(null, 'false')">Hinzufügen</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <h3>TipeeeStream Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_tipeeeStreamHandlerDisabled" />
+    <div id="_discord_tipeeeStreamHandler">
+        <table>
+            <tr class="textList">
+                <td>TipeeeStream Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="tipeeestreamToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('tipeeestreamToggleInput', 'handlers/tipeeeStreamHandler.js', 'discordSettings', 'tipeeestreamToggle', 'true')">
+                        <i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('tipeeestreamToggleInput', 'handlers/tipeeeStreamHandler.js', 'discordSettings', 'tipeeestreamToggle', 'false')">
+                        <i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="tipeeeStreamMessageInput">Spendennachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('tipeeestreamMessageInput', 'handlers/tipeeeStreamHandler.js', 'discordSettings', 'tipeeestreamMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="tipeeestreamMessageInput" placeholder="Spendennachricht" data-toggle="tooltip" 
+                    title="Lege eine Spendennachricht für TpeeeStream Spenden fest. Verfügbare Tags: (name), (currency), (amount), (message), und (formattedamount)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="tipeeeStreamChannelInput">Alarmkanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('tipeeestreamChannelInput', 'handlers/tipeeeStreamHandler.js', 'discordSettings', 'tipeeestreamChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="tipeeestreamChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>StreamTip Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_streamTipHandlerDisabled" />
+    <div id="_discord_streamTipHandler">
+        <table>
+            <tr class="textList">
+                <td>StreamTip Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="streamtipToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('streamtipToggleInput', 'handlers/streamtipHandler.js', 'discordSettings', 'streamtipToggle', 'true')">
+                        <i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('streamtipToggleInput', 'handlers/streamtipHandler.js', 'discordSettings', 'streamtipToggle', 'false')">
+                        <i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Spendennachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('streamtipMessageInput', 'handlers/streamtipHandler.js', 'discordSettings', 'streamtipMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="streamtipMessageInput" placeholder="Spendennachricht" data-toggle="tooltip" 
+                    title="Lege eine Spendennachricht für StreamTip Spenden fest. Verfügbare Tags: (name), (currency), (amount), und (message)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alarmkanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('streamtipChannelInput', 'handlers/streamtipHandler.js', 'discordSettings', 'streamtipChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="streamtipChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>StreamLabs Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_streamLabsHandlerDisabled" />
+    <div id="_discord_streamLabsHandler">
+        <table>
+            <tr class="textList">
+                <td>StreamLabs Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="streamlabsToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('streamlabsToggleInput', 'handlers/streamlabsHandler.js', 'discordSettings', 'streamlabsToggle', 'true')">
+                        <i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('streamlabsToggleInput', 'handlers/streamlabsHandler.js', 'discordSettings', 'streamlabsToggle', 'false')">
+                        <i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="streamlabsMessageInput">Spendennachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('streamlabsMessageInput', 'handlers/streamlabsHandler.js', 'discordSettings', 'streamlabsMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="streamlabsMessageInput" placeholder="Spendennachricht" data-toggle="tooltip" 
+                    title="Lege ein Spendennachricht für StreamTip fest. Verfügbare Tags: (name), (currency), (amount), und (message)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="streamlabsChannelInput">Alarmkanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('streamlabsChannelInput', 'handlers/streamlabsHandler.js', 'discordSettings', 'streamlabsChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="streamlabsChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Begrüßungs Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_greetingSystemDisabled" />
+    <div id="_discord_greetingSystem">
+        <table>
+            <tr class="textList">
+                <td>Eintrittsalarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="joinToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button"onclick="$.updateDiscordTable('joinToggleInput', 'systems/greetingsSystem.js', 'discordSettings', 'joinToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('joinToggleInput', 'systems/greetingsSystem.js', 'discordSettings', 'joinToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+            <tr class="textList">
+                <td>Austrittsalarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="partToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('partToggleInput', 'systems/greetingsSystem.js', 'discordSettings', 'partToggle', 'true')"><i class="fa fa-circle" /> </div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('partToggleInput', 'systems/greetingsSystem.js', 'discordSettings', 'partToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="joinMessageInput">Eintrittsnachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('joinMessageInput', 'systems/greetingsSystem.js', 'discordSettings', 'joinMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="joinMessageInput" placeholder="Eintrittsnachricht" data-toggle="tooltip" 
+                    title="Lege eine Nachricht fest, die angezeigt wird, wenn ein neuer Zuschauer deinen Kanal betritt. Verfügbare Tags: (name), und (@name)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Austrittsnachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('partMessageInput', 'systems/greetingsSystem.js', 'discordSettings', 'partMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="partMessageInput" placeholder="Austrittsnachricht" data-toggle="tooltip" 
+                    title="Lege eine Nachricht fest, die angezeigt wird, wenn ein neuer Zuschauer deinen Kanal verlässt. Verfügbare Tags: (name), und (@name)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alarmkanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('greeetingsChannelInput', 'systems/greetingsSystem.js', 'discordSettings', 'greetingsChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="greeetingsChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Stream Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_streamHandlerDisabled" />
+    <div id="_discord_streamHandler">
+        <table>
+            <tr class="textList">
+                <td>Online Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="onlineToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('onlineToggleInput', 'handlers/streamHandler.js', 'discordSettings', 'onlineToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('onlineToggleInput', 'handlers/streamHandler.js', 'discordSettings', 'onlineToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+            <tr class="textList">
+                <td>Spielwechsel Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="gameToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('gameToggleInput', 'handlers/streamHandler.js', 'discordSettings', 'gameToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('gameToggleInput', 'handlers/streamHandler.js', 'discordSettings', 'gameToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="onlineMessageInput">Online Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('onlineMessageInput', 'handlers/streamHandler.js', 'discordSettings', 'onlineMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="onlineMessageInput" placeholder="Online Nachricht" data-toggle="tooltip" 
+                    title="Lege eine Nachricht fest die gezeigt wird, wenn du online gehst. Vefügbare Tags: (title), (game), (url), (name), und (follows)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Spielwechselnachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gameMessageInput', 'handlers/streamHandler.js', 'discordSettings', 'gameMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="gameMessageInput" placeholder="Spielwechselnachricht" data-toggle="tooltip" 
+                    title="Lege eine Nachricht, für den Fall dass du dein Spiel wechselst, fest. Verfügbare Tags: (title), (game), (url), (name), (uptime), und (follows)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alarmkanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('onlineChannelInput', 'handlers/streamHandler.js', 'discordSettings', 'onlineChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="onlineChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Bits Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_bitsHandlerDisabled" />
+    <div id="_discord_bitsHandler">
+        <table>
+            <tr class="textList">
+                <td>Bits Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="bitsToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('bitsToggleInput', 'handlers/bitsHandler.js', 'discordSettings', 'bitsToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('bitsToggleInput', 'handlers/bitsHandler.js', 'discordSettings', 'bitsToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Bits Message</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('bitsMessageInput', 'handlers/bitsHandler.js', 'discordSettings', 'bitsMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="bitsMessageInput" placeholder="Bits Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest für den Fall, dass dir jemand mit Bits zujubelt. Verfügbare Tags: (name) and (amount)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alert Channel</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('bitsChannelInput', 'handlers/bitsHandler.js', 'discordSettings', 'bitsChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="bitsChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Follower Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_followHandlerDisabled" />
+    <div id="_discord_followHandler">
+        <table>
+            <tr class="textList">
+                <td>Follower Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="followToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('followToggleInput', 'handlers/followHandler.js', 'discordSettings', 'followToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('followToggleInput', 'handlers/followHandler.js', 'discordSettings', 'followToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Follower Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('followMessageInput', 'handlers/followHandler.js', 'discordSettings', 'followMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="followMessageInput" placeholder="Follower Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest, für den Fall, dass jemand deinem Kanal folgt. Verfügbare Tags: (name)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alarmkanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('followChannelInput', 'handlers/followHandler.js', 'discordSettings', 'followChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="followChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Host Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_hostHandlerDisabled" />
+    <div id="_discord_hostHandler">
+        <table>
+            <tr class="textList">
+                <td>Host Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="hostToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('hostToggleInput', 'handlers/hostHandler.js', 'discordSettings', 'hostToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('hostToggleInput', 'handlers/hostHandler.js', 'discordSettings', 'hostToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Host Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('hostMessageInput', 'handlers/hostHandler.js', 'discordSettings', 'hostMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="hostMessageInput" placeholder="Host Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest, falls jemand deinen Kanal hostet. Verfügbare Tags: (name) und (viewers)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Auto Host Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('autohostMessageInput', 'handlers/hostHandler.js', 'discordSettings', 'autohostMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="autohostMessageInput" placeholder="Auto Host Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest, falls jemand deinen Kanal automatisch hostet. Verfügbare Tags: (name) and (viewers)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alert Channel</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('hostChannelInput', 'handlers/hostHandler.js', 'discordSettings', 'hostChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="hostChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Abonnenten Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_subscribeHandlerDisabled" />
+    <div id="_discord_subscribeHandler">
+        <table>
+            <tr class="textList">
+                <td>Abonnenten Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="subToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('subToggleInput', 'handlers/subscribeHandler.js', 'discordSettings', 'subToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('subToggleInput', 'handlers/subscribeHandler.js', 'discordSettings', 'subToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+            <tr class="textList">
+                <td>Prime Abonnenten Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="primeToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('primeToggleInput', 'handlers/subscribeHandler.js', 'discordSettings', 'primeToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('primeToggleInput', 'handlers/subscribeHandler.js', 'discordSettings', 'primeToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+            <tr class="textList">
+                <td>Re-Abonnement Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="resubToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('resubToggleInput', 'handlers/subscribeHandler.js', 'discordSettings', 'resubToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('resubToggleInput', 'handlers/subscribeHandler.js', 'discordSettings', 'resubToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Abonnement Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('subMessageInput', 'handlers/subscribeHandler.js', 'discordSettings', 'subMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="subMessageInput" placeholder="Abonnement Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest, falls jemand deinen Kanal abonniert. Verfügbare Tags: (name)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Prime Abonnement Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('primeMessageInput', 'handlers/subscribeHandler.js', 'discordSettings', 'primeMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="primeMessageInput" placeholder="Prime Abonnement Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest, falls jemand deinen Kanal über Prime abonniert. Verfügbare Tags: (name)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Re-Abonnment Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('resubMessageInput', 'handlers/subscribeHandler.js', 'discordSettings', 'resubMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="resubMessageInput" placeholder="Re-Abonnement Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest, falls jemand deinen Kanal Re-Abonniert. Verfügbare Tags: (name) and (months)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alarmkanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('subChannelInput', 'handlers/subscribeHandler.js', 'discordSettings', 'subChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="subChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>GameWisp Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_gameWispHandlerDisabled" />
+    <div id="_discord_gameWispHandler">
+        <table>
+            <tr class="textList">
+                <td>GameWisp Abonnenten Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="gamewispSubToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('gamewispSubToggleInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispSubToggle', 'true')">
+                        <i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('gamewispSubToggleInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispSubToggle', 'false')">
+                        <i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+            <tr class="textList">
+                <td>GameWisp Hochstufungsalarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="gamewispTierToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('gamewispTierToggleInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispTierToggle', 'true')">
+                        <i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('gamewispTierToggleInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispTierToggle', 'false')">
+                        <i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+            <tr class="textList">
+                <td>GameWisp Re-Abonnementalarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="gamewispReSubToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('gamewispReSubToggleInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispReSubToggle', 'true')">
+                        <i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('gamewispReSubToggleInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispReSubToggle', 'false')">
+                        <i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Abonnement Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gamewispSubMessageInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispSubMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="gamewispSubMessageInput" placeholder="Abonnement Nachricht" data-toggle="tooltip" 
+                title="Lege eine Nachricht fest, falls jemand deinen Kanal über GameWisp abonniert. Verfügbare Tags: (name) and (tier)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Re-Abonnement Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gamewispReSubMessageInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispReSubMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="gamewispReSubMessageInput" placeholder="Hochstufungs Nachricht" data-toggle="tooltip" 
+                title="Lege eine Nachricht fest, falls jemand sein/ihr Abonnement bei GameWisp erneuert. Verfügbare Tags: (name), (tier), and (months)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Hochstufungs Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gamewispTierMessageInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispTierMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="gamewispTierMessageInput" placeholder="Hochstufungs Nachricht" data-toggle="tooltip" 
+                title="Lege eine Nachricht fest, falls jemand sein GameWisp Abonnement hochstuft. Verfügbare Tags: (name) and (tier)" />
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alarm Kanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gamewispChannelInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="gamewispChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen."/>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <h3>Twitter Alarme Einstellungen</h3>
+    <div>
+    <div id="_discord_twitterHandlerDisabled" />
+    <div id="_discord_twitterHandler">
+        <table>
+            <tr class="textList">
+                <td>Twitter Alarme de-/aktivieren</td>
+                <td style="width: 25px"><div id="twitterToggleInput" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button" onclick="$.updateDiscordTable('twitterToggleInput', 'handlers/twitterHandler.js', 'discordSettings', 'twitterToggle', 'true')"><i class="fa fa-circle" /></div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button" onclick="$.updateDiscordTable('twitterToggleInput', 'handlers/twitterHandler.js', 'discordSettings', 'twitterToggle', 'false')"><i class="fa fa-circle-o" /></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label>Alarm Kanal</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('twitterChannelInput', 'handlers/twitterHandler.js', 'discordSettings', 'twitterChannel')">Übermitteln</button>
+                <input type="text" class="form-control" id="twitterChannelInput" placeholder="Kanalname" data-toggle="tooltip" title="Lege den Kanal fest, indem die Ankündigungen für dieses Modul gemacht werden sollen. Beachte, dass du das Twitter Modul für Twitch bereits aufgesetzt hast, um dies nutzen zu können, da dieses Modul die Einstellungen des Anderen verwendet."/>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+<!-- Run the Acordion -->
+<script>$("#discordAccordion").accordion({ clearStyle: true, heightStyle: "panel", icons: null });</script>
+<script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>

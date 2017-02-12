@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2016 phantombot.tv
+ Copyright (C) 2017 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -24,35 +24,31 @@
 <div id="audioAccordion">
     <h3>
         Audio Panel
+        <span style="float:right; margin-left: 10px" class="redPill-sm" onclick="window.open('https://docs.phantombot.tv/kb/audio')">Hilfe</span></span>
         <span id="ionSoundLoaded"><span style="float: right" class="redPill-sm">Initialisiere...</span></span>
+        <span id="reloadSounds" style="float: right; margin-right: 10px" class="bluePill-sm" onclick="$.reloadAudioHooks()">Lade Audio Hooks neu</span>
     </h3>
+    <div>
+    <div id="_audioPanelDisabled">Panel deaktiviert weil Modul deaktiviert ist. (./systems/audioPanelSystem.js)</div>
+    <div id="_audioPanel">
 
     <div>
         <table>
-        <div class="form-group" onkeypress="return event.keyCode != 13">
-            <i> Stelle sicher, dass du <a href="https://docs.phantombot.tv/kb/audio"><b>hier</b></a> die Anleitung zum Hinzufügen von benutzerdefinierten Sounds liest.</i>
-            <br>
-            <br>
-            <label for="soundName">Sound hinzufügen</label>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.addSound()">Hinzufügen</button>
-            <input type="text" class="form-control" id="soundImput" placeholder="Dateiname" />
-            <input type="text" class="form-control" id="soundImputDesc" placeholder="Soundname" />
-            <br>
-            <div id="audioHooks" style="height: 100px; overflow: auto;" /></div>
-        </div>
-        <br>
             <tr style="background: transparent">
-              <td><div id="audioPanelButtons" /></td>
+              <td><div id="audioPanelButtons"></td>
               <td style="width: 30px; float: right"><div id="ionSoundPlaying"><i class="fa fa-volume-up fa-3x" /></div></td>
               <script>$("#ionSoundPlaying").hide();</script>
             </tr>
         </table>
     </div>
-
+    </div>
+    </div>
+    
     <h3>YouTube Player</h3>
     <div>
-    <div id="_youtubePlayerPanelDisabled">Dieses Modul ist deaktiviert.</div>
+    <div id="_youtubePlayerPanelDisabled">Panel deaktiviert weil Modul deaktiviert ist. (./systems/youtubePlayer.js)</div>
     <div id="_youtubePlayerPanel">
+
         <span id="youTubeLauncher">
             <button type="button" class="btn btn-primary inline pull-left" onclick="$.launchYouTubePlayer()">Starte YouTube Player</button>
         </span>

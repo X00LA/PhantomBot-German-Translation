@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2016 phantombot.tv
+ Copyright (C) 2017 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -86,6 +86,8 @@
                             Alle<span class="caret pull-right" style="margin-top: 8px;"></span></button>
 
                         <ul class="dropdown-menu" style="margin-left: 48px;">
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('subscribers')">Abonnenten</a>
+                            </li>
                             <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('followers')">Follower</a>
                             </li>
                             <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('everyone')">Alle</a>
@@ -142,7 +144,7 @@
                     <br>
                     <lable>Minimale Zeit</lable>
                     <div class="btn-group">
-                        <input style="width: 400px; margin-left: 15px;" type="number" min="1" class="form-control" id="raffle-time-cost" placeholder="Zeit" />
+                        <input style="width: 400px; margin-left: 15px;" type="number" min="1" class="form-control" id="raffle-time-cost" placeholder="Zeit (Minuten)" />
                     </div>
 
                     <br>
@@ -153,6 +155,8 @@
                             Alle<span class="caret pull-right" style="margin-top: 8px;"></span></button>
 
                         <ul class="dropdown-menu" style="margin-left: 48px;">
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('subscribers')">Abonnenten</a>
+                            </li>
                             <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('followers')">Follower</a>
                             </li>
                             <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('everyone')">Alle</a>
@@ -213,6 +217,8 @@
                             Alle<span class="caret pull-right" style="margin-top: 8px;"></span></button>
 
                         <ul class="dropdown-menu" style="margin-left: 48px;">
+                            <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('subscribers')">Abonnenten</a>
+                            </li>
                             <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('followers')">Follower</a>
                             </li>
                             <li><a style="cursor: pointer; width: 400px;" class="dropdown-shadow" onclick="$.setEligibility('everyone')">Alle</a>
@@ -329,13 +335,13 @@
 
     <br><br><br>
     <div id="raffleResults" />
-    <td>Teilnehmer: <span id="raffleentries">0</span></td>
+    <td>TeilnehmerInnen: <span id="raffleentries">0</span></td>
 
     <br><br>
-    <label for="raffleListTable">Teilnehmerliste</label>
+    <label for="raffleListTable">TeilnehmerInnenliste</label>
     <div id="raffleListTable" style="height: 200px; overflow: auto;" />
     <br>
-    <small><i>Bitte beachte, dass die Liste erst bei Eröffnung der nächsten Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, einen neuen Gewinner zu wählen.</i></small>
+    <small><i>Bitte beachte, dass die Liste erst bei Eröffnung der nächsten Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, eine/n neue/n GewinnerIn zu wählen.</i></small>
 
     </div>
     </div>
@@ -347,7 +353,7 @@
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="traffleOpen">Eröffne/Schließe Ticket Verlosung</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.traffleRepick()">Neuer Gewinner</button>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.traffleRepick()">Neue/r GewinnerIn</button>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.traffleClose()">Verlosung Schließen</button>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.traffleOpen()">Verlosung eröffnen</button>
                 <input type="number" min="0" class="form-control" id="traffleMaxInput" placeholder="Max. Einträge" />
@@ -388,10 +394,10 @@
         <td>Einträge gesamt: <span id="traffleentries">0</span></td>
         <br>
     <br>
-        <label for="traffleListTable">Teilnehmer Liste</label>
+        <label for="traffleListTable">TeilnehmerInnen Liste</label>
         <div id="traffleListTable" style="height: 200px; overflow: auto;" />
         <br>
-        <small><i>Bitte beachte, dass die Liste erst beim Start einer neuen Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, einen neuen Gewinner zu wählen.</i></small>
+        <small><i>Bitte beachte, dass die Liste erst beim Start einer neuen Verlosung zurückgesetzt wird. Dies ist für die Möglichkeit, eine/n neue/n GewinnerIn zu wählen.</i></small>
     </div>
     </div>
     </div>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -577,6 +577,7 @@
         } else if (cooldownMsg == "false") {
             sendDBUpdate("commands_cooldownmsg", "settings", "coolDownMsgEnabled", "true");
         }
+        sendCommand('reloadinit');
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
     };
 
@@ -590,6 +591,7 @@
         } else if (permcomMsg == "false") {
             sendDBUpdate("commands_permcommsg", "settings", "permComMsgEnabled", "true");
         }
+        sendCommand('reloadinit');
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
     };
 
@@ -699,7 +701,7 @@
             return;
         }
 
-        sendCommand(val);
+        sendCommand(val.replace('!', ''));
         $('#commandImput').val('command sent!');
         setTimeout(function() { $('#commandImput').val('') }, TIMEOUT_WAIT_TIME);
     }

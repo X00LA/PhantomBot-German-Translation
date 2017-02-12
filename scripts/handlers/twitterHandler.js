@@ -18,9 +18,9 @@
         interval;
  
     /* Set default values for all configuration items. */
-    $.getSetIniDbString('twitter', 'message_online', 'Habe gerade begonnen (game) zu streamen! (twitchurl)');
-    $.getSetIniDbString('twitter', 'message_gamechange', 'Wechsle gerade zu (game)! (twitchurl)');
-    $.getSetIniDbString('twitter', 'message_update', 'Ich streame (uptime) [(game)]! (twitchurl)');
+    $.getSetIniDbString('twitter', 'message_online', 'Habe gerade begonnen (game) zu streamen! Schaut doch mal rein, würde mich freuen! (twitchurl)');
+    $.getSetIniDbString('twitter', 'message_gamechange', 'Habe gerade zu (game) gewechselt! Schaut rein, wenn es was für Euch ist! (twitchurl)');
+    $.getSetIniDbString('twitter', 'message_update', 'Ich streame seit (uptime) [(game)]! Schaut rein, ich würde mich darüber sehr freuen! (twitchurl)');
 
     $.getSetIniDbNumber('twitter', 'polldelay_mentions', 60);
     $.getSetIniDbNumber('twitter', 'polldelay_retweets', 60);
@@ -69,10 +69,10 @@
                     randNum = $.randRange(1, 9999);
                 } while (randNum == randPrev);
                 randPrev = randNum;
-                $.twitter.updateStatus($.getIniDbString('twitter', 'message_online').replace('#', '').
+                $.twitter.updateStatus(String($.getIniDbString('twitter', 'message_online')).replace('#', '').
                                            replace('(title)', $.twitchcache.getStreamStatus()).
                                            replace('(game)', $.twitchcache.getGameTitle()).
-                                           replace('(twitchurl)', 'https://www.twitch.tv/' + $.ownerName + '#' + randNum));
+                                           replace('(twitchurl)', 'https://www.twitch.tv/' + $.ownerName + '#' + randNum).replace(/\(enter\)/g, '\r\n'));
             }
         }
     });
@@ -99,10 +99,10 @@
                     randNum = $.randRange(1, 9999);
                 } while (randNum == randPrev);
                 randPrev = randNum;
-                $.twitter.updateStatus($.getIniDbString('twitter', 'message_gamechange').replace('#', '').
+                $.twitter.updateStatus(String($.getIniDbString('twitter', 'message_gamechange')).replace('#', '').
                                        replace('(title)', $.twitchcache.getStreamStatus()).
                                        replace('(game)', $.twitchcache.getGameTitle()).
-                                       replace('(twitchurl)', 'https://www.twitch.tv/' + $.ownerName + '#' + randNum));
+                                       replace('(twitchurl)', 'https://www.twitch.tv/' + $.ownerName + '#' + randNum).replace(/\(enter\)/g, '\r\n'));
             }
         }
     });
@@ -351,7 +351,7 @@
              */
             if (commandArg.equalsIgnoreCase('lastmention')) {
                 if ($.getIniDbBoolean('twitter', 'poll_mentions', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention', $.getIniDbString('twitter', 'last_mentions', 'Es wurden noch keine Erw�hnungen abgerufen!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention', $.getIniDbString('twitter', 'last_mentions', 'Es wurden noch keine Erwähnungen abgerufen!')));
                     return;
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention.disabled'));
@@ -408,18 +408,20 @@
                 $.inidb.set('twitter', 'last_autoupdate', $.systemTime());
 
                 if (success.equals('true')) {
-                    $.twitter.updateStatus($.getIniDbString('twitter', 'message_update').replace('#', '').
+                    $.twitter.updateStatus(String($.getIniDbString('twitter', 'message_update')).replace('#', '').
                                                replace('(title)', $.twitchcache.getStreamStatus()).
                                                replace('(game)', $.twitchcache.getGameTitle()).
                                                replace('(twitchurl)', 'https://www.twitch.tv/' + $.ownerName + '#' + uptimeSec).
+                                               replace(/\(enter\)/g, '\r\n').
                                                replace('(uptime)', hrs + ':' + min),
                                            './addons/downloadHTTP/twitch-preview.jpg');
                 } else {
-                    $.twitter.updateStatus($.getIniDbString('twitter', 'message_update').replace('#', '').
+                    $.twitter.updateStatus(String($.getIniDbString('twitter', 'message_update')).replace('#', '').
                                                replace('(title)', $.twitchcache.getStreamStatus()).
                                                replace('(game)', $.twitchcache.getGameTitle()).
                                                replace('(twitchurl)', 'https://www.twitch.tv/' + $.ownerName + '#' + uptimeSec).
-                                               replace('(uptime)', hrs + ':' + min));
+                                               replace('(uptime)', hrs + ':' + min).
+                                               replace(/\(enter\)/g, '\r\n'));
                 }
                 $.log.event('Sent Auto Update to Twitter');
             }

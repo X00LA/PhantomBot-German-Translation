@@ -10,7 +10,7 @@
  */
 (function() {
     var autoGreetEnabled = $.getSetIniDbBoolean('greeting', 'autoGreetEnabled', false),
-        defaultJoinMessage = $.getSetIniDbString('greeting', 'defaultJoin', '(name) ist eingetreten!'),
+        defaultJoinMessage = $.getSetIniDbString('greeting', 'defaultJoin', '(name) hat den Kanal betreten!'),
         greetingCooldown = $.getSetIniDbNumber('greeting', 'cooldown', (6 * 36e5)); // 6 hours
 
     /**

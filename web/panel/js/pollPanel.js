@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,7 +49,7 @@
         if (panelHasQuery(msgObject)) {
             if (panelCheckQuery(msgObject, 'poll_results')) {
                 if (msgObject['results'].length === 0) {
-                    $('#pollLastResults').html('<i>Keine Ergebnisse von bisherigen Umfragen</i>');
+                    $('#pollLastResults').html('<i>Keine Ergebnisse von bisherigen Umfragen!</i>');
                     return;
                 }
                 for (idx in msgObject['results']) {
