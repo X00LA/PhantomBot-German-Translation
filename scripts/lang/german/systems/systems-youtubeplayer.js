@@ -7,6 +7,8 @@ $.lang.register('ytplayer.songrequests.enabled', '[\u266B] Musikwünsche sind nu
 $.lang.register('ytplayer.songrequests.disabled', '[\u266B] Musikwünsche sind nun deaktiviert! [\u266B]');
 $.lang.register('ytplayer.command.volume.get', 'Aktuelle YouTube Player Lautstärke: $1');
 $.lang.register('ytplayer.command.volume.set', 'Setze YouTube Player Lautstärke: $1');
+$.lang.register('ytplayer.command.ytp.togglestealrefund.enable', 'Vom YouTube Player gestohlene Songs werden den Benutzern/innen zurückerstattet.');
+$.lang.register('ytplayer.command.ytp.togglestealrefund.disable', 'Vom YouTube Player gestohlene Songs werden den Benutzern/innen NICHT zurückerstattet.');
 $.lang.register('ytplayer.command.ytp.togglerandom.toggled', 'Die YouTube Player Playlist Zufallswiedergabe wurde $1.');
 $.lang.register('ytplayer.command.ytp.toggleannounce.toggled', 'YouTube Player Ankündigungen wurden $1.');
 $.lang.register('ytplayer.command.ytp.setrequestmax.usage', 'Verwendung: !ytp setrequestmax [Max. Anfragen]');
@@ -29,6 +31,8 @@ $.lang.register('ytplayer.command.playlist.delete.usage', 'Verwendung: !playlist
 $.lang.register('ytplayer.command.playlist.listpl', 'Playlisten: $1');
 $.lang.register('ytplayer.command.stealsong.this.success', '$1 hat den aktuellen Song zur Playlist hinzugefügt.');
 $.lang.register('ytplayer.command.stealsong.other.success', '$1 hat den aktuellen Song zur [$2] Playlist hizugefügt.');
+$.lang.register('ytplayer.command.stealsong.refund', '$1 erhielt für seinen/ihren übermittelten Song eine Gutschrift von $2 $3 auf sein/ihr Punktekonto!');
+$.lang.register('ytplayer.command.stealsong.duplicate', 'Dieser Song ist bereits in der PLaylist!');
 $.lang.register('ytplayer.command.jumptosong.failed', 'Kann den Song an der Playlistposition $1 nicht finden.');
 $.lang.register('ytplayer.command.songrequest.usage', 'Verwendung: !songrequest [YouTube ID | YouTube Link | Suchbegriff]');
 $.lang.register('ytplayer.command.songrequest.success', 'Dein Titel "$1", wurde zur Warteliste hinzugefügt. (Position: $3 ID: $4)');
@@ -58,6 +62,7 @@ $.lang.register('ytplayer.requestsong.error.exists', 'Musikwunsch ist bereits au
 $.lang.register('ytplayer.requestsong.error.maxlength', 'Musiktitellänge beträgt $1 und überschreitet die maximal zulässige Länge!');
 $.lang.register('ytplayer.command.importpl.file.start', 'Import gestartet, bitte warten...');
 $.lang.register('ytplayer.command.importpl.file.success', 'Import abgeschlossen! Erfolgreich $1 Musiktitel importiert, hinzufügen von $2 Musiktitel(n) aus $3 zur Playlist $4 fehlgeschlagen.');
+$.lang.register('ytplayer.command.importpl.file.success.plerror', 'Import Abgeschlossen! Erfolgreich $1 Titel importiert, $2 konnten nicht von $3 zur Playlist $4 hinzugefügt werden. $5 Playlist(en) übersprungen.');
 $.lang.register('ytplayer.command.importpl.file.404', 'Kann Datei $1 nicht finden!');
 $.lang.register('ytplayer.command.importpl.file.registry404', 'Liste $1 wurde in der Datenbank nicht erstellt, versuche es nochmal.');
 $.lang.register('ytplayer.command.importpl.file.usage', 'Verwendung: !importpl file [Playlistname] [Dateiname]');

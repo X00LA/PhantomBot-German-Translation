@@ -61,7 +61,9 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         Übersetzung Version 2.3.4a --> Update auf Bot-Version 2.3.4.
         Übersetzung Version 2.3.4b --> Update auf Bugfix-Version 2.3.4.1.
 
-
+	PhantomBot Version 2.3.5.x
+		Übersetzung Version 2.3.5a -- Update auf Bot-Version 2.3.5 (inkl. Bugfix-Version 2.3.5.1), Einige Tippfehler und Ausdrücke geändert und/oder behoben, einige vergessene Log-Ausgaben wieder ins Englische zurückgesetzt, Übersetzung weitest möglich Geschlechtsneutral ausgeführt (ist noch nicht zu 100% erledigt), Englische original Dateien wieder entfernt.
+		
 
 # Lizenzinformation
 

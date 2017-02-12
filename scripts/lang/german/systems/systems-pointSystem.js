@@ -6,8 +6,6 @@ $.lang.register('pointsystem.add.error.negative', 'Du kannst keine negativen $1 
 $.lang.register('pointsystem.take.error.negative', 'Du kannst keine negativen $1 nehmen.');
 $.lang.register('pointsystem.add.success', '$1 an $2 gesendet. Neuer Kontostand $3.');
 $.lang.register('pointsystem.add.usage', 'Verwendung: "!points add [Benutzername] [Menge]"');
-$.lang.register('pointsystem.get.self.nopoints', 'Du hast derzeit keine $1. Bleibe im Chat um $1 zu sammeln!');
-$.lang.register('pointsystem.get.self.withtime', 'Du hast derzeit $2 und du bist insgesamt $3 im Chat.');
 $.lang.register('pointsystem.user.success', ' $1 hat aktuell $2.');
 $.lang.register('pointsystem.makeitrain.error.invalid', 'Entschuldigung, aber es ist derzeit nicht möglich, $1 regnen zu lassen.');
 $.lang.register('pointsystem.makeitrain.error.needpoints', 'Du kannst es dir derzeit nicht leisten, es $1 regnen zu lassen.');
@@ -32,6 +30,7 @@ $.lang.register('pointsystem.set.name.multiple.success', 'Name der Mehrzahl erfo
 $.lang.register('pointsystem.set.name.single.success', 'Name der Einzahl erfolgreich geändert von "$1" zu "$2". Setze den Namen für ein(e)(n) $2 mit !points setname single [Name].');
 $.lang.register('pointsystem.set.name.usage', 'Verwendung: !points setname [single | multiple | delete] [Name]. Setzt die Namen für einzelne oder mehrere Punkte, oder löscht die Werte.');
 $.lang.register('pointsystem.set.name.delete', 'Benutzerdefinierte Punktenamen entfernt.');
+$.lang.register('pointsystem.set.name.duplicate', 'Dies ist der aktuelle Name des benutzerdefinierten Punkte Befehls.');
 $.lang.register('pointsystem.setbalance.error.negative', 'Du kannst den Kontostand nicht auf negative $1 setzen.');
 $.lang.register('pointsystem.setbalance.success', '$1 Kontostand von $2 zu $3 geändert.');
 $.lang.register('pointsystem.setbalance.usage', 'Verwendung: !points set [Benutzername] [Menge]');
@@ -47,3 +46,5 @@ $.lang.register('pointsystem.err.negative', 'Du kannst nicht weniger als 0 $1 sc
 $.lang.register('pointsystem.err.penalty', 'Verwendung: !penalty (Benutzer) (Zeit in Minuten)');
 $.lang.register('pointsystem.penalty.set', 'Benutzer: $1 wird für die nächsten $2 keine Punkte erwerben.');
 $.lang.register('pointsystem.reset.all', 'Alle Punkte gelöscht.');
+$.lang.register('pointsystem.message.usage', 'Verwendung: !points setmessage [Nachricht] - Tags: (userprefix), (user), (points), (pointsname), (pointsstring), (time), and (rank)');
+$.lang.register('pointsystem.message.set', 'Punktenachricht festgelegt zu: $1');

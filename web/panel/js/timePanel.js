@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
 (function() {
 
     var timeLevel = "",
+        timeLevelWarning = "",
         keepTimeWhenOffline = "",
         modTimePermToggle = "",
         commandName = "",
@@ -78,6 +79,12 @@
                     if (panelMatch(commandName, 'modTimePermToggle')) {
                         modTimePermToggle = msgObject['results'][idx]['value'];
                         $("#modTimePermToggle").html(modeIcon[modTimePermToggle]);
+                        continue;
+                    }
+
+                    if (panelMatch(commandName, 'timeLevelWarning')) {
+                        timeLevelWarning = msgObject['results'][idx]['value'];
+                        $("#timeLevelWarning").html(modeIcon[timeLevelWarning]);
                         continue;
                     }
                 }
@@ -213,6 +220,14 @@
             }
         }
 
+        if (setting == "timeLevelWarning") {
+            if (timeLevelWarning == "false") {
+                sendDBUpdate("time_toggles", "timeSettings", setting, "true");
+            } else {
+                sendDBUpdate("time_toggles", "timeSettings", setting, "false");
+            }
+        }
+
         setTimeout(function() { sendCommand("updatetimesettings"); }, TIMEOUT_WAIT_TIME);
         setTimeout(function() { doLiteQuery(); }, TIMEOUT_WAIT_TIME);
     }
@@ -268,7 +283,7 @@
                 sendDBUpdate("times", "time", username, timeAdjust);
             }
         }
-        $("#adjustUserTimeNameInput").val("Übermittle...");
+        $("#adjustUserTimeNameInput").val("Ãœbermittle...");
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         setTimeout(function() {
             $("#adjustUserTimeNameInput").val("");

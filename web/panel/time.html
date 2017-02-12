@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2016 phantombot.tv
+ Copyright (C) 2017 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@
                 </td>
             </tr>
             <tr class="textList">
-                <td>Automatische Beförderung zu Stammzuschauer</td>
+                <td>Automatische Beförderung zu StammzuschauerIn</td>
                 <td style="width: 25px"><div id="timeLevel" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="Toggle" class="button"
@@ -44,7 +44,7 @@
                 </td>
             </tr>
             <tr class="textList">
-                <td>Moderatoren können Benutzer-Zeit einstellen</td>
+                <td>ModeratoreInnen können Benutzer-Zeit einstellen</td>
                 <td style="width: 25px"><div id="modTimePermToggle" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="Toggle" class="button"
@@ -62,7 +62,7 @@
         </div>
 
         <div class="form-group" onkeypress="return event.keyCode != 13">
-            <label for="setTimePromotion">Stunden bis zur Stammzuschauerbeförderung</label>
+            <label for="setTimePromotion">Stunden bis zur StammzuschauerInbeförderung</label>
             <button type="button" class="btn btn-primary inline pull-right" onclick="$.setTimePromotion()">Aktualisieren</button>
             <input type="number" min="0" class="form-control" id="setTimePromotionInput" placeholder="Stunden" />
         </div>
@@ -76,20 +76,20 @@
         </div>
     </div>
 
-    <h3>Benutzer-Zeit ändern</h3>
+    <h3>BenutzerInnen-Zeit ändern</h3>
     <div>
         <div class="form-group" onkeypress="return event.keyCode != 13">
             <label for="adjustUserTime">Benutzer-Zeit anpassen (Sekunden)</label>
             <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserTime('take')">Nehmen</button>
             <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserTime('add')">Hinzufügen</button>
             <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserTime('set')">Festlegen</button>
-            <input type="text" class="form-control" id="adjustUserTimeNameInput" placeholder="Benutzername, oder klicke unten auf eine Zeile." />
+            <input type="text" class="form-control" id="adjustUserTimeNameInput" placeholder="BenutzerInnenname, oder klicke unten auf eine Zeile." />
             <input type="number" min="0" class="form-control" id="adjustUserTimeSecsInput" placeholder="Sekunden" />
         </div>
         <br>
 
         <div>
-            <span id="userTimeTableTitle">Benutzer Zeitliste</span>
+            <span id="userTimeTableTitle">BenutzerInnen Zeitliste</span>
         </div>
         <br>
         <div id="userTimeTable" style="height: 510px; overflow: auto;" />

@@ -89,7 +89,7 @@ $.lang.register('killcommand.other.30', '(jail) $1 versuchte $2 mit einem Göffe
 $.lang.register('killcommand.other.31', '(jail) $1 wollte $2 mit einem Hammer etwas Verstand einhämmern, aber $2 war ein verdeckter Ermittler!');
 $.lang.register('killcommand.other.32', '(jail) $4 wurde von $1 bezahlt, um auf $2 ein Attentat auzüfhren. $1\'s Plan schlug fehl, weil $4 ein verdeckter Ermittler ist!');
 $.lang.register('killcommand.other.44', '(jail) $1 attackierte $2 mit einem Plastiklöffel, aber plötzlich wurde $1 von einem Schwarm Polizisten umzingelt und diese feuerten 5 Minuten lang auf $1.');
-$.lang.register('killcommand.other.32', '(jail) $1 wurde von $4 bezahlt, um $2 zu ermorden, aber $2 war ein Polizist.');
+$.lang.register('killcommand.other.45', '(jail) $1 wurde von $4 bezahlt, um $2 zu ermorden, aber $2 war ein Polizist.');
 /** Jail End **/
 
 $.lang.register('killcommand.other.34', '$1 verendete gerechterweise durch $2.');

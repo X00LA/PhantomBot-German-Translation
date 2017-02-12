@@ -68,7 +68,7 @@
                 otherChannels = channel;
                 $.inidb.set('dualStreamCommand', 'otherChannels', otherChannels);
                 $.say($.lang.get('dualstreamcommand.link.set', $.username.resolve($.channelName) + '/' + chan));
-                $.log.event(sender + ' hat Multilink festgelegt auf "' + $.lang.get('dualstreamcommand.link') + $.username.resolve($.channelName) + '/' + chan + '".');
+                $.log.event(sender + ' set the multi link to "' + $.lang.get('dualstreamcommand.link') + $.username.resolve($.channelName) + '/' + chan + '".');
                 return;
             }
 
@@ -81,7 +81,7 @@
                 $.inidb.del('dualStreamCommand', 'otherChannels');
                 $.inidb.set('dualStreamCommand', 'timerToggle', timerToggle);
                 $.say($.whisperPrefix(sender) + $.lang.get('dualstreamcommand.clear'));
-                $.log.event(sender + ' hat Multilink zurückgesetzt!');
+                $.log.event(sender + ' cleared the multi link.');
                 return;
             }
 
@@ -98,13 +98,13 @@
                     timerToggle = true;
                     $.inidb.set('dualStreamCommand', 'timerToggle', timerToggle);
                     $.say($.whisperPrefix(sender) + $.lang.get('dualstreamcommand.timer.enabled'));
-                    $.log.event(sender + ' hat Multi-Timer aktiviert!');
+                    $.log.event(sender + ' enabled the multi timer.');
                     return;
                 } else if (subAction.equalsIgnoreCase('off')) {
                     timerToggle = false;
                     $.inidb.set('dualStreamCommand', 'timerToggle', timerToggle);
                     $.say($.whisperPrefix(sender) + $.lang.get('dualstreamcommand.timer.disabled'));
-                    $.log.event(sender + ' hat Multitimer deaktiviert!');
+                    $.log.event(sender + ' disabled the multi timer.');
                     return;
                 } else {
                     $.say($.whisperPrefix(sender) + $.lang.get('dualstreamcommand.timer.usage'));
@@ -126,7 +126,7 @@
                 timerInterval = parseInt(subAction);
                 $.inidb.set('dualStreamCommand', 'timerInterval', timerInterval);
                 $.say($.whisperPrefix(sender) + $.lang.get('dualstreamcommand.timerinterval.set', timerInterval));
-                $.log.event(sender + ' hat Multi-Timer Intervall geändert zu ' + timerInterval + ' Sekunden.');
+                $.log.event(sender + ' changed the multi timer interval to ' + timerInterval + ' seconds.');
                 reloadMulti();
             }
 
@@ -142,7 +142,7 @@
                 reqMessages = parseInt(subAction);
                 $.inidb.set('dualStreamCommand', 'reqMessages', reqMessages);
                 $.say($.whisperPrefix(sender) + $.lang.get('dualstreamcommand.reqmessages.set', reqMessages));
-                $.log.event(sender + ' hat Mutli-benötigte-Nachrichten geändert zu ' + reqMessages + ' Nachrichten.');
+                $.log.event(sender + ' changed the multi req messages to ' + reqMessages + ' messages.');
             }
         }
 

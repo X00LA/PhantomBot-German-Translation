@@ -46,7 +46,7 @@
             localDate = getCurLocalTimeString("'['dd-MM-yyyy']'");
             $.inidb.set('highlights', timestamp, localDate + ' ' + args.splice(0).join(' '));
             $.say($.whisperPrefix(sender) + $.lang.get('highlightcommand.highlight.success', timestamp));
-            $.log.event(sender + ' hat um ' + timestamp + ' einen Höhepunkt hinzugefügt.');
+            $.log.event(sender + ' added a highlight at ' + timestamp + '.');
         }
 
         if (command.equalsIgnoreCase("gethighlights") || command.equalsIgnoreCase("showhighlights")) {
@@ -68,7 +68,7 @@
             $.inidb.RemoveFile("highlights");
             $.inidb.ReloadFile("highlights");
             $.say($.whisperPrefix(sender) + $.lang.get('highlightcommand.clearhighlights.success'));
-            $.log.event(sender + ' hat alle Höhepunkte zurückgesetzt!');
+            $.log.event(sender + ' cleared highlights.');
             return;
         }
     });

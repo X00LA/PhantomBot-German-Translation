@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2016 phantombot.tv
+ Copyright (C) 2017 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -22,49 +22,7 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="pointsAccordion">
-    <h3>Modifiziere Benutzer Punkte</h3>
-    <div>
-    <div id="_userPointConfigPanelDisabled" />
-    <div id="_userPointConfigPanel">
-        <div class="form-group" onkeypress="return event.keyCode != 13">
-            <label for="giftPoints">Punkte an Chat schenken</label>
-            <button type="button" data-toggle="tooltip" title="Schenke die unten stehende Menge an Punkten an jeden Zuschauer im Chat."
-                    class="btn btn-primary inline pull-right" onclick="$.giftChatPoints('all')">Alle beschenken</button>
-            <button type="button" data-toggle="tooltip" title="Alle Zuschauer via Zufallsprinzip bis zur unten stehenden Höhe beschenken."
-                    class="btn btn-primary inline pull-right" onclick="$.giftChatPoints('makeitrain')">Lass es regnen</button>
-            <button type="button" data-toggle="tooltip" title="Gewähre einen Bonus für X-Minuten für jede Auszahlung."
-                    class="btn btn-primary inline pull-right" onclick="$.giftChatPoints('bonus')">Bonus</button>
-                    <button type="button" data-toggle="tooltip" title="Nimm jedem im Chat X Punkte weg."
-                    class="btn btn-primary inline pull-right" onclick="$.giftChatPoints('take')">Allen wegnehmen</button>
-            <input type="text" class="form-control" id="giftChatPointsInput" placeholder="Punkte [Wenn Bonus (Zeit in Minuten)]" />
-        </div>
-
-        <div class="form-group" onkeypress="return event.keyCode != 13">
-            <label for="adjustUserPoints">Benutzerpunkte anpassen</label>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserPoints('take')">Wegnehmen</button>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserPoints('add')">Hinzufügen</button>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserPoints('set')">Festlegen</button>
-            <input type="text" class="form-control" id="adjustUserPointsNameInput" placeholder="Benutzername, oder klicke unten auf eine Zeile." />
-            <input type="number" min="0" class="form-control" id="adjustUserPointsInput" placeholder="Punkte" />
-        </div>
-
-        <div class="form-group" onkeypress="return event.keyCode != 13">
-            <label for="penaltyUserPoints">Benutzer bestrafen</label>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.penaltyUser()">Übermitteln</button>
-            <input type="text" class="form-control" id="penaltyUser" placeholder="Benutzername" data-toggle="tooltip" title="Hindere einen Zuschauer Punkte zu verdienen." class="form-control" />
-            <input type="number" class="form-control" id="penaltyUserTime" placeholder="Zeit" />
-        </div>
-        <br>
-
-        <div>
-            <span id="userPtsTableTitle">Benutzer Punkteliste</span>
-        </div>
-        <br>
-        <div id="userPointsTable" style="height: 510px; overflow: auto;" />
-    </div>
-</div>
-
-    <h3>Punkte Konfiguration</h3>
+    <h3>Punkte Einstellungen</h3>
     <div>
     <div id="_pointsConfigPanelDisabled" />
     <div id="_pointsConfigPanel">
@@ -73,7 +31,7 @@
                 <td>Lass Moderatoren & Administratoren für Befehle zahlen.</td>
                 <td style="width: 25px"><div id="priceComMods" /></td>
                 <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
+                    <div data-toggle="tooltip" title="An/Aus" class="button"
                          onclick="$.toggleModPriceCom();"><i class="fa fa-refresh" />
                      </div>
                 </td>
@@ -86,10 +44,18 @@
             <label for="setPointName">Alternativen Punktenamen vergeben</label>
             <button type="button" class="btn btn-danger inline pull-right" onclick="$.clearPointName()">Lösche Namen</button>
             <button type="button" class="btn btn-primary inline pull-right" onclick="$.setPointName()">Aktualisieren</button>
-            <input type="text" data-toggle="tooltip" title="Name für einen einzelnen Punkt." class="form-control"
+            <input type="text" data-toggle="tooltip" title="Name für einen einzelnen Punkt. Vergib den selben Namen nicht für beide, denn das verursacht Fehler!" class="form-control"
                    id="setPointNameInput" placeholder="Punktename Einzahl" />
-            <input type="text" data-toggle="tooltip" title="Name für 0 oder 2 und mehr Punkte." class="form-control"
+            <input type="text" data-toggle="tooltip" 
+            title="Name für 0 oder 2 und mehr Punkte. Vergib den selben Namen nicht für beide, denn das verursacht Fehler!" class="form-control"
                    id="setPointsNameInput" placeholder="Punktename Mehrzahl" />
+        </div>
+
+        <div class="form-group" onkeypress="return event.keyCode != 13">
+            <label for="pointsMessage">Punkte Nachricht festlegen</label>
+            <button type="button" class="btn btn-primary inline pull-right" onclick="$.setPointsMessage()">Aktualisieren</button>
+            <input type="text" class="form-control" id="pointsMessageInput" placeholder="Punkte Nachricht" data-toggle="tooltip" 
+            title="Lege eine Nachricht fest, welche angezeigt wird, wenn BenutzerInnen den !points Befehl verwenden. Tags: (userprefix), (user), (points), (pointsname), (pointsstring), (time), und (rank)" />
         </div>
 
         <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -121,6 +87,48 @@
             <button type="button" class="btn btn-primary inline pull-right" onclick="$.topListPoints()">Aktualisieren</button>
             <input type="number" min="0" class="form-control" id="topListAmountPoints" placeholder="Anzahl" />
         </div>
+    </div>
+    </div>
+    
+    <h3>Modifiziere BenutzerInnen Punkte</h3>
+    <div>
+    <div id="_userPointConfigPanelDisabled" />
+    <div id="_userPointConfigPanel">
+        <div class="form-group" onkeypress="return event.keyCode != 13">
+            <label for="giftPoints">Punkte an Chat schenken</label>
+            <button type="button" data-toggle="tooltip" title="Schenke die unten stehende Menge an Punkten an jede/n ZuschauerIn im Chat."
+                    class="btn btn-primary inline pull-right" onclick="$.giftChatPoints('all')">Alle beschenken</button>
+            <button type="button" data-toggle="tooltip" title="Alle ZuschauerInnen via Zufallsprinzip bis zur unten stehenden Höhe beschenken."
+                    class="btn btn-primary inline pull-right" onclick="$.giftChatPoints('makeitrain')">Lass es regnen</button>
+            <button type="button" data-toggle="tooltip" title="Gewähre einen Bonus für X-Minuten für jede Auszahlung."
+                    class="btn btn-primary inline pull-right" onclick="$.giftChatPoints('bonus')">Bonus</button>
+                    <button type="button" data-toggle="tooltip" title="Nimm jedem im Chat X Punkte weg."
+                    class="btn btn-primary inline pull-right" onclick="$.giftChatPoints('take')">Allen wegnehmen</button>
+            <input type="text" class="form-control" id="giftChatPointsInput" placeholder="Punkte [Wenn Bonus (Zeit in Minuten)]" />
+        </div>
+
+        <div class="form-group" onkeypress="return event.keyCode != 13">
+            <label for="adjustUserPoints">BenutzerInnen Punkte anpassen</label>
+            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserPoints('take')">Wegnehmen</button>
+            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserPoints('add')">Hinzufügen</button>
+            <button type="button" class="btn btn-primary inline pull-right" onclick="$.modifyUserPoints('set')">Festlegen</button>
+            <input type="text" class="form-control" id="adjustUserPointsNameInput" placeholder="BenutzerInnenname, oder klicke unten auf eine Zeile." />
+            <input type="number" min="0" class="form-control" id="adjustUserPointsInput" placeholder="Punkte" />
+        </div>
+
+        <div class="form-group" onkeypress="return event.keyCode != 13">
+            <label for="penaltyUserPoints">BenutzerIn bestrafen</label>
+            <button type="button" class="btn btn-primary inline pull-right" onclick="$.penaltyUser()">Übermitteln</button>
+            <input type="text" class="form-control" id="penaltyUser" placeholder="BenutzerInnenname" data-toggle="tooltip" title="Hindere eine/n ZuschauerIn Punkte zu verdienen." class="form-control" />
+            <input type="number" class="form-control" id="penaltyUserTime" placeholder="Zeit" />
+        </div>
+        <br>
+
+        <div>
+            <span id="userPtsTableTitle">BenutzerInnen Punkteliste</span>
+        </div>
+        <br>
+        <div id="userPointsTable" style="height: 510px; overflow: auto;" />
     </div>
     </div>
 

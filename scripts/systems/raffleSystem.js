@@ -9,6 +9,7 @@
         entryFee = 0,
         timerTime = 0,
         followers = false,
+        subscribers = false,
         usePoints = true,
         status = false,
         sendMessages = $.getSetIniDbBoolean('raffleSettings', 'raffleMSGToggle', false),
@@ -42,7 +43,7 @@
      * @param {arguments} arguments
      */
     function open(username, arguments) {
-        var args = arguments.split(' '),
+        var args,
             i = 1;
 
         /* Check if there's a raffle already opened */
@@ -54,7 +55,9 @@
         /* Check if the caster wants to use time or points for the raffle */
         if (arguments.match('-usetime')) {
             usePoints = false;
+            arguments = arguments.replace('-usetime ', '');
         } else if (arguments.match('-usepoints')) {
+            arguments = arguments.replace('-usepoints ', '');
             usePoints = true;
         } else {
             usePoints = null;
@@ -65,6 +68,14 @@
             followers = true;
             followMessage = ' ' + $.lang.get('rafflesystem.common.following');
         }
+
+        /* Check if the caster wants the raffle to be for susbcribers only or not */
+        if (arguments.match('-subscribers')) {
+            subscribers = true;
+        }
+
+        /* Now split the arguments string up as we could have removed some items. */
+        args = arguments.split(' ');
 
         /* Check the entry fee of points, or the minimum time */
         if (!isNaN(parseInt(args[i])) && usePoints !== null) {
@@ -78,12 +89,23 @@
 
         /* Check for the keyword */
         if (args[i] !== undefined) {
-            keyword = args[i];
+            keyword = args[i].toLowerCase();
             i++;
+            
+            if (keyword.startsWith('!')) {
+                keyword = ('!' + keyword.match(/(!+)(.+)/)[2]);
+            }
+
+            /* Ensure that keyword is not already a registered command. */
+            if (keyword.startsWith('!') && $.commandExists(keyword.substring(1))) {
+                $.say($.whisperPrefix(username) + $.lang.get('rafflesystem.open.keyword-exists', keyword));
+                return;
+            }
         } else {
             $.say($.whisperPrefix(username) + $.lang.get('rafflesystem.open.usage'));
             return;
         }
+
 
         /* Check if the caster wants a auto close timer */
         if (!isNaN(parseInt(args[i])) && parseInt(args[i]) !== 0) {
@@ -152,6 +174,7 @@
         if (firstWinner) {
             /* Check if anyone entered the raffle */
             if (entries.length === 0) {
+                $.say($.lang.get('rafflesystem.winner.404'));
                 return;
             }
 
@@ -232,6 +255,12 @@
             return;
         }
 
+        /* Check if the user is a subscriber */
+        if (subscribers && !$.isSubv3(username, tags)) {
+            message(username, $.lang.get('rafflesystem.enter.subscriber'));
+            return;
+        }
+
         /* Check if the user is following the channel. */
         if (followers && !$.user.isFollower(username)) {
             message(username, $.lang.get('rafflesystem.enter.following'));
@@ -272,8 +301,10 @@
 
         /* Push the panel stats */
         if ($.bot.isModuleEnabled('./handlers/panelHandler.js')) {
+            $.inidb.setAutoCommit(false);
             $.inidb.set('raffleList', username, true);
-            $.inidb.incr('raffleresults', 'raffleEntries', 1);
+            $.inidb.set('raffleresults', 'raffleEntries', Object.keys(entered).length);
+            $.inidb.setAutoCommit(true);
         }
     }
 
@@ -288,6 +319,7 @@
         timerMessage = '';
         usePoints = false;
         followers = false;
+        subscribers = false;
         status = false;
         entryFee = 0;
         timerTime = 0;
@@ -304,21 +336,22 @@
         if (useCommand) {
             if (register) {
                 $.registerChatCommand('./systems/raffleSystem.js', keyword.substring(1), 7);
+                $.inidb.set('raffle', 'command', keyword.substring(1));
             } else {
                 $.unregisterChatCommand(keyword.substring(1));
-            }
-        } else {
-            if (register) {
-                $.bind('ircChannelMessage', function(event) {
-                    if (event.getMessage().equals(keyword)) {
-                        enter(event.getSender(), event.getTags());
-                    }
-                });
-            } else {
-                $.unbind('ircChannelMessage');
+                $.inidb.set('raffle', 'command', '');
             }
         }
     }
+
+    /**
+     * @event ircChannelMessage
+     */
+    $.bind('ircChannelMessage', function(event) {
+        if (status === true && !keyword.includes('!') && event.getMessage().equalsIgnoreCase(keyword)) {
+            enter(event.getSender(), event.getTags());
+        }
+    });
 
     /**
      * @event command
@@ -334,7 +367,7 @@
             subAction = args[1];
 
         if (command.equalsIgnoreCase('raffle')) {
-            if (action === undefined && !status) {
+            if (action === undefined) {
                 $.say($.whisperPrefix(sender) + $.lang.get('rafflesystem.usage'));
                 return;
             }
@@ -441,7 +474,7 @@
                     return;
                 }
 
-                raffleMessage = arguments.substring(action.length);
+                raffleMessage = arguments.substring(action.length() + 1);
                 $.inidb.set('raffleSettings', 'raffleMessage', raffleMessage);
                 $.say($.whisperPrefix(sender) + $.lang.get('rafflesystem.message.set', raffleMessage));
                 return;
@@ -462,7 +495,7 @@
                 return;
             }
         }
-
+        
         /**
          * @info command for entering the raffle.
          */

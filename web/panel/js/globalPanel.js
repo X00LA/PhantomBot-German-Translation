@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* 
+/*
  * @author IllusionaryOne
  */
 
@@ -60,8 +60,8 @@
                 streamOnline = (panelMatch(msgObject['results']['streamOnline'], 'true'));
                 if (streamOnline) {
                     $('#streamOnline').html('<span class="greenPill" data-toggle="tooltip" title="Stream Online"><i class="fa fa-twitch fa-lg" /></span>');
-                } else {
-                    $('#streamOnline').html('<span class="redPill" data-toggle="tooltip" title="Stream Offline"><i class="fa fa-twitch fa-lg" /></span>');
+                  } else {
+                    $('#streamOnline').html('');
                 }
             }
 
@@ -152,7 +152,7 @@
      */
     function doQuery() {
         sendDBQuery("global_newrelease_info", "settings", "newrelease_info");
-        sendDBQuery("global_whisperMode", "settings", "whisperMode"); 
+        sendDBQuery("global_whisperMode", "settings", "whisperMode");
         sendDBQuery("global_muteMode", "settings", "response_@chat");
         sendDBQuery("global_toggleMe", "settings", "response_action");
         sendDBQuery("global_commandsPaused", "commandPause", "commandsPaused");

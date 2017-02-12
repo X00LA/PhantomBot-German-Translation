@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2016 phantombot.tv
+ Copyright (C) 2017 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -55,20 +55,62 @@
                 <input type="text" class="form-control" id="raiderChannelInput" placeholder="Twitch Kanal">
             </div>
         </form> 
-        </div>
+    </div>
     </div>
 
     <h3>Hosts</h3>
     <div>
     <div id="_hostAlertsPanelDisabled" />
     <div id="_hostAlertsPanel">
+        <table>
+            <tr class="textList">
+                <td>Host Benachrichtigungen de-/aktivieren</td>
+                <td style="width: 25px"><div id="hostToggle" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button"
+                         onclick="$.toggle('settings', 'hostToggle', 'true');"><i class="fa fa-circle" />
+                     </div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button"
+                         onclick="$.toggle('settings', 'hostToggle', 'false');"><i class="fa fa-circle-o" />
+                     </div>
+                </td>
+            </tr>
+            <tr class="textList">
+                <td>Auto Host Benachrichtigungen de-/aktivieren</td>
+                <td style="width: 25px"><div id="autoHostToggle" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button"
+                         onclick="$.toggle('settings', 'autoHostToggle', 'true');"><i class="fa fa-circle" />
+                     </div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button"
+                         onclick="$.toggle('settings', 'autoHostToggle', 'false');"><i class="fa fa-circle-o" />
+                     </div>
+                </td>
+            </tr>
+        </table>
+        <br>
+
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="hostAnnounce">Host Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" 
                         onclick="$.updateHostAnnounce()">Übermitteln</button>
                 <input type="text" class="form-control" id="hostAnnounceInput" placeholder="Host Nachricht"
-                       data-toggle="tooltip" title="Tags: (name) (reward)"/>
+                       data-toggle="tooltip" title="Tags: (name) (viewers) (reward)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="hostAutoAnnounce">Auto-Host Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.updateAutoHostAnnounce()">Übermitteln</button>
+                <input type="text" class="form-control" id="hostAutoAnnounceInput" placeholder="Auto-Host Nachricht"
+                       data-toggle="tooltip" title="Tags: (name) (viewers) (reward)"/>
             </div>
         </form>
         
@@ -80,6 +122,26 @@
                 <input type="number" min="0" class="form-control" id="hostRewardInput" placeholder="Punkte" />
             </div>
         </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="autoHostReward">Auto Host Belohnung</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                        onclick="$.updateAutoHostReward()">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="autoHostRewardInput" placeholder="Punkte" />
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="hostMinViewers">Minimale Zuschauer für Belohnung</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                        onclick="$.updateHostMinViewers()">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="hostMinViewersInput" placeholder="Punkte" />
+            </div>
+            <small><b>Warnung:</b> Twitch übermittelt nciht immer die Zuschauerzahlen, wenn der dich hostende Kanal gerade zu streamen aufgehört hat. Dies kann dazu führen, dass der/die StreamerIn keine Belohnung für das Hosting bekommt!</small>
+        </form>
+
     </div>
     </div>
 
@@ -125,20 +187,20 @@
     </div>
     </div>
 
-    <h3>Eingehende Überfälle</h3>
+    <h3>Eingegangene Überfälle</h3>
     <div>
     <div id="_raidIncomingPanelDisabled" />
     <div id="_raidIncomingPanel">
-        <strong>Eingehende Überfälle Liste</strong>
+        <strong>Eingegangene Überfälle Liste</strong>
         <div id="incomingRaidList" style="height: 200px; overflow: auto" />
     </div>
     </div>
 
-    <h3>Ausgehende Überfälle</h3>
+    <h3>Ausgegangene Überfälle</h3>
     <div>
     <div id="_raidOutgoingPanelDisabled" />
     <div id="_raidOutgoingPanel">
-        <strong>Ausgehende Überfälle Liste</strong>
+        <strong>Ausgegangene Überfälle Liste</strong>
         <div id="outgoingRaidList" style="height: 200px; overflow: auto" />
     </div>
     </div>

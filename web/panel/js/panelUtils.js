@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 phantombot.tv
+ * Copyright (C) 2017 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -121,7 +121,9 @@ connection.onmessage = function(e) {
     if (e.data.indexOf('poll_') !== -1) $.pollOnMessage(e);
     if (e.data.indexOf('gambling_') !== -1) $.gamblingOnMessage(e);
     if (e.data.indexOf('games_') !== -1) $.gamesOnMessage(e);
+    if (e.data.indexOf('queue_') !== -1) $.queueOnMessage(e);
     if (e.data.indexOf('twitter_') !== -1) $.twitterOnMessage(e);
+    if (e.data.indexOf('discord_') !== -1) $.discordOnMessage(e);
 
     if (e.data.indexOf('audio_') !== -1) $.audioOnMessage(e);
     if (e.data.indexOf('help_') !== -1) $.helpOnMessage(e);
@@ -259,6 +261,21 @@ function sendDBDelete(unique_id, table, key) {
     jsonObject = {};
     jsonObject["dbdelkey"] = unique_id;
     jsonObject["delkey"] = { "table" : table, "key" : key };
+    connection.send(JSON.stringify(jsonObject));
+}
+
+/**
+ * @function sendWSEvent
+ * @param {String} event_id
+ * @param {String} script
+ * @param {String} argsString
+ * @param {Array} args
+ */
+function sendWSEvent(event_id, script, argsString, args) {
+    jsonObject = {};
+    jsonObject['socket_event'] = event_id;
+    jsonObject['script'] = script;
+    jsonObject['args'] = { 'arguments': (argsString ? argsString : ''), 'args': (args ? args : []) };
     connection.send(JSON.stringify(jsonObject));
 }
 
@@ -428,11 +445,20 @@ function performCurrentPanelRefresh() {
              break;
          case 16 :
              newPanelAlert('Aktualisiere Daten...', 'success', 1000);
+             $.queueDoQuery();
+             break;
+         case 17 :
+             newPanelAlert('Aktualisiere Daten...', 'success', 1000);
              $.twitterDoQuery();
              break;
-         case 17 : 
+         case 18 : 
+             newPanelAlert('Aktualisiere Daten...', 'success', 1000);
+             $.discordDoQuery();
+             break;
+         case 19 : 
              newPanelAlert('Aktualisiere Daten...', 'success', 1000);
              $.audioDoQuery();
              break;
+
     }
 }

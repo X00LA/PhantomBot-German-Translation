@@ -83,7 +83,7 @@ connection.onmessage = function(e) {
 
 function handleNewSong(title, duration, requester, id) {
     debugMsg('handleNewSong(' + title + ', ' + duration + ', ' + requester + ')');
-    $('#currentSongTable').html('<tr><th>Song Titel</th><th>Anforderer</th><th>Dauer</th><th>YouTube ID</th></tr>' +
+    $('#currentSongTable').html('<tr><th>Song Titel</th><th>AnforderIn</th><th>Dauer</th><th>YouTube ID</th></tr>' +
                                 '<tr><td>' + title + '</td><td>' + requester + '</td><td>' + duration + '</td><td>' + id + '</td></tr>');
 }
 
@@ -102,7 +102,7 @@ function handlePlayList(d) {
 
 function handleSongList(d) {
     debugMsg('handleSongList(' + d + ')');
-    var tableData = '<tr><th>Song Titel</th><th>Anforderer</th><th>Dauer</th><th>YouTube ID</th></tr>';
+    var tableData = '<tr><th>Song Titel</th><th>AnforderIn</th><th>Dauer</th><th>YouTube ID</th></tr>';
     for (var i in d['songlist']) {
         var id = d['songlist'][i]['song'];
         var title = d['songlist'][i]['title'];

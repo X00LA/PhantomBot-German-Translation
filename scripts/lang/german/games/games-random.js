@@ -254,5 +254,5 @@ $.lang.register('randomcommand.253', 'Es ist nicht nötig, den Frauen zu widersp
 $.lang.register('randomcommand.254', '(sender) ertappt (random) wieder mal beim Lügen: "Dass du mir überhaupt noch ins Gesicht sehen kannst!" - "Ach (sender), man gewöhnt sich an alles..."');
 $.lang.register('randomcommand.255', 'ATARI: Als Türstopper Absolut Riesig Installiert');
 $.lang.register('randomcommand.256', 'Ja, mach nur so weiter (sender) und es gibt was schön auf die Fresse!');
-
+$.lang.register('randomcommand.257', 'Deine Mutter hat angerufen! Sie sagt, du kannst nix!');
 $.lang.register('randomcommand.console.loaded', '$1 Zufalls-Befehl-Nachrichten gefunden.');

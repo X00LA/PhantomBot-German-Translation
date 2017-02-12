@@ -1,0 +1,12 @@
+$.lang.register('discord.gamewisphandler.usage', 'Verwendung: !gamewisphandler [subtoggle / resubtoggle / tieruptoggle / submessage / resubmessage / tierupmessage]');
+$.lang.register('discord.gamewisphandler.sub.toggle', 'GameWisp Abonnementbenachrichtigungen wurden $1!');
+$.lang.register('discord.gamewisphandler.resub.toggle', 'GameWisp Re-Abonnementbenachrichtigungen wurden $1!');
+$.lang.register('discord.gamewisphandler.tier.toggle', 'GameWisp Hochstufungsbenachrichtigungen wurden $1!');
+$.lang.register('discord.gamewisphandler.sub.message.usage', 'Verwendung: !gamewisphandler submessage [Nachricht] - Tags: (name) (tier)');
+$.lang.register('discord.gamewisphandler.sub.message.set', 'GameWisp Abonnementbenachrichtigungsnachricht wurde festgelegt zu: $1');
+$.lang.register('discord.gamewisphandler.resub.message.usage', 'Verwendung: !gamewisphandler resubmessage [Nachricht] - Tags: (name) (tier) (months)');
+$.lang.register('discord.gamewisphandler.resub.message.set', 'GameWisp Re-Abonnementbenachrichtigungsnachricht wurde festgelegt zu: $1');
+$.lang.register('discord.gamewisphandler.tier.message.usage', 'Verwendung: !gamewisphandler tierupmessage [Nachricht] - Tags: (name) (tier)');
+$.lang.register('discord.gamewisphandler.tier.message.set', 'GameWisp Hochstufungsbenachrichtigungsnachricht wurde festgelegt zu: $1');
+$.lang.register('discord.gamewisphandler.channel.usage', 'Verwendung: !gamewisphandler channel [Kanalname]');
+$.lang.register('discord.gamewisphandler.channel.set', 'GameWisp Benachrichtigungen werden nun im Kanal #$1 ausgegeben!');

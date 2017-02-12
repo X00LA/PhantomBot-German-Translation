@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2016 phantombot.tv
+ Copyright (C) 2017 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -22,60 +22,153 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="gamesAccordion">
-  <h3>Wetten</h3>
-  <div>
-  <div id="_betPanelDisabled" />
-  <div id="_betPanel">
-      <form role="form">
-          <div class="form-group" onkeypress="return event.keyCode != 13">
-              <label for="betOpen">Starte eine Wette </label>
-              <button type="button" class="btn btn-primary inline pull-right"
-                      onclick="$.betHandler('open', 'betOpenInput')">Öffnen</button>
-              <input type="text" class="form-control" id="betOpenInput" placeholder="Option1 Option2 ...">
-          </div>
-      </form>
+    <h3>Betting</h3>
+    <div>
+        <div id="_bettingPanelDisabled" />
+        <div id="_bettingPanel">
 
-      <form role="form">
-          <div class="form-group" onkeypress="return event.keyCode != 13">
-              <label for="betClose">Schließe die Wette </label>
-              <button type="button" class="btn btn-primary inline pull-right"
-                      onclick="$.betHandler('close', 'betCloseInput')">Schließen</button>
-              <input type="text" class="form-control" id="betCloseInput" placeholder="Gewinnoption"
-                     data-toggle="tooltip" title="Erstattet dem Benutzer, der die Gewinnoption gewählt hat, alle Punkte und seinen Gewinn zurück." />
-          </div>
-      </form>
+        <button type="button" class="btn btn-primary inline pull-right" data-toggle="modal" data-target="#betClose">Schließen</button>
+        <button type="button" class="btn btn-primary inline pull-right" data-toggle="modal" data-target="#betOpen">Eröffnen</button>
 
+        <div id="betOpen" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h4 class="modal-title">Eröffne eine Wette</h4>
+                </div>
 
-      <form role="form">
-          <div class="form-group" onkeypress="return event.keyCode != 13">
-              <label for="betSetMinimum">Minimalen Wetteinsatz Festlegen</label>
-              <button type="button" class="btn btn-primary inline pull-right"
-                      onclick="$.betHandler('setminimum', 'betMinimumInput')">Übermitteln</button>
-              <input type="number" min="1" class="form-control" id="betMinimumInput" placeholder="Punkte">
-          </div>
-      </form>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="betTitle">Titel der Wette</label>
+                            <input type="text" class="form-control" id="betTitle" placeholder="Wetttitel" data-toggle="tooltip" 
+                                title="Titel, der im Chat angezeigt wird, wenn die Wette eröffnet wird." />
+                        </div>
+                    </form>
 
-      <form role="form">
-          <div class="form-group" onkeypress="return event.keyCode != 13">
-              <label for="betSetMaximum">Maximalen Wetteinsatz Festlegen</label>
-              <button type="button" class="btn btn-primary inline pull-right"
-                      onclick="$.betHandler('setmaximum', 'betMaximumInput')">Übermitteln</button>
-              <input type="number" min="1" class="form-control" id="betMaximumInput" placeholder="Punkte">
-          </div>
-      </form>
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="betOptions">Wettoptionen</label>
+                            <input type="text" class="form-control" id="betOptions" placeholder="Wettoptionen" data-toggle="tooltip" 
+                                title="Gib hier die gewünschten Wettoptionen ein. Separiere sie mit einem Komma (,) und einem Leerzeichen. Bsp.: 'Option1, Option2'." />
+                        </div>
+                    </form>
 
-      <form role="form">
-          <div class="form-group" onkeypress="return event.keyCode != 13">
-              <label for="betSetTimer">Wett Timer (Sekunden) Festlegen</label>
-              <button type="button" class="btn btn-primary inline pull-right"
-                      onclick="$.betHandler('settimer', 'betTimerInput')">Übermitteln</button>
-              <input type="number" min="0" class="form-control" id="betTimerInput" placeholder="Länge in Sekunden">
-          </div>
-      </form>
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="minBet">Mindesteinsatz</label>
+                            <input type="text" class="form-control" id="minBet" placeholder="Höhe" data-toggle="tooltip" 
+                                title="Lege den Mindesteinsatz für die Platzierung einer Wette auf eine der Optionen fest." />
+                        </div>
+                    </form>
 
-      <div id="betResults" />
-  </div>
-  </div>
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="maxBet">Maximaleinsatz</label>
+                            <input type="text" class="form-control" id="maxBet" placeholder="Höhe" data-toggle="tooltip" 
+                                title="Lege den Maximaleinsatz für die Platzierung einer Wette auf eine der Optionen fest. 0 bedeutet unbegrenzt." />
+                        </div>
+                    </form>
+
+                    <label for="timer">Laufzeit</label>
+                    <input id="bet-timer" style="width: 564px; margin-left: 1px;" type="range" min="0" max="120" value="0" step="1" 
+                        oninput="rangeUpdate(this.value, 'bet-timer2', 'Minutes')" />
+                    <span id="bet-timer2" style="margin-left: 1px;">Bis geschlossen</span>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-toggle="modal" data-target="#settings"><i class="fa fa-cog"/></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.bet.open()">Eröffnen</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div id="betClose" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h4 class="modal-title">Eine Wette Schließen</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="betCloseI" placeholder="Gewinnoption" data-toggle="tooltip" 
+                    title="Gib die Gewinnoption ein. Dies schließt die Wette komplett." />
+                    <br>
+                    <input type="checkbox" id="tempclose" data-toggle="tooltip" onclick="$.toggleInput()" title="Stoppe die Wettannahme und warte auf die Gewinnoption."> Stoppe Wettannahme
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.bet.close()">Schließen</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div id="settings" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: rgb(28, 28, 36); border-radius: 3px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> </button>
+                    <h4 class="modal-title">Globale Einstellungen</h4>
+                </div>
+
+                <div class="modal-body">
+                    <table>
+                        <tr class="textList">
+                            <td>Speichere alte Wetten</td>
+                            <td style="width: 25px"><div id="toggleSaveBets" /></td>
+                            <td style="width: 25px">
+                                <div data-toggle="tooltip" title="An/Aus" class="button"
+                                    onclick="$.toggleSaveBets();"><i class="fa fa-refresh" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="textList">
+                            <td>Warnnachrichten</td>
+                            <td style="width: 25px"><div id="toggleWarningMessages" /></td>
+                            <td style="width: 25px">
+                                <div data-toggle="tooltip" title="An/Aus" class="button"
+                                    onclick="$.toggleWarningMessages();"><i class="fa fa-refresh" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br>
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="dateFormt">Datumsformat</label>
+                            <input type="text" class="form-control" id="dateFormat" placeholder="Datumsformat" data-toggle="tooltip" 
+                                title="Lege das Datumsformat fest, mit welchem die alten Wetten gespeichert werden sollen. Standard ist yyyy.mm.dd" />
+                        </div>
+                    </form>
+
+                    <form role="form">
+                        <div class="form-group" onkeypress="return event.keyCode != 13">
+                            <label for="gain">Gewinnanteil</label>
+                            <input type="number" class="form-control" id="gainPercent" placeholder="Gewinnmarge" data-toggle="tooltip" 
+                                title="Lege den Gewinnanteil, in Prozent, für den Gewinn einer Wette fest." />
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.bet.update()">Speichern</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <div id="betResults" />
+    </div>
+    </div>
+
     <h3>Roulette Einstellungen</h3>
     <div>
     <div id="_roulettePanelDisabled" />
@@ -293,3 +386,4 @@
 <script>$("#gamesAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>
 <script>handleInputFocus();</script>
 <script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
+<script>function rangeUpdate(value, id, string) { document.getElementById(id).innerHTML = value + ' ' + string; }</script>
