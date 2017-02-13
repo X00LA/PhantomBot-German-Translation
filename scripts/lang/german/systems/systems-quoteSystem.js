@@ -16,4 +16,4 @@ $.lang.register('quotesystem.quotemessage.usage', 'Verwendung: !quotemessage [Na
 $.lang.register('quotesystem.quotemessage.success', 'Nachricht zur Verwendung mit Zitaten geändert.');
 $.lang.register('quotesystem.searchquote.usage', 'Verwendung: !searchquote [Text] (Muss eine Mindestlänge von 5 Zeichen haben.)');
 $.lang.register('quotesystem.searchquote.404', 'Es konnten keine Übereinstimmungen gefunden werden!');
-$.lang.register('quotesystem.searchquote.found', 'Zitat ID's mit Übereinstimmungen: $1');
+$.lang.register('quotesystem.searchquote.found', 'Zitat ID\'s mit Übereinstimmungen: $1');
