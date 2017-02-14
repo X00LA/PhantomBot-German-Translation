@@ -274,7 +274,7 @@
                 <label for="joinMessageInput">Eintrittsnachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('joinMessageInput', 'systems/greetingsSystem.js', 'discordSettings', 'joinMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="joinMessageInput" placeholder="Eintrittsnachricht" data-toggle="tooltip" 
-                    title="Lege eine Nachricht fest, die angezeigt wird, wenn ein neuer Zuschauer deinen Kanal betritt. Verfügbare Tags: (name), und (@name)"/>
+                    title="Lege eine Nachricht fest, die angezeigt wird, wenn ein neuer Zuschauer deinen Kanal betritt. Verfügbare Tags: (name) und (@name)"/>
             </div>
         </form>
 
@@ -283,7 +283,7 @@
                 <label>Austrittsnachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('partMessageInput', 'systems/greetingsSystem.js', 'discordSettings', 'partMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="partMessageInput" placeholder="Austrittsnachricht" data-toggle="tooltip" 
-                    title="Lege eine Nachricht fest, die angezeigt wird, wenn ein neuer Zuschauer deinen Kanal verlässt. Verfügbare Tags: (name), und (@name)"/>
+                    title="Lege eine Nachricht fest, die angezeigt wird, wenn ein neuer Zuschauer deinen Kanal verlässt. Verfügbare Tags: (name) und (@name)"/>
             </div>
         </form>
 
@@ -330,7 +330,7 @@
                 <label for="onlineMessageInput">Online Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('onlineMessageInput', 'handlers/streamHandler.js', 'discordSettings', 'onlineMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="onlineMessageInput" placeholder="Online Nachricht" data-toggle="tooltip" 
-                    title="Lege eine Nachricht fest die gezeigt wird, wenn du online gehst. Vefügbare Tags: (title), (game), (url), (name), und (follows)"/>
+                    title="Lege eine Nachricht fest die gezeigt wird, wenn du online gehst. Vefügbare Tags: (title), (game), (url), (name) und (follows)"/>
             </div>
         </form>
 
@@ -339,7 +339,7 @@
                 <label>Spielwechselnachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gameMessageInput', 'handlers/streamHandler.js', 'discordSettings', 'gameMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="gameMessageInput" placeholder="Spielwechselnachricht" data-toggle="tooltip" 
-                    title="Lege eine Nachricht, für den Fall dass du dein Spiel wechselst, fest. Verfügbare Tags: (title), (game), (url), (name), (uptime), und (follows)"/>
+                    title="Lege eine Nachricht, für den Fall dass du dein Spiel wechselst, fest. Verfügbare Tags: (title), (game), (url), (name), (uptime) und (follows)"/>
             </div>
         </form>
 
@@ -527,7 +527,7 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label>Re-Abonnment Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('resubMessageInput', 'handlers/subscribeHandler.js', 'discordSettings', 'resubMessage')">Übermitteln</button>
-                <input type="text" class="form-control" id="resubMessageInput" placeholder="Re-Abonnement Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest, falls jemand deinen Kanal Re-Abonniert. Verfügbare Tags: (name) and (months)"/>
+                <input type="text" class="form-control" id="resubMessageInput" placeholder="Re-Abonnement Nachricht" data-toggle="tooltip" title="Lege eine Nachricht fest, falls jemand deinen Kanal Re-Abonniert. Verfügbare Tags: (name) und (months)"/>
             </div>
         </form>
 
@@ -590,7 +590,7 @@
                 <label>Abonnement Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gamewispSubMessageInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispSubMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="gamewispSubMessageInput" placeholder="Abonnement Nachricht" data-toggle="tooltip" 
-                title="Lege eine Nachricht fest, falls jemand deinen Kanal über GameWisp abonniert. Verfügbare Tags: (name) and (tier)"/>
+                title="Lege eine Nachricht fest, falls jemand deinen Kanal über GameWisp abonniert. Verfügbare Tags: (name) und (tier)"/>
             </div>
         </form>
 
@@ -599,7 +599,7 @@
                 <label>Re-Abonnement Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gamewispReSubMessageInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispReSubMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="gamewispReSubMessageInput" placeholder="Hochstufungs Nachricht" data-toggle="tooltip" 
-                title="Lege eine Nachricht fest, falls jemand sein/ihr Abonnement bei GameWisp erneuert. Verfügbare Tags: (name), (tier), and (months)"/>
+                title="Lege eine Nachricht fest, falls jemand sein/ihr Abonnement bei GameWisp erneuert. Verfügbare Tags: (name), (tier) und (months)"/>
             </div>
         </form>
 
@@ -608,7 +608,7 @@
                 <label>Hochstufungs Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDiscordTable('gamewispTierMessageInput', 'handlers/gamewispHandler.js', 'discordSettings', 'gamewispTierMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="gamewispTierMessageInput" placeholder="Hochstufungs Nachricht" data-toggle="tooltip" 
-                title="Lege eine Nachricht fest, falls jemand sein GameWisp Abonnement hochstuft. Verfügbare Tags: (name) and (tier)" />
+                title="Lege eine Nachricht fest, falls jemand sein GameWisp Abonnement hochstuft. Verfügbare Tags: (name) und (tier)" />
             </div>
         </form>
 

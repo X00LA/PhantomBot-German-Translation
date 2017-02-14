@@ -5,6 +5,6 @@ $.lang.register("deathcounter.sub-success", "Rücknahme eines Todes, die Gesamtz
 $.lang.register("deathcounter.sub-zero", "Der Todeszähler für $1 steht derzeit auf 0 und kann nicht weiter runter!");
 $.lang.register("deathcounter.counter", "$1 starb $3 Mal in $2!");
 $.lang.register("deathcounter.none", "$1 ist in $2 noch nicht gestorben... bis jetzt.");
-$.lang.register("deathcounter.reset", "Setze den Todeszähler von $1 von $1 auf 0 zurück.");
+$.lang.register("deathcounter.reset", "Setze den Todeszähler für $1 von $2 auf 0 zurück.");
 $.lang.register("deathcounter.reset-nil", "Der Todeszähler für $1 steht aktuell auf 0.");
 

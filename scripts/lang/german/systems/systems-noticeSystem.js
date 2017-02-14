@@ -12,8 +12,8 @@ $.lang.register('noticehandler.notice-interval-usage', 'Verwendung: !notice inte
 $.lang.register('noticehandler.notice-interval-404', 'Der Hinweis-Intervall muss mehr als 2 Minuten betragen.');
 $.lang.register('noticehandler.notice-inteval-success', 'Hinweis-Intervall gesetzt!');
 $.lang.register('noticehandler.notice-req-success', 'Benötigte Nachrichten für Hinweis gesetzt!');
-$.lang.register('noticehandler.notice-req-usage', 'Verwendung: !notice req (Nötige Nachrichten)');
-$.lang.register('noticehandler.notice-req-404', 'Benötigte Nachrichten für Hinweis muss mindestens 1 sein.');
+$.lang.register('noticehandler.notice-req-usage', 'Verwendung: !notice req (Benötigte Nachrichten)');
+$.lang.register('noticehandler.notice-req-404', 'Benötigte Nachricht/en für Hinweis muss mindestens 1 sein.');
 $.lang.register('noticehandler.notice-enabled', 'Hinweise wurden aktiviert!');
 $.lang.register('noticehandler.notice-disabled', 'Hinweise wurden deaktiviert.');
 $.lang.register('noticehandler.notice-enabled.offline', 'Hinweise werden nun auch im Offline-Chat gezeigt.');

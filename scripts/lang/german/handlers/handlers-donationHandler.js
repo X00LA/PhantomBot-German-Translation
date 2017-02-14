@@ -3,7 +3,7 @@ $.lang.register('donationhandler.donation.newreward', 'Vielen Dank (name) für d
 $.lang.register('donationhandler.lastdonation.no-donations', 'Derzeit gibt es keine Spenden.');
 $.lang.register('donationhandler.lastdonation.404', 'Kann die letzte Spende nicht finden!');
 $.lang.register('donationhandler.lastdonation.success', 'Die letzte Spende kam von (name) und betrug $(amount) (currency).');
-$.lang.register('donationhandler.donations.usage', 'Verwendung: !streamlabs (announce | rewardmultiplier n.n | message | lastmessage)');
+$.lang.register('donationhandler.donations.usage', 'Verwendung: !streamlabs (announce | rewardmultiplier n.n | message | lastmessage | currencycode)');
 $.lang.register('donationhandler.donations.announce.disable', 'Spenden werden nicht mehr länger angekündigt.');
 $.lang.register('donationhandler.donations.announce.enable', 'Spenden werden nun angekündigt.');
 $.lang.register('donationhandler.donations.reward.usage', 'Verwendung: !streamlabs rewardmultiplier n.n  Verwende 0 zur Deaktivierung.');

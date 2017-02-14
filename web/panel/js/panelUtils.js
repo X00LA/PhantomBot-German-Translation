@@ -73,7 +73,7 @@ connection.onopen = function(data) {
  */
 connection.onclose = function(data) {
     debugMsg('connection.onclose()');
-    newPanelAlert('WebSocket-Verbindung-gelöst - Starte das Panel neu, wenn der Bot wieder gestartet ist.', 'danger', 0);
+    newPanelAlert('WebSocket-Verbindung-gelöst - Automatischer Verbindungsversuch alle 5 Sekunden.', 'danger', 0);
     isConnected = false;
 }
 

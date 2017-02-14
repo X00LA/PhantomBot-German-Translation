@@ -1,16 +1,16 @@
 $.lang.register('gamewisp.usage', 'Verwendung: !gamewisp [ $1 ]');
 $.lang.register('gamewisp.submessage.usage', 'Verwendung: !gamewisp submessage [Nachricht] (Aktuell: $1) Tags: (name) (tier) (reward)');
-$.lang.register('gamewisp.submessage.success', 'GameWisp Abonnenten-Nachricht geändert zu: $1');
+$.lang.register('gamewisp.submessage.success', 'GameWisp Abonnementnachricht geändert zu: $1');
 $.lang.register('gamewisp.resubmessage.usage', 'Verwendung: !gamewisp resubmessage [Nachricht] (Aktuell: $1) Tags: (name) (tier) (reward) (months)');
-$.lang.register('gamewisp.resubmessage.success', 'GameWisp Resub-Nachricht geändert zu: $1');
+$.lang.register('gamewisp.resubmessage.success', 'GameWisp Re-Abonnementnachricht geändert zu: $1');
 $.lang.register('gamewisp.tierupmessage.usage', 'Verwendung: !gamewisp tierupmessage [Nachricht] (Aktuell: $1) Tags: (name) (tier)');
-$.lang.register('gamewisp.tierupmessage.success', 'GameWisp Abo-Upgrade-Nachricht geändert zu: $1');
+$.lang.register('gamewisp.tierupmessage.success', 'GameWisp Abonnement-Hochstufungsnachricht geändert zu: $1');
 $.lang.register('gamewisp.togglemessage.usage', 'Verwendung: !gamewisp togglemessage [on/off] (Aktuell: $1)');
-$.lang.register('gamewisp.togglemessage.success', 'GameWisp Sub-, Resub- und Level-Upgrade Benachrichtigungen $1.');
+$.lang.register('gamewisp.togglemessage.success', 'GameWisp Abonnement-, Re-Abonnement- und Hochstufungsbenachrichtigungen $1.');
 $.lang.register('gamewisp.reward.usage', 'Verwendung: !gamewisp reward [Punkte] (Aktuell: $1)');
-$.lang.register('gamewisp.reward.success', 'GameWisp Sub Belohnung gesetzt auf $1.');
+$.lang.register('gamewisp.reward.success', 'GameWisp Abonnementbelohnung festgelegt auf $1.');
 $.lang.register('gamewisp.resubreward.usage', 'Verwendung: !gamewisp resubreward [Punkte] (Aktuell: $1)');
-$.lang.register('gamewisp.resubreward.success', 'GameWisp Resub Belohnung geändert auf $1.');
+$.lang.register('gamewisp.resubreward.success', 'GameWisp Re-Abonnementbelohnung geändert auf $1.');
 $.lang.register('gamewisptier.usage', 'Verwendung: !gamewisptier [ $1 ]');
 $.lang.register('gamewisptier.songrequests.usage', 'Verwendung: !gamewisptier songrequests [Level] [Nummer]');
 $.lang.register('gamewisptier.songrequests.usage.tier', 'Verwendung: !gamewisptier songrequests [Level] [Nummer] (Level $1 ist aktuell: $2)');
@@ -20,4 +20,4 @@ $.lang.register('gamewisptier.bonuspoints.usage.tier', 'Verwendung: !gamewisptie
 $.lang.register('gamewisptier.bonuspoints.success', 'GameWisp Bonusmultiplikator für Level $1 von $2 auf $3 geändert.');
 $.lang.register('gamewisptier.subbonuspoints.usage', 'Verwendung: !gamewisptier subbonuspoints [Level] [Nummer]');
 $.lang.register('gamewisptier.subbonuspoints.usage.tier', 'Verwendung: !gamewisptier subbonuspoints [Level] [Nummer] (Level $1 ist aktuell $2)');
-$.lang.register('gamewisptier.subbonuspoints', 'GameWisp Sub/Resub Bonuspunkte für Level $1 von $2 auf $3 geändert.');
+$.lang.register('gamewisptier.subbonuspoints', 'GameWisp Abonnement-/ReAbonnementbonuspunkte für Level $1, von $2 auf $3 geändert.');

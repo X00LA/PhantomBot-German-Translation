@@ -6,26 +6,26 @@
         spamTracker = {},
 
         linksToggle = $.getSetIniDbBoolean('chatModerator', 'linksToggle', false),
-        linksMessage = $.getSetIniDbString('chatModerator', 'linksMessage', 'Du hast ohne zu fragen einen Link gepostet! Dafür gibts ne kleine Pause!'),
+        linksMessage = $.getSetIniDbString('chatModerator', 'linksMessage', 'Du hast ohne zu fragen einen Link gepostet! Dafür gibt\'s ne kleine Pause!'),
         linkPermitTime = $.getSetIniDbNumber('chatModerator', 'linkPermitTime', 30),
 
         capsToggle = $.getSetIniDbBoolean('chatModerator', 'capsToggle', false),
-        capsMessage = $.getSetIniDbString('chatModerator', 'capsMessage', 'Du hast Dir, für das übermäßige verwenden von Großbuchstaben, eine Pause verdient!'),
+        capsMessage = $.getSetIniDbString('chatModerator', 'capsMessage', 'Du hast Dir, für das übermäßige Verwenden von Großbuchstaben, eine Pause verdient!'),
         capsLimitPercent = $.getSetIniDbFloat('chatModerator', 'capsLimitPercent', 70),
         capsTriggerLength = $.getSetIniDbNumber('chatModerator', 'capsTriggerLength', 20),
 
         spamToggle = $.getSetIniDbBoolean('chatModerator', 'spamToggle', false),
-        spamMessage = $.getSetIniDbString('chatModerator', 'spamMessage', 'Du hast Dir, für das vollspammen des Chats, eine Pause verdient!'),
+        spamMessage = $.getSetIniDbString('chatModerator', 'spamMessage', 'Du hast Dir, für das Vollspammen des Chats, eine Pause verdient!'),
         spamLimit = $.getSetIniDbNumber('chatModerator', 'spamLimit', 15),
 
         symbolsToggle = $.getSetIniDbBoolean('chatModerator', 'symbolsToggle', false),
-        symbolsMessage = $.getSetIniDbString('chatModerator', 'symbolsMessage', 'Du hast Dir, für das verwenden zu vieler Symbole, eine Pause verdient!'),
+        symbolsMessage = $.getSetIniDbString('chatModerator', 'symbolsMessage', 'Du hast Dir, für das Verwenden zu vieler Symbole, eine Pause verdient!'),
         symbolsLimitPercent = $.getSetIniDbFloat('chatModerator', 'symbolsLimitPercent', 50),
         symbolsGroupLimit = $.getSetIniDbFloat('chatModerator', 'symbolsGroupLimit', 10),
         symbolsTriggerLength = $.getSetIniDbNumber('chatModerator', 'symbolsTriggerLength', 20),
 
         emotesToggle = $.getSetIniDbBoolean('chatModerator', 'emotesToggle', false),
-        emotesMessage = $.getSetIniDbString('chatModerator', 'emotesMessage', 'Du hast Dir, für das verwenden zu vieler Emotes, eine Pause verdient!'),
+        emotesMessage = $.getSetIniDbString('chatModerator', 'emotesMessage', 'Du hast Dir, für das Verwenden zu vieler Emotes, eine Pause verdient!'),
         emotesLimit = $.getSetIniDbNumber('chatModerator', 'emotesLimit', 5),
 
         longMessageToggle = $.getSetIniDbBoolean('chatModerator', 'longMessageToggle', false),
@@ -33,15 +33,15 @@
         longMessageLimit = $.getSetIniDbNumber('chatModerator', 'longMessageLimit', 300),
 
         colorsToggle = $.getSetIniDbBoolean('chatModerator', 'colorsToggle', false),
-        colorsMessage = $.getSetIniDbString('chatModerator', 'colorsMessage', 'Du hast Dir, für das verwenden von farbigem Text (/me), eine Pause verdient!'),
+        colorsMessage = $.getSetIniDbString('chatModerator', 'colorsMessage', 'Du hast Dir, für das Verwenden von farbigem Text (/me), eine Pause verdient!'),
 
         spamTrackerToggle = $.getSetIniDbBoolean('chatModerator', 'spamTrackerToggle', false),
-        spamTrackerMessage = $.getSetIniDbString('chatModerator', 'spamTrackerMessage',  'Du hast Dir, für das vollspammen des Chats, eine Pause verdient!'),
+        spamTrackerMessage = $.getSetIniDbString('chatModerator', 'spamTrackerMessage',  'Du hast Dir, für das Vollspammen des Chats, eine Pause verdient!'),
         spamTrackerTime = $.getSetIniDbNumber('chatModerator', 'spamTrackerTime', 30),
         spamTrackerLimit = $.getSetIniDbNumber('chatModerator', 'spamTrackerLimit', 30),
 
         blacklistTimeoutTime = $.getSetIniDbNumber('chatModerator', 'blacklistTimeoutTime', 600),
-        blacklistMessage = $.getSetIniDbString('chatModerator', 'blacklistMessage', 'Du hast Dir, für das verwenden eines verbotenen Wortes, eine Pause verdient!'),
+        blacklistMessage = $.getSetIniDbString('chatModerator', 'blacklistMessage', 'Du hast Dir, für das Verwenden eines verbotenen Wortes, eine Pause verdient!'),
 
         fakePurgeToggle = $.getSetIniDbBoolean('chatModerator', 'fakePurgeToggle', false),
         fakePurgeMessage = $.getSetIniDbString('chatModerator', 'fakePurgeMessage',  'Du hast Dir für das Verwenden einer gefakten Reinigung eine Pause verdient!'),

@@ -26,8 +26,8 @@ $.lang.register('pointsystem.set.interval.offline.usage', 'Verwendung: !points s
 $.lang.register('pointsystem.set.interval.success', '$1 Auszahlungsintervall auf $2 Minute(n), wenn der Stream online ist, gesetzt..');
 $.lang.register('pointsystem.set.interval.usage', 'Verwendung: !points setinterval [Menge]');
 $.lang.register('pointsystem.set.name.both.success', 'Der Name der Punkte wurde von "$1" zu "$2" geändert. Setze den Namen für ein(e)(n) $2 mit !points setname single [Name].');
-$.lang.register('pointsystem.set.name.multiple.success', 'Name der Mehrzahl erfolgreich geändert von "$1" zu "$2". Setze den Namen für mehrere $2 mit !points setname multiple [Name].');
-$.lang.register('pointsystem.set.name.single.success', 'Name der Einzahl erfolgreich geändert von "$1" zu "$2". Setze den Namen für ein(e)(n) $2 mit !points setname single [Name].');
+$.lang.register('pointsystem.set.name.multiple.success', 'Name der Mehrzahl erfolgreich von "$1" zu "$2" geändert. Setze den Namen für mehrere $2 mit !points setname multiple [Name].');
+$.lang.register('pointsystem.set.name.single.success', 'Name der Einzahl erfolgreich von "$1" zu "$2" geändert. Setze den Namen für ein(e)(n) $2 mit !points setname single [Name].');
 $.lang.register('pointsystem.set.name.usage', 'Verwendung: !points setname [single | multiple | delete] [Name]. Setzt die Namen für einzelne oder mehrere Punkte, oder löscht die Werte.');
 $.lang.register('pointsystem.set.name.delete', 'Benutzerdefinierte Punktenamen entfernt.');
 $.lang.register('pointsystem.set.name.duplicate', 'Dies ist der aktuelle Name des benutzerdefinierten Punkte Befehls.');

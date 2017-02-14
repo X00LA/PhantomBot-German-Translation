@@ -109,7 +109,7 @@
                     $("#timePlayed").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Spielzeit\"><i class=\"fa fa-gamepad fa-lg\" /> " + msgObject['results']['playTime'] + "</span>");
                 }
                 if (panelCheckQuery(msgObject, 'global_viewerCount')) {
-                    $("#viewerCount").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Zuschauer\"><i class=\"fa fa-users fa-lg\" /> " + msgObject['results']['viewerCount'] + "</span>");
+                    $("#viewerCount").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"ZuschauerInnen\"><i class=\"fa fa-users fa-lg\" /> " + msgObject['results']['viewerCount'] + "</span>");
                 }
             } else {
                 $("#streamUptime").html('');
@@ -133,7 +133,7 @@
                     var newVersionData = msgObject['results']['newrelease_info'].split('|'),
                         changeLog = 'https://github.com/PhantomBot/PhantomBot/releases/' + newVersionData[0];
                     $('#newVersionDialog').html('Version <b>' + newVersionData[0] + '</b> von PhantomBot steht jetzt zum Download bereit! Überprüfe das Änderungsprotokoll für Details!<br><br>' +
-                                                '<b>Veröffentlichungs-Änderungsprotokoll:</b><br><a target="_blank" href="' + changeLog + '">' + changeLog + '</a><br><br>' +
+                                                '<b>Veröffentlichungs- Änderungsprotokoll:</b><br><a target="_blank" href="' + changeLog + '">' + changeLog + '</a><br><br>' +
                                                 '<b>Download Link:</b><br><a target="_blank" href="' + newVersionData[1] + '">' + newVersionData[1] + '</a><br><br>');
                     $('#newVersionAvailable').html('<span class="yellowPill" data-toggle="tooltip" title="Neue Version verfügbar! Klicke für mehr Informationen."' +
                                                    'onclick="$(\'#newVersionDialog\').dialog(\'open\')">Neue Version!</span>');

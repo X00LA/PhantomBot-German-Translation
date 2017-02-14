@@ -175,7 +175,7 @@
                              "       data-sorting='true'" +
                              "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>" +
                              "<thead><tr>" +
-                             "    <th data-breakpoints='xs'>Benutzer</th>" +
+                             "    <th data-breakpoints='xs'>BenutzerIn</th>" +
                              "    <th data-type='Date'>Zuletzt gesehen</th>" +
                              "    <th data-type='Date'>Zeit im Chat</th>" +
                              "    <th data-type='number'><i class='fa fa-money' /></th>" +

@@ -3,7 +3,7 @@
  */
 (function() {
 	var toggle = $.getSetIniDbBoolean('discordSettings', 'bitsToggle', false),
-	    message = $.getSetIniDbString('discordSettings', 'bitsMessage', '(name) hat dir mit (amount) bits zugejubelt!'),
+	    message = $.getSetIniDbString('discordSettings', 'bitsMessage', '(name) hat dir mit (amount) Bits zugejubelt!'),
 	    channelName = $.getSetIniDbString('discordSettings', 'bitsChannel', ''),
 	    announce = false;
 
@@ -13,7 +13,7 @@
     $.bind('panelWebSocket', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/bitsHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'bitsToggle', false);
-            message = $.getIniDbString('discordSettings', 'bitsMessage', '(name) hat dir mit (amount) bits zugejubelt!');
+            message = $.getIniDbString('discordSettings', 'bitsMessage', '(name) hat dir mit (amount) Bits zugejubelt!');
             channelName = $.getIniDbString('discordSettings', 'bitsChannel', '');
         }
     });

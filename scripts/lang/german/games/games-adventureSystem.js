@@ -3,13 +3,13 @@ $.lang.register('adventuresystem.alreadyjoined', 'Du bist dem Abenteuer bereits 
 $.lang.register('adventuresystem.completed', 'Das Abenteuer ist beendet, Überlebende: $1.');
 $.lang.register('adventuresystem.completed.no.win', 'Das Abenteuer ist beendet. Es hat niemand überlebt.');
 $.lang.register('adventuresystem.completed.win.total', 'Das Abenteuer wurde mit $1 Überlebenden und $2 Toten beendet.');
-$.lang.register('adventuresystem.join.bettoohigh', 'Du kannst mit $1 nicht einsteigen, das Maximum ist $2.');
-$.lang.register('adventuresystem.join.bettoolow', 'Du kannst mit $1 nicht einsteigen, das Minimum ist $2.');
-$.lang.register('adventuresystem.join.needpoints', 'Du kannst mit $1 nicht einsteigen, du hast nur $2.');
+$.lang.register('adventuresystem.join.bettoohigh', 'Du kannst mit, $1, nicht einsteigen, das Maximum ist $2.');
+$.lang.register('adventuresystem.join.bettoolow', 'Du kannst mit, $1, nicht einsteigen, das Minimum ist $2.');
+$.lang.register('adventuresystem.join.needpoints', 'Du kannst mit, $1, nicht einsteigen, du hast nur $2.');
 $.lang.register('adventuresystem.join.notpossible', 'Du kannst jetzt nicht beitreten.');
 $.lang.register('adventuresystem.join.success', 'Du bist dem Abenteuer mit $1 beigetreten!');
 $.lang.register('adventuresystem.loaded', 'Abenteuergeschichten geladen ($1 gefunden).');
-$.lang.register('adventuresystem.payoutwhisper', 'Abenteuer abgeschlossen, $1 + $2 wurden deinem Guthaben gutgeschrieben.');
+$.lang.register('adventuresystem.payoutwhisper', 'Abenteuer abgeschlossen, $1 + $2, wurden deinem Guthaben gutgeschrieben.');
 $.lang.register('adventuresystem.runstory', 'Starte Abenteuer "$1" mit $2 Spieler(n).');
 $.lang.register('adventuresystem.set.success', '$1 zu $2 gesetzt.');
 $.lang.register('adventuresystem.set.usage', 'Verwendung: !adventure set [settingname] [value].');

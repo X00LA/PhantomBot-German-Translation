@@ -183,7 +183,7 @@
     function addQuote() {
         var value = $('#addQuoteInput').val();
         if (value.length > 0) {
-            $('#addQuoteInput').val('Hinzufügen...').blur();
+            $('#addQuoteInput').val('Füge hinzu...').blur();
             sendCommand('addquotesilent ' + value);
             setTimeout(function() { doQuery(); $('#addQuoteInput').val(''); }, TIMEOUT_WAIT_TIME * 4);
         }

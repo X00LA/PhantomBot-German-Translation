@@ -4,9 +4,9 @@ $.lang.register('auctionsystem.opened', 'Die Auktion ist nun eröffnet! Du kanns
 $.lang.register('auctionsystem.auto.timer.msg', 'Auktion endet automatisch in $1 Sekunden!');
 $.lang.register('auctionsystem.err.closed', 'Derzeit gibt es kein Gebot');
 $.lang.register('auctionsystem.err.no.bids', 'Auktion geschlossen! Niemand hat geboten.');
-$.lang.register('auctionsystem.closed', 'Auktion geschlossen! Gewinner/in der Auktion ist $1 mit einem Gebot von $2!');
+$.lang.register('auctionsystem.closed', 'Auktion geschlossen! GewinnerIn der Auktion ist $1 mit einem Gebot von $2!');
 $.lang.register('auctionsystem.warn.force', 'Die Autkion steht kurz vor dem Ende! Aktuelle/r Höchstbietende/r ist $1 mit einem Gebot von $2! Haben wir vielleicht noch $3?');
-$.lang.register('auctionsystem.warn', 'Aktuelle/r Höchstbieter/in ist $1 mit einem Gebot von $2!');
+$.lang.register('auctionsystem.warn', 'Aktuelle/r HöchstbieterIn ist $1 mit einem Gebot von $2!');
 $.lang.register('auctionsystem.bid.usage', 'Verwendung: !bid (Gebot)');
 $.lang.register('auctionsystem.err.bid.minimum', 'Du kannst nicht weniger als $1 bieten!');
 $.lang.register('auctionsystem.err.points', 'Du hast nicht genug $1 um zu bieten.');

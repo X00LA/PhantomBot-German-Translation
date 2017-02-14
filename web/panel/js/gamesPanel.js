@@ -115,9 +115,9 @@
 
                     if (msgObject['results'][idx]['key'] == 'lastBet') {
                         var split = msgObject['results'][idx]['value'].split('___');
-                        $('#betResults').html('<strong>Resultate der letzten Wette: </strong><br> Gewinner/innen: ' + split[0] + '<br> Ausgezahlt: ' + split[1]);
+                        $('#betResults').html('<strong>Resultate der letzten Wette: </strong><br> GewinnerInnen: ' + split[0] + '<br> Ausgezahlt: ' + split[1]);
                     } else {
-                        $('#betResults').html('<strong>Resultate der letzten Wette: </strong><br> Gewinner/innen: 0 <br> Ausgezahlt: 0 points');
+                        $('#betResults').html('<strong>Resultate der letzten Wette: </strong><br> GewinnerInnen: 0 <br> Ausgezahlt: 0 points');
                     }
                 }
             }

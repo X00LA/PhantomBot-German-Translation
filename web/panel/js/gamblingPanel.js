@@ -99,7 +99,7 @@
                 }
                 if (winner.length > 0) {
                     $('#auctionResults').html('<strong>Ergebnisse der letzten Auktion:</strong><br>' +
-                                          'Gewinner: ' + winner + '<br>' +
+                                          'GewinnerIn: ' + winner + '<br>' +
                                           'Ausgezahlt: ' + amount);
                 } 
             }
@@ -107,7 +107,7 @@
             if (panelCheckQuery(msgObject, 'gambling_raffleresults')) {
                 winner = msgObject['results']['winner'];
                 if (winner !== null) {
-                    $('#raffleResults').html('<strong>Gewinner der letzten Verlosung: </strong>' + winner);
+                    $('#raffleResults').html('<strong>GewinnerIn der letzten Verlosung: </strong>' + winner);
                 }
             }
 
@@ -115,7 +115,7 @@
             if (panelCheckQuery(msgObject, 'gambling_traffleresults')) {
                 winner = msgObject['results']['winner'];
                 if (winner !== null) {
-                    $('#traffleResults').html('<strong>Gewinner der letzten Ticket-Verlosung: </strong>' + winner);
+                    $('#traffleResults').html('<strong>GewinnerIn der letzten Ticket-Verlosung: </strong>' + winner);
                 }
             }
 

@@ -25,8 +25,8 @@ $.lang.register('followhandler.fixfollow.usage', 'Verwendung: !fixfollow (Benutz
 $.lang.register('followhandler.fixfollow.error', '$1 ist bereits in der Followerliste.');
 $.lang.register('followhandler.fixfollow.error.404', '$1 folgt deinem Kanal nicht.');
 $.lang.register('followhandler.fixfollow.added', '$1 der Followerliste hinzugefügt!');
-$.lang.register('followhandler.set.followdelay.usage', 'Verwendung: !followdelay [Anzahlung in Sekunden]');
+$.lang.register('followhandler.set.followdelay.usage', 'Verwendung: !followdelay [Anzahl in Sekunden]');
 $.lang.register('followhandler.set.followdelay.success', 'Follow-Verzögerung auf $1 Sekunden gesetzt.');
 $.lang.register('followhandler.follow.age.err.404', '$1 $2 folgt dem Kanal $3 nicht.');
-$.lang.register('followhandler.follow.age.time.days', '$1 $2 folgt dem Kanal $3 seit $4. ($5 Tage)');
+$.lang.register('followhandler.follow.age.time.days', '$1 $2 folgt dem Kanal $3 seit $4. ($5 Tage/n)');
 $.lang.register('followhandler.follow.age.time', '$1 $2 folgt dem Kanal $3 seit $4.');

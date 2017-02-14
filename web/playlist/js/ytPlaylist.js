@@ -47,7 +47,7 @@ connection.onmessage = function(e) {
 
     if (messageObject['authresult'] === false) {
         if (!messageObject['authresult']) {
-            newAlert('Websocket Authentifikation fehlgeschlagen!', 'Lade die Seite neu und wenn das nichts hilft, lass es bitte den Streamer wissen.', 'danger', 0);
+            newAlert('Websocket Authentifikation fehlgeschlagen!', 'Lade die Seite neu und wenn das nichts hilft, lass es bitte den/die StreamerIn wissen.', 'danger', 0);
             return;
         }
         return;

@@ -159,7 +159,7 @@
 
             if (command.length === 0 || response.length === 0 || command.match(/[\'\"\s]/ig) || (permission != 1 && permission != 0)) {
                 setTimeout(function() { doQuery(); resetHtmlValues(); }, TIMEOUT_WAIT_TIME);
-                newPanelAlert('Konnte den Befehl !' + command + ' nicht hinzufügen! Entweder war die ANtort leer, die Berechtigung unzulässig, oder er beinhaltete ein Sonderzeichen.', 'danger', 10000);
+                newPanelAlert('Konnte den Befehl !' + command + ' nicht hinzufügen! Entweder war die Antwort leer, die Berechtigung unzulässig, oder er beinhaltete ein Sonderzeichen.', 'danger', 10000);
                 return;
             }
 

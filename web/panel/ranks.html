@@ -42,13 +42,13 @@
     </div>
     </div>
 
-    <h3>BenutzerInnendefinierte Benutzerränge</h3>
+    <h3>Benutzerdefinierte Benutzerränge</h3>
     <div>
     <div id="_customRanksPanelDisabled" />
     <div id="_customRanksPanel">
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="customRankTime">Berechtigungszeit für benutzerInnendefinierten Rang</label>
+                <label for="customRankTime">Berechtigungszeit für benutzerdefinierten Rang</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateCustomRankTime()">Übermitteln</button>
                 <input type="number" min="0" class="form-control" id="customRankTimeInput" placeholder="Stunden" />
             </div>
@@ -66,7 +66,7 @@
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="addCustomRank">BenutzerInnendefinierten Rang zuweisen</label>
+                <label for="addCustomRank">Benutzerdefinierten Rang zuweisen</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.addCustomRank()">Übermitteln</button>
                 <input type="text" class="form-control" id="addCustomRankUserInput" placeholder="BenutzerInnenname" />
                 <input type="text" class="form-control" id="addCustomRankNameInput" placeholder="Rangname" />
@@ -74,7 +74,7 @@
         </form>
         <br>
 
-        <strong>Benutzer mit benutzerInnendefiniertem Rang</strong>
+        <strong>Benutzer mit benutzerdefiniertem Rang</strong>
         <div id="ranksCustom" style="height: 300px; overflow: auto;" />
     </div>
     </div>

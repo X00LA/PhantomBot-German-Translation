@@ -15,7 +15,7 @@
         sendMessages = $.getSetIniDbBoolean('raffleSettings', 'raffleMSGToggle', false),
         whisperWinner = $.getSetIniDbBoolean('raffleSettings', 'raffleWhisperWinner', false),
         allowRepick = $.getSetIniDbBoolean('raffleSettings', 'noRepickSame', true),
-        raffleMessage = $.getSetIniDbString('raffleSettings', 'raffleMessage', 'Eine Verlosung ist bereits im Gange! Tippe (keyword) um teilzunehmen. (entries) nehmen bereits teil.'),
+        raffleMessage = $.getSetIniDbString('raffleSettings', 'raffleMessage', 'Eine Verlosung ist bereits im Gange! Tippe (keyword) um teilzunehmen. (entries) BenutzerInnen nehmen bereits teil.'),
         messageInterval = $.getSetIniDbNumber('raffleSettings', 'raffleMessageInterval', 0),
         subscriberBonus = $.getSetIniDbNumber('raffleSettings', 'subscriberBonusRaffle', 1),
         regularBonus = $.getSetIniDbNumber('raffleSettings', 'regularBonusRaffle', 1),

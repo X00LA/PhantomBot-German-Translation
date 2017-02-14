@@ -98,7 +98,7 @@
             }
 
             if (sounds.length === 0) {
-                $('#audioPanelButtons').html('Keine Sounds konfiguriert, bitte klicke Lade Audio Hooks neu wenn Sounds installiert sind.');
+                $('#audioPanelButtons').html('Keine Sounds konfiguriert, bitte klicke "Lade Audio Hooks neu" wenn Sounds installiert sind.');
                 $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"greenPill-sm\">Bereit</span>");
             } else {
                 setTimeout(function () {
@@ -119,12 +119,11 @@
         if (panelCheckQuery(msgObject, 'audio_hook_reload')) {
             sounds = [];
             for (var idx in msgObject['results']) {
-
                 sounds.push({name: msgObject['results'][idx]['key'], desc: msgObject['results'][idx]['value']});
             }
 
             if (sounds.length === 0) {
-                $('#audioPanelButtons').html('Keine Sounds konfiguriert, bitte klicke Lade Audio Hooks neu wenn Sounds installiert sind.');
+                $('#audioPanelButtons').html('Keine Sounds konfiguriert, bitte klicke "Lade Audio Hooks neu" wenn Sounds installiert sind.');
                 $("#ionSoundLoaded").html("<span style=\"float: right\" class=\"greenPill-sm\">Bereit</span>");
             } else {
                 ion.sound({
@@ -163,7 +162,7 @@
 
         if (panelCheckQuery(msgObject, 'audio_userblacklist')) {
             if (msgObject['results'].length === 0) {
-                $('#ytplayerBUser').html('<i>Keine Benutzer auf der schwarzen Liste.</i>');
+                $('#ytplayerBUser').html('<i>Keine BenutzerInnen auf der schwarzen Liste.</i>');
                 return;
             }
             html = '<table>';

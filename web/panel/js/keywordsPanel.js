@@ -71,7 +71,7 @@
 
             if (panelCheckQuery(msgObject, 'keywords_cooldown')) {
                 if (msgObject['results'].length === 0) {
-                    $('#keywordsCooldownList').html('<i>Keine Schlüsselwörter-Abklingzeit definiert!</i>');
+                    $('#keywordsCooldownList').html('<i>Keine Schlüsselwort-Abklingzeit definiert!</i>');
                     return;
                 }
 

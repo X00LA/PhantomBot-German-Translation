@@ -1,6 +1,6 @@
 $.lang.register('8ball.answer.1', '"Antwort unklar, versuche es erneut."');
 $.lang.register('8ball.answer.2', '"Frag später nochmal."');
-$.lang.register('8ball.answer.3', '"Ich sags dir jetzt besser nicht."');
+$.lang.register('8ball.answer.3', '"Ich sag\'s dir jetzt besser nicht."');
 $.lang.register('8ball.answer.4', '"Kann das jetzt nicht vorhersagen."');
 $.lang.register('8ball.answer.5', '"Sieht nicht gut aus für dich."');
 $.lang.register('8ball.answer.6', '"Ja, zu gegebener Zeit."');

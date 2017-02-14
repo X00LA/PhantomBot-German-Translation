@@ -26,10 +26,10 @@ $.lang.register('moderation.blacklist.remove.success', 'Ausdruck aus der schwarz
 $.lang.register('moderation.blacklist.list.404', 'Die schwarze Liste ist leer!');
 $.lang.register('moderation.blacklist.list', 'Schwarze Liste: ```$1```');
 $.lang.register('moderation.whitelist.usage', 'Verwendung: !moderation whitelist [add / remove / list]');
-$.lang.register('moderation.whitelist.add.usage', 'Verwendung: !moderation whitelist add [Ausdruck oder Benutzername#Diskriminator]');
-$.lang.register('moderation.whitelist.add.success', 'Ausdruck oder Benutzername der weissen Liste hinzugefügt!');
-$.lang.register('moderation.whitelist.remove.usage', 'Verwendung: !moderation whitelist remove [Ausdruck oder Benutzername#Diskriminator]');
-$.lang.register('moderation.whitelist.remove.404', 'Dieser Ausdruck oder Benutzername ist nicht in der weissen Liste!');
-$.lang.register('moderation.whitelist.remove.success', 'Ausdruck oder Benutzername aus der weissen Liste entfernt!');
+$.lang.register('moderation.whitelist.add.usage', 'Verwendung: !moderation whitelist add [Ausdruck oder BenutzerInnenname#Diskriminator]');
+$.lang.register('moderation.whitelist.add.success', 'Ausdruck oder BenutzerInnenname der weissen Liste hinzugefügt!');
+$.lang.register('moderation.whitelist.remove.usage', 'Verwendung: !moderation whitelist remove [Ausdruck oder BenutzerInnenname#Diskriminator]');
+$.lang.register('moderation.whitelist.remove.404', 'Dieser Ausdruck oder BenutzerInnenname ist nicht in der weissen Liste!');
+$.lang.register('moderation.whitelist.remove.success', 'Ausdruck oder BenutzerInnenname aus der weissen Liste entfernt!');
 $.lang.register('moderation.whitelist.list.404', 'Die weisse Liste ist leer!');
 $.lang.register('moderation.whitelist.list', 'Weisse Liste: ```$1```');

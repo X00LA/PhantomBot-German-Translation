@@ -16,7 +16,7 @@
         pointsBonusAmount = 0,
         pointNameSingle = $.getSetIniDbString('pointSettings', 'pointNameSingle', 'Punkt'),
         pointNameMultiple = $.getSetIniDbString('pointSettings', 'pointNameMultiple', 'Punkte'),
-        pointsMessage = $.getSetIniDbString('pointSettings', 'pointsMessage', '(userprefix), du hast derzeit (pointsstring) und bist seit (time) im Chat.');
+        pointsMessage = $.getSetIniDbString('pointSettings', 'pointsMessage', '(userprefix) du hast derzeit (pointsstring) und bist seit (time) im Chat.');
 
     /**
      * @function updateSettings

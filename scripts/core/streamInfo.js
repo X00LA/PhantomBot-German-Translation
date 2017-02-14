@@ -425,7 +425,7 @@
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.log.error('Ändern der Üerschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+            $.log.error('Ändern der Überschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
     }

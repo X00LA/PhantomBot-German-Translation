@@ -6,7 +6,7 @@ $.lang.register('bettingsystem.close.error.usage', 'Die Wette ist nun geschlosse
 $.lang.register('bettingsystem.close.usage', 'Verwendung: !bet close [Gewinnoption]');
 $.lang.register('bettingsystem.close.success', 'Die Wette ist nun geschlossen! Kalkuliere Resultate und zahle die Gewinne aus!');
 $.lang.register('bettingsystem.close.semi.success', 'Die Wette ist nun geschlossen! Warte auf Gewinnoption.');
-$.lang.register('bettingsystem.close.success.winners', 'Es haben $1 Spieler die Wette gewonnen! Eine Gesamtsumme von $2 wurde ausgezahlt!');
+$.lang.register('bettingsystem.close.success.winners', 'Es haben $1 SpielerInnen die Wette gewonnen! Eine Gesamtsumme von $2 wurde ausgezahlt!');
 $.lang.register('bettingsystem.save.format', 'Titel: "$1", Optionen: "$2", Gesamt platzierte Wetteinsätze: $3, Gesamt platzierte Wetten: $4, Gewonnene Punkte: $5.');
 $.lang.register('bettingsystem.global.usage', 'Verwendung: !bet [open / close / save / saveformat / lookup / togglemessages / gain]');
 $.lang.register('bettingsystem.bet.usage', 'Verwendung: !bet [Wetteinsatz] [Option]');
@@ -14,7 +14,7 @@ $.lang.register('bettingsystem.bet.error.neg', 'Du kannst keinen negativen Wette
 $.lang.register('bettingsystem.bet.error.min', 'Der Mindesteinsatz beträgt $1.');
 $.lang.register('bettingsystem.bet.error.max', 'Der Maximaleinsatz beträgt $1.');
 $.lang.register('bettingsystem.bet.error.points', 'Du hast nicht genug $1, um so viel einzusetzen.');
-$.lang.register('bettingsystem.bet.betplaced', 'Du hast eine Wette in der Höhe von $1 auf die Option $2 platziert.');
+$.lang.register('bettingsystem.bet.betplaced', 'Du hast eine Wette in der Höhe von $1, auf die Option $2, platziert.');
 $.lang.register('bettingsystem.bet.null', 'Das ist keine gültige Wettoption.');
 $.lang.register('bettingsystem.toggle.save', 'Wettresultate werden $1 nach Abschluß gespeichert.');
 $.lang.register('bettingsystem.warning.messages', 'Warnhinweise werden $1 im Chat angezeigt.');

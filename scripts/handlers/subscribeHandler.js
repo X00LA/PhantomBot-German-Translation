@@ -6,7 +6,7 @@
 (function() {
     var subMessage = $.getSetIniDbString('subscribeHandler', 'subscribeMessage', '(name) hat dich gerade abonniert!'),
         primeSubMessage = $.getSetIniDbString('subscribeHandler', 'primeSubscribeMessage', '(name) hat dich gerade über Twitch Prime abboniert!'),
-        reSubMessage = $.getSetIniDbString('subscribeHandler', 'reSubscribeMessage', '(name) Hat dich seit (months) Monaten in Folge abonniert!'),
+        reSubMessage = $.getSetIniDbString('subscribeHandler', 'reSubscribeMessage', '(name) hat dich seit (months) Monaten in Folge abonniert!'),
         subWelcomeToggle = $.getSetIniDbBoolean('subscribeHandler', 'subscriberWelcomeToggle', true),
         primeSubWelcomeToggle = $.getSetIniDbBoolean('subscribeHandler', 'primeSubscriberWelcomeToggle', true),
         reSubWelcomeToggle = $.getSetIniDbBoolean('subscribeHandler', 'reSubscriberWelcomeToggle', true),

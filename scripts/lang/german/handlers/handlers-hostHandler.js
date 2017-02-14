@@ -11,7 +11,7 @@ $.lang.register('hosthandler.set.autohostreward.success', 'Neue Auto-Host Belohn
 $.lang.register('hosthandler.set.autohostreward.usage', 'Verwendung: !autohostreward [$1]');
 $.lang.register('hosthandler.set.autohostmessage.success', 'Neue Auto-Hosting-Nachricht festgelegt!');
 $.lang.register('hosthandler.set.autohostmessage.usage', 'Verwendung: !autohostmessage (Nachricht) - Tags: (name)');
-$.lang.register('hosthandler.set.hostrewardminviewers.success', 'Ein Minimum von $1 sind notwendig, um eine Hosting-Belohnung zu erhalten.');
+$.lang.register('hosthandler.set.hostrewardminviewers.success', 'Ein Minimum von $1 Zuschauern sind notwendig, um eine Hosting-Belohnung zu erhalten.');
 $.lang.register('hosthandler.set.hostrewardminviewers.usage', 'Verwendung: !hostrewardminviewers [count]');
 $.lang.register('hosthistory.usage', 'Verwendung: !hosthistory [on / off] (Aktuell: $1)');
 $.lang.register('hosthistory.change', 'Host-Verlauf $1');

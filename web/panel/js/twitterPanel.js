@@ -42,7 +42,7 @@
 
         settingMap['post_online'] = "Poste wenn Stream Online geht";
         settingMap['post_gamechange'] = "Poste Spielwechsel";
-        settingMap['post_update'] = "Zeitgesteuertes automatisches Update für Posts";
+        settingMap['post_update'] = "Zeitgesteuertes, automatisches, Update für Posts";
         
 
     /**

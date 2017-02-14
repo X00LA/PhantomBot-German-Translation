@@ -226,7 +226,7 @@
                 if (msgObject['results']['lastReSub'] == null) {
                     $("#lastReSub").html("");
                 } else {
-                    $("#lastReSub").html("<spam class=\"purplePill\">Letzter ReSub: " + msgObject['results']['lastReSub'] + "</spam>");
+                    $("#lastReSub").html("<spam class=\"purplePill\">Letzte/r Re-AbonnentIn: " + msgObject['results']['lastReSub'] + "</spam>");
                 }
             }
 
@@ -234,7 +234,7 @@
                 if (msgObject['results']['lastSub'] == null) {
                     $("#lastSub").html("");
                 } else {
-                    $("#lastSub").html("<spam class=\"purplePill\">Letzter Sub: " + msgObject['results']['lastSub'] + "</spam>");
+                    $("#lastSub").html("<spam class=\"purplePill\">Letzte/r AbonnentIn: " + msgObject['results']['lastSub'] + "</spam>");
                 }
             }
 
@@ -242,7 +242,7 @@
                 if (msgObject['results']['lastDonator'] == null) {
                     $("#lastDonator").html("");
                 } else {
-                    $("#lastDonator").html("<spam class=\"purplePill\">Letzter Spender: " + msgObject['results']['lastDonator'] + "</spam>");
+                    $("#lastDonator").html("<spam class=\"purplePill\">Letzte/r SpenderIn: " + msgObject['results']['lastDonator'] + "</spam>");
                 }
             }
  

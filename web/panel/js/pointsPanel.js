@@ -83,7 +83,7 @@
                     timeValue = "",
                     html = "";
 
-                $("#userPtsTableTitle").html("Benutzer Punkteliste (Aktualisiere <i class='fa fa-spinner fa-spin' aria-hidden='true'></i>)");
+                $("#userPtsTableTitle").html("BenutzerInnen Punkteliste (Aktualisiere <i class='fa fa-spinner fa-spin' aria-hidden='true'></i>)");
 
                 pointsTableData.sort(sortPointsTable_alpha_asc);
                 

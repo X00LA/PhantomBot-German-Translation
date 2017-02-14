@@ -23,7 +23,7 @@
         <div class="form-group" onkeypress="return event.keyCode != 13">
             <label for="linkPermit">Benutzer zulassen</label>
             <button type="button" class="btn btn-primary inline pull-right" onclick="$.permitUserCommand()">Zulassen</button>
-            <input type="text" class="form-control" id="permitUserInput" placeholder="Benutzername" data-toggle="tooltip" title="Das Posten eines Links vom Benutzer zulassen."/>
+            <input type="text" class="form-control" id="permitUserInput" placeholder="BenutzerInnenname" data-toggle="tooltip" title="Das Posten eines Links durch BenutzerInnen zulassen."/>
         </div>
     </form>
 </div>
@@ -62,14 +62,14 @@
             <tr>
                 <td>Sehr Strenge Moderation</td>
                 <td>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Sehr strenge Moderation für alle Benutzer." onclick="$.quickSetModeration('extreme', false, false, false)">
-                        Alle Benutzer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Sehr strenge Moderation für alle BenutzerInnen." onclick="$.quickSetModeration('extreme', false, false, false)">
+                        Alle BenutzerInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Sehr streng, ignoriere Abonnenten." onclick="$.quickSetModeration('extreme', true, false, false)">
-                        Zuschauer/Stammzuschauer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Sehr streng, ignoriere AbonnentInnen." onclick="$.quickSetModeration('extreme', true, false, false)">
+                        ZuschauerInnen/StammzuschauerInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Sehr streng, ignoriere Abonnenten und Stammzuschauer." onclick="$.quickSetModeration('extreme', true, true, false)">
-                        Nur Zuschauer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Sehr streng, ignoriere AbonnentInnen und StammzuschauerInnen." onclick="$.quickSetModeration('extreme', true, true, false)">
+                        Nur ZuschauerInnen
                     </button>
                 </td>
             </tr>
@@ -77,14 +77,14 @@
             <tr>
                 <td>Strenge Moderation</td>
                 <td>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Strenge Moderation für alle Benutzer." onclick="$.quickSetModeration('high', false, false, false)">
-                        Alle Benutzer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Strenge Moderation für alle BenutzerInnen." onclick="$.quickSetModeration('high', false, false, false)">
+                        Alle BenutzerInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Streng, ignoriere Abonnenten." onclick="$.quickSetModeration('high', true, false, false)">
-                        Zuschauer/Stammzuschauer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Streng, ignoriere AbonnentInnen." onclick="$.quickSetModeration('high', true, false, false)">
+                        ZuschauerInnen/StammzuschauerInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Streng, ignoriere Abonnenten und Stammzuschauer." onclick="$.quickSetModeration('high', true, true, false)">
-                        Nur Zuschauer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Streng, ignoriere AbonnentInnen und StammzuschauerInnen." onclick="$.quickSetModeration('high', true, true, false)">
+                        Nur ZuschauerInnen
                     </button>
                 </td>
             </tr>
@@ -93,13 +93,13 @@
                 <td>Moderate Moderation</td>
                 <td>
                     <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Moderate Moderation für alle Benutzer." onclick="$.quickSetModeration('medium', false, false, false)">
-                        Alle Benutzer
+                        Alle BenutzerInnen
                     </button>
                     <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Moderat, ignoriere Abonnenten." onclick="$.quickSetModeration('medium', true, false, false)">
-                        Zuschauer/Stammzuschauer
+                        ZuschauerInnen/StammzuschauerInnen
                     </button>
                     <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Moderat, ignoriere Abonnenten und Stammzuschauer." onclick="$.quickSetModeration('medium', true, true, false)">
-                        Nur Zuschauer
+                        Nur ZuschauerInnen
                     </button>
                 </td>
             </tr>
@@ -107,14 +107,14 @@
             <tr>
                 <td>Mäßige Moderation</td>
                 <td>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Mäßige MOderation für alle Benutzer." onclick="$.quickSetModeration('low', false, false, false)">
-                        Alle Benutzer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Mäßige MOderation für alle BenutzerInnen." onclick="$.quickSetModeration('low', false, false, false)">
+                        Alle BenutzerInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Mäßig, ignoriere Abonnenten." onclick="$.quickSetModeration('low', true, false, false)">
-                        Zuschauer/Stammzuschauer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Mäßig, ignoriere AbonnentInnen." onclick="$.quickSetModeration('low', true, false, false)">
+                        ZuschauerInnen/StammzuschauerInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Mäßig, ignoriere Abonnenten und Stammzuschauer." onclick="$.quickSetModeration('low', true, true, false)">
-                        Nur Zuschauer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Mäßig, ignoriere AbonnentInnen und StammzuschauerInnen." onclick="$.quickSetModeration('low', true, true, false)">
+                        Nur ZuschauerInnen
                     </button>
                 </td>
             </tr>
@@ -123,13 +123,13 @@
                 <td>Nur Link Moderation</td>
                 <td>
                     <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Nur Links moderieren." onclick="$.quickSetModeration('linksonly', false, false, false)">
-                        Alle Benutzer
+                        Alle BenutzerInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Nur Links bei Zuschauern und Stammzuschauern moderieren." onclick="$.quickSetModeration('linksonly', true, false, false)">
-                        Zuschauer/Stammzuschauer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Nur Links bei ZuschauerInnen und StammzuschauerInnen moderieren." onclick="$.quickSetModeration('linksonly', true, false, false)">
+                        ZuschauerInnen/StammzuschauerInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Nur Links bei Zuschauern moderieren." onclick="$.quickSetModeration('linksonly', true, true, false)">
-                        Nur Zuschauer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Nur Links bei ZuschauerInnen moderieren." onclick="$.quickSetModeration('linksonly', true, true, false)">
+                        Nur ZuschauerInnen
                     </button>
                 </td>
             </tr>
@@ -137,14 +137,14 @@
             <tr style="background-color: #990000">
                 <td style="color: white">Moderation Deaktivieren</td>
                 <td>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Deaktiviere Moderation ausschließlich für Abonnenten." onclick="$.quickSetModeration('disable', true, false, false)">
-                        Abonnenten
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Deaktiviere Moderation ausschließlich für AbonnentInnen." onclick="$.quickSetModeration('disable', true, false, false)">
+                        AbonnentInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Deaktiviere Moderation ausschließlich für Abonnenten und Stammzuschauer." onclick="$.quickSetModeration('disable', true, true, false)">
-                        Stammzuschauer/Abonnenten
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Deaktiviere Moderation ausschließlich für AbonnentInnen und StammzuschauerInnen." onclick="$.quickSetModeration('disable', true, true, false)">
+                        StammzuschauerInnen/AbonnentInnen
                     </button>
-                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Deaktiviere sämtliche Moderationsregeln für alle Benutzer." onclick="$.quickSetModeration('disable', true, true, true)">
-                        Alle Benutzer
+                    <button type="button" class="btn btn-primary inline" data-toggle="tooltip" title="Deaktiviere sämtliche Moderationsregeln für alle BenutzerInnen." onclick="$.quickSetModeration('disable', true, true, true)">
+                        Alle BenutzerInnen
                     </button>
                 </td>
             </tr>
@@ -160,14 +160,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#linksMessageInput', 'linksMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="linksMessageInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Posten eines Links bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Posten eines Links bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="LinkMessageReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#LinkMessageReason', 'LinkMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="LinkMessageReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorenInnen und den/die BenutzerIn, der/die bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
         <form role="form">
@@ -176,7 +176,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#linkPermitTimeInput', 'linkPermitTime')">Übermitteln</button>
                 <input type="number" min="0" class="form-control" id="linkPermitTimeInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange die Erlaubnis für einen Benutzer gilt." />
+                     data-toggle="tooltip" title="Festlegen, wie lange die Erlaubnis für eine/n BenutzerIn gilt." />
             </div>
         </form>
         <form role="form">
@@ -185,7 +185,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningTimeLinks', 'warningTimeLinks')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="warningTimeLinks" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim erstmaligen Posten eines Links aussetzen muss." />
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein/e BenutzerIn beim erstmaligen Posten eines Links aussetzen muss." />
             </div>
         </form>
         <form role="form">
@@ -194,7 +194,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeLinks', 'timeoutTimeLinks')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="timeoutTimeLinks" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal einen Link postet (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie zum letzten Mal einen Link postet (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -208,14 +208,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularLinks" onclick="$.toggleRegular('Links')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularLinks" onclick="$.toggleRegular('Links')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberLinks" onclick="$.toggleSubscriber('Links')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberLinks" onclick="$.toggleSubscriber('Links')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -236,14 +236,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#symbolsMessageInput', 'symbolsMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="symbolsMessageInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Posten von zu vielen Symbolen bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Posten von zu vielen Symbolen bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="SymbolMessageReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#SymbolMessageReason', 'SymbolMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="SymbolMessageReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, der/die bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
 
@@ -282,7 +282,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningTimeSymbols', 'warningTimeSymbols')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="warningTimeSymbols" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim erstmaligen Posten von zu vielen Symbolen, aussetzen muss." />
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein/e BenutzerIn beim erstmaligen Posten von zu vielen Symbolen, aussetzen muss." />
             </div>
         </form>
         <form role="form">
@@ -291,7 +291,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeSymbols', 'timeoutTimeSymbols')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="timeoutTimeSymbols" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal zu viele Symbole postet (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie zum letzten Mal zu viele Symbole postet (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -305,14 +305,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularSymbols" onclick="$.toggleRegular('Symbols')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularSymbols" onclick="$.toggleRegular('Symbols')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberSymbols" onclick="$.toggleSubscriber('Symbols')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberSymbols" onclick="$.toggleSubscriber('Symbols')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -333,14 +333,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#capsMessageInput', 'capsMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="capsMessageInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Posten von zu vielen Großbuchstaben bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Posten von zu vielen Großbuchstaben bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="CapMessageReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#CapMessageReason', 'CapMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="CapMessageReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, welche/r bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
 
@@ -378,7 +378,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeCaps', 'timeoutTimeCaps')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="timeoutTimeCaps" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal zu viele Großbuchstaben postet (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie zum letzten Mal zu viele Großbuchstaben postet (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -392,14 +392,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularCaps" onclick="$.toggleRegular('Caps')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularCaps" onclick="$.toggleRegular('Caps')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberCaps" onclick="$.toggleSubscriber('Caps')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberCaps" onclick="$.toggleSubscriber('Caps')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -420,14 +420,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#spamMessageInput', 'spamMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="spamMessageInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Posten von Spam bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Posten von Spam bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="SpamMessageReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#SpamMessageReason', 'SpamMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="SpamMessageReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, welche/r bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
 
@@ -446,7 +446,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningTimeSpam', 'warningTimeSpam')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="warningTimeSpam" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim erstmaligen Spammen im Chat, aussetzen muss." />
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein/e BenutzerIn beim erstmaligen Spammen im Chat, aussetzen muss." />
             </div>
         </form>
         <form role="form">
@@ -455,7 +455,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeSpam', 'timeoutTimeSpam')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="timeoutTimeSpam" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal im Chat spammt (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie zum letzten Mal im Chat spammt (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -469,14 +469,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularSpam" onclick="$.toggleRegular('Spam')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularSpam" onclick="$.toggleRegular('Spam')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberSpam" onclick="$.toggleSubscriber('Spam')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberSpam" onclick="$.toggleSubscriber('Spam')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -497,14 +497,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#fakePurgeMessageInput', 'fakePurgeMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="fakePurgeMessageInput" placeholder="Lade..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Verwenden einer gefakten Reinigung bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Verwenden einer gefakten Reinigung bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="FakePurgeReason">Banngund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#FakePurgeReason', 'FakePurgeMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="FakePurgeReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, welche/r bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
 
@@ -514,7 +514,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningTimeFakePurge', 'warningTimeFakePurge')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="warningTimeFakePurge" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim erstmaligen verwenden einer gefakten Reinigung, aussetzen muss." />
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein/e BenutzerIn beim erstmaligen Verwenden einer gefakten Reinigung, aussetzen muss." />
             </div>
         </form>
         <form role="form">
@@ -523,7 +523,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeFakePurge', 'timeoutTimeFakePurge')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="timeoutTimeFakePurge" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal eine gefakte Reinigung benutzte (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie zum letzten Mal eine gefakte Reinigung benutzte (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -537,14 +537,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularFakePurge" onclick="$.toggleRegular('FakePurge')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularFakePurge" onclick="$.toggleRegular('FakePurge')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberFakePurge" onclick="$.toggleSubscriber('FakePurge')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberFakePurge" onclick="$.toggleSubscriber('FakePurge')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -565,14 +565,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#emotesMessageInput', 'emotesMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="emotesMessageInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Posten von zu vielen Emotes bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Posten von zu vielen Emotes bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="EmoteMessageReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#EmoteMessageReason', 'EmoteMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="EmoteMessageReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, welche/r bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
 
@@ -591,7 +591,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningTimeEmotes', 'warningTimeEmotes')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="warningTimeEmotes" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim erstmaligen Posten von zu vielen Emotes, aussetzen muss." />
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein/e BenutzerIn beim erstmaligen Posten von zu vielen Emotes, aussetzen muss." />
             </div>
         </form>
         <form role="form">
@@ -600,7 +600,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeEmotes', 'timeoutTimeEmotes')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="timeoutTimeEmotes" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal zu viele Emotes postet (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie zum letzten Mal zu viele Emotes postet (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -614,14 +614,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularEmotes" onclick="$.toggleRegular('Emotes')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularEmotes" onclick="$.toggleRegular('Emotes')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberEmotes" onclick="$.toggleSubscriber('Emotes')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberEmotes" onclick="$.toggleSubscriber('Emotes')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -642,14 +642,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#colorsMessageInput', 'colorsMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="colorsMessageInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Verwenden des /me Befehls bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Verwenden des /me Befehls bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="ColorMessageReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#ColorMessageReason', 'ColorMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="ColorMessageReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, welche/r bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
         <form role="form">
@@ -658,7 +658,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningTimeColors', 'warningTimeColors')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="warningTimeColors" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim Verwenden des /me Befehls, aussetzen muss." />
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein/e BenutzerIn beim Verwenden des /me Befehls, aussetzen muss." />
             </div>
         </form>
         <form role="form">
@@ -667,7 +667,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeColors', 'timeoutTimeColors')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="timeoutTimeColors" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal den /me Befehl verwendet (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie zum letzten Mal den /me Befehl verwendet (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -681,14 +681,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularColors" onclick="$.toggleRegular('Colors')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularColors" onclick="$.toggleRegular('Colors')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberColors" onclick="$.toggleSubscriber('Colors')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberColors" onclick="$.toggleSubscriber('Colors')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -709,14 +709,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#longMessageMessageInput', 'longMessageMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="longMessageMessageInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Posten von einer zu langen Nachricht bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Posten von einer zu langen Nachricht bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="LongMessageReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#LongMessageReason', 'LongMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="LongMessageReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, welche/r bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
 
@@ -735,7 +735,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningTimeLongMsg', 'warningTimeLongMsg')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="warningTimeLongMsg" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim erstmaligen Posten einer zu langen Nachricht, aussetzen muss." />
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein/e BenutzerIn beim erstmaligen Posten einer zu langen Nachricht, aussetzen muss." />
             </div>
         </form>
         <form role="form">
@@ -744,7 +744,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeLongMsg', 'timeoutTimeLongMsg')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="timeoutTimeLongMsg" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal eine zu lange Nachricht postet (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie zum letzten Mal eine zu lange Nachricht postet (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -758,14 +758,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularLongMsg" onclick="$.toggleRegular('LongMsg')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularLongMsg" onclick="$.toggleRegular('LongMsg')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberLongMsg" onclick="$.toggleSubscriber('LongMsg')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberLongMsg" onclick="$.toggleSubscriber('LongMsg')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -787,14 +787,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#spamTrackerMessageInput', 'spamTrackerMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="spamTrackerMessageInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Posten einer Spamnachricht bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein//e BenutzerIn für das Posten einer Spamnachricht bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="SpamTrackerReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#SpamTrackerReason', 'SpamTracker')">Übermitteln</button>
                 <input type="text" class="form-control" id="SpamTrackerReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, welche/r bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
 
@@ -813,7 +813,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#spamTrackerTimeInput', 'spamTrackerTime')">Übermitteln</button>
                 <input type="number" min="10" max="1400" class="form-control" id="spamTrackerTimeInput" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen der Zeit, in Sekunden, in der Benutzer Nachrichten senden können. Wird für Nachrchten Limit verwendet." />
+                     data-toggle="tooltip" title="Festlegen der Zeit, in Sekunden, in der BenutzerInnen Nachrichten senden können. Wird für Nachrchten Limit verwendet." />
             </div>
         </form>
         <form role="form">
@@ -822,7 +822,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#warningTimeSpamTracker', 'warningTimeSpamTracker')">Übermitteln</button>
                 <input type="text" min="1" class="form-control" id="warningTimeSpamTracker" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein Benutzer beim erstmaligen Spammen im Chat, aussetzen muss." />
+                     data-toggle="tooltip" title="Festlegen, wie lange, in Sekunden, ein/e BenutzerIn beim erstmaligen Spammen im Chat, aussetzen muss." />
             </div>
         </form>
         <form role="form">
@@ -831,7 +831,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#timeoutTimeSpamTracker', 'timeoutTimeSpamTracker')">Übermitteln</button>
                 <input type="text" min="1" class="form-control" id="timeoutTimeSpamTracker" placeholder="Laden..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er zum letzten Mal im Chat spammt (nachdem er alle Verwarnungen ignoriert hat)." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e Benutzer/In aussetzen muss, wenn er/sie zum letzten Mal im Chat spammt (nachdem alle Verwarnungen ignoriert wurden)." />
             </div>
         </form>
     </form>
@@ -845,14 +845,14 @@
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleRegularSpamTracker" onclick="$.toggleRegular('SpamTracker')">Stammzuschauer ausschließen
+                    <input type="checkbox" id="toggleRegularSpamTracker" onclick="$.toggleRegular('SpamTracker')">StammzuschauerInnen ausschließen
                 </label>
             </div>
         </form>
         <form role="form">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="toggleSubscriberSpamTracker" onclick="$.toggleSubscriber('SpamTracker')">Abonnenten ausschließen
+                    <input type="checkbox" id="toggleSubscriberSpamTracker" onclick="$.toggleSubscriber('SpamTracker')">AbonnentInnen ausschließen
                 </label>
             </div>
         </form>
@@ -881,14 +881,14 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#blacklistMessage', 'blacklistMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="blacklistMessage" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein Benutzer für das Posten eines Wortes der schwarzen Liste bestraft wird." />
+                     data-toggle="tooltip" title="Nachricht die im Chat angezeigt wird, wenn ein/e BenutzerIn für das Posten eines Wortes der schwarzen Liste bestraft wird." />
             </div>
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="BlacklistMessageReason">Banngrund</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.banReason('#BlacklistMessageReason', 'BlacklistMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="BlacklistMessageReason" placeholder="Laden..."
-                     data-toggle="tooltip" title="Nachricht an deine Moderatoren und den Benutzer, der bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
+                     data-toggle="tooltip" title="Nachricht an deine ModeratorInnen und den/die BenutzerIn, welche/r bestraft wurde. Wird auch verwendet, wenn der Lautlos-Modus aktiviert ist." />
             </div>
         </form>
         <form role="form">
@@ -897,7 +897,7 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                      onclick="$.updateRedrawModSetting('#blacklistTimeoutTime', 'blacklistTimeoutTime')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="blacklistTimeoutTime" placeholder="Lade..."
-                     data-toggle="tooltip" title="Festlegen, wie lange ein Benutzer aussetzen muss, wenn er ein verbotenes Wort sendet." />
+                     data-toggle="tooltip" title="Festlegen, wie lange ein/e BenutzerIn aussetzen muss, wenn er/sie ein verbotenes Wort sendet." />
             </div>
         </form>
         <form role="form">
@@ -919,7 +919,7 @@
                 <label for="addModWhitelist">URL</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.addModWhitelist()">Weisse Liste</button>
                 <input type="text" class="form-control" id="addModWhitelistInput" placeholder="Link oder URL"
-                    data-toggle="tooltip" title="Füge eine URL hinzu, die Benutzer ohne Strafe posten dürfen." />
+                    data-toggle="tooltip" title="Füge eine URL hinzu, die BenutzerInnen ohne Strafe posten dürfen." />
             </div>
         </form>
 

@@ -88,7 +88,7 @@
             }
 
             if (panelCheckQuery(msgObject, 'ranks_customranks')) {
-                html = "<br><table><tr><th /><th>Benutzername</th><th>Rangname</th></tr>";
+                html = "<br><table><tr><th /><th>BenutzerInnenname</th><th>Rangname</th></tr>";
                 ranksData = msgObject['results'];
                 ranksData.sort();
                 for (idx = 0; idx < ranksData.length; idx++) {
@@ -113,7 +113,7 @@
                 }
                 html += "</table>";
                 if (ranksData.length === 0) {
-                    html = "<i>Es gibt keine Nutzer mit benutzerdefinierten Rängen.</i>";
+                    html = "<i>Es gibt keine NutzerInnen mit benutzerdefinierten Rängen.</i>";
                 }
                 $("#ranksCustom").html(html);
                 handleInputFocus();

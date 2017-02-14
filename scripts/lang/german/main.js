@@ -1,7 +1,7 @@
 $.lang.register('chatmoderator.moderation.logs', 'Moderations-Logs wurden $1');
 $.lang.register('chatmoderator.moderation.enabled', 'aktiviert - dies erfordert einen Bot-Neustart.');
-$.lang.register('chatmoderator.usage.toggles', 'Verwendung: !moderation [links / caps / symbols / spam / emotes / colors / longmessages / spamtracker / regulars / subscribers / silenttimeout]');
-$.lang.register('chatmoderator.usage.messages', 'Verwendung: !moderation [linksmessage / capsmessage / symbolsmessage / spammessage / emotesmessage / colorsmessage / blacklistmessage / longmsgmessage / spamtrackermessage]');
+$.lang.register('chatmoderator.usage.toggles', 'Verwendung: !moderation [links / caps / symbols / spam / emotes / colors / longmessages / spamtracker / fakepurge / regulars / subscribers / silenttimeout]');
+$.lang.register('chatmoderator.usage.messages', 'Verwendung: !moderation [linksmessage / capsmessage / symbolsmessage / spammessage / emotesmessage / colorsmessage / blacklistmessage / longmsgmessage / spamtrackermessage / fakepurgemessage]');
 $.lang.register('chatmoderator.options', 'Verwendung: !moderation [capstriggerlength / capslimit / symbolstriggerlength / symbolslimit / symbolsgrouplimit / spamlimit / emoteslimit / spamtrackerlimit / spamtrackertime / permittime / warningtime / timeouttime / messagecooldown / messagecharacterlimit / blacklisttimeouttime / warningresettime]');
 $.lang.register('chatmoderator.link.usage', 'Verwendung: !moderation links [on / off] (Linkfilter ist aktuell $1)');
 $.lang.register('chatmoderator.fakepurge.usage', 'Verwendung: !moderation fakepurge [on / off] (Gefakte Reinigung ist aktuell $1)');
@@ -126,7 +126,7 @@ $.lang.register('chatmoderator.silenttimeout.fakepurge.false', 'Stilles Timeout 
 $.lang.register('chatmoderator.silenttimeout.long.msg.false', 'Stilles Timeout wurde für lange Nachrichten deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.blacklist.messages.false', 'Stilles Timeout wurde für die Blacklist deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.blacklist.messages.true', 'Stilles Timeout wurde für die Blacklist aktiviert.');
-$.lang.register('chatmoderator.silenttimeout.usage', 'Verwendung: !moderation silenttimeout [links / caps / symbols / spam / emotes / colors / longmessages / blacklist / spamtracker / all] [true / false]');
+$.lang.register('chatmoderator.silenttimeout.usage', 'Verwendung: !moderation silenttimeout [links / caps / symbols / spam / emotes / colors / longmessages / blacklist / spamtracker / fakepurge / all] [true / false]');
 $.lang.register('chatmoderator.link.message.usage', 'Verwendung: !moderation linksmessage [Nachricht]');
 $.lang.register('chatmoderator.link.message.set', 'Link-Warnnachricht geändert zu: $1');
 $.lang.register('chatmoderator.caps.message.usage', 'Verwendung: !moderation capsmessage [Nachricht]');

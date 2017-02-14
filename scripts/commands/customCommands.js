@@ -585,7 +585,7 @@
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.add.success', action));
             $.inidb.set('command', action.toLowerCase(), argString);
             $.registerChatCommand('./commands/customCommands.js', action);
-            $.log.event(sender + ' added command !' + action + ' with the message "' + argString + '".');
+            $.log.event(sender + ' added command !' + action + ' with the message "' + argString + '"');
         }
 
         /**
@@ -617,7 +617,7 @@
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.edit.success', action));
             $.inidb.set('command', action.toLowerCase(), argString);
             $.registerChatCommand('./commands/customCommands.js', action);
-            $.log.event(sender + ' edited the command !' + action + ' with the message "' + argString + '".');
+            $.log.event(sender + ' edited the command !' + action + ' with the message "' + argString + '"');
         }
 
         /**
@@ -645,7 +645,7 @@
             $.inidb.del('pricecom', action);
             $.inidb.del('aliases', action);
             $.unregisterChatCommand(action);
-            $.log.event(sender + ' deleted the command !' + action + '.');
+            $.log.event(sender + ' deleted the command !' + action);
         }
 
         /**
@@ -685,7 +685,7 @@
             $.inidb.set('aliases', subAction, action + aliasArgs);
             $.registerChatCommand('./commands/customCommands.js', subAction);
             $.registerChatAlias(subAction);
-            $.log.event(sender + ' added alias "!' + subAction + '" for "!' + action + aliasArgs + '".');
+            $.log.event(sender + ' added alias "!' + subAction + '" for "!' + action + aliasArgs + '"');
         }
 
         /**
@@ -743,7 +743,7 @@
                     } 
                 }
                 $.inidb.set('permcom', action, group);
-                $.log.event(sender + ' set permission on command !' + action + ' to group ' + group + '.');
+                $.log.event(sender + ' set permission on command !' + action + ' to group ' + group);
                 $.updateCommandGroup(action, group);
                 return;
             }
@@ -762,7 +762,7 @@
 
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.set.perm.success', action + " " + subcommand, $.getGroupNameById(group)));
             $.inidb.set('permcom', action + " " + subcommand, group);
-            $.log.event(sender + ' set permission on sub command !' + action + ' ' + subcommand + ' to group ' + group + '.');
+            $.log.event(sender + ' set permission on sub command !' + action + ' ' + subcommand + ' to group ' + group);
             $.updateSubcommandGroup(action, subcommand, group);
         }
 
@@ -799,7 +799,7 @@
                         $.inidb.set('pricecom', list[i], parseInt(subAction));
                     }
                 }
-                $.log.event(sender + ' set price on command !' + action + ' to ' + subAction + ' ' + $.pointNameMultiple + '.');
+                $.log.event(sender + ' set price on command !' + action + ' to ' + subAction + ' ' + $.pointNameMultiple);
                 return;
             }
 
@@ -822,7 +822,7 @@
 
                 $.say($.whisperPrefix(sender) + $.lang.get('customcommands.set.price.success', action + ' ' + subAction, args[2], $.pointNameMultiple));
                 $.inidb.set('pricecom', action + ' ' + subAction, args[2]);
-                $.log.event(sender + ' set price on command !' + action + ' ' + subAction + ' to ' + args[2] + ' ' + $.pointNameMultiple + '.');
+                $.log.event(sender + ' set price on command !' + action + ' ' + subAction + ' to ' + args[2] + ' ' + $.pointNameMultiple);
                 return;
             }
 
@@ -835,7 +835,7 @@
 
                 $.say($.whisperPrefix(sender) + $.lang.get('customcommands.set.price.success', action + ' ' + subAction + ' ' + args[2], args[3], $.pointNameMultiple));
                 $.inidb.set('pricecom', action + ' ' + subAction +  ' ' + args[2], args[3]);
-                $.log.event(sender + ' set price on command !' + action + ' ' + subAction + ' to ' + args[2] + ' ' + $.pointNameMultiple + '.');
+                $.log.event(sender + ' set price on command !' + action + ' ' + subAction + ' to ' + args[2] + ' ' + $.pointNameMultiple);
                 return;
             }
         }
@@ -871,7 +871,7 @@
                     $.inidb.set('paycom', list[i], parseInt(subAction));
                 }
             }
-            $.log.event(sender + ' set payment on command !' + action + ' to ' + subAction + ' ' + $.pointNameMultiple + '.');
+            $.log.event(sender + ' set payment on command !' + action + ' to ' + subAction + ' ' + $.pointNameMultiple);
         }
 
         /**
@@ -957,7 +957,7 @@
             $.inidb.set('disabledCommands', action, true);
             $.say($.whisperPrefix(sender) + $.lang.get('customcommands.disable.success', action));
             $.tempUnRegisterChatCommand(action.toLowerCase());
-            $.log.event(sender + ' disabled command !' + command + '.');
+            $.log.event(sender + ' disabled command !' + command);
         }
 
         /**

@@ -2,14 +2,14 @@ $.lang.register('roulette.win.1', 'Der Abzug wurde betätigt und der Revolver kl
 $.lang.register('roulette.win.2', 'Der Abzug wurde betätigt, aber der Revolver hat eine Fehlfunktion. $1 hatte Glück und darf einen weiteren Tag leben!');
 $.lang.register('roulette.win.3', 'Der Abzug wurde betätigt, aber wie durch Magie, ist nichts passiert!');
 $.lang.register('roulette.win.4', 'Der Abzug wurde betätigt, aber weil im Kopf nur Luft ist, ist nichts passiert.');
-$.lang.register('roulette.win.5', 'Der Abzug wurde betätigt, aber $1 Schädelknochen ist so dick, dass die Kugel nicht durch dringen konnte.');
+$.lang.register('roulette.win.5', 'Der Abzug wurde betätigt, aber $1\' Schädelknochen ist so dick, dass die Kugel nicht durch dringen konnte.');
 $.lang.register('roulette.win.6', 'Der Abzug wurde betätigt, aber die Kugel wurde durch Zeit und Raum abgelenkt.');
-$.lang.register('roulette.win.7', 'Der Abzug wurde betätigt, aber $1 starb nicht duch die Kugel, sonder die Kugel starb duch $1.');
+$.lang.register('roulette.win.7', 'Der Abzug wurde betätigt, aber $1 starb nicht duch die Kugel, sondern die Kugel starb duch $1.');
 
 $.lang.register('roulette.lost.1', 'Der Abzug wurde betätigt und der Revolver geht mit einem lauten Knall los! $1 liegt nun tot im Chat.');
 $.lang.register('roulette.lost.2', 'Der Abzug wurde betätigt und $1 ist nun etwas kopflos!');
-$.lang.register('roulette.lost.3', '$1\'s Finger gleitet über den Abzug, $1s Körper fällt auf den Boden wie ein Sack Mehl!');
-$.lang.register('roulette.lost.4', 'Der Abzug wurde betätigt und $1s Kopf hat nun einen Gehörgang mehr!');
+$.lang.register('roulette.lost.3', '$1\'s Finger gleitet über den Abzug, $1\'s Körper fällt auf den Boden wie ein Sack Mehl!');
+$.lang.register('roulette.lost.4', 'Der Abzug wurde betätigt und $1\'s Kopf hat nun einen Gehörgang mehr!');
 $.lang.register('roulette.lost.5', 'Der Hammer fällt und die .44er brüllt! $1 liegt nun tot im Chat.');
 $.lang.register('roulette.lost.6', 'Der Abzug wurde betätigt und $1 hat die Wand neu eingefärbt.');
 $.lang.register('roulette.lost.7', 'Der Abzug wurde betätigt und $1s miserables Leben fand ein unrühmliches Ende.');

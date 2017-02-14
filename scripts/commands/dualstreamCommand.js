@@ -68,7 +68,7 @@
                 otherChannels = channel;
                 $.inidb.set('dualStreamCommand', 'otherChannels', otherChannels);
                 $.say($.lang.get('dualstreamcommand.link.set', $.username.resolve($.channelName) + '/' + chan));
-                $.log.event(sender + ' set the multi link to "' + $.lang.get('dualstreamcommand.link') + $.username.resolve($.channelName) + '/' + chan + '".');
+                $.log.event(sender + ' set the multi link to "' + $.lang.get('dualstreamcommand.link') + $.username.resolve($.channelName) + '/' + chan + '"');
                 return;
             }
 

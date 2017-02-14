@@ -28,11 +28,11 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserAdmin">Zu AdministratorIn befördern</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Admin')">Befördern</button>
-                <input type="text" class="form-control" id="promoteUserAdmin" placeholder="Benutzername" />
+                <input type="text" class="form-control" id="promoteUserAdmin" placeholder="BenutzerInnenname" />
                 <br>
                 <label for="unPromoteUserAdmin">AdministratorIn degradieren</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Admin')">Degradieren</button>
-                <input type="text" class="form-control" id="unPromoteUserAdmin" placeholder="Benutzername" />
+                <input type="text" class="form-control" id="unPromoteUserAdmin" placeholder="BenutzerInnenname" />
             </div>
             <div>
                 <div id="viewersAdminList" style="height: 420px; overflow: auto;" />
@@ -46,11 +46,11 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserMod">Zu ModeratorIn befördern</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Mod')">Befördern</button>
-                <input type="text" class="form-control" id="promoteUserMod" placeholder="Benutzername" data-toggle="tooltip" title="Stelle sicher, dass du den/die BenutzerIn auch in deinem Kanal mit '/mod' zu einem/r ModeratorIn machst." />
+                <input type="text" class="form-control" id="promoteUserMod" placeholder="BenutzerInnenname" data-toggle="tooltip" title="Stelle sicher, dass du den/die BenutzerIn auch in deinem Kanal mit '/mod' zu einem/r ModeratorIn machst." />
                 <br>
                 <label for="unPromoteUserMod">ModeratorIn degradieren</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Mod')">Degradieren</button>
-                <input type="text" class="form-control" id="unPromoteUserMod" placeholder="Benutzername" data-toggle="tooltip" title="Stelle sicher, dass du den Benutzer auch in deinem Kanal mit '/unmod' den Moderator wegnimmst." />
+                <input type="text" class="form-control" id="unPromoteUserMod" placeholder="BenutzerInnenname" data-toggle="tooltip" title="Stelle sicher, dass du den/die BenutzerIn auch in deinem Kanal mit '/unmod' den/die ModeratorIn wegnimmst." />
             </div>
             <div>
                 <div id="viewersModList" style="height: 420px; overflow: auto;" />
@@ -58,10 +58,10 @@
         </form>
     </div>
 
-    <h3>AbonnentenInnen</h3>
+    <!--<h3>Subscribers</h3>
     <div>
         <form role="form">
-            <!-- Can't promote to sub. We get this from Twitch and GameWisp 
+            Can't promote to sub. We get this from Twitch and GameWisp 
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserSub">Promote to Subscriber</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Sub')">Promote</button>
@@ -71,12 +71,12 @@
                 <label for="unPromoteUserSub">Demote from Subscriber</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Sub')">Demote</button>
                 <input type="text" class="form-control" id="unPromoteUserSub" placeholder="Username" data-toggle="tooltip" title="This will probably reset if the user is subscribed to the channel." />
-            </div> -->
+            </div>
             <div>
                 <div id="viewersSubList" style="height: 420px; overflow: auto;" />
             </div>
         </form>
-    </div>
+    </div> -->
 
     <h3>SpenderInnen</h3>
     <div>
@@ -84,11 +84,11 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserDonator">Zu SpenderIn befördern</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Donator')">Befördern</button>
-                <input type="text" class="form-control" id="promoteUserDonator" placeholder="Benutzername" />
+                <input type="text" class="form-control" id="promoteUserDonator" placeholder="BenutzerInnenname" />
                 <br>
                 <label for="unPromoteUserDonator">SpenderIn degradieren</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Donator')">Degradieren</button>
-                <input type="text" class="form-control" id="unPromoteUserDonator" placeholder="Benutzername" />
+                <input type="text" class="form-control" id="unPromoteUserDonator" placeholder="BenutzerInnenname" />
             </div>
             <div>
                 <div id="viewersDonatorList" style="height: 420px; overflow: auto;" />
@@ -121,11 +121,11 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="promoteUserReg">Zu StammzuschauerIn befördern</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateUserPerm('Reg')">Befördern</button>
-                <input type="text" class="form-control" id="promoteUserReg" placeholder="Benutzername" />
+                <input type="text" class="form-control" id="promoteUserReg" placeholder="BenutzerInnenname" />
                 <br>
                 <label for="unPromoteUserReg">StammzuschauerIn degradieren</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.demoteUser('Reg')">Degradieren</button>
-                <input type="text" class="form-control" id="unPromoteUserReg" placeholder="Benutzername" />
+                <input type="text" class="form-control" id="unPromoteUserReg" placeholder="BenutzerInnenname" />
             </div>
             <div>
                 <div id="viewersRegList" style="height: 420px; overflow: auto;" />
@@ -133,19 +133,20 @@
         </form>
     </div>
 
-    <h3>ZuschauerInnen</h3>
+    <!--<h3>Viewers</h3>
     <div>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="fixFollower">Folgen erzwingen</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.fixFollower()">Aktualisieren</button>
-                <input type="text" class="form-control" id="fixFollower" placeholder="Benutzername" data-toggle="tooltip" title="Dadurch wird das Herz neben dem Benutzernamen aufleuchten." />
+                <label for="fixFollower">Force follow</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.fixFollower()">Update</button>
+                <input type="text" class="form-control" id="fixFollower" placeholder="Username" data-toggle="tooltip" title="This will make the heart light up next to the users name." />
             </div>
         <div>
     <div>
         <div id="viewersViewerList" style="height: 370px; overflow: auto;" />
-    </div>
+    </div>-->
 </div>
+
 
 <!-- Run the Acordion -->
 <script>$("#viewersAccordion").accordion( { clearStyle: true, heightStyle: "panel", icons: null } );</script>

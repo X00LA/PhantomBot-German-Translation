@@ -1,12 +1,12 @@
-$.lang.register('ranks.edit.usage', 'Verwendung: !rankedit [add [Stunden] [Rangname] | del [Stunden] | custom [Benutzername] [Rangname] | customdel [Benutzername] | settime [Stunden] | setcost [Punkte]]');
+$.lang.register('ranks.edit.usage', 'Verwendung: !rankedit [add [Stunden] [Rangname] | del [Stunden] | custom [BenutzerInnenname] [Rangname] | customdel [Benutzername] | settime [Stunden] | setcost [Punkte]]');
 $.lang.register('ranks.settime.usage', 'Verwendung: !rankedit settime [Stunden]');
-$.lang.register('ranks.settime.success', 'Zeit für Benutzer zur Erstellung eines benutzerdefinierten Ranges auf $1 Stunden geändert.');
+$.lang.register('ranks.settime.success', 'Zeit für BenutzerIn zur Erstellung eines benutzerdefinierten Ranges auf $1 Stunden geändert.');
 $.lang.register('ranks.setcost.usage', 'Verwendung: !rankedit setcost [$1]');
 $.lang.register('ranks.setcost.success', 'Kosten für benutzerdefinierten Rang auf $1 $2 festgelegt.');
-$.lang.register('ranks.custom.usage', 'Verwendung: !rankedit custom [Benutzername] [Rangname]');
-$.lang.register('ranks.custom.404', 'Kann Benutzer für benutzerdefinierten Rang nicht finden: $1.');
+$.lang.register('ranks.custom.usage', 'Verwendung: !rankedit custom [BenutzerInnenname] [Rangname]');
+$.lang.register('ranks.custom.404', 'Kann BenutzerIn für benutzerdefinierten Rang nicht finden: $1.');
 $.lang.register('ranks.custom.success', '$1 erhielt den benutzerdefinierten Rang: $2.');
-$.lang.register('ranks.customdel.usage', 'Verwendung: !rankedit customdel [Benutzername]');
+$.lang.register('ranks.customdel.usage', 'Verwendung: !rankedit customdel [BenutzerInnenname]');
 $.lang.register('ranks.customdel.404', 'Für $1 existiert kein benutzerdefinierter Rang.');
 $.lang.register('ranks.customdel.success', 'Benutzerdefinierten Rang von $1 entfernt.');
 $.lang.register('ranks.add.usage', 'Verwendung: !rankedit add [Stunden] [Rangname]');
@@ -22,7 +22,7 @@ $.lang.register('ranks.rank.maxsuccess', '$1 hat den höchstmöglichen Rang, $2,
 $.lang.register('ranks.rank.customsuccess', '$1 hat sich den Rang $2 gegeben!');
 $.lang.register('ranks.set.usage', 'Verwendung: !rank set [Rangname] Erfordert $1 Stunden im Chat und $2 $3.');
 $.lang.register('ranks.set.usage.nopoints', 'Verwendung: !rank set [Rangname] Erfordert $1 Stunden im Chat.');
-$.lang.register('ranks.set.failure', 'Entweder nicht genug Stunden ($1) oder $2 ($3) um den Rang festzulegen!');
+$.lang.register('ranks.set.failure', 'Entweder nicht genug Stunden ($1), oder $2 ($3) um den Rang festzulegen!');
 $.lang.register('ranks.set.failure.nopoints', 'Nicht genug Stunden ($1) um den Rang festzulegen!');
 $.lang.register('ranks.set.success', 'Setzte Rang zu: $1');
 $.lang.register('ranks.delself.404', 'Du hast keinen benutzerdefinierten Rang.');

@@ -46,7 +46,7 @@
             localDate = getCurLocalTimeString("'['dd-MM-yyyy']'");
             $.inidb.set('highlights', timestamp, localDate + ' ' + args.splice(0).join(' '));
             $.say($.whisperPrefix(sender) + $.lang.get('highlightcommand.highlight.success', timestamp));
-            $.log.event(sender + ' added a highlight at ' + timestamp + '.');
+            $.log.event(sender + ' added a highlight at ' + timestamp);
         }
 
         if (command.equalsIgnoreCase("gethighlights") || command.equalsIgnoreCase("showhighlights")) {

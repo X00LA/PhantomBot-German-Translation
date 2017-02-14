@@ -9,4 +9,4 @@ $.lang.register('discord.subscribehandler.prime.sub.message.set', 'Twitch Prime 
 $.lang.register('discord.subscribehandler.resub.message.usage', 'Verwendung: !subscribehandler resubmessage [Nachricht] - Tags: (name) (months)');
 $.lang.register('discord.subscribehandler.resub.message.set', 'Re-Abonnementbenachrichtigungsnachricht wurde festgelegt zu: $1');
 $.lang.register('discord.subscribehandler.channel.usage', 'Verwendung: !subscribehandler channel [Kanalname]');
-$.lang.register('discord.subscribehandler.channel.set', 'Abonnementbenachrichtigungen werden nun im Kanala #$1 ausgegeben!');
+$.lang.register('discord.subscribehandler.channel.set', 'Abonnementbenachrichtigungen werden nun im Kanal #$1 ausgegeben!');
