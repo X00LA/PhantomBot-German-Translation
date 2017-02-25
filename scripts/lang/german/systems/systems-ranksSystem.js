@@ -16,7 +16,7 @@ $.lang.register('ranks.del.usage', 'Verwendung: !rankedit del [Stunden]');
 $.lang.register('ranks.del.404', 'Kann Rang mit Stundenwert $1 nicht finden!');
 $.lang.register('ranks.del.success', 'Rang mit Stundenwert $1 erfolgreich gelöscht.');
 $.lang.register('ranks.rank.404', 'Es sind keine Ränge definiert!');
-$.lang.register('ranks.rank.success', '$1 hat den Rang $2 erreicht und ist noch $3 von Rang $4 entfernt!');
+$.lang.register('ranks.rank.success', '$1 hat den Rang $2 erreicht und ist noch $3 Stunden von Rang $4 entfernt!');
 $.lang.register('ranks.rank.norank.success', '$1 hat aktuell noch keinen Rang, ist aber nur noch $2 Stunden von Rang $3 entfernt!');
 $.lang.register('ranks.rank.maxsuccess', '$1 hat den höchstmöglichen Rang, $2, erreicht! Gratulation!');
 $.lang.register('ranks.rank.customsuccess', '$1 hat sich den Rang $2 gegeben!');

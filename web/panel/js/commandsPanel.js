@@ -276,7 +276,7 @@
                     html += "<td /><td><div id=\"commandsList_" + commandName + "\"><strong><font style=\"color: #6136b1\">" + groupIcons[commandValue] + 
                             "    </font></strong></div></td>" +
 
-                            "<td><div data-toggle=\"tooltip\" title=\"An Hoster vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 0);\">" +
+                            "<td><div data-toggle=\"tooltip\" title=\"An Streamer vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 0);\">" +
                             "    <i class=\"fa fa-television\" /></div></td>" +
 
                             "<td><div data-toggle=\"tooltip\" title=\"An Admins vergeben\" class=\"button\" onclick=\"$.commandPermission('" + commandName + "', 1);\">" +
@@ -693,7 +693,7 @@
     /**
      * @function runCommand
      */
-    function runCommand() {
+    function runCustomCommand() {
         var val = $('#commandImput').val();
 
         if (val.length == 0) {
@@ -753,7 +753,7 @@
     $.deleteCommandPay = deleteCommandPay;
     $.editCooldown = editCooldown;
     $.commands = commands;
-    $.runCommand = runCommand;
+    $.runCustomCommand = runCustomCommand;
     $.toggleCooldownMsg = toggleCooldownMsg;
     $.togglePermcomMsg = togglePermcomMsg;
 })();

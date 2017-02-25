@@ -7,7 +7,7 @@ $.lang.register('ticketrafflesystem.raffle.closed', 'Die Ticketverlosung ist nun
 $.lang.register('ticketrafflesystem.raffle.close.err', 'Die Ticketverlosung ist beendet. Niemand hat teilgenommen.');
 $.lang.register('ticketrafflesystem.raffle.repick', 'Neue/r GewinnerIn ist: $1!');
 $.lang.register('ticketrafflesystem.winner', 'Der/Die GewinnerIn dieser Ticket-Verlosung ist: $1!');
-$.lang.register('ticketrafflesystem.only, buy.amount', 'Du kannst nur $1 Ticket(s) kaufen.');
+$.lang.register('ticketrafflesystem.only.buy.amount', 'Du kannst nur $1 Ticket(s) kaufen.');
 $.lang.register('ticketrafflesystem.litmi.hit', 'Du kannst nicht mehr als $1 Ticket(s) kaufen.');
 $.lang.register('ticketrafflesystem.err.not.following', 'Du musst dem Kanal folgen, um teilnehmen zu können.');
 $.lang.register('ticketrafflesystem.err.points', 'Du hast nicht genügend $1, um teilzunehmen.');

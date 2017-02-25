@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2016 phantombot.tv
+ Copyright (C) 2017 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@
             </td>
         </table>
         <br>
-	<div>
+ 	<div>
 	    <iframe style="position: relative; left: 4%; border-style: solid; border-color: #6136b1; border-width: 3px;" src="http://player.twitch.tv/?volume=0&channel=DEINKANALNAME" width="620" height="360" allowfullscreen></iframe>
 	</div>
         <form role="form">
@@ -45,6 +45,7 @@
             </div>
         </form>
         <br>
+        
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="gameTitle">Spiel Titel</label>
@@ -151,9 +152,16 @@
         </form>
     </div>
 
-    <h3>Module</h3>
+    <h3>Twitch Module</h3>
     <div>
         <div id="modulesList" style="height: 300px; overflow: auto;" />
+    </div>
+
+    <h3>Discord Module</h3>
+
+    <div>
+        <i>Dies sind die Module für unsere Discord Integration. Solltest du deinen Bot nicht mit Discord verbunden haben, wird der Aktivierungs-Knopf nicht funktionieren.</i>
+        <div id="discordModulesList" style="height: 300px; overflow: auto;" />
     </div>
 
 
@@ -192,7 +200,7 @@
                         <button type="button" class="btn btn-primary" onclick="$.adjustDeathCounter('sub')"><i class="fa fa-minus fa-1x" /></button>
                     </td>
                     <td style="width: 30px">
-                        <button type="button" class="btn btn-primary" onclick="$.adjustDeathCounter('reset')"><i class="fa fa-power-off fa-1x" /></button>
+                        <button type="button" class="btn btn-primary" onclick="$.adjustDeathCounter('reset')"><i class="fa fa-eraser fa-1x" /></button>
                     </td>
                 </tr>
             </table>
@@ -204,7 +212,7 @@
         <div id="_multiLinkPanelDisabled" />
         <div id="_multiLinkPanel">
             Multi-Link bietet einen Link um mehrere Twitch Kanäle in einem UI zu teilen.
-            Toll für Rennen oder andere Wettbewerbe. Gib eine, durch Leerzeichen getrennte, Liste von Kanälen an.
+            Toll für Rennen, oder andere Wettbewerbe. Gib eine, durch Leerzeichen getrennte, Liste von Kanälen an.
             Lege einen Zeitintervall fest, welcher den Chat in regelmäßigen Abständen wissen lässt, dass Multi_Link aktiviert ist.
             <br><br>
             <form role="form">
@@ -253,25 +261,6 @@
                 </div>
             </form>
         </div>
-    </div>
-
-    <h3>Warteschlange</h3>
-    <div>
-        <div id="_queuePanelDisabled" />
-        <div id="_queuePanel">
-        <form role="form">
-             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="amountQueue">Anzahl an Personen die zur Auswahl stehen</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.queueCMD('clear')">Warteschlange leeren</button>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.queueCMD('close')">Warteschlange Schließen</button>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.queueCMD('open')">Warteschlange Öffnen</button>
-                <button type="button" class="btn btn-primary pull-right" onclick="$.queueCMDNext('next')">Nächster</button>
-                <input type="text" class="form-control" id="amountQueue" placeholder="Anzahl" />
-            </div>
-        </form>
-    </div>
-    <label for="queueList">Warteliste</label>
-        <div id="queueList" style="height: 150px; overflow: auto;" />
     </div>
 </div>
 

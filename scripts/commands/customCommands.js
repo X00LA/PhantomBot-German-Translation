@@ -300,9 +300,16 @@
             message = $.replace(message, '(lasttip)', ($.inidb.exists('donations', 'last_donation_message') ? $.inidb.get('donations', 'last_donation_message') : 'No donations found.'));
         }
 
-        if (message.match(/\(playsound/g)) {
-            message = $.replace(message, message.match(/\(playsound ([a-zA-Z_]+)\)/)[0], '');
-            $.panelsocketserver.triggerAudioPanel(message.match(/\(playsound ([a-zA-Z_]+)\)/)[1]);
+        if (message.match(/\(playsound\s([a-zA-Z1-9_]+)\)/g)) {
+            if (!$.audioHookExists(message.match(/\(playsound\s([a-zA-Z1-9_]+)\)/)[1])) {
+                $.log.error('Could not play audio hook: Audio hook does not exist.');
+                return null;
+            }
+            $.panelsocketserver.triggerAudioPanel(message.match(/\(playsound\s([a-zA-Z1-9_]+)\)/)[1]);
+            message = $.replace(message, message.match(/\(playsound\s([a-zA-Z1-9_]+)\)/)[0], '');
+            if (message == '') {
+                return null;
+            }     
         }
 
         if (message.match(/\(age\)/g)) {
@@ -412,6 +419,12 @@
                         for (var i = 0; i < jsonCheckList.length - 1; i++) {
                             if (i == 0) {
                                 jsonObject = new JSONObject(origCustomAPIResponse).getJSONObject(jsonCheckList[i]);
+                            } else if (!isNaN(jsonCheckList[i + 1])) {
+                                try {
+                                    jsonObject = jsonObject.getJSONArray(jsonCheckList[i]);
+                                } catch (ex) {
+                                    jsonObject = jsonObject.getJSONObject(jsonCheckList[i]);
+                                }
                             } else {
                                 jsonObject = jsonObject.getJSONObject(jsonCheckList[i]);
                             }

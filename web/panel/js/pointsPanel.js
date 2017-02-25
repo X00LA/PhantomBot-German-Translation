@@ -92,7 +92,7 @@
                        "       data-sorting='true'" +
                        "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>";
                 html += "<thead><tr>" +
-                        "    <th data-breakpoints='xs'>Benutzername</th>" +
+                        "    <th data-breakpoints='xs'>BenutzerInnenname</th>" +
                         "    <th data-filterable='false' data-type='number'>Punkte</th>" +
                         "</tr></thead><tbody>";
 

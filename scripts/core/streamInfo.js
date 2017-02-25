@@ -396,7 +396,7 @@
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.log.error('Ändern des Spiels fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+            $.log.error('Failed to change the game. Make sure you have your api oauth code set. https://phantombot.tv/oauth');
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
     }
@@ -425,7 +425,7 @@
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.log.error('Ändern der Überschrift fehlgeschlagen. Stelle sicher, dass dein API oauth Code richtig gesetzt ist. https://phantombot.tv/oauth');
+            $.log.error('Failed to change the status. Make sure you have your api oauth code set. https://phantombot.tv/oauth');
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
     }

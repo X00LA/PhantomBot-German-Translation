@@ -2,10 +2,10 @@
  * This module is to handle tipeeestream notifications.
  */
 (function() {
-	var toggle = $.getSetIniDbBoolean('discordSettings', 'tipeeestreamToggle', false),
-	    message = $.getSetIniDbString('discordSettings', 'tipeeestreamMessage', 'Vielen Dank (name), für die Spende von (currency) (formattedamount)!'),
-	    channelName = $.getSetIniDbString('discordSettings', 'tipeeestreamChannel', ''),
-	    announce = false;
+    var toggle = $.getSetIniDbBoolean('discordSettings', 'tipeeestreamToggle', false),
+        message = $.getSetIniDbString('discordSettings', 'tipeeestreamMessage', 'Vielen Dank (name), für die Spende von (currency) (formattedamount)!'),
+        channelName = $.getSetIniDbString('discordSettings', 'tipeeestreamChannel', ''),
+        announce = false;
 
     /**
      * @event panelWebSocket
@@ -18,29 +18,29 @@
         }
     });
 
-	/**
+    /**
      * @event tipeeeStreamDonationInitialized
      */
     $.bind('tipeeeStreamDonationInitialized', function(event) {
-    	announce = true;
+        announce = true;
     });
 
     /**
      * @event tipeeeStreamDonation
      */
     $.bind('tipeeeStreamDonation', function(event) {
-    	if (toggle === false || announce === false || channelName == '') {
-    		return;
-    	}
+        if (toggle === false || announce === false || channelName == '') {
+            return;
+        }
 
-    	var jsonString = event.getJsonString(),
+        var jsonString = event.getJsonString(),
             JSONObject = Packages.org.json.JSONObject,
             donationObj = new JSONObject(jsonString),
             donationID = donationObj.getInt('id'),
             paramObj = donationObj.getJSONObject('parameters'),
             donationUsername = paramObj.getString('username'),
             donationCurrency = paramObj.getString('currency'),
-            donationMessage = paramObj.getString('message'),
+            donationMessage = (paramObj.has('message') ? paramObj.getString('message') : ''),
             donationAmount = paramObj.getInt('amount'),
             donationFormattedAmount = donationObj.getString('formattedAmount'),
             s = message;
