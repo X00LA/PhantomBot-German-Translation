@@ -22,7 +22,7 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="gamesAccordion">
-    <h3>Betting</h3>
+    <h3>Wette</h3>
     <div>
         <div id="_bettingPanelDisabled" />
         <div id="_bettingPanel">
@@ -157,7 +157,7 @@
                     </form>
                 </div>
                 
-                <div class="modal-footer">
+                <div>
                     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$.bet.update()">Speichern</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
                 </div>
@@ -165,7 +165,11 @@
         </div>
         </div>
         
-        <div id="betResults" />
+        <div id="betResults" /></br>
+        
+        <div>
+        <p>Befehl um eine Wette abzugeben: <b>!bet [Einsatz] [Option]</b></p>
+        </div>
     </div>
     </div>
 
@@ -180,7 +184,11 @@
                         onclick="$.rouletteTimeout()">Übermitteln</button>
                 <input type="number" min="0" class="form-control" id="rouletteTimeoutInput" placeholder="Sekunden">
             </div>
-        </form>
+        </form></br>
+        
+        <div>
+        <p>Befehl um eine Runde Roulette zu starten: <b>!roulette</b></p>
+        </div>
     </div>
     </div>
 
@@ -272,7 +280,11 @@
                         onclick="$.adventureUpdateSetting('maxBet')">Übermitteln</button>
                 <input type="number" min="1" class="form-control" id="adventuremaxBetInput" placeholder="Zahlenwert">
             </div>
-        </form>
+        </form></br>
+        
+        <div>
+        <p>Befehl um einem Abenteuer beizutreten: <b>!adventure [Einsatz]</b></p>
+        </div>
     </div>    
     </div>    
 
@@ -313,7 +325,11 @@
                 <input style="width: auto" type="text" id="slotEmotes4Input" placeholder="Emote"
                        data-toggle="tooltip" title="Emote für fünften Wert">
             </div>
-        </form>
+        </form></br>
+        
+        <div>
+        <p>Befehl um eine Runde am Spielautomaten zu spielen: <b>!slot</b></p>
+        </div>
     </div>
     </div>
 
@@ -339,7 +355,11 @@
                 <input style="width: 10%" type="number" min="0" id="rollRewards5Input" placeholder="Punkte"
                        data-toggle="tooltip" title="Punkte für 6er Pasch">
             </div>
-        </form>
+        </form></br>
+        
+        <div>
+        <p>Befehl um die Würfel rollen zu lassen: <b>!roll</b></p>
+        </div>
     </div>
     </div>
 
@@ -367,7 +387,7 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="gamblingWinPercent2">Gewinnchance in Prozent</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('WinPercent')">Übermitteln</button>
-                <input type="number" min="1" class="form-control" id="gamblingWinPercent" placeholder="Zahlenwert">
+                <input type="number" min="1" class="form-control" id="gamblingWinPercent" placeholder="Zahlenwert"
                         title="Prozentuale Angabe von Punkten, welche die SpielerInnen gewinnen können. Max. ist 100%." >
             </div>
         </form>
@@ -376,10 +396,14 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="gamblingWinRange2">Gewinnspanne</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.gambling('WinRange')">Übermitteln</button>
-                <input type="number" min="1" class="form-control" id="gamblingWinRange" placeholder="Spanne">
+                <input type="number" min="1" class="form-control" id="gamblingWinRange" placeholder="Spanne"
                         title="Bereich in dem die SpielerInnen gewinnen können, alles unter der hier angegebenen Nummer ist ein Verlust. Max. ist 100." >
             </div>
-        </form>
+        </form></br>
+        
+        <div>
+        <p>Befehl um das Glücksspiel zu starten: <b>!gamble [Einsatz]</b></p>
+        </div>
     </div>
 </div>
 </div>
