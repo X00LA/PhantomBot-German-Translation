@@ -242,6 +242,8 @@ $.lang.register('common.user-error', 'Du musst einen Benutzer als Ziel für dies
 $.lang.register('common.user.404', 'Der Benutzer "$1" hat diesen Kanal noch nicht besucht.');
 $.lang.register('common.game.change', 'Aktuelles Spiel zu $1 geändert!');
 $.lang.register('common.title.change', 'Aktueller Titel zu $1 geändert!');
+$.lang.register('common.twitch.no.status', 'nicht sicher, weder von Twitch');
+$.lang.register('common.twitch.no.game', 'nicht sicher, weder von Twitch');
 $.lang.register('console.channel.ishosting', '$1 hostet derzeit $2.');
 $.lang.register('console.received.clearchat', 'Nachricht von jtv über Chat-Säuberung erhalten.');
 $.lang.register('console.received.host.end', 'Nachricht von jtv über Beendigung eines Hostings erhalten.');

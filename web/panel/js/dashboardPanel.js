@@ -218,7 +218,7 @@
                 if (msgObject['results']['lastFollow'] == null) {
                     $("#lastFollow").html("");
                 } else {
-                    $("#lastFollow").html("<spam class=\"purplePill\">Letzter Follower: " + msgObject['results']['lastFollow'] + "</spam>");
+                    $("#lastFollow").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Letzer Follower\">Folgen: " + msgObject['results']['lastFollow'] + "</span>");
                 }
             }
 
@@ -226,7 +226,7 @@
                 if (msgObject['results']['lastReSub'] == null) {
                     $("#lastReSub").html("");
                 } else {
-                    $("#lastReSub").html("<spam class=\"purplePill\">Letzte/r Re-AbonnentIn: " + msgObject['results']['lastReSub'] + "</spam>");
+                    $("#lastReSub").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Letzte/r Re-AbonnentIn\">ReAbo: " + msgObject['results']['lastReSub'] + "</span>");
                 }
             }
 
@@ -234,7 +234,7 @@
                 if (msgObject['results']['lastSub'] == null) {
                     $("#lastSub").html("");
                 } else {
-                    $("#lastSub").html("<spam class=\"purplePill\">Letzte/r AbonnentIn: " + msgObject['results']['lastSub'] + "</spam>");
+                    $("#lastSub").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Letzte/r AbonnentIn\">Abo: " + msgObject['results']['lastSub'] + "</span>");
                 }
             }
 
@@ -242,7 +242,7 @@
                 if (msgObject['results']['lastDonator'] == null) {
                     $("#lastDonator").html("");
                 } else {
-                    $("#lastDonator").html("<spam class=\"purplePill\">Letzte/r SpenderIn: " + msgObject['results']['lastDonator'] + "</spam>");
+                    $("#lastDonator").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Letzte/r SpenderIn\">SpenderIn: " + msgObject['results']['lastDonator'] + "</span>");
                 }
             }
  

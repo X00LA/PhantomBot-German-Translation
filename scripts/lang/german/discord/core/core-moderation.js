@@ -33,3 +33,8 @@ $.lang.register('moderation.whitelist.remove.404', 'Dieser Ausdruck oder Benutze
 $.lang.register('moderation.whitelist.remove.success', 'Ausdruck oder BenutzerInnenname aus der weissen Liste entfernt!');
 $.lang.register('moderation.whitelist.list.404', 'Die weisse Liste ist leer!');
 $.lang.register('moderation.whitelist.list', 'Weisse Liste: ```$1```');
+$.lang.register('moderation.cleanup.usage', 'Verwendung: !moderation cleanup [Kanal] [Anzahl]');
+$.lang.register('moderation.cleanup.err', 'Du kannst nur 1 bis 1000 Nachrichten löschen.');
+$.lang.register('moderation.cleanup.failed', 'Massenlöschung der Nachrichten fehlgeschlagen: Lösche gerade Nachrichten.');
+$.lang.register('moderation.cleanup.failed.err', 'Massenlöschung der Nachrichten fehlgeschlagen.');
+$.lang.register('moderation.cleanup.done', '$1 Nachrichten gelöscht!');

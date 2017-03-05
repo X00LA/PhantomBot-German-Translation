@@ -67,6 +67,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         Übersetzung Version 2.3.5c --> Kritischer Bug Fix Release! Viele Tippfehler behoben, flach benannte Datei richtig benannt, vergessene Zeilen eingefügt, schweren Fehler behoben (Danke an LordNaikon für die Meldung) und ca. 95% der Dateien geschlechtsneutral gestaltet. 
         Übersetzung Version 2.3.5d --> Update auf PhantomBot Version 2.3.5.2, einige Fehler behoben.
         Übersetzung Version 2.3.5e --> Bugfix Update! Einige Tippfehler behoben. Fehler im Web Panel behoben (Danke an WaschbrTV für die Meldung). Diverse Befehle als Hinweis in das Web Panel eingepflegt.
+        Übersetzung Version 2.3.5f --> Update auf PhantomBot Version 2.3.5.3, ein paar Schreibfehler behoben und die Candy Dateien als zip Archiv in die Downloads mit hinein genommen.
         
 
 # Lizenzinformation

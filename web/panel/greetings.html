@@ -43,19 +43,11 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="greetingCooldown">Begrüßungs Abklingzeit (Stunden)</label>
                 <button type="button" class="btn btn-primary inline pull-right"
-                        onclick="$.updateGreetingData('greetingCooldownInput', 'cooldown')">Übermittlung</button>
+                        onclick="$.updateGreetingData('greetingCooldownInput', 'cooldown')">Übermitteln</button>
                 <input type="number" min="0" class="form-control" id="greetingCooldownInput" placeholder="Stunden" />
             </div>
         </form>
-
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="greetingDefault">Begrüßungsnachricht</label>
-                <button type="button" class="btn btn-primary inline pull-right"
-                        onclick="$.updateGreetingData('greetingDefaultInput', 'greeting', 'defaultJoin')">Übermitteln</button>
-                <input type="text" class="form-control" id="greetingDefaultInput" placeholder="Begrüßungsnachricht" />
-            </div>
-        </form>
+        <i>BenutzerInnen müssen ihre eigene Begrüßungsnachricht festlegen, wenn sie begrüßt werden wollen.</i>
     </div>
     </div>
 

@@ -152,7 +152,7 @@
 
         if (!isDeleting) {
             isDeleting = true;
-            setTimeout(function() { doQuery(); isDeleting = false; }, TIMEOUT_WAIT_TIME * 4);
+            setTimeout(function() { doQuery(); isDeleting = false; }, TIMEOUT_WAIT_TIME * 2);
         }
     }
 
@@ -222,7 +222,9 @@
         var active = $('#tabs').tabs('option', 'active');
         if (active == 10 && isConnected && !isInputFocus()) {
             newPanelAlert('Aktualisiere Zitate-Daten...', 'success', 1000);
-            doQuery();
+            if (!isDeleting) {
+                doQuery();
+            }
         }
     }, 3e4);
 

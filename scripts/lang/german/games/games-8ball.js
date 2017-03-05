@@ -33,4 +33,5 @@ $.lang.register('8ball.answer.32', '"Es gibt keine Zeichen dagegen."');
 $.lang.register('8ball.answer.33', '"Das ist nicht der Bot nach dem du suchst ༼ﾉ۞⌂۞༽ﾉ."');
 $.lang.register('8ball.console.loaded', '$1 8ball Antworten gefunden.');
 $.lang.register('8ball.response', 'Die magische 8er-Kugel sagt: $1');
+$.lang.register('8ball.discord.response', 'Die magische :8ball:: sagt... $1');
 $.lang.register('8ball.usage', 'Stelle der magischen 8er-Kugel eine Frage mit !8ball [Frage]');

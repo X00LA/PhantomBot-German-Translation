@@ -342,6 +342,7 @@
         sendDBDelete("commands_delcompermcom_" + command, "permcom", command);
         sendDBDelete("commands_delcomalias_" + command, "aliases", command);
         sendDBDelete("commands_delcomcooldown_" + command, "cooldown", command);
+        sendWSEvent('commands', './commands/customCommands.js', null, ['remove', command]);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         setTimeout(function() { sendCommand("reloadcommand " + command); }, TIMEOUT_WAIT_TIME);
     };
@@ -390,12 +391,13 @@
             $('#addCommandText').val('');
             setTimeout(function() { $('#addCommandCommand').val(''); }, TIMEOUT_WAIT_TIME * 10);
             return;
-        } else if (command.startsWith('!')) {
-            command = command.replace('!', '');
         }
 
-        $('#addCommandText').val('Befehl erfolgreich geladen!'); 
+        command = command.replace(/[^a-zA-Z0-9]/g, '');
+
+        $('#addCommandText').val('Befehl erfolgreich hizugefügt!'); 
         sendDBUpdate('addCustomCommand', 'command', command.toLowerCase(), commandText);
+        sendWSEvent('commands', './commands/customCommands.js', null, ['add', command, commandText]);
         setTimeout(function() { 
             $('#addCommandText').val(''); 
             $('#addCommandCommand').val(''); 
@@ -413,6 +415,7 @@
     value = value.replace(/''/g, '"');
         if (value.length > 0) {
             sendDBUpdate("addCustomCommand", "command", command.toLowerCase(), value);
+            sendWSEvent('commands', './commands/customCommands.js', null, ['edit', command.toLowerCase(), value]);
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
             setTimeout(function() { sendCommand("reloadcommand"); }, TIMEOUT_WAIT_TIME);
         }
@@ -437,7 +440,7 @@
         var main = $('#aliasCommandInput').val();
         var alias = $('#aliasCommandInputAlias').val();
 
-        if (main.match(/;/) || main.match(/-/) || main.match(/ /)) {
+        if (main.match(/[^a-zA-Z0-9]/g) || alias.match(/[^a-zA-Z0-9]/)) {
             $("#aliasCommandInputAlias").val("[FEHLER] Dein Alias-Befehl darf kein Sonderzeichen oder Leerzeichen beinhalten.");
             $("#aliasCommandInput").val("");
             setTimeout(function() { $('#aliasCommandInputAlias').val(""); }, TIMEOUT_WAIT_TIME * 10);
@@ -450,12 +453,6 @@
             $("#aliasCommandInput").val("[FEHLER] Bitte definiere einen Wert!");
             setTimeout(function() { $("#aliasCommandInput").val(""); }, TIMEOUT_WAIT_TIME * 2);
             return;
-        }
-
-        if (main.startsWith('!')) {
-            main = main.replace('!', '');
-        } else if (alias.startsWith('!')) {
-            alias = alias.replace('!', '');
         }
 
         sendDBUpdate("addCommandAlias", "aliases", main.toLowerCase(), alias.toLowerCase());
