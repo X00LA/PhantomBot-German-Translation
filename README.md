@@ -61,9 +61,9 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         Übersetzung Version 2.3.4a --> Update auf Bot-Version 2.3.4.
         Übersetzung Version 2.3.4b --> Update auf Bugfix-Version 2.3.4.1.
 
-	PhantomBot Version 2.3.5.x
-	Übersetzung Version 2.3.5a --> Update auf Bot-Version 2.3.5 (inkl. Bugfix-Version 2.3.5.1), Einige Tippfehler und Ausdrücke geändert und/oder behoben, einige vergessene Log-Ausgaben wieder ins Englische zurückgesetzt, Übersetzung weitest möglich Geschlechtsneutral ausgeführt (ist noch nicht zu 100% erledigt), Englische original Dateien wieder entfernt.
-	Übersetzung Version 2.3.5b --> Ein paar Fehler behoben. Dank an LordNaikon für die Meldung.
+    PhantomBot Version 2.3.5.x
+	    Übersetzung Version 2.3.5a --> Update auf Bot-Version 2.3.5 (inkl. Bugfix-Version 2.3.5.1), Einige Tippfehler und Ausdrücke geändert und/oder behoben, einige vergessene Log-Ausgaben wieder ins Englische zurückgesetzt, Übersetzung weitest möglich Geschlechtsneutral ausgeführt (ist noch nicht zu 100% erledigt), Englische original Dateien wieder entfernt.
+	    Übersetzung Version 2.3.5b --> Ein paar Fehler behoben. Dank an LordNaikon für die Meldung.
         Übersetzung Version 2.3.5c --> Kritischer Bug Fix Release! Viele Tippfehler behoben, flach benannte Datei richtig benannt, vergessene Zeilen eingefügt, schweren Fehler behoben (Danke an LordNaikon für die Meldung) und ca. 95% der Dateien geschlechtsneutral gestaltet. 
         Übersetzung Version 2.3.5d --> Update auf PhantomBot Version 2.3.5.2, einige Fehler behoben.
         Übersetzung Version 2.3.5e --> Bugfix Update! Einige Tippfehler behoben. Fehler im Web Panel behoben (Danke an WaschbrTV für die Meldung). Diverse Befehle als Hinweis in das Web Panel eingepflegt.
