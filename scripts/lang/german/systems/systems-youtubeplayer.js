@@ -35,7 +35,7 @@ $.lang.register('ytplayer.command.stealsong.refund', '$1 erhielt für seinen/ihr
 $.lang.register('ytplayer.command.stealsong.duplicate', 'Dieser Song ist bereits in der PLaylist!');
 $.lang.register('ytplayer.command.jumptosong.failed', 'Kann den Song an der Playlistposition $1 nicht finden.');
 $.lang.register('ytplayer.command.songrequest.usage', 'Verwendung: !songrequest [YouTube ID | YouTube Link | Suchbegriff]');
-$.lang.register('ytplayer.command.songrequest.success', 'Dein Titel "$1", wurde zur Warteliste hinzugefügt. (Position: $3 ID: $4)');
+$.lang.register('ytplayer.command.songrequest.success', 'Dein Titel "$1", wurde zur Warteliste hinzugefügt. (Position: $2 ID: $3)');
 $.lang.register('ytplayer.command.songrequest.failed', 'Hinzufügen von $1, zur Warteschlange, fehlgeschlagen.');
 $.lang.register('ytplayer.command.previoussong', 'Vorheriger Musikwunsch war [$1], gewünscht von $2 aus $3.');
 $.lang.register('ytplayer.command.previoussong.404', 'Es gibt keinen vorherigen Songtitel anzuzeigen.');
