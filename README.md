@@ -1,5 +1,54 @@
 [![Discord](https://discordapp.com/api/guilds/240072919722622977/widget.png)](https://discord.gg/JKJU3Zd)		***[Donate a cup of coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QF69JHHKBYV9A)***
 
+# WICHTIGE ANKÜNDIGUNG
+
+
+
+Hallo Leute!
+
+Es gibt irgendwann den Punkt, gewollt oder nicht, an dem man eine Schlussstrich ziehen muss.
+In den vergangenen Wochen gab es immer wieder “nette” Mails, in denen man auf sehr “angenehme” und “zuvorkommende” Art und Weise mit mir kommuniziert hat.
+
+# Hier 2 Beispiele:
+
+---
+![Mail 1](http://i.imgur.com/uypEWAnl.png)
+
+![Mail 2](http://i.imgur.com/MTP8UlYl.png)
+---
+
+Da Undank immer aller Arbeit Lohn ist, werde ich die Übersetzung von PhantomBot, bis auf weiteres, einstellen!
+
+---
+---
+
+Hi Folks!
+
+There is, at some point, the point, wanted or not, which must be drawn.
+In recent weeks there have been “nice” e-mails, in which one has communicated with me in a very “pleasant” and “approaching” way.
+
+# Here are 2 samples: (translated from above)
+
+---
+### Mail 1:  
+>Hey dude! What is going on with the translation? When will the next version come out? You should put your fat ass finally >before the pc and begin I need that namely! So go there dude!
+>
+>HotLP
+
+---
+### Mail 2:  
+>Hey you asshole! Have read, you are sick and therefore it takes with the translation longer! Are you crazy? The new Bot version >is already out for days and you wanker have the nerve to stall us! Your translation is really scrap, but it is the only one >there, so put your sick ass before the computer and make them ready as you please! I do not mind if you’re dying by donig it, >but if you’re doing something like that, we’ll get the translation quickly and not weeks later!
+
+---
+
+Since ingratitude is always all wages, I will stop the translation of PhantomBot, until further notice!
+
+X00LA
+
+---
+
+---
+
 # PhantomBot-German-Translation
 
 This is the german translation for the popular Multipurpose-Twitch-Chat-Bot PhantomBot.
