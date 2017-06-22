@@ -74,7 +74,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         Übersetzung Version 2.3.5f --> Update auf PhantomBot Version 2.3.5.3, ein paar Schreibfehler behoben und die Candy Dateien als zip Archiv in die Downloads mit hinein genommen.
 
     PhantomBot Version 2.3.7.x
-        Übersetzung Version 2.3.7.1 --> Update auf Bot-Version 2.3.7.1, ein paar Tippfehler behoben, ein paar Ausdrücke geändert, Konsolenausgaben übersetzt, Genderneutralität erweitert und einige andere Kleinigkeiten.
+        Übersetzung Version 2.3.7a --> Update auf Bot-Version 2.3.7.1, ein paar Tippfehler behoben, ein paar Ausdrücke geändert, Konsolenausgaben übersetzt, Genderneutralität erweitert und einige andere Kleinigkeiten.
         
 
 # Lizenzinformation
