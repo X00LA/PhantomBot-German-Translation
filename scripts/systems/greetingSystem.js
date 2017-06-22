@@ -7,7 +7,7 @@
 (function() {
     var autoGreetEnabled = $.getSetIniDbBoolean('greeting', 'autoGreetEnabled', false),
         defaultJoinMessage = $.getSetIniDbString('greeting', 'defaultJoin', '(name) hat den Kanal betreten!'),
-        greetingCooldown = $.getSetIniDbNumber('greeting', 'cooldown', (6 * 36e5)); // 6 hours
+        greetingCooldown = $.getSetIniDbNumber('greeting', 'cooldown', (6 * 36e5)),  /* 6 hours */
         greetingQueue = new java.util.concurrent.ConcurrentLinkedQueue,
         lastAutoGreet = $.systemTime();
 

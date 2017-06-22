@@ -573,36 +573,18 @@
     }
 
     /**
-     * @event ircChannelJoinUpdate
-     */
-    $.bind('ircChannelJoinUpdate', function(event) {
-        var username = event.getUser().toLowerCase();
-
-        if (!$.user.isKnown(username)) {
-            $.setIniDbBoolean('visited', username, true);
-        }
-
-        lastJoinPart = $.systemTime();
-
-        if (!userExists(username.toLowerCase())) {
-            users.push([username, $.systemTime()]);
-            $.checkGameWispSub(username);
-        }
-    });
-    
-    /**
      * @event ircChannelJoin
      */
     $.bind('ircChannelJoin', function(event) {
         var username = event.getUser().toLowerCase();
 
-        if (!$.user.isKnown(username)) {
-            $.setIniDbBoolean('visited', username, true);
-        }
+        if (!userExists(username)) {
+            if (!$.user.isKnown(username)) {
+                $.setIniDbBoolean('visited', username, true);
+            }
+    
+            lastJoinPart = $.systemTime();
 
-        lastJoinPart = $.systemTime();
-
-        if (!userExists(username.toLowerCase())) {
             users.push([username, $.systemTime()]);
             $.checkGameWispSub(username);
         }
@@ -614,13 +596,11 @@
     $.bind('ircChannelMessage', function(event) {
         var username = event.getSender().toLowerCase();
         
-        if (!$.user.isKnown(username)) {
-            $.setIniDbBoolean('visited', username, true);
-        }
-  
-        lastJoinPart = $.systemTime();
-        
         if (!userExists(username)) {
+            if (!$.user.isKnown(username)) {
+                $.setIniDbBoolean('visited', username, true);
+            }
+        
             users.push([username, $.systemTime()]);
             $.checkGameWispSub(username);
         }
@@ -637,6 +617,9 @@
             if (users[i][0].equals(username.toLowerCase())) {
                 users.splice(i, 1);
                 restoreSubscriberStatus(username.toLowerCase(), true);
+
+                // Remove this user's display name from the cache.
+                $.username.removeUser(username);
             }
         }
     });
@@ -783,7 +766,7 @@
             var username = args[0],
                 groupId = parseInt(args[1]);
 
-            if ((args.length < 2 && username === undefined) || (isNaN(groupId) && username === undefined) || $.outOfRange(groupId, 0, userGroups.length - 1)) {
+            if ((args.length < 2 && username === undefined) || args.length > 2 || (isNaN(groupId) && username === undefined) || $.outOfRange(groupId, 0, userGroups.length - 1)) {
                 $.say($.whisperPrefix(sender) + $.lang.get('permissions.group.usage'));
                 return;
             }

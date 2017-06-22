@@ -120,7 +120,7 @@
                         "       data-sorting='true'" +
                         "       data-paging-count-format='Rows {PF}-{PL} / {TR}' data-show-header='true'>";
                 html += "<thead><tr>" +
-                        "    <th data-breakpoints='xs'>Benutzername</th>" +
+                        "    <th data-breakpoints='xs'>BenutzerInnenname</th>" +
                         "    <th data-filterable='false' data-type='number'>Zeit (Sek.)</th>" +
                         "    <th data-filterable='false' data-type='number'>Zeit (Std.)</th>" +
                         "</tr></thead><tbody>";
@@ -138,12 +138,10 @@
                 }
                 html += "</tbody></table>";
                 
-                setTimeout(function() { 
-                    $('#userTimeTable').html(html);
-                    $('.tableTime').footable({
-                        'on': { 'postdraw.ft.table': function(e, ft) { $("#userTimeTableTitle").html("Benutzer Zeitliste"); } }
-                    });
-                }, TIMEOUT_WAIT_TIME);
+                $('#userTimeTable').html(html);
+                $('.tableTime').footable({
+                    'on': { 'postdraw.ft.table': function(e, ft) { $("#userTimeTableTitle").html("BenutzerInnen Zeit Tabelle"); } }
+                });
                 handleInputFocus();
             }
         }

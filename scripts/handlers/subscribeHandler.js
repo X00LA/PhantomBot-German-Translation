@@ -47,9 +47,14 @@
             if (message.match(/\(reward\)/g)) {
                 message = $.replace(message, '(reward)', String(subReward));
             }
+
+            if (message.match(/\(plan\)/g)) {
+                message = $.replace(message, '(plan)', event.getPlan());
+            }
             $.say(message);
             $.addSubUsersList(subscriber);
             $.restoreSubscriberStatus(subscriber, true);
+            $.writeToFile(subscriber + ' ', './addons/subscribeHandler/latestSub.txt', false);
             $.inidb.set('streamInfo', 'lastSub', subscriber);
             if (subReward > 0) {
                 $.inidb.incr('points', subscriber, subReward);
@@ -74,6 +79,7 @@
             $.say(message);
             $.addSubUsersList(subscriber);
             $.restoreSubscriberStatus(subscriber, true);
+            $.writeToFile(subscriber + ' ', './addons/subscribeHandler/latestSub.txt', false);
             $.inidb.set('streamInfo', 'lastSub', subscriber);
             if (subReward > 0) {
                 $.inidb.incr('points', subscriber, subReward);
@@ -110,6 +116,8 @@
             $.say(message);
             $.addSubUsersList(resubscriber);
             $.restoreSubscriberStatus(resubscriber, true);
+            $.writeToFile(resubscriber + ' ', './addons/subscribeHandler/latestResub.txt', false);
+            $.writeToFile(resubscriber + ': ' + months + ' ', './addons/subscribeHandler/latestResub&Months.txt', false);
             $.inidb.set('streamInfo', 'lastReSub', resubscriber);
             if (reSubReward > 0) {
                 $.inidb.incr('points', resubscriber, reSubReward);
@@ -210,8 +218,8 @@
             $.say($.whisperPrefix(sender) + $.lang.get('subscribehandler.sub.reward.set'));
 
         }
-		
-		/**
+        
+        /**
          * @commandpath resubscribereward [points] - Set an award for resubscribers.
          */
         if (command.equalsIgnoreCase('resubscribereward')) {

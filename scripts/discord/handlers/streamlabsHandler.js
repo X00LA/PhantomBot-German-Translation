@@ -3,7 +3,7 @@
  */
 (function() {
     var toggle = $.getSetIniDbBoolean('discordSettings', 'streamlabsToggle', false),
-        message = $.getSetIniDbString('discordSettings', 'streamlabsMessage', 'Vielen Dank (name), für die Spende von €(amount) (currency)!'),
+        message = $.getSetIniDbString('discordSettings', 'streamlabsMessage', 'Vielen Dank (name), für das Trinkgeld in Höhe von €(amount) (currency)!'),
         channelName = $.getSetIniDbString('discordSettings', 'streamlabsChannel', ''),
         announce = false;
 
@@ -13,7 +13,7 @@
     $.bind('panelWebSocket', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/streamlabsHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'streamlabsToggle', false);
-            message = $.getIniDbString('discordSettings', 'streamlabsMessage', 'Vielen Dank (name), für die Spende von €(amount) (currency)!');
+            message = $.getIniDbString('discordSettings', 'streamlabsMessage', 'Vielen Dank (name), für das Trinkgeld in Höhe von €(amount) (currency)!');
             channelName = $.getIniDbString('discordSettings', 'streamlabsChannel', '');
         }
     });
@@ -36,7 +36,7 @@
         var donationJsonStr = event.getJsonString(),
             JSONObject = Packages.org.json.JSONObject,
             donationJson = new JSONObject(donationJsonStr),
-            donationID = donationJson.getString("donation_id"),
+            donationID = donationJson.get("donation_id"),
             donationCurrency = donationJson.getString("currency"),
             donationAmount = donationJson.getString("amount"),
             donationUsername = donationJson.getString("name"),

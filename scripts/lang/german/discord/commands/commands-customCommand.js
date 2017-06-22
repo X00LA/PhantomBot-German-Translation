@@ -18,5 +18,14 @@ $.lang.register('discord.customcommands.coolcom.success', 'Abklingzeit für Befe
 $.lang.register('discord.customcommands.channelcom.usage', 'Verwendung: !channelcom [Befehl] [Kanalname]');
 $.lang.register('discord.customcommands.channelcom.global', 'Befehl, !$1, funktioniert, ab sofort, in jedem Kanal.');
 $.lang.register('discord.customcommands.channelcom.success', 'Befehl, !$1, funktioniert, ab sofort, nur noch im Kanal #$2.');
+$.lang.register('discord.customcommands.channelcom.404', 'Diesem Befehl sind keine Kanäle zugeteilt.');
 $.lang.register('discord.customcommands.commands', 'Befehle: $1');
 $.lang.register('discord.customcommands.bot.commands', 'Bot-Befehle: $1');
+$.lang.register('discord.customcommands.pricecom.usage', 'Verwendung: !pricecom [Befehl] [Höhe]');
+$.lang.register('discord.customcommands.pricecom.success', 'Kosten für den Befehl !$1 wurden auf $2 festgelegt.');
+$.lang.register('discord.customcommands.aliascom.usage', 'Verwendung: !aliascom [Alias] [Befehl]');
+$.lang.register('discord.customcommands.aliascom.success', 'Dem Befehl !$2 wurde der Alias !$1 zugeteilt.');
+$.lang.register('discord.customcommands.delalias.usage', 'Verwendung: !delalias [Alias]');
+$.lang.register('discord.customcommands.delalias.success', 'Alias !$1 wurde entfernt.');
+$.lang.register('discord.customcommands.404', 'Dieser Befehl existiert nicht!');
+$.lang.register('discord.customcommands.alias.404', 'Dieser Alias existiert nicht!');

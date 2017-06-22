@@ -1,51 +1,6 @@
-[![Discord](https://discordapp.com/api/guilds/240072919722622977/widget.png)](https://discord.gg/JKJU3Zd)		***[Donate a cup of coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QF69JHHKBYV9A)***
-
-# WICHTIGE ANKÜNDIGUNG
-
-
-
-Hallo Leute!
-
-Es gibt irgendwann den Punkt, gewollt oder nicht, an dem man eine Schlussstrich ziehen muss.
-In den vergangenen Wochen gab es immer wieder “nette” Mails, in denen man auf sehr “angenehme” und “zuvorkommende” Art und Weise mit mir kommuniziert hat.
-
-# Hier 2 Beispiele:
-
----
-![Mail 1](http://i.imgur.com/uypEWAnl.png)
-
-![Mail 2](http://i.imgur.com/MTP8UlYl.png)
----
-
-Da Undank immer aller Arbeit Lohn ist, werde ich die Übersetzung von PhantomBot, bis auf weiteres, einstellen!
-
----
----
-
-Hi Folks!
-
-There is, at some point, the point, wanted or not, which must be drawn.
-In recent weeks there have been “nice” e-mails, in which one has communicated with me in a very “pleasant” and “approaching” way.
-
-# Here are 2 samples: (translated from above)
-
----
-### Mail 1:  
->Hey dude! What is going on with the translation? When will the next version come out? You should put your fat ass finally >before the pc and begin I need that namely! So go there dude!
->
->HotLP
-
----
-### Mail 2:  
->Hey you asshole! Have read, you are sick and therefore it takes with the translation longer! Are you crazy? The new Bot version >is already out for days and you wanker have the nerve to stall us! Your translation is really scrap, but it is the only one >there, so put your sick ass before the computer and make them ready as you please! I do not mind if you’re dying by donig it, >but if you’re doing something like that, we’ll get the translation quickly and not weeks later!
-
----
-
-Since ingratitude is always all wages, I will stop the translation of PhantomBot, until further notice!
-
-X00LA
-
----
+[![CoffeeCup](http://i.imgur.com/ycclOX9.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QF69JHHKBYV9A)   
+   
+[![Discord](https://discordapp.com/api/guilds/240072919722622977/widget.png)](https://discord.gg/JKJU3Zd)  
 
 ---
 
@@ -69,7 +24,7 @@ Ausgenommen der Lognachrichten ist alles übersetzt.
 Geändert wurde auch die Zeitzone von "GMT" zu "CET", Standardsprache von Englisch auf Deutsch, Videoplayer wurde auf das Format 16:9 geändert. Es wurden diverse weitere kleine Änderungen vorgenommen, aber diese sind nicht der Rede wert.
 Das Web Panel, der Youtube Player und der Playlist Viewer sind ebenfalls vollständig übersetzt worden.
 
-Ich habe bei der Übersetzung versucht, stets verständlich und klar zu übersetzen. Sollte der Eine oder Andere dennoch Probleme damit haben, bitte ich um Vorschläge wie ich es besser machen könnte. Ich bin ein Mensch und deshalb auch nicht vor Rechtschreibfehlern gefeit. Sollten welche gefunden werden, wäre ich dankbar, wenn ihr sie hier oder im <a href="https://community.phantombot.tv/topic/797/german-translation-github" target="_blank">PhantomBot Forum</a> anzeigt, damit ich sie beheben kann. Natürlich steht es auch jedem frei, sich an dem Projekt zu beteiligen.
+Ich habe bei der Übersetzung versucht, stets verständlich und klar zu übersetzen. Sollte der Eine oder Andere dennoch Probleme damit haben, bitte ich um Vorschläge wie ich es besser machen könnte. Ich bin ein Mensch und deshalb auch nicht vor Rechtschreibfehlern gefeit. Sollten welche gefunden werden, wäre ich dankbar, wenn ihr sie hier oder im <a href="https://community.phantombot.tv/t/german-translation-github/217?u=x00la" target="_blank">PhantomBot Forum</a> anzeigt, damit ich sie beheben kann. Natürlich steht es auch jedem frei, sich an dem Projekt zu beteiligen.
 
 Ich bitte auch um Verständnis, dass bei einer neuen Version des Bots, die Übersetzung erst ein paar Tage später erscheint.
 
@@ -117,6 +72,9 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         Übersetzung Version 2.3.5d --> Update auf PhantomBot Version 2.3.5.2, einige Fehler behoben.
         Übersetzung Version 2.3.5e --> Bugfix Update! Einige Tippfehler behoben. Fehler im Web Panel behoben (Danke an WaschbrTV für die Meldung). Diverse Befehle als Hinweis in das Web Panel eingepflegt.
         Übersetzung Version 2.3.5f --> Update auf PhantomBot Version 2.3.5.3, ein paar Schreibfehler behoben und die Candy Dateien als zip Archiv in die Downloads mit hinein genommen.
+
+    PhantomBot Version 2.3.7.x
+        Übersetzung Version 2.3.7.1 --> Update auf Bot-Version 2.3.7.1, ein paar Tippfehler behoben, ein paar Ausdrücke geändert, Konsolenausgaben übersetzt, Genderneutralität erweitert und einige andere Kleinigkeiten.
         
 
 # Lizenzinformation

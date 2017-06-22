@@ -58,13 +58,13 @@
     </div>
     </div>
 
-    <h3>Hosts</h3>
+    <h3>Hosts Einstellungen</h3>
     <div>
     <div id="_hostAlertsPanelDisabled" />
     <div id="_hostAlertsPanel">
         <table>
             <tr class="textList">
-                <td>Host Benachrichtigungen de-/aktivieren</td>
+                <td>Host Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="hostToggle" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="Aktivieren" class="button"
@@ -78,7 +78,7 @@
                 </td>
             </tr>
             <tr class="textList">
-                <td>Auto-Host Benachrichtigungen de-/aktivieren</td>
+                <td>Auto-Host Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="autoHostToggle" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="Aktivieren" class="button"
@@ -138,6 +138,17 @@
                 <button type="button" class="btn btn-primary inline pull-right"
                         onclick="$.updateHostMinViewers()">Übermitteln</button>
                 <input type="number" min="0" class="form-control" id="hostMinViewersInput" placeholder="Punkte" />
+            </div>
+            <small><b>Warnung:</b> Twitch übermittelt nicht immer die Zuschauerzahlen, wenn der dich hostende Kanal gerade zu streamen aufgehört hat. Dies kann dazu führen, dass der/die StreamerIn keine Belohnung für das Hosting bekommt!</small>
+        </form>
+
+        <br>
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="hostMinViewersAlert">Minmale Anzahl an Zuschauern für die Host Benachrichtigung.</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                        onclick="$.hostMinViewersAlert()">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="hostMinViewersAlertInput" placeholder="Punkte" />
             </div>
             <small><b>Warnung:</b> Twitch übermittelt nicht immer die Zuschauerzahlen, wenn der dich hostende Kanal gerade zu streamen aufgehört hat. Dies kann dazu führen, dass der/die StreamerIn keine Belohnung für das Hosting bekommt!</small>
         </form>

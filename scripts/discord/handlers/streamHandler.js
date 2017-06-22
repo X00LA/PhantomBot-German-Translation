@@ -6,8 +6,9 @@
 	    onlineMessage = $.getSetIniDbString('discordSettings', 'onlineMessage', 'Hey @everyone! (name) hat gerade auf Twitch den Stream gestartet und spielt (game)! Schau rein unter (url) :wink:!'),
 	    gameToggle = $.getSetIniDbBoolean('discordSettings', 'gameToggle', false),
 	    gameMessage = $.getSetIniDbString('discordSettings', 'gameMessage', 'Hey @everyone! (name) hat gerade das Spiel zu (game) geändert! Schau rein unter (url) :wink:!'),
+        botGameToggle = $.getSetIniDbBoolean('discordSettings', 'botGameToggle', true),
 	    channelName = $.getSetIniDbString('discordSettings', 'onlineChannel', ''),
-	    timeout = (300 * 6e4);
+	    timeout = (300 * 6e4),
 	    lastEvent = 0;
 
     /**
@@ -20,9 +21,19 @@
             gameToggle = $.getIniDbBoolean('discordSettings', 'gameToggle', false);
             gameMessage = $.getIniDbString('discordSettings', 'gameMessage', 'Hey @everyone! (name) hat gerade das Spiel zu (game) geändert! Schau rein unter (url) :wink:!');
             channelName = $.getIniDbString('discordSettings', 'onlineChannel', '');
+            botGameToggle = $.getIniDbBoolean('discordSettings', 'botGameToggle', true);
         }
     });
-    
+
+    /**
+     * @event twitchOffline
+     */  
+    $.bind('twitchOffline', function(event) {
+        if (botGameToggle === true) {
+            $.discord.removeGame();
+        }
+    });
+
 	/**
 	 * @event twitchOnline
 	 */  
@@ -57,6 +68,9 @@
 			$.discord.say(channelName, s);
             $.setIniDbNumber('discordSettings', 'lastOnlineEvent', $.systemTime());
 		}
+        if (botGameToggle === true) {
+            $.discord.setStream($.getStatus($.channelName), ('https://twitch.tv/' + $.channelName));
+        }
 	});
 
 	/**
@@ -164,6 +178,15 @@
         		$.inidb.set('discordSettings', 'gameMessage', gameMessage);
         		$.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('discord.streamhandler.game.message.set', gameMessage));
         	}
+
+            /**
+             * @discordcommandpath streamhandler togglebotstatus - If enabled the bot will be marked as streaming with your Twitch title when you go live.
+             */
+            if (action.equalsIgnoreCase('togglebotstatus')) {
+                botGameToggle = !botGameToggle;
+                $.inidb.set('discordSettings', 'botGameToggle', botGameToggle);
+                $.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('discord.streamhandler.bot.game.toggle', (botGameToggle === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled')))); 
+            }
 
         	/**
         	 * @discordcommandpath streamhandler channel [channel name] - Sets the channel that announcements from this module will be said in.

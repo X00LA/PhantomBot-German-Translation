@@ -51,13 +51,13 @@
     </div>
     </div>
 
-    <h3>Follow Alarme Einstellungen</h3>
+    <h3>Follow Benachrichtigungs Einstellungen</h3>
     <div>
     <div id="_followAlertsPanelDisabled" />
     <div id="_followAlertsPanel"> 
         <table>
             <tr class="textList">
-                <td>Follower Alarme An/Aus</td>
+                <td>Follower Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="followerGreetings" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
@@ -104,7 +104,7 @@
     <div id="_donationAlertsPanel">
         <table>
             <tr class="textList">
-                <td>Spendenalarme An/Aus</td>
+                <td>Spendenbenachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="donationGreetings" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
@@ -163,7 +163,7 @@
     <div id="_streamtipdonationAlertsPanel">
         <table>
             <tr class="textList">
-                <td>Spenden Alarme An/Aus</td>
+                <td>Spenden Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="streamtipGreetings" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
@@ -222,7 +222,7 @@
     <div id="_tipeeeStreamDonationsPanel">
         <table>
             <tr class="textList">
-                <td>Spenden Alarme An/Aus</td>
+                <td>Spenden Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="tipeeestreamGreetings" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
@@ -275,13 +275,13 @@
     </div>
     </div>
 
-    <h3>Abonnenten Alarme Einstellungen</h3>
+    <h3>Abonnenten Benachrichtigungs Einstellungen</h3>
     <div>
     <div id="_twitchSubPanelDisabled" />
     <div id="_twitchSubPanel">
         <table>
             <tr class="textList">
-                <td>Abonnement Alarme An/Aus</td>
+                <td>Abonnement Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="subscriptionGreetings" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
@@ -290,7 +290,7 @@
                 </td>
             </tr>
             <tr class="textList">
-                <td>Prime Abonnement Alarme An/Aus</td>
+                <td>Prime Abonnement Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="primeSubscriptionGreetings" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
@@ -299,7 +299,7 @@
                 </td>
             </tr>
             <tr class="textList">
-                <td>Re-Abonnement Alarme An/Aus</td>
+                <td>Re-Abonnement Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="resubscriptionGreetings" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
@@ -370,26 +370,17 @@
     </div>
     </div>
 
-    <h3>Bits Alarme Einstellungen</h3>
+    <h3>Bits Benachrichtigungs Einstellungen</h3>
     <div>
     <div id="_twitchBitsAlertsPanelDisabled" />
     <div id="_twitchBitsPanel">
         <table>
             <tr class="textList">
-                <td>Bits Alarm An/Aus</td>
+                <td>Bits Benachrichtigungen An/Aus</td>
                 <td style="width: 25px"><div id="bitsToggle" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
                          onclick="$.toggleGreetings('bitsSettings', 'toggle');"><i class="fa fa-refresh" />
-                     </div>
-                </td>
-            </tr>
-            <tr class="textList">
-                <td>De-/Aktiviere Bits Belohnungen um ein multiplikativer Faktor nach der Anzahl von Bits zu werden.</td>
-                <td style="width: 25px"><div id="bitsRewardMultToggle" /></td>
-                <td style="width: 25px">
-                    <div data-toggle="tooltip" title="An/Aus" class="button"
-                         onclick="$.toggleGreetings('bitsSettings', 'rewardMultToggle');"><i class="fa fa-refresh" />
                      </div>
                 </td>
             </tr>
@@ -398,18 +389,9 @@
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="bitsReward">Belohnung</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
-                        onclick="$.updateGreetingData('bitsReward', 'bitsSettings', 'reward')">Übermitteln</button>
-                <input type="number" min="0" class="form-control" id="bitsReward" placeholder="Punkte" data-toggle="tooltip" title="Lege die Höhe der Belohung, wenn jemand jubelt, fest."/>
-            </div>
-        </form>
-
-        <form role="form">
-            <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="bitsMessage">Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" 
-                        onclick="$.updateGreetingData('bitsMessage', 'bitsSettings', 'message')">Übermittelt</button>
+                        onclick="$.updateGreetingData('bitsMessage', 'bitsSettings', 'message')">Übermitteln</button>
                 <input type="text" class="form-control" id="bitsMessage" placeholder="Nachricht" 
                        data-toggle="tooltip" title="Tags: (name) (reward) (amount)"/>
             </div>
@@ -419,7 +401,7 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="bitsMinimum">Minimum</label>
                 <button type="button" class="btn btn-primary inline pull-right"  
-                        onclick="$.updateGreetingData('bitsMinimum', 'bitsSettings', 'minimum')">Übermittelt</button>
+                        onclick="$.updateGreetingData('bitsMinimum', 'bitsSettings', 'minimum')">Übermitteln</button>
                 <input type="number" min="0" class="form-control" id="bitsMinimum" placeholder="Höhe" data-toggle="tooltip" title="Lege die minimale Menge an Bits fest, bei denen der Alarm ausgelöst werden soll."/>
             </div>
         </form>
@@ -428,13 +410,13 @@
     </div>
 
 
-    <h3>GameWisp Alarme Einstellungen</h3>
+    <h3>GameWisp Benachrichtigungs Einstellungen</h3>
     <div>
     <div id="_gwSubPanelDisabled" />
     <div id="_gwSubPanel">
         <table>
             <tr class="textList">
-                <td>Abonnement Alarm An/Aus</td>
+                <td>Abonnement Benachrichtigung An/Aus</td>
                 <td style="width: 25px"><div id="gameWispGreetings" /></td>
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="An/Aus" class="button"
@@ -467,7 +449,7 @@
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="gwTierupGreeting">Hochstufungs Mitteilung</label>
+                <label for="gwTierupGreeting">Hochstufungs Nachricht</label>
                 <button type="button" class="btn btn-primary inline pull-right" 
                         onclick="$.updateGreetingData('gwTierupGreetingInput', 'gameWispSubHandler', 'tierUpMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="gwTierupGreetingInput" placeholder="Begrüßungsnachricht"

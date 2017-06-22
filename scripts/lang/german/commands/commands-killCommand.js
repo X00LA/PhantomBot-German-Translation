@@ -29,7 +29,7 @@ $.lang.register('killcommand.self.28', '$1 wurde zu Tode geleckt! Fragt nicht.')
 $.lang.register('killcommand.self.29', '$1 wurde gelöscht.');
 $.lang.register('killcommand.self.30', '$1 musste geteilt werden. Buchstäblich...');
 $.lang.register('killcommand.self.31', '$1 ist verblutet.');
-$.lang.register('killcommand.self.32', '$1. Essen ist eine Gabe Gottes. Gewürze eine gabe des Teufels. Ich glaube, es war ein wenig zu scharf für dich.');
+$.lang.register('killcommand.self.32', '$1 Essen ist eine Gabe Gottes. Gewürze eine gabe des Teufels. Ich glaube, es war ein wenig zu scharf für dich.');
 $.lang.register('killcommand.self.33', '$1 ist bei der Explosion eines Fahrzeuges gestorben!');
 $.lang.register('killcommand.self.34', '$1 hat sich selbst getötet!');
 $.lang.register('killcommand.self.35', '$1 wurde von einer Landmine in Luft gesprengt!');
@@ -66,7 +66,7 @@ $.lang.register('killcommand.other.10', '$1 befreite $2 aus dessen Elend.');
 $.lang.register('killcommand.other.11', '$1 zerstörte $2!');
 $.lang.register('killcommand.other.12', '$1 attackierte $2 mit einem riesigen Dildo!');
 $.lang.register('killcommand.other.13', '$2 wurde von $1 mit einem Göffel etwas zu fest gestupst!');
-$.lang.register('killcommand.other.14', '$1 bekam eine Dampfwalze in die Hände und walzte damit $2 platt! Also ja, $2 starb dadurch.');
+$.lang.register('killcommand.other.14', 'ZA WARUDO! $1 stoppte die Zeit und warf hunderte Messer auf $2. ENDE!');
 $.lang.register('killcommand.other.15', '$1 hat $2 mit einem rostigen Göffel angegriffen... und schaffte es, $2 mit nur wenig Aufwand zu töten.');
 $.lang.register('killcommand.other.16', '$1 stahl ein Auto, bekannt als \'KITT\' und überfuhr damit $2.');
 $.lang.register('killcommand.other.17', '$1 kitzelte $2 zu Tode!');

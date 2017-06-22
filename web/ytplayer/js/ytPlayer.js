@@ -322,11 +322,11 @@ function handlePause(d) {
     if (playerPaused) {
         playerPaused = false;
         playerObject.playVideo();
-            $("#playPauseDiv").html("<i class=\"fa fa-play\" />");
+            $("#playPauseDiv").html("<i class=\"fa fa-pause\" />");
     } else {
         playerPaused = true;
         playerObject.pauseVideo();
-            $("#playPauseDiv").html("<i class=\"fa fa-pause\" />");
+            $("#playPauseDiv").html("<i class=\"fa fa-play\" />");
     }
 }
 

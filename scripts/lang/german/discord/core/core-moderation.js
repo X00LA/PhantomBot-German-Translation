@@ -38,3 +38,7 @@ $.lang.register('moderation.cleanup.err', 'Du kannst nur 1 bis 1000 Nachrichten 
 $.lang.register('moderation.cleanup.failed', 'Massenlöschung der Nachrichten fehlgeschlagen: Lösche gerade Nachrichten.');
 $.lang.register('moderation.cleanup.failed.err', 'Massenlöschung der Nachrichten fehlgeschlagen.');
 $.lang.register('moderation.cleanup.done', '$1 Nachrichten gelöscht!');
+$.lang.register('moderation.logs.toggle.usage', 'Verwendung: !moderation logs [toggle / Kanal] - Entscheide, ob Twitch Moderations-Logs auf deinem Discrod Server angezeigt werden sollen oder nicht.');
+$.lang.register('moderation.logs.toggle', 'Twitch Moderations-Logs wurden $1. **[Erfordert Bot Neustart]**');
+$.lang.register('moderation.logs.channel.usage', 'Verwendung: !moderation logs channel [Kanalname]');
+$.lang.register('moderation.logs.channel.set', 'Twitch Moderations-Log Benachrichtigungen werden ab sofort im Kanal #$1 ausgegeben.');

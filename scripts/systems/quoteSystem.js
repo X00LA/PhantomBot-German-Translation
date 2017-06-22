@@ -15,6 +15,10 @@
      */
     function updateQuote(quoteid, quote) {
         // Specify String() for objects as they were being treated as an object rather than a String on stringify().
+        quote[0] = String(quote[0]).replace(/"/g, '\'\'');
+        quote[1] = String(quote[1]).replace(/"/g, '\'\'');
+        quote[3] = String(quote[3]).replace(/"/g, '\'\'');
+
         $.inidb.set('quotes', quoteid, JSON.stringify([String(quote[0]), String(quote[1]), String(quote[2]), String(quote[3])]));
     }
 
@@ -28,6 +32,10 @@
         var newKey = $.inidb.GetKeyList('quotes', '').length,
             game = ($.getGame($.channelName) != '' ? $.getGame($.channelName) : "Irgendein Spiel");
 
+        if ($.inidb.exists('quotes', newKey)) {
+            newKey++;
+        }
+        quote = String(quote).replace(/"/g, '\'\'');
         $.inidb.set('quotes', newKey, JSON.stringify([username, quote, $.systemTime(), game + '']));
         return newKey;
     };

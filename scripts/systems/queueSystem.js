@@ -408,7 +408,7 @@
         		pick($.channelName, event.getArgs()[1]);
         	} else if (action.equalsIgnoreCase('remove')) {
         		if (event.getArgs()[1] !== undefined && queue[event.getArgs()[1]] !== undefined) {
-        			$.consoleLn('remove:' + event.getArgs()[1]);
+        			$.consoleLn('Entferne:' + event.getArgs()[1]);
         			delete queue[event.getArgs()[1].toLowerCase()];
         			$.inidb.del('queue', event.getArgs()[1].toLowerCase());
         			resetPosition(-1);

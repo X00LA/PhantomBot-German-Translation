@@ -8,6 +8,7 @@
     var hostReward = $.getSetIniDbNumber('settings', 'hostReward', 0),
         autoHostReward = $.getSetIniDbNumber('settings', 'autoHostReward', 0),
         hostMinViewerCount = $.getSetIniDbNumber('settings', 'hostMinViewerCount', 0),
+        hostMinCount = $.getSetIniDbNumber('settings', 'hostMinCount', 0),
         hostMessage = $.getSetIniDbString('settings', 'hostMessage', $.lang.get('hosthandler.host.message')),
         autoHostMessage = $.getSetIniDbString('settings', 'autoHostMessage', $.lang.get('hosthandler.autohost.message')),
         hostHistory = $.getSetIniDbBoolean('settings', 'hostHistory', false),
@@ -24,6 +25,7 @@
         hostReward = $.getIniDbNumber('settings', 'hostReward');
         autoHostReward = $.getIniDbNumber('settings', 'autoHostReward');
         hostMinViewerCont = $.getIniDbNumber('settings', 'hostMinViewerCount');
+        hostMinCount = $.getIniDbNumber('settings', 'hostMinCount');
         hostMessage = $.getIniDbString('settings', 'hostMessage');
         autoHostMessage = $.getIniDbString('settings', 'autoHostMessage');
         hostHistory = $.getIniDbBoolean('settings', 'hostHistory');
@@ -39,7 +41,7 @@
             return;
         }
 
-        $.consoleLn('>> Enabling hosts announcements...');
+        $.consoleLn('>> Aktiviere Hosts Ankündigungen...');
         announceHosts = true;
     });
 
@@ -48,7 +50,7 @@
      */
     $.bind('twitchAutoHosted', function(event) {
         var hoster = event.getHoster().toLowerCase(),
-            viewers = event.getUsers(),
+            viewers = parseInt(event.getUsers()),
             s = autoHostMessage;
 
         if (announceHosts === false) {
@@ -77,15 +79,16 @@
             s = $.replace(s, '(viewers)', viewers.toString());
         }
 
-        if (s.match(/\/w/)) {
-            s = $.replace(s, '/w', ' /w');
+        if (s.match(/^\/w/)) {
+            s = s.replace('/w', ' /w');
         }
 
-        if (autoHostToggle === true) {
+        if (autoHostToggle === true && viewers >= hostMinCount) {
             $.say(s);
         }
 
         $.writeToFile(hoster + ' ', './addons/hostHandler/latestHost.txt', false);
+        $.writeToFile(hoster + ' ', './addons/hostHandler/latestHostOrAutoHost.txt', false);
         if (autoHostReward > 0 && viewers >= hostMinViewerCount) {
             $.inidb.incr('points', hoster.toLowerCase(), autoHostReward);
         }
@@ -96,7 +99,7 @@
      */
     $.bind('twitchHosted', function(event) {
         var hoster = event.getHoster().toLowerCase(),
-            viewers = event.getUsers(),
+            viewers = parseInt(event.getUsers()),
             s = hostMessage;
 
         // Always update the Host History even if announcements are off or if they recently
@@ -135,15 +138,16 @@
             s = $.replace(s, '(viewers)', viewers.toString());
         }
 
-        if (s.match(/\/w/)) {
-            s = $.replace(s, '/w', ' /w');
+        if (s.match(/^\/w/)) {
+            s = s.replace('/w', ' /w');
         }
 
-        if (hostToggle === true) {
+        if (hostToggle === true && viewers >= hostMinCount) {
             $.say(s);
         }
 
-        $.writeToFile(hoster + ' ', './addons/hostHandler/latestHost.txt', false);
+        $.writeToFile(hoster + ' ', './addons/hostHandler/latestAutoHost.txt', false);
+        $.writeToFile(hoster + ' ', './addons/hostHandler/latestHostOrAutoHost.txt', false);
         if (hostReward > 0 && viewers >= hostMinViewerCount) {
             $.inidb.incr('points', hoster.toLowerCase(), hostReward);
         }
@@ -217,6 +221,20 @@
             hostMinViewerCount = parseInt(action);
             $.setIniDbNumber('settings', 'hostMinViewerCount', hostMinViewerCount);
             $.say($.whisperPrefix(sender) + $.lang.get('hosthandler.set.hostrewardminviewers.success', hostMinViewerCount));
+        }
+
+        /*
+         * @commandpath hostminviewers [amount] - The number of viewers in the hosted channel required to trigger the chat alert.
+         */
+        if (command.equalsIgnoreCase('hostminviewers')) {
+            if (isNaN(parseInt(action))) {
+                $.say($.whisperPrefix(sender) + $.lang.get('hosthandler.set.hostminviewers.usage', hostMinCount));
+                return;
+            }
+
+            hostMinCount = parseInt(action);
+            $.setIniDbNumber('settings', 'hostMinCount', hostMinCount);
+            $.say($.whisperPrefix(sender) + $.lang.get('hosthandler.set.hostminviewers.success', hostMinCount));
         }
 
         /*
@@ -300,6 +318,7 @@
             $.registerChatCommand('./handlers/hostHandler.js', 'autohosttoggle', 1);
             $.registerChatCommand('./handlers/hostHandler.js', 'host', 1);
             $.registerChatCommand('./handlers/hostHandler.js', 'unhost', 1);
+            $.registerChatCommand('./handlers/hostHandler.js', 'hostminviewers', 1);
         }
     });
 

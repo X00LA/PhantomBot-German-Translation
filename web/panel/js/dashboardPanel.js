@@ -218,7 +218,7 @@
                 if (msgObject['results']['lastFollow'] == null) {
                     $("#lastFollow").html("");
                 } else {
-                    $("#lastFollow").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Letzer Follower\">Folgen: " + msgObject['results']['lastFollow'] + "</span>");
+                    $("#lastFollow").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Letzer Follower\">Follower: " + msgObject['results']['lastFollow'] + "</span>");
                 }
             }
 
@@ -242,7 +242,7 @@
                 if (msgObject['results']['lastDonator'] == null) {
                     $("#lastDonator").html("");
                 } else {
-                    $("#lastDonator").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Letzte/r SpenderIn\">SpenderIn: " + msgObject['results']['lastDonator'] + "</span>");
+                    $("#lastDonator").html("<span class=\"purplePill\" data-toggle=\"tooltip\" title=\"Letzte/r SpenderIn\">Spender: " + msgObject['results']['lastDonator'] + "</span>");
                 }
             }
  

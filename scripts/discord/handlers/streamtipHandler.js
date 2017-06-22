@@ -3,7 +3,7 @@
  */
 (function() {
     var toggle = $.getSetIniDbBoolean('discordSettings', 'streamtipToggle', false),
-        message = $.getSetIniDbString('discordSettings', 'streamtipMessage', 'Vielen Dank (name), für die Spende von €(amount) (currency)!'),
+        message = $.getSetIniDbString('discordSettings', 'streamtipMessage', 'Vielen Dank (name), für das Trinkgeld in Höhe von €(amount) (currency)!'),
         channelName = $.getSetIniDbString('discordSettings', 'streamtipChannel', ''),
         announce = false;
 
@@ -13,7 +13,7 @@
     $.bind('panelWebSocket', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/streamtipHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'streamtipToggle', false);
-            message = $.getIniDbString('discordSettings', 'streamtipMessage', 'Vielen Dank (name), für die Spende von €(amount) (currency)!');
+            message = $.getIniDbString('discordSettings', 'streamtipMessage', 'Vielen Dank (name), für das Trinkgeld in Höhe von €(amount) (currency)!');
             channelName = $.getIniDbString('discordSettings', 'streamtipChannel', '');
         }
     });

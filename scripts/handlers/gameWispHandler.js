@@ -115,6 +115,7 @@
 
         if (tier > $.getGWTier(username)) {
             $.addGWSubUsersList(username, tier);
+            $.restoreSubscriberStatus(username, false);
             if (subShowMessages) {
                 $.say(tierUpMessage.replace('(name)', resolvename).replace('(tier)', tier));
             }
@@ -140,6 +141,8 @@
             $.inidb.incr('points', username, userreward);
             $.say(subMessage.replace('(name)', resolvename).replace('(tier)', tier.toString()).replace('(reward)', userreward.toString()));
         }
+        $.writeToFile(username + ' ', './addons/gameWispHandler/latestSub.txt', false);
+        $.writeToFile(username + ' ', './addons/gameWispHandler/latestSubOrResub.txt', false);
     });
 
     /**
@@ -159,6 +162,8 @@
             $.inidb.incr('points', username, parseInt(userreward));
             $.say(reSubMessage.replace('(name)', resolvename).replace('(tier)', tier.toString()).replace('(reward)', userreward.toString()).replace('(months)', months.toString()));
         }
+        $.writeToFile(username + ' ', './addons/gameWispHandler/latestResub.txt', false);
+        $.writeToFile(username + ' ', './addons/gameWispHandler/latestSubOrResub.txt', false);
     });
 
     /**
@@ -222,7 +227,7 @@
         } else {
             $.consoleDebug('checkGameWispSub(' + username + '): adding to sub users list');
             $.addGWSubUsersList(username, parseInt(jsonData['data'][0]['tier']['data']['level']));
-            $.consoleDebug('checkGameWispSub(' + username + '): calling DB update; Mods are ignored!');
+            $.consoleDebug('checkGameWispSub(' + username + '): Rufe Datenbank Aktualisierung ab; Mods werden ignoriert!');
             $.restoreSubscriberStatus(username, false);
             $.consoleDebug('checkGameWispSub(' + username + '): handler complete');
         }
@@ -356,7 +361,7 @@
         }
 
         /*
-         * @commandpath gamewisp tier - Base command for GameWisp tier options.
+         * @commandpath gamewisptier - Base command for GameWisp tier options.
          */
         if (command.equalsIgnoreCase('gamewisptier')) {
             var tierLevel = 0,
@@ -370,9 +375,9 @@
             }
 
             /*
-             * @commandpath gamewisptier songrequest [tier] [number] - Set/view number of additional song requests per tier.
-             * @commandpath gamewisptier bonuspoints [tier] [points] - Set/view point percentage bonus, use whole numbers (30 = 30%).
-             * @commandpath gamewisptier subbonuspoints [tier] [points] - Set/view bonus points to give for sub or resubbing per tier.
+             * @commandpath gamewisptier songrequests [tier number] [number] - Set/view number of additional song requests per tier.
+             * @commandpath gamewisptier bonuspoints [tier number] [points] - Set/view point percentage bonus, use whole numbers (30 = 30%).
+             * @commandpath gamewisptier subbonuspoints [tier number] [points] - Set/view bonus points to give for sub or resubbing per tier.
              *
              * NOTE: When adding more options, ensure that the primary key of tierData and the database key and lang file entries
              * match the subcommand. This function will then take care of all of the rest for you.
@@ -397,7 +402,7 @@
 
                 newValue = parseInt(args[2]);
                 if (isNaN(newValue) || newValue < 1) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('gamewisptier.' + args[0] + 'usage.tier', tierLevel, oldValue));
+                    $.say($.whisperPrefix(sender) + $.lang.get('gamewisptier.' + args[0] + '.usage.tier', tierLevel, oldValue));
                     return;
                 }
 

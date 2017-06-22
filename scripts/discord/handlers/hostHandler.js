@@ -2,12 +2,12 @@
  * This module is to handle hosts notifications.
  */
 (function() {
-	var toggle = $.getSetIniDbBoolean('discordSettings', 'hostToggle', false),
-	  	hostMessage = $.getSetIniDbString('discordSettings', 'hostMessage', '(name) hostet dich jetzt!'),
-	  	autoHostMessage = $.getSetIniDbString('discordSettings', 'autohostMessage', '(name) auto-hostet dich jetzt!'),
-	  	channelName = $.getSetIniDbString('discordSettings', 'hostChannel', ''),
-	  	hosters = {},
-	  	announce = false;
+    var toggle = $.getSetIniDbBoolean('discordSettings', 'hostToggle', false),
+          hostMessage = $.getSetIniDbString('discordSettings', 'hostMessage', '(name) hostet dich jetzt!'),
+          autoHostMessage = $.getSetIniDbString('discordSettings', 'autohostMessage', '(name) auto-hostet dich jetzt!'),
+          channelName = $.getSetIniDbString('discordSettings', 'hostChannel', ''),
+          hosters = {},
+          announce = false;
 
     /**
      * @event panelWebSocket
@@ -21,41 +21,42 @@
         }
     });
     
- 	/**
- 	 * @event twitchHostsInitialized
- 	 */
-	$.bind('twitchHostsInitialized', function(event) { 
-		announce = true;
-	});
+     /**
+      * @event twitchHostsInitialized
+      */
+    $.bind('twitchHostsInitialized', function(event) { 
+        announce = true;
+    });
 
-	/**
+    /**
      * @event twitchAutoHosted
      */
-	$.bind('twitchAutoHosted', function(event) {
-		var hoster = event.getHoster(),
-		    viewers = event.getUsers(),
-		    now = $.systemTime(),
-		    s = autoHostMessage;
+    $.bind('twitchAutoHosted', function(event) {
+        var hoster = event.getHoster(),
+            viewers = parseInt(event.getUsers()),
+            now = $.systemTime(),
+            s = autoHostMessage;
 
-		if (toggle === false || announce === false || channelName == '') {
-			return;
-		}
+        if (toggle === false || announce === false || channelName == '') {
+            return;
+        }
 
-		if (hosters[hoster] !== undefined) {
-			if (hosters[hoster].time > now) {
-				return;
-			}
-			hosters[hoster].time = now + 216e5;
-		} else {
-			hosters[hoster].time = now + 216e5;
-		}
+        if (hosters[hoster] !== undefined) {
+            if (hosters[hoster].time > now) {
+                return;
+            }
+            hosters[hoster].time = now + 216e5;
+        } else {
+            hosters[hoster] = {};
+            hosters[hoster].time = now + 216e5;
+        }
 
-		if (s.match(/\(name\)/g)) {
+        if (s.match(/\(name\)/g)) {
             s = $.replace(s, '(name)', hoster);
         }
 
         if (s.match(/\(viewers\)/g)) {
-            s = $.replace(s, '(viewers)', viewers);
+            s = $.replace(s, '(viewers)', String(viewers));
         }
 
         $.discord.say(channelName, s);
@@ -64,31 +65,32 @@
     /**
      * @event twitchHosted
      */
-	$.bind('twitchHosted', function(event) {
-		var hoster = event.getHoster(),
-		    viewers = event.getUsers(),
-		    now = $.systemTime(),
-		    s = hostMessage;
+    $.bind('twitchHosted', function(event) {
+        var hoster = event.getHoster(),
+            viewers = parseInt(event.getUsers()),
+            now = $.systemTime(),
+            s = hostMessage;
 
-		if (toggle === false || announce === false || channelName == '') {
-			return;
-		}
+        if (toggle === false || announce === false || channelName == '') {
+            return;
+        }
 
-		if (hosters[hoster] !== undefined) {
-			if (hosters[hoster].time > now) {
-				return;
-			}
-			hosters[hoster].time = now + 216e5;
-		} else {
-			hosters[hoster].time = now + 216e5;
-		}
+        if (hosters[hoster] !== undefined) {
+            if (hosters[hoster].time > now) {
+                return;
+            }
+            hosters[hoster].time = now + 216e5;
+        } else {
+            hosters[hoster] = {};
+            hosters[hoster].time = now + 216e5;
+        }
 
-		if (s.match(/\(name\)/g)) {
+        if (s.match(/\(name\)/g)) {
             s = $.replace(s, '(name)', hoster);
         }
 
         if (s.match(/\(viewers\)/g)) {
-            s = $.replace(s, '(viewers)', viewers);
+            s = $.replace(s, '(viewers)', String(viewers));
         }
 
         $.discord.say(channelName, s);
@@ -166,7 +168,7 @@
         }
     });
 
-	/**
+    /**
      * @event initReady
      */
     $.bind('initReady', function() {

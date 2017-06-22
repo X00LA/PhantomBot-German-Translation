@@ -119,6 +119,29 @@
             </div>
         </form>
     </div>
+
+    <h3>Retweet Belohnungsoptionen</h3>
+    <div>
+        <div id="twitterRewardTable" style="height: 80px; overflow: auto;" />
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="rewardPointsTweet">Belohnungspunkte fürs Retweeten</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDataTwitter('reward_points')">Aktualisieren</button>
+                <input type="number" min="0" class="form-control" id="reward_pointsTweetInput" placeholder="Punkte"
+                       data-toggle="tooltip" title="Bonuspunkte, welche für das Retweeten von Tweets vergeben werden.">
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="rewardCoodownTweet">Stunden zwischen den Belohnungen für BenutzerInnen fürs Retweeten</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDataTwitter('reward_cooldown')">Aktualisieren</button>
+                <input type="number" min="0" class="form-control" id="reward_cooldownTweetInput" placeholder="Stunden"
+                       data-toggle="tooltip" title="Zeit, in Stunden, welche vergehen müssen, bevor ein/e BenutzerIn weitere Bonuspunkte fürs Retweeten bekommt. Kommazahlen sind erlaubt (0.5 = 30 minutes).">
+            </div>
+        </form>
+    </div>
 </div>
 </div>
 
