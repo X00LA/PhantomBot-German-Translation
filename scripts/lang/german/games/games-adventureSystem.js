@@ -29,7 +29,7 @@ $.lang.register('adventuresystem.stories.2.chapter.2', 'Vorsicht! Die Elfen habe
 $.lang.register('adventuresystem.stories.2.chapter.3', 'Verdammt, das war knapp! Aber es ist geschafft! (survivors) kehrte(n) mit vollen Taschen zurück!');
 
 $.lang.register('adventuresystem.stories.3.title', 'Draculas Vermächtnis');
-$.lang.register('adventuresystem.stories.3.chapter.1', 'Oh, meine lieben Freunde! Ich habe möglicherweise das Abenteuer unseres Lebens gefunden. Nämlich das Schloss des Grafen Darcula, von dem angenommen wird, dass er unermessliche Reichtümer besaß. Ich schlage vor, dass wir sofort aufbrechen!');
+$.lang.register('adventuresystem.stories.3.chapter.1', 'Oh, meine lieben Freunde! Ich habe möglicherweise das Abenteuer unseres Lebens gefunden. Nämlich das Schloss des Grafen Dracula, von dem angenommen wird, dass er unermessliche Reichtümer besaß. Ich schlage vor, dass wir sofort aufbrechen!');
 $.lang.register('adventuresystem.stories.3.chapter.2', 'Er ist es wahrhaftig! (caught) wurde(n) bestialisch geschlachtet.');
 $.lang.register('adventuresystem.stories.3.chapter.3', 'Das war eine knappe Entscheidung, ich glaube nicht, dass ich gebissen wurde. Wie gut, (survivors), hier ist der Versprochene Anteil.  ~Verwandelt sich in eine Fledermaus und flattert davon.~');
 
