@@ -90,6 +90,19 @@
     }
 
     /**
+     * @function getLocalTime
+     * @export $
+     * @param {String} timeformat
+     * @param {String} timeZone
+     * @return {String}
+     */
+    function getLocalTime() {
+        var dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        dateFormat.setTimeZone(java.util.TimeZone.getTimeZone(($.inidb.exists('settings', 'timezone') ? $.inidb.get('settings', 'timezone') : "CET")));
+        return dateFormat.format(new java.util.Date());
+    }
+
+    /**
      * @function dateToString
      * @export $
      * @param {Date} date
@@ -215,7 +228,7 @@
                         return;
                     }
 
-                    subject = subject.toLowerCase();
+                    subject = $.user.sanitize(subject);
 
                     if (timeArg < 0) {
                         $.say($.whisperPrefix(sender) + $.lang.get('timesystem.add.error.negative'));
@@ -239,7 +252,7 @@
                         return;
                     }
 
-                    subject = subject.toLowerCase();
+                    subject = $.user.sanitize(subject);
                     if (!$.user.isKnown(subject)) {
                         $.say($.whisperPrefix(sender) + $.lang.get('common.user.404', subject));
                     }
@@ -265,7 +278,7 @@
                     }
 
 
-                    subject = subject.toLowerCase();
+                    subject = $.user.sanitize(subject);
                     if ($.user.isKnown(subject)) {
                         $.inidb.set('time', subject, timeArg);
                         $.say($.whisperPrefix(sender) + $.lang.get('timesystem.settime.success', $.username.resolve(subject), $.getUserTimeString(subject)));
@@ -305,7 +318,7 @@
                 /**
                  * @commandpath time autolevelnotification - Toggles if a chat announcement is made when a user is promoted to a regular.
                  */
-                if (command.equalsIgnoreCase('autolevelnotification')) {
+                if (action.equalsIgnoreCase('autolevelnotification')) {
                     timeLevelWarning = !timeLevelWarning;
                     $.setIniDbBoolean('timeSettings', 'timeLevelWarning', timeLevelWarning);
                     $.say($.whisperPrefix(sender) + (timeLevelWarning ? $.lang.get('timesystem.autolevel.chat.enabled') : $.lang.get('timesystem.autolevel.chat.disabled')));
@@ -360,11 +373,11 @@
             $.inidb.setAutoCommit(false);
             for (i in $.users) {
                 username = $.users[i][0].toLowerCase();
-                $.inidb.incr('time', username, 61);
+                $.inidb.incr('time', username, 60);
             }
             $.inidb.setAutoCommit(true);
         }
-    }, 6e4);
+    }, 6e4, 'scripts::systems::timeSystem.js#1');
 
     // Interval for auto level to regular
     inter = setInterval(function() {
@@ -389,23 +402,22 @@
                 }
             }
         }
-    }, 9e5);
+    }, 9e5, 'scripts::systems::timeSystem.js#2');
 
     /**
      * @event initReady
      */
     $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./core/timeSystem.js')) {
-            $.registerChatCommand('./core/timeSystem.js', 'streamertime');
-            $.registerChatCommand('./core/timeSystem.js', 'timezone', 1);
-            $.registerChatCommand('./core/timeSystem.js', 'time');
-            $.registerChatSubcommand('time', 'add', 1);
-            $.registerChatSubcommand('time', 'take', 1);
-            $.registerChatSubcommand('time', 'set', 1);
-            $.registerChatSubcommand('time', 'autolevel', 1);
-            $.registerChatSubcommand('time', 'promotehours', 1);
-            $.registerChatSubcommand('time', 'autolevelnotification', 1);
-        }
+        $.registerChatCommand('./core/timeSystem.js', 'streamertime');
+        $.registerChatCommand('./core/timeSystem.js', 'timezone', 1);
+        $.registerChatCommand('./core/timeSystem.js', 'time');
+        
+        $.registerChatSubcommand('time', 'add', 1);
+        $.registerChatSubcommand('time', 'take', 1);
+        $.registerChatSubcommand('time', 'set', 1);
+        $.registerChatSubcommand('time', 'autolevel', 1);
+        $.registerChatSubcommand('time', 'promotehours', 1);
+        $.registerChatSubcommand('time', 'autolevelnotification', 1);
     });
 
     /** Export functions to API */
@@ -418,4 +430,5 @@
     $.getTimeStringMinutes = getTimeStringMinutes;
     $.updateTimeSettings = updateTimeSettings;
     $.getCurrentLocalTimeString = getCurrentLocalTimeString;
+    $.getLocalTime = getLocalTime;
 })();

@@ -5,7 +5,9 @@
         reCustomAPITextTag = new RegExp(/{([\w\W]+)}/),
         reCommandTag = new RegExp(/\(command\s([\w]+)\)/),
         tagCheck = new RegExp(/\(age\)|\(sender\)|\(@sender\)|\(baresender\)|\(random\)|\(1\)|\(count\)|\(pointname\)|\(currenttime|\(price\)|\(#|\(uptime\)|\(follows\)|\(game\)|\(status\)|\(touser\)|\(echo\)|\(alert [,.\w]+\)|\(readfile|\(1=|\(countdown=|\(downtime\)|\(paycom\)|\(onlineonly\)|\(offlineonly\)|\(code=|\(followage\)|\(gameinfo\)|\(titleinfo\)|\(gameonly=|\(playtime\)|\(gamesplayed\)|\(pointtouser\)|\(lasttip\)|\(writefile .+\)|\(readfilerand|\(commandcostlist\)|\(playsound |\(customapi |\(customapijson /),
-        customCommands = [];
+        customCommands = [],
+        ScriptEventManager = Packages.tv.phantombot.script.ScriptEventManager,
+        CommandEvent = Packages.tv.phantombot.event.command.CommandEvent;
 
     /*
      * @function getCustomAPIValue
@@ -15,6 +17,21 @@
      */
     function getCustomAPIValue(url) {
         return $.customAPI.get(url).content;
+    }
+    
+    /*
+     * @function runCommand
+     *
+     * @param {string} username
+     * @param {string} command
+     * @param {string} args
+     */
+    function runCommand(username, command, args, tags) {
+        if (tags !== undefined) {
+            ScriptEventManager.instance().onEvent(new CommandEvent(username, command, args, tags));
+        } else {
+            ScriptEventManager.instance().onEvent(new CommandEvent(username, command, args));
+        }  
     }
 
     /*
@@ -49,8 +66,34 @@
             }
         }
 
+        if (message.match(/\(readfile/)) {
+            if (message.search(/\((readfile ([^)]+)\))/g) >= 0) {
+                message = $.replace(message, '(' + RegExp.$1, $.readFile('./addons/' + RegExp.$2)[0]);
+            }
+        }
+
+        if (message.match(/\(readfilerand/)) {
+            if (message.search(/\((readfilerand ([^)]+)\))/g) >= 0) {
+                var path = RegExp.$2;
+                var path2 = RegExp.$1;
+                var results = $.arrayShuffle($.readFile('./addons/' + path.trim()));
+                message = $.replace(message, '(' + path2.trim(), $.randElement(results));
+            }
+        }
+
         if (message.match(/\(adminonlyedit\)/)) {
             message = $.replace(message, '(adminonlyedit)', '');
+        }
+
+        if (message.match(/\(runcode/)) {
+            var code = message.match(/\(runcode (.*)\)/)[1];
+
+            try {
+                eval(code);
+            } catch (ex) {
+                $.log.error('Failed to run custom code: ' + ex.message);
+            }
+            return null;
         }
 
         if (message.match(/\(pointtouser\)/)) {
@@ -102,7 +145,7 @@
         if (message.match(/\(countdown=[^)]+\)/g)) {
             var t = message.match(/\([^)]+\)/)[0], countdown, time;
             countdown = t.replace('(countdown=', '').replace(')', '');
-            time = (Date.parse(countdown) - Date.parse(new Date()));
+            time = (Date.parse(countdown) - Date.parse($.getLocalTime()));
             message = $.replace(message, t, $.getTimeString(time / 1000));
         }
 
@@ -245,21 +288,6 @@
             if (message == '') return null;
         }
 
-        if (message.match(/\(readfile/)) {
-            if (message.search(/\((readfile ([^)]+)\))/g) >= 0) {
-                message = $.replace(message, '(' + RegExp.$1, $.readFile('./addons/' + RegExp.$2)[0]);
-            }
-        }
-
-        if (message.match(/\(readfilerand/)) {
-            if (message.search(/\((readfilerand ([^)]+)\))/g) >= 0) {
-                var path = RegExp.$2;
-                var path2 = RegExp.$1;
-                var results = $.arrayShuffle($.readFile('./addons/' + path.trim()));
-                message = $.replace(message, '(' + path2.trim(), $.randElement(results));
-            }
-        }
-
         if (message.match(/\(gameinfo\)/)) {
             if ($.getGame($.channelName) == ' ' || $.getGame($.channelName) == '') {
                 message = $.replace(message, '(gameinfo)', $.lang.get('streamcommand.game.no.game'));
@@ -327,6 +355,16 @@
             return null;
         }
 
+        if (message.match(/\(math (.*)\)/)) {
+            var mathStr = message.match(/\(math (.*)\)/)[1].replace(/\s/g, '');
+
+            if (mathStr.length === 0) {
+                return null;
+            }
+
+            message = $.replace(message, message.match(/\(math (.*)\)/)[0], String(eval(mathStr)));
+        }
+
         if (message.match(/\(writefile .+\)/)) {
             if (message.match(/\(writefile (.+), (.+), (.+)\)/)) {
                 var file = message.match(/\(writefile (.+), (.+), (.+)\)/)[1],
@@ -343,16 +381,6 @@
         if (message.match(/\(encodeurl ([\w\W]+)\)/)) {
             var m = message.match(/\(encodeurl ([\w\W]+)\)/);
             message = $.replace(message, m[0], encodeURI(m[1]));
-        }
-
-        if (message.match(/\(math (.*)\)/)) {
-            var mathStr = message.match(/\(math (.*)\)/)[1].replace(/\s/g, '');
-
-            if (mathStr.length === 0) {
-                return null;
-            }
-
-            message = $.replace(message, message.match(/\(math (.*)\)/)[0], String(eval(mathStr)));
         }
 
         if (message.match(reCustomAPIJson) || message.match(reCustomAPI) || message.match(reCommandTag)) {
@@ -436,61 +464,42 @@
                     jsonCheckList = jsonItems[j].split('.');
                     if (jsonCheckList.length == 1) {
                         try {
-                            customAPIResponse = new JSONObject(origCustomAPIResponse).getString(jsonCheckList[0]);
+                            customAPIResponse = new JSONObject(origCustomAPIResponse).get(jsonCheckList[0]);
                         } catch (ex) {
-                            if (ex.message.indexOf('not a string') != -1) {
-                                try {
-                                    customAPIResponse = new JSONObject(origCustomAPIResponse).getInt(jsonCheckList[0]);
-                                } catch (ex) {
-                                    return $.lang.get('customcommands.customapijson.err', command);
-                                }
-                            } else {
-                                return $.lang.get('customcommands.customapijson.err', command);
-                            }
+                            $.log.error('Failed to get data from API: ' + ex.message);
+                            return $.lang.get('customcommands.customapijson.err', command);
                         }
                         customAPIReturnString += " " + customAPIResponse;
                     } else {
                         for (var i = 0; i < jsonCheckList.length - 1; i++) {
                             if (i == 0) {
                                 try {
-                                    jsonObject = new JSONObject(origCustomAPIResponse).getJSONObject(jsonCheckList[i]);
+                                    jsonObject = new JSONObject(origCustomAPIResponse).get(jsonCheckList[i]);
                                 } catch (ex) {
-                                    try {
-                                        jsonObject = new JSONArray(origCustomAPIResponse).get(jsonCheckList[i]);
-                                    } catch (ex) {
-                                        return $.lang.get('customcommands.customapijson.err', command);
-                                    }
+                                    $.log.error('Failed to get data from API: ' + ex.message);
+                                    return $.lang.get('customcommands.customapijson.err', command);
                                 }
                             } else if (!isNaN(jsonCheckList[i + 1])) {
                                 try {
-                                    jsonObject = jsonObject.getJSONArray(jsonCheckList[i]);
+                                    jsonObject = jsonObject.get(jsonCheckList[i]);
                                 } catch (ex) {
-                                    try {
-                                        jsonObject = jsonObject.getJSONObject(jsonCheckList[i]);
-                                    } catch (ex) {
-                                        return $.lang.get('customcommands.customapijson.err', command);
-                                    }
+                                    $.log.error('Failed to get data from API: ' + ex.message);
+                                    return $.lang.get('customcommands.customapijson.err', command);
                                 }
                             } else {
                                 try {
-                                    jsonObject = jsonObject.getJSONObject(jsonCheckList[i]);
+                                    jsonObject = jsonObject.get(jsonCheckList[i]);
                                 } catch (ex) {
+                                    $.log.error('Failed to get data from API: ' + ex.message);
                                     return $.lang.get('customcommands.customapijson.err', command);
                                 }
                             }
                         }
                         try {
-                            customAPIResponse = jsonObject.getString(jsonCheckList[i]);
+                            customAPIResponse = jsonObject.get(jsonCheckList[i]);
                         } catch (ex) {
-                            if (ex.message.indexOf('not a string') != -1) {
-                                try {
-                                    customAPIResponse = jsonObject.getInt(jsonCheckList[i]);
-                                } catch (ex) {
-                                    return $.lang.get('customcommands.customapijson.err', command);
-                                }
-                            } else {
-                                return $.lang.get('customcommands.customapijson.err', command);
-                            }
+                            $.log.error('Failed to get data from API: ' + ex.message);
+                            return $.lang.get('customcommands.customapijson.err', command);
                         }
                         customAPIReturnString += " " + customAPIResponse;
                     }
@@ -536,6 +545,38 @@
         } else {
             return 2;
         }
+    }  
+
+     /*
+     * @function priceCom
+     *
+     * @export $
+     * @param {string} username
+     * @param {string} command
+     * @param {sub} subcommand
+     * @param {bool} isMod
+     * @returns 1 | 0 - Not a boolean
+     */
+    function priceCom(username, command, subCommand, isMod) {
+        if ((subCommand === '' && $.inidb.exists('pricecom', command)) || $.inidb.exists('pricecom', command + ' ' + subCommand)) {
+            if ((((isMod && $.getIniDbBoolean('settings', 'pricecomMods', false) && !$.isBot(username)) || !isMod)) && $.bot.isModuleEnabled('./systems/pointSystem.js')) {
+                if ($.getUserPoints(username) < getCommandPrice(command, subCommand, '')) {
+                    return 1;
+                }
+            }
+        }
+        return 0;
+    }
+
+     /*
+     * @function payCom
+     *
+     * @export $
+     * @param {string} command
+     * @returns 1 | 0 - Not a boolean
+     */
+    function payCom(command) {
+        return ($.inidb.exists('paycom', command) ? 0 : 1);
     }
 
     /*
@@ -557,6 +598,17 @@
                                     $.inidb.get('pricecom', command + ' ' + subCommand) :
                                         $.inidb.exists('pricecom', command) ?
                                             $.inidb.get('pricecom', command) : 0);
+    }
+
+    /*
+     * @function getCommandPay
+     *
+     * @export $
+     * @param {string} command
+     * @returns {Number}
+     */
+    function getCommandPay(command) {
+        return ($.inidb.exists('paycom', command) ? $.inidb.get('paycom', command) : 0);
     }
 
     /*
@@ -607,7 +659,7 @@
          */
         if (customCommands[command] !== undefined) {
             var tag = tags(event, customCommands[command], true);
-            if (tag !== null) {
+            if (tag !== null) {               
                 $.say(tag);
             }
             return;
@@ -637,7 +689,7 @@
                     return;
                 } else {
                     if (!$.commandExists(argsString.match(reCommandTag)[1])) {
-                        $.say($.whisperPrefix(sender) + $.lang.get('customcommands.add.commandtag.invalid', checkCmd));
+                        $.say($.whisperPrefix(sender) + $.lang.get('customcommands.add.commandtag.invalid', argsString.match(reCommandTag)[1]));
                         return;
                     }
                 }
@@ -1031,9 +1083,9 @@
     });
     
     /*
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./commands/customCommands.js')) {
             if (event.getArgs()[0] == 'remove') {
                 if (customCommands[event.getArgs()[1].toLowerCase()] !== undefined) {
@@ -1063,6 +1115,12 @@
     $.addComRegisterAliases = addComRegisterAliases;
     $.returnCommandCost = returnCommandCost;
     $.permCom = permCom;
+    $.priceCom = priceCom;
     $.getCommandPrice = getCommandPrice;
     $.tags = tags;
+    $.getCommandPay = getCommandPay;
+    $.payCom = payCom;
+    $.command = {
+        run: runCommand
+    };
 })();

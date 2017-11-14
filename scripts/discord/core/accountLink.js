@@ -15,17 +15,13 @@
      * @return {string or null}
      */
     function resolveTwitchName(userId) {
-        if (typeof userId === 'string') {
-            userId = $.discordAPI.resolveUserId(userId);
-        }
-
         return ($.inidb.exists('discordToTwitch', userId) ? $.inidb.get('discordToTwitch', userId) : null); 
     }
 
     /**
-     * @event discordCommand
+     * @event discordChannelCommand
      */
-    $.bind('discordCommand', function(event) {
+    $.bind('discordChannelCommand', function(event) {
         var sender = event.getSender(),
             user = event.getDiscordUser(),
             channel = event.getChannel(),
@@ -52,15 +48,16 @@
              * @discordcommandpath account link - Starts the process of linking an account. Completing this will overwrite existing links
              */
             } else if (action.equalsIgnoreCase('link')) {
-                var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789äöüÄÖÜß',
+                var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789äöüÄÖÜß_+',
                     text = '',
                     i;
 
-                for (i = 0; i < 8; i++) {
+                for (i = 0; i < 10; i++) {
                     text += code.charAt(Math.floor(Math.random() * code.length));
                 }
 
                 accounts[userId] = {
+                    userObj: user,
                     time: $.systemTime(),
                     code: text
                 };
@@ -93,9 +90,10 @@
          * @commandpath account link [code] - Completes an account link for Discord.
          */
         if (command.equalsIgnoreCase('account')) {
-            if (action.equalsIgnoreCase('link')) {
+            if (action !== undefined && action.equalsIgnoreCase('link')) {
                 var code = args[1];
-                if (code === undefined || code.length() < 8) {
+                if (code === undefined || code.length() < 10) {
+                    $.say($.whisperPrefix(sender) + $.lang.get('discord.accountlink.link.fail'));
                     return;
                 }
 
@@ -106,9 +104,8 @@
                     if (accounts[keys[i]].code == code && (accounts[keys[i]].time + 6e5) > $.systemTime()) {
                         $.inidb.set('discordToTwitch', keys[i], sender.toLowerCase());
 
+                        $.discordAPI.sendPrivateMessage(accounts[keys[i]].userObj, $.lang.get('discord.accountlink.link.success', $.channelName));
                         delete accounts[keys[i]];
-
-                        $.discordAPI.sendPrivateMessage($.discordAPI.resolveUserId(keys[i]), $.lang.get('discord.accountlink.link.success', $.username.resolve(sender)));
                         return;
                     }
                 }
@@ -125,8 +122,9 @@
         $.discord.registerCommand('./discord/core/accountLink.js', 'account', 0);
         $.discord.registerSubCommand('accountlink', 'link', 0);
         $.discord.registerSubCommand('accountlink', 'remove', 0);
-
+        // This is used to verify your account from Twitch. Do not remove it.
         $.registerChatCommand('./discord/core/accountLink.js', 'account', 7);
+
 
         // Interval to clear our old codes that have not yet been registered.
         interval = setInterval(function() {
@@ -138,7 +136,7 @@
                     delete accounts[keys[i]];
                 }
             }
-        }, 6e4);
+        }, 6e4, 'scripts::discord::core::accountLink.js');
     });
 
     /* Export the function to the $.discord api. */

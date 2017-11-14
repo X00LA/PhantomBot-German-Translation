@@ -141,7 +141,7 @@
             sourceFile = e.stack.split('\n')[1].split('@')[1];
         }
 
-        $.writeToFile('[' + getLogEntryTimeDateString() + '] [' + sourceFile + '] ' + message, './logs/error/' + getLogDateString() + '.txt', true);
+        $.writeToFile('[' + getLogEntryTimeDateString() + '] [' + sourceFile.trim() + '] ' + message, './logs/error/' + getLogDateString() + '.txt', true);
         Packages.com.gmt2001.Console.err.printlnRhino(java.util.Objects.toString('[' + sourceFile.trim() + '] ' + message));
     }
 
@@ -330,7 +330,7 @@
 
     var interval = setInterval(function() { 
         logRotate(); 
-    }, 24 * 60 * 6e4);
+    }, 24 * 60 * 6e4, 'scripts::core::logging.js');
 
     /*
      * @event initReady

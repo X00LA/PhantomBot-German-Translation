@@ -22,6 +22,8 @@
         modLogs = $.getSetIniDbBoolean('discordSettings', 'modLogs', false),
         modLogChannel = $.getSetIniDbString('discordSettings', 'modLogChannel', '');
 
+        cbenniToggle = $.getSetIniDbBoolean('discordSettings', 'cbenniToggle', false);
+
     /**
      * @function reload
      */
@@ -37,6 +39,7 @@
         spamLimit = $.getSetIniDbNumber('discordSettings', 'spamLimit', 5);
         modLogs = $.getSetIniDbBoolean('discordSettings', 'modLogs', false);
         modLogChannel = $.getSetIniDbString('discordSettings', 'modLogChannel', '');
+        cbenniToggle = $.getSetIniDbBoolean('discordSettings', 'cbenniToggle', false);
     }
 
     /**
@@ -110,19 +113,17 @@
      * @param {String} username
      */
     function bulkDelete(username, channel) {
-        $.discordAPI.resolveChannel(channel).deleteMessagesByIds(spam[username].messages).queue();
+        $.discordAPI.bulkDeleteMessages(channel, spam[username].messages);
         delete spam[username];
     }
 
     /**
      * function timeoutUser
      *
-     * @param {String} username
-     * @param {String} channel
-     * @param {String} message
+     * @param {Object} message
      */
-    function timeoutUser(username, channel, message) {
-        $.discordAPI.resolveChannel(channel).deleteMessageById(message).queue();
+    function timeoutUser(message) {
+        $.discordAPI.deleteMessage(message);
     }
 
     /*
@@ -143,6 +144,11 @@
         obj['**Creator:**'] = creator;
         obj['**Reason:**'] = reason;
         obj['**Time:**'] = time + ' seconds.';
+
+        if (cbenniToggle) {
+            obj['**Cbenni:**'] = '[https://cbenni.com/' + $.channelName + '?user=' + username.toLowerCase() + '](https://cbenni.com/' + $.channelName + '?user=' + username.toLowerCase() + ')';
+        }
+
         obj['**Last_message:**'] = (message.length() > 50 ? message.substring(0, 50) + '...' : message);
 
         var keys = Object.keys(obj);
@@ -182,11 +188,11 @@
     }
     
     /*
-     * @event Timeout
+     * @event PubSubModerationTimeout
      */
-    $.bind('Timeout', function(event) {
-        var username = $.username.resolve(event.getUsername()),
-            creator = $.username.resolve(event.getCreator()),
+    $.bind('PubSubModerationTimeout', function(event) {
+        var username = event.getUsername(),
+            creator = event.getCreator(),
             message = event.getMessage(),
             reason = event.getReason(),
             time = parseInt(event.getTime());
@@ -199,11 +205,11 @@
     });
 
     /*
-     * @event Timeout
+     * @event PubSubModerationUnTimeout
      */
-    $.bind('UnTimeout', function(event) {
-        var username = $.username.resolve(event.getUsername()),
-            creator = $.username.resolve(event.getCreator());
+    $.bind('PubSubModerationUnTimeout', function(event) {
+        var username = event.getUsername(),
+            creator = event.getCreator();
 
         if (modLogs === false || modLogChannel === '' || $.getIniDbBoolean('chatModerator', 'moderationLogs', false) === false) {
             return;
@@ -213,11 +219,11 @@
     });
 
     /*
-     * @event Timeout
+     * @event PubSubModerationUnBan
      */
-    $.bind('UnBanned', function(event) {
-        var username = $.username.resolve(event.getUsername()),
-            creator = $.username.resolve(event.getCreator());
+    $.bind('PubSubModerationUnBan', function(event) {
+        var username = event.getUsername(),
+            creator = event.getCreator();
 
         if (modLogs === false || modLogChannel === '' || $.getIniDbBoolean('chatModerator', 'moderationLogs', false) === false) {
             return;
@@ -227,11 +233,11 @@
     });
 
     /*
-     * @event Banned
+     * @event PubSubModerationBan
      */
-    $.bind('Banned', function(event) {
-        var username = $.username.resolve(event.getUsername()),
-            creator = $.username.resolve(event.getCreator()),
+    $.bind('PubSubModerationBan', function(event) {
+        var username = event.getUsername(),
+            creator = event.getCreator(),
             message = event.getMessage(),
             reason = event.getReason();
 
@@ -243,9 +249,9 @@
     });
 
     /**
-     * @event discordMessage
+     * @event discordChannelMessage
      */
-    $.bind('discordMessage', function(event) {
+    $.bind('discordChannelMessage', function(event) {
         var sender = event.getSenderId(),
             channel = event.getChannel(),
             message = event.getMessage().toLowerCase(),
@@ -253,38 +259,38 @@
 
         if (event.isAdmin() == false && !hasPermit(sender) && !isWhiteList(sender, message)) {
             if (linkToggle && $.discord.pattern.hasLink(message)) {
-                timeoutUser(sender, channel, event.getMessageId());
+                timeoutUser(event.getDiscordMessage());
                 return;
             }
 
             if (longMessageToggle && messageLength > longMessageLimit) {
-                timeoutUser(sender, channel, event.getMessageId());
+                timeoutUser(event.getDiscordMessage());
                 return;
             }
 
             if (capsToggle && messageLength > capsTriggerLength && (($.discord.pattern.getCapsCount(event.getMessage()) / messageLength) * 100) > capsLimitPercent) {
-                timeoutUser(sender, channel, event.getMessageId());
+                timeoutUser(event.getDiscordMessage());
                 return;
             }
 
             if (spamToggle) {
                 if (spam[sender] !== undefined) {
                     if (spam[sender].time + 5000 > $.systemTime() && (spam[sender].total + 1) <= spamLimit) {
-                        spam[sender].total++; spam[sender].messages.push(event.getMessageId());
+                        spam[sender].total++; spam[sender].messages.push(event.getDiscordMessage());
                     } else if (spam[sender].time + 5000 < $.systemTime() && (spam[sender].total + 1) <= spamLimit) {
-                        spam[sender] = { total: 1, time: $.systemTime(), messages: [event.getMessageId()] };
+                        spam[sender] = { total: 1, time: $.systemTime(), messages: [event.getDiscordMessage()] };
                     } else {
-                        spam[sender].messages.push(event.getMessageId()); 
+                        spam[sender].messages.push(event.getDiscordMessage()); 
                         bulkDelete(sender, channel);
                         return;
                     }
                 } else {
-                    spam[sender] = { total: 1, time: $.systemTime(), messages: [event.getMessageId()] };
+                    spam[sender] = { total: 1, time: $.systemTime(), messages: [event.getDiscordMessage()] };
                 }
             }
 
             if (hasBlackList(message)) {
-                timeoutUser(sender, channel, event.getMessageId());
+                timeoutUser(event.getDiscordMessage());
                 return;
             }
         }
@@ -292,9 +298,9 @@
     });
 
     /**
-     * @event discordCommand
+     * @event discordChannelCommand
      */
-    $.bind('discordCommand', function(event) {
+    $.bind('discordChannelCommand', function(event) {
         var sender = event.getSender(),
             channel = event.getChannel(),
             command = event.getCommand(),
@@ -574,15 +580,15 @@
                     return;
                 }
 
-                if ($.discordAPI.isPurging() == true) {
-                    $.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('moderation.cleanup.failed'));
-                } else {
-                    if ($.discordAPI.massPurge(subAction, (parseInt(actionArgs) < 10000 ? parseInt(actionArgs + 1) : parseInt(actionArgs))) == true) {
-                        $.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('moderation.cleanup.done', actionArgs));
-                    } else {
-                        $.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('moderation.cleanup.failed.err'));
-                    }
-                }
+                $.discordAPI.bulkDelete(subAction.replace('#', ''), (parseInt(actionArgs) < 10000 ? parseInt(actionArgs + 1) : parseInt(actionArgs)))
+
+                $.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('moderation.cleanup.done', actionArgs));
+            }
+
+            if (action.equalsIgnoreCase('togglecbenni')) {
+                cbenniToggle = !cbenniToggle;
+                $.setIniDbBoolean('discordSettings', 'cbenniToggle', cbenniToggle);
+                $.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('moderation.cbenni.toggle', (cbenniToggle ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
             }
 
             if (action.equalsIgnoreCase('logs')) {
@@ -619,9 +625,9 @@
     });
     
     /**
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/core/moderation.js')) {
             reload();
         }
@@ -641,6 +647,8 @@
             $.discord.registerSubCommand('moderation', 'whitelist', 1);
             $.discord.registerSubCommand('moderation', 'cleanup', 1);
             $.discord.registerSubCommand('moderation', 'logs', 1);
+            $.discord.registerSubCommand('moderation', 'togglecbenni', 1);
+ 
 
             setInterval(function() {
                 if (spam.length !== 0 && lastMessage - $.systemTime() <= 0) {
@@ -649,7 +657,7 @@
                         permitList = {};
                     }
                 }
-            }, 6e4);
+            }, 6e4, 'scripts::discord::core::moderation');
         }
     });
 })();

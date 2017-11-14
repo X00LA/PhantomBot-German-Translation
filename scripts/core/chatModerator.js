@@ -155,7 +155,7 @@
         emotesLimit = $.getIniDbNumber('chatModerator', 'emotesLimit');
 
         longMessageToggle = $.getIniDbBoolean('chatModerator', 'longMessageToggle');
-        longMessageMessage = $.getIniDbBoolean('chatModerator', 'longMessageMessage');
+        longMessageMessage = $.getIniDbString('chatModerator', 'longMessageMessage');
         longMessageLimit = $.getIniDbNumber('chatModerator', 'longMessageLimit');
 
         colorsToggle = $.getIniDbBoolean('chatModerator', 'colorsToggle');
@@ -275,7 +275,7 @@
                 }
             }
         }
-    }, 8e4);
+    }, 8e4, 'scripts::core::chatModerator.js');
 
     /**
      * @function loadBlackList
@@ -314,13 +314,14 @@
      * @param {string} reason
      */
     function timeoutUserFor(username, time, reason) {
-        $.say('.timeout ' + username + ' ' + time + ' ' + reason);
-        var timeout = setTimeout(function() {
-            if ($.session.isLimited() == false) {
-                $.say('.timeout ' + username + ' ' + time + ' ' + reason);
+        $.session.sayNow('.timeout ' + username + ' ' + time + ' ' + reason);
+
+        var lastTimeout = setTimeout(function() {
+            if ($.getMessageWrites() < 50) {
+                $.session.sayNow('.timeout ' + username + ' ' + time + ' ' + reason);
             }
-            clearInterval(timeout);
-        }, 1000);
+            clearInterval(lastTimeout);
+        }, 500, 'scripts::core::chatModerator.js::timeout');
     }
 
     /**
@@ -355,8 +356,8 @@
      * @param {boolean} filter
      */
     function sendMessage(username, message, filter) {
-        if (filter == false && messageTime <= $.systemTime() && $.session.hasQueue() == true && $.session.isLimited() == false) {
-            $.say('@' + username + ', ' + message + ' ' + warning);
+        if (filter == false && messageTime < $.systemTime() && $.getMessageWrites() < 7) {
+            $.session.sayNow('@' + username + ', ' + message + ' ' + warning);
             messageTime = ((msgCooldownSec * 1000) + $.systemTime());
         }
     }
@@ -467,6 +468,11 @@
             messageLength = message.length();
 
         if (!$.isModv3(sender, event.getTags())) {
+            // Blacklist
+            if (checkBlackList(sender, event, message)) {
+                return;
+            }
+
             // Links filter
             if (linksToggle && $.patternDetector.hasLinks(event)) {
                 if (checkYoutubePlayer(message) || checkPermitList(sender) || checkWhiteList(message)) {
@@ -559,11 +565,6 @@
 
                 timeout(sender, warningTime.Colors, timeoutTime.Colors, silentTimeout.ColorMessage);
                 sendMessage(sender, colorsMessage, silentTimeout.Colors);
-                return;
-            }
-
-            // Blacklist
-            if (message !== null && checkBlackList(sender, event, message)) {
                 return;
             }
 
@@ -983,8 +984,10 @@
                 return;
             }
 
-            permitUser(action.toLowerCase());
-            $.say($.username.resolve(action) + $.lang.get('chatmoderator.permited', linkPermitTime));
+            action = $.user.sanitize(action);
+
+            permitUser(action);
+            $.say(action + $.lang.get('chatmoderator.permited', linkPermitTime));
             $.log.event(action + ' was permited by ' + sender);
             return;
         }
@@ -1843,7 +1846,7 @@
                     return;
                 }
                 symbolsGroupLimit = parseInt(subAction);
-                $.inidb.set('chatModerator', 'symbolsLimitPercent', symbolsGroupLimit);
+                $.inidb.set('chatModerator', 'symbolsGroupLimit', symbolsGroupLimit);
                 $.say($.whisperPrefix(sender) + $.lang.get('chatmoderator.symbols.group.limit.set', symbolsGroupLimit));
                 $.log.event(sender + ' changed the symbols group limit to ' + symbolsGroupLimit);
                 return;
@@ -1925,16 +1928,14 @@
      * @event initReady
      */
     $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./core/chatmoderator.js')) {
-            loadWhiteList();
-            loadBlackList();
+        loadWhiteList();
+        loadBlackList();
 
-            $.registerChatCommand('./core/chatmoderator.js', 'permit', 2);
-            $.registerChatCommand('./core/chatmoderator.js', 'moderation', 1);
-            $.registerChatCommand('./core/chatmoderator.js', 'mod', 1);
-            $.registerChatCommand('./core/chatmoderator.js', 'blacklist', 1);
-            $.registerChatCommand('./core/chatmoderator.js', 'whitelist', 1);
-        }
+        $.registerChatCommand('./core/chatModerator.js', 'permit', 2);
+        $.registerChatCommand('./core/chatModerator.js', 'moderation', 1);
+        $.registerChatCommand('./core/chatModerator.js', 'mod', 1);
+        $.registerChatCommand('./core/chatModerator.js', 'blacklist', 1);
+        $.registerChatCommand('./core/chatModerator.js', 'whitelist', 1);
     });
 
     /** Export functions to API */
