@@ -65,7 +65,7 @@
                     keyString = keyword;
                 }
 
-                ScriptEventManager.instance().runDirect(new CommandEvent(event.getSender(), keyString, arguments));
+                ScriptEventManager.instance().onEvent(new CommandEvent(event.getSender(), keyString, arguments));
                 return;
             }
 
@@ -188,8 +188,6 @@
      * @event initReady
      */
     $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./handlers/keywordHandler.js')) {
-            $.registerChatCommand('./handlers/keywordHandler.js', 'keyword', 1);
-        }
+        $.registerChatCommand('./handlers/keywordHandler.js', 'keyword', 1);
     });
 })();

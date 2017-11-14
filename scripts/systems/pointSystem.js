@@ -394,8 +394,10 @@
             if (!action) {
                 $.say(getPointsMessage(sender, username));
             } else {
-                if (action && $.user.isKnown(action.toLowerCase())) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.user.success', $.username.resolve(action), getPointsString(getUserPoints(action.toLowerCase()))));
+                // Replace everything that is not \w
+                action = $.user.sanitize(action);
+                if ($.user.isKnown(action)) {
+                    $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.user.success', $.username.resolve(action), getPointsString(getUserPoints(action))));
                 }
 
                 /**
@@ -404,7 +406,7 @@
                 else if (action.equalsIgnoreCase('add') || action.equalsIgnoreCase('give')) {
                     actionArg1 = (actionArg1 + '').toLowerCase();
                     actionArg2 = parseInt(actionArg2);
-                    if (isNaN(actionArg2)) {
+                    if (isNaN(actionArg2) || !actionArg1) {
                         $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.add.usage'));
                         return;
                     }
@@ -414,7 +416,10 @@
                         return;
                     }
 
-                    if (!actionArg1 || !$.user.isKnown(actionArg1)) {
+                    // Replace everything that is not \w
+                    actionArg1 = $.user.sanitize(actionArg1);
+
+                    if (!$.user.isKnown(actionArg1)) {
                         $.say($.whisperPrefix(sender) + $.lang.get('common.user.404', actionArg1));
                         return;
                     }
@@ -437,7 +442,7 @@
                 else if (action.equalsIgnoreCase('take') || action.equalsIgnoreCase('remove')) {
                     actionArg1 = (actionArg1 + '').toLowerCase();
                     actionArg2 = parseInt(actionArg2);
-                    if (isNaN(actionArg2)) {
+                    if (isNaN(actionArg2) || !actionArg1) {
                         $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.take.usage'));
                         return
                     }
@@ -447,7 +452,10 @@
                         return;
                     }
 
-                    if (!actionArg1 || !$.user.isKnown(actionArg1)) {
+                    // Replace everything that is not \w
+                    actionArg1 = $.user.sanitize(actionArg1);
+
+                    if (!$.user.isKnown(actionArg1)) {
                         $.say($.whisperPrefix(sender) + $.lang.get('common.user.404', actionArg1));
                         return;
                     }
@@ -468,12 +476,15 @@
                 else if (action.equalsIgnoreCase('set')) {
                     actionArg1 = (actionArg1 + '').toLowerCase();
                     actionArg2 = parseInt(actionArg2);
-                    if (isNaN(actionArg2)) {
+                    if (isNaN(actionArg2) || !actionArg1) {
                         $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.setbalance.usage'));
                         return;
                     }
 
-                    if (!actionArg1 || !$.user.isKnown(actionArg1)) {
+                    // Replace everything that is not \w
+                    actionArg1 = $.user.sanitize(actionArg1);
+
+                    if (!$.user.isKnown(actionArg1)) {
                         $.say($.whisperPrefix(sender) + $.lang.get('common.user.404', actionArg1));
                         return;
                     }
@@ -729,7 +740,7 @@
          * @commandpath gift [user] [amount] - Give points to a friend.
          */
         if (command.equalsIgnoreCase('gift')) {
-            if (!args[0] || isNaN(parseInt(args[1])) || args[0].equalsIgnoreCase(sender)) {
+            if (!action || isNaN(parseInt(actionArg1)) || action.equalsIgnoreCase(sender)) {
                 $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.gift.usage'));
                 return;
             }
@@ -739,19 +750,22 @@
                 return;
             }
 
-            if (!$.user.isKnown(args[0].toLowerCase())) {
-                $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.gift.404'));
-                return;
-            }
-
             if (parseInt(args[1]) <= 0) {
                 $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.err.negative', pointNameMultiple));
                 return;
             }
 
-            $.inidb.incr('points', args[0].toLowerCase(), parseInt(args[1]));
+            // Replace everything that is not \w
+            action = $.user.sanitize(action);
+
+            if (!$.user.isKnown(action)) {
+                $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.gift.404'));
+                return;
+            }
+
+            $.inidb.incr('points', action, parseInt(args[1]));
             $.inidb.decr('points', sender, parseInt(args[1]));
-            $.say($.lang.get('pointsystem.gift.success', $.username.resolve(sender), getPointsString(parseInt(args[1])), $.username.resolve(args[0])));
+            $.say($.lang.get('pointsystem.gift.success', $.username.resolve(sender), getPointsString(parseInt(args[1])), $.username.resolve(action)));
         }
 
         /**
@@ -769,33 +783,32 @@
     // Set the timer for the points payouts
     var interval = setInterval(function() {
         runPointsPayout();
-    }, 6e4);
+    }, 6e4, 'scripts::systems::pointSystem.js');
 
     /**
      * @event initReady
      */
     $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./systems/pointSystem.js')) {
-            $.registerChatCommand('./systems/pointSystem.js', 'makeitrain', 1);
-            $.registerChatCommand('./systems/pointSystem.js', 'points', 7);
-            $.registerChatCommand('./systems/pointSystem.js', 'gift', 7);
-            $.registerChatCommand('./systems/pointSystem.js', 'penalty', 2);
-
-            $.registerChatSubcommand('points', 'add', 1);
-            $.registerChatSubcommand('points', 'give', 1);
-            $.registerChatSubcommand('points', 'take', 1);
-            $.registerChatSubcommand('points', 'remove', 1);
-            $.registerChatSubcommand('points', 'set', 1);
-            $.registerChatSubcommand('points', 'all', 1);
-            $.registerChatSubcommand('points', 'takeall', 1);
-            $.registerChatSubcommand('points', 'setname', 1);
-            $.registerChatSubcommand('points', 'setgain', 1);
-            $.registerChatSubcommand('points', 'setofflinegain', 1);
-            $.registerChatSubcommand('points', 'setinterval', 1);
-            $.registerChatSubcommand('points', 'bonus', 1);
-            $.registerChatSubcommand('points', 'resetall', 1);
-            $.registerChatSubcommand('points', 'setmessage', 1);
-            $.registerChatSubcommand('points', 'setactivebonus', 1);
+        $.registerChatCommand('./systems/pointSystem.js', 'makeitrain', 1);
+        $.registerChatCommand('./systems/pointSystem.js', 'points', 7);
+        $.registerChatCommand('./systems/pointSystem.js', 'gift', 7);
+        $.registerChatCommand('./systems/pointSystem.js', 'penalty', 2);
+        
+        $.registerChatSubcommand('points', 'add', 1);
+        $.registerChatSubcommand('points', 'give', 1);
+        $.registerChatSubcommand('points', 'take', 1);
+        $.registerChatSubcommand('points', 'remove', 1);
+        $.registerChatSubcommand('points', 'set', 1);
+        $.registerChatSubcommand('points', 'all', 1);
+        $.registerChatSubcommand('points', 'takeall', 1);
+        $.registerChatSubcommand('points', 'setname', 1);
+        $.registerChatSubcommand('points', 'setgain', 1);
+        $.registerChatSubcommand('points', 'setofflinegain', 1);
+        $.registerChatSubcommand('points', 'setinterval', 1);
+        $.registerChatSubcommand('points', 'bonus', 1);
+        $.registerChatSubcommand('points', 'resetall', 1);
+        $.registerChatSubcommand('points', 'setmessage', 1);
+        $.registerChatSubcommand('points', 'setactivebonus', 1);
 
             if (pointNameSingle != 'point' || pointNameMultiple != 'points') {
                updateSettings();

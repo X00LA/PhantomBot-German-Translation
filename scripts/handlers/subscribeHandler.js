@@ -33,9 +33,9 @@
     }
 
     /*
-     * @event newSubscriber
+     * @event subscriber
      */
-    $.bind('newSubscriber', function(event) {
+    $.bind('subscriber', function(event) {
         var subscriber = event.getSubscriber(),
             message = subMessage;
 
@@ -63,9 +63,9 @@
     });
 
     /*
-     * @event newPrimeSubscriber
+     * @event primeSubscriber
      */
-    $.bind('newPrimeSubscriber', function(event) {
+    $.bind('primeSubscriber', function(event) {
         var subscriber = event.getSubscriber(),
             message = primeSubMessage;
 
@@ -88,9 +88,9 @@
     });
 
     /*
-     * @event newReSubscriber
+     * @event reSubscriber
      */
-    $.bind('newReSubscriber', function(event) {
+    $.bind('reSubscriber', function(event) {
         var resubscriber = event.getReSubscriber(),
             months = event.getMonths(),
             message = reSubMessage,
@@ -252,18 +252,16 @@
      * @event initReady
      */
     $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./handlers/subscribehandler.js')) {
-            $.registerChatCommand('./handlers/subscribehandler.js', 'subwelcometoggle', 1);
-            $.registerChatCommand('./handlers/subscribehandler.js', 'resubemote', 1);
-            $.registerChatCommand('./handlers/subscribehandler.js', 'primesubwelcometoggle', 1);
-            $.registerChatCommand('./handlers/subscribehandler.js', 'resubwelcometoggle', 1);
-            $.registerChatCommand('./handlers/subscribehandler.js', 'subscribereward', 1);
-            $.registerChatCommand('./handlers/subscribehandler.js', 'resubscribereward', 1);
-            $.registerChatCommand('./handlers/subscribehandler.js', 'submessage', 1);
-            $.registerChatCommand('./handlers/subscribehandler.js', 'primesubmessage', 1);
-            $.registerChatCommand('./handlers/subscribehandler.js', 'resubmessage', 1);
-            announce = true;
-        }
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'subwelcometoggle', 1);
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'resubemote', 1);
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'primesubwelcometoggle', 1);
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'resubwelcometoggle', 1);
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'subscribereward', 1);
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'resubscribereward', 1);
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'submessage', 1);
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'primesubmessage', 1);
+        $.registerChatCommand('./handlers/subscribeHandler.js', 'resubmessage', 1);
+        announce = true;
     });
 
     $.updateSubscribeConfig = updateSubscribeConfig;
