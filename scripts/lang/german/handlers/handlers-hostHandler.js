@@ -13,6 +13,8 @@ $.lang.register('hosthandler.set.autohostmessage.success', 'Neue Auto-Hosting-Na
 $.lang.register('hosthandler.set.autohostmessage.usage', 'Verwendung: !autohostmessage (Nachricht) - Tags: (name)');
 $.lang.register('hosthandler.set.hostrewardminviewers.success', 'Ein Minimum von $1 Zuschauern sind notwendig, um eine Hosting-Belohnung zu erhalten.');
 $.lang.register('hosthandler.set.hostrewardminviewers.usage', 'Verwendung: !hostrewardminviewers [count]');
+$.lang.register('hosthandler.set.hostminviewers.success', 'Ein Minimum von $1 Zuschauern ist notwendig um eine Hostingbenachrichtigung auszulösen.');
+$.lang.register('hosthandler.set.hostminviewers.usage', 'Verwendung: !hostminviewers [Anzahl] (Aktuell: $1)');
 $.lang.register('hosthistory.usage', 'Verwendung: !hosthistory [on / off] (Aktuell: $1)');
 $.lang.register('hosthistory.change', 'Host-Verlauf $1');
 $.lang.register('hosthandler.host.usage', 'Verwendung: !host (Kanal)');

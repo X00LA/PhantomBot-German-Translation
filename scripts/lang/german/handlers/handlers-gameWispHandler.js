@@ -20,4 +20,4 @@ $.lang.register('gamewisptier.bonuspoints.usage.tier', 'Verwendung: !gamewisptie
 $.lang.register('gamewisptier.bonuspoints.success', 'GameWisp Bonusmultiplikator für Level $1 von $2 auf $3 geändert.');
 $.lang.register('gamewisptier.subbonuspoints.usage', 'Verwendung: !gamewisptier subbonuspoints [Level] [Nummer]');
 $.lang.register('gamewisptier.subbonuspoints.usage.tier', 'Verwendung: !gamewisptier subbonuspoints [Level] [Nummer] (Level $1 ist aktuell $2)');
-$.lang.register('gamewisptier.subbonuspoints', 'GameWisp Abonnement-/ReAbonnementbonuspunkte für Level $1, von $2 auf $3 geändert.');
+$.lang.register('gamewisptier.subbonuspoints.success', 'GameWisp Abonnement-/ReAbonnementbonuspunkte für Level $1, von $2 auf $3 geändert.');

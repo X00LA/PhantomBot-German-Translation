@@ -18,6 +18,7 @@ $.lang.register('adventuresystem.tamagotchijoined', '$1 tritt auch dem Abenteuer
 $.lang.register('adventuresystem.top5', 'Die Top 5 Abenteurer sind: $1.');
 $.lang.register('adventuresystem.top5.empty', 'Es wurden noch keine Abenteuer Gewinner verzeichnet.');
 
+
 $.lang.register('adventuresystem.stories.1.title', 'Schatz im Schwarzsee');
 $.lang.register('adventuresystem.stories.1.chapter.1', 'Nach jahrelangen Recherchen habe ich die Gewissheit, dass der Schatz im Schwarzsee keine Legende ist, er existiert wirklich! Lasst uns sofort aufbrechen und ihn den Tiefen entreissen.');
 $.lang.register('adventuresystem.stories.1.chapter.2', 'In den Tiefen des Sees gab es mehr als nur Fische und Muscheln. Seltsame Unterwassergeschöpfe wachen scheinbar über den Schatz. (caught) war(en) diesen Wesen nicht gewachsen und wurde(n) von ihnen getötet.');
@@ -50,10 +51,12 @@ $.lang.register('adventuresystem.stories.4.chapter.4', '(survivors), lasst uns h
  * - A story can have an unlimited number of chapters, IF you keep their subsequence numbers 1, 2, 3, 4, 5...
  * - Stories are picked at random.
  *
- ** Game specific story how-to.
+ ** Game specific story how-to. You also need to make sure that you at least have ONE story that doesn't require a specific game.
+ ** Please make sure that your story number also follow along. What I mean by that is it needs to start from 1 and go up. Same with the chapters.
  * - Add $.lang.register('adventuresystem.stories.NUMBER.game', 'GAME NAME IN LOWER CASE'); on top of the story chapter.
+
  * Example >
- * $.lang.register('adventuresystem.stories.5.game', 'gaming talk shows');
+ * $.lang.register('adventuresystem.stories.5.game', 'programming');
  * $.lang.register('adventuresystem.stories.5.title', 'Talk Shows');
  * $.lang.register('adventuresystem.stories.5.chapter.1', 'random story...');
  *
