@@ -810,9 +810,8 @@
         $.registerChatSubcommand('points', 'setmessage', 1);
         $.registerChatSubcommand('points', 'setactivebonus', 1);
 
-            if (pointNameSingle != 'point' || pointNameMultiple != 'points') {
-               updateSettings();
-            }
+        if (pointNameSingle != 'point' || pointNameMultiple != 'points') {
+           updateSettings();
         }
     });
 

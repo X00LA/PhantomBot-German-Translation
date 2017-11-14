@@ -377,26 +377,24 @@
 	});
 
 	$.bind('initReady', function() {
-		if ($.bot.isModuleEnabled('./systems/queueSystem.js')) {
-			$.registerChatCommand('./systems/queueSystem.js', 'joinqueue', 7);
-			$.registerChatCommand('./systems/queueSystem.js', 'queue', 7);
-
-			$.registerChatSubcommand('queue', 'open', 1);
-			$.registerChatSubcommand('queue', 'close', 1);
-			$.registerChatSubcommand('queue', 'clear', 1);
-			$.registerChatSubcommand('queue', 'remove', 1);
-			$.registerChatSubcommand('queue', 'pick', 1);
-			$.registerChatSubcommand('queue', 'list', 7);
-			$.registerChatSubcommand('queue', 'next', 7);
-			$.registerChatSubcommand('queue', 'info', 7);
-			$.registerChatSubcommand('queue', 'position', 7);
-		}
+		$.registerChatCommand('./systems/queueSystem.js', 'joinqueue', 7);
+		$.registerChatCommand('./systems/queueSystem.js', 'queue', 7);
+		
+		$.registerChatSubcommand('queue', 'open', 1);
+		$.registerChatSubcommand('queue', 'close', 1);
+		$.registerChatSubcommand('queue', 'clear', 1);
+		$.registerChatSubcommand('queue', 'remove', 1);
+		$.registerChatSubcommand('queue', 'pick', 1);
+		$.registerChatSubcommand('queue', 'list', 7);
+		$.registerChatSubcommand('queue', 'next', 7);
+		$.registerChatSubcommand('queue', 'info', 7);
+		$.registerChatSubcommand('queue', 'position', 7);
 	});
 
 	/**
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./systems/queueSystem.js')) {
         	var action = event.getArgs()[0];
 

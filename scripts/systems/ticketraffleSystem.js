@@ -129,7 +129,7 @@
                 t++;
                 if ((t + times) > maxEntries) {
                     if (msgToggle) {
-                        $.say($.whisperPrefix(user) + $.lang.get('ticketrafflesystem.litmi.hit', maxEntries));
+                        $.say($.whisperPrefix(user) + $.lang.get('ticketrafflesystem.limit.hit', maxEntries));
                     }
                     return;
                 }
@@ -154,7 +154,9 @@
             }
         }
 
-        totalEntries++;
+        if (!$.inidb.exists('entered', user.toLowerCase())) {
+            totalEntries++;
+        }
         totalTickets += times;
         $.inidb.decr('points', user, (times * cost));
         incr(user.toLowerCase(), times);
@@ -283,11 +285,9 @@
      * @event initReady
      */
     $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./systems/ticketRaffleSystem.js')) {
-            $.registerChatCommand('./systems/ticketRaffleSystem.js', 'traffle', 2);
-            $.registerChatCommand('./systems/ticketRaffleSystem.js', 'tickets', 7);
-            $.registerChatCommand('./systems/ticketRaffleSystem.js', 'ticket', 7);
-        }
+        $.registerChatCommand('./systems/ticketraffleSystem.js', 'traffle', 2);
+        $.registerChatCommand('./systems/ticketraffleSystem.js', 'tickets', 7);
+        $.registerChatCommand('./systems/ticketraffleSystem.js', 'ticket', 7);
     });
 
     $.reloadTRaffle = reloadTRaffle;
