@@ -124,8 +124,6 @@ $.lang.register('chatmoderator.silenttimeout.emotes.false', 'Stilles Timeout wur
 $.lang.register('chatmoderator.silenttimeout.colors.false', 'Stilles Timeout wurde für Farben deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.fakepurge.false', 'Stilles Timeout wurde für gefakte Reinigungen deaktiviert.');
 $.lang.register('chatmoderator.silenttimeout.long.msg.false', 'Stilles Timeout wurde für lange Nachrichten deaktiviert.');
-$.lang.register('chatmoderator.silenttimeout.blacklist.messages.false', 'Stilles Timeout wurde für die Blacklist deaktiviert.');
-$.lang.register('chatmoderator.silenttimeout.blacklist.messages.true', 'Stilles Timeout wurde für die Blacklist aktiviert.');
 $.lang.register('chatmoderator.silenttimeout.usage', 'Verwendung: !moderation silenttimeout [links / caps / symbols / spam / emotes / colors / longmessages / blacklist / spamtracker / fakepurge / all] [true / false]');
 $.lang.register('chatmoderator.link.message.usage', 'Verwendung: !moderation linksmessage [Nachricht]');
 $.lang.register('chatmoderator.link.message.set', 'Link-Warnnachricht geändert zu: $1');
@@ -179,7 +177,6 @@ $.lang.register('chatmoderator.whitelist.add.usage', 'Verwendung: !whiteList add
 $.lang.register('chatmoderator.whitelist.link.added', 'Link wurde der Whitelist hizugefügt.');
 $.lang.register('chatmoderator.whitelist.remove.usage', 'Verwendung: !whiteList remove (ID)');
 $.lang.register('chatmoderator.whitelist.removed', 'Link wurde aus der Whitelist entfernt!');
-$.lang.register('chatmoderator.whitelist.show.usage', 'Verwendung: !whiteList show (ID)');
 $.lang.register('chatmoderator.warning', '(Warnung)');
 $.lang.register('chatmoderator.timeout', '(Auszeit)');
 $.lang.register('chatmoderator.blacklisttimeouttime.set', 'Blacklist-Auszeit geändert zu $1 Sekunden.');
@@ -241,6 +238,7 @@ $.lang.register('common.enabled', 'aktiviert');
 $.lang.register('common.user-error', 'Du musst einen Benutzer als Ziel für diesen Befehl angeben.');
 $.lang.register('common.user.404', 'Der Benutzer "$1" hat diesen Kanal noch nicht besucht.');
 $.lang.register('common.game.change', 'Aktuelles Spiel zu $1 geändert!');
+$.lang.register('common.communities.change', 'Communities wurden aktualisiert!');
 $.lang.register('common.title.change', 'Aktueller Titel zu $1 geändert!');
 $.lang.register('common.twitch.no.status', 'nicht sicher, weder von Twitch');
 $.lang.register('common.twitch.no.game', 'nicht sicher, weder von Twitch');
@@ -263,6 +261,7 @@ $.lang.register('cooldown.coolcom.remove', 'Abklingzeit für den Befehl !$1 wurd
 $.lang.register('cooldown.cooldown.usage', 'Verwendung: !cooldown [togglemoderators / setdefault]');
 $.lang.register('cooldown.default.set', 'Die Standardabklingzeit für Befehle ohne spezifische Angabe wird automatisch auf $1 Sekunden festgelegt.');
 $.lang.register('cooldown.default.usage', 'Verwendung: !cooldown setdefault [Sekunden] - Lege eine Abklingzeit für Befehle fest, welche keine haben.');
+$.lang.register('cooldown.adventure.err', 'Bitte verwende "!adventure set cooldown" um die Abklinzeit für Abenteuer festzulegen.');
 $.lang.register('init.cmsgset', 'Verbunden-Nachricht gesetzt!');
 $.lang.register('init.module.404', 'Dieses Modul existiert nicht oder ist nicht geladen!');
 $.lang.register('init.module.check.disabled', 'Modul $1 ist aktuell deaktiviert!');
@@ -274,6 +273,9 @@ $.lang.register('init.module.error', 'Modul "$1" aktiviert, konnte aber nicht in
 $.lang.register('init.module.list', 'Module (* sind deaktiviert): $1');
 $.lang.register('init.module.list.total', 'Seiten gesamt: $1');
 $.lang.register('init.module.usage', 'Verwendung: !module list, !module enable [Modulname], !module disable [Modulname], !module status [Modulname]');
+$.lang.register('init.module.usage.disable', 'Verwendung: !module disable [module path]');
+$.lang.register('init.module.usage.status', 'Verwendung: !module status [module path]');
+$.lang.register('init.module.usage.enable', 'Verwendung: !module enable [module path]');
 $.lang.register('init.module.delete.usage', 'Verwendung: !module delete [Modulname] - Löscht den Eintrag aus der Datenbank! Verwendung für Module die gelöscht wurden!');
 $.lang.register('init.module.delete.success', 'Modul aus Datenbank gelöscht: $1');
 $.lang.register('init.module.delete.404', 'Modul in Datenbank nicht gefunden: $1');
@@ -294,6 +296,8 @@ $.lang.register('init.mod.toggle.on.pay', 'Moderatoren+ müssen nun für Befehle
 $.lang.register('init.mod.toggle.off.pay', 'Moderatoren+ müssen nun nicht mehr für Befehle bezahlen.');
 $.lang.register('init.mod.toggle.perm.msg.off', 'Keine-Erlaubnis-Meldungen wurden deaktiviert.');
 $.lang.register('init.mod.toggle.perm.msg.on', 'Es wurden keine Berechtigungsnachrichten aktiviert.');
+$.lang.register('init.mod.toggle.price.msg.off', 'Die Preisnachrichten wurde deaktiviert.');
+$.lang.register('init.mod.toggle.price.msg.on', 'Die Preisnachrichten wurden aktiviert.');
 $.lang.register('init.toggle.cooldown.msg.on', 'Die Abklingzeit-Meldungen wurden aktiviert.');
 $.lang.register('init.toggle.cooldown.msg.off', 'Die Abklingzeit-Meldungen wurden deaktiviert.');
 $.lang.register('init.cooldown.msg', 'Befehl !$1 ist immer noch auf Abklingzeit. ($2 Sekunden)');

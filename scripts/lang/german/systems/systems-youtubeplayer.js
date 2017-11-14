@@ -34,6 +34,9 @@ $.lang.register('ytplayer.command.stealsong.other.success', '$1 hat den aktuelle
 $.lang.register('ytplayer.command.stealsong.refund', '$1 erhielt für seinen/ihren übermittelten Song eine Gutschrift von $2 $3 auf sein/ihr Punktekonto!');
 $.lang.register('ytplayer.command.stealsong.duplicate', 'Dieser Song ist bereits in der PLaylist!');
 $.lang.register('ytplayer.command.jumptosong.failed', 'Kann den Song an der Playlistposition $1 nicht finden.');
+$.lang.register('ytplayer.command.jumptosong.usage', 'Verwendung: !$1 [Positionsnummer]');
+$.lang.register('ytplayer.command.findsong.failed', 'Kann keinen Song mit einem Titel finden, der $1 enthält.');
+$.lang.register('ytplayer.command.findsong.usage', 'Verwendung: !$1 [Suchtext]. Durchsucht Song-Anfragen, falls vorhanden, sonst die aktuelle Playlist, nach der ersten Übereinstimmung.');
 $.lang.register('ytplayer.command.songrequest.usage', 'Verwendung: !songrequest [YouTube ID | YouTube Link | Suchbegriff]');
 $.lang.register('ytplayer.command.songrequest.success', 'Dein Titel "$1", wurde zur Warteliste hinzugefügt. (Position: $2 ID: $3)');
 $.lang.register('ytplayer.command.songrequest.failed', 'Hinzufügen von $1, zur Warteschlange, fehlgeschlagen.');
@@ -82,6 +85,7 @@ $.lang.register('ytplayer.command.skip.success', 'Überspringen angefragt! Der a
 $.lang.register('ytplayer.command.skip.disabled', 'Die Abstimmfunktion ist derzeit deaktiviert.');
 $.lang.register('ytplayer.command.skip.failure', 'Du hast bereits das Überspringen des Titels beantragt.');
 $.lang.register('ytplayer.command.skip.skipping', 'Die Stimmen wurden gezählt uns die Zuschauer haben gesprochen!!! Überspringe den aktuellen Titel!');
+$.lang.register('ytplayer.command.skip.delay', 'Überspringen ist im Moment nicht erlaubt, bitte versuche es später noch einmal.');
 $.lang.register('ytplayer.command.votecount.set', 'Minimale Anzahl an Stimmen um Musiktitel zu überspringen: $1');
 $.lang.register('ytplayer.command.votecount.negative', 'Die Anzahl an Stimmen muss positiv sein!');
 $.lang.register('ytplayer.command.votecount.usage', '!ytp votecount [Anzahl]  ---  Aktuelle Einstellung: $1');

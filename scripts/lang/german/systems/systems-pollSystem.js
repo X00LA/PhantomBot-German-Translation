@@ -3,6 +3,7 @@ $.lang.register('pollsystem.vote.already', 'Du hast schon abgestimmt.');
 $.lang.register('pollsystem.vote.invalid', '"$1" ist keine gültige Option!');
 $.lang.register('pollsystem.vote.success', 'Du hast "$1" an "$2" gewählt.');
 $.lang.register('pollsystem.poll.started', '$1 hat für $2 Sekunden eine Umfrage gestartet (Minimal abgegebene Stimmen: $3): $4! Verwende "!vote [Option]" zum abstimmen. Optionen: $5');
+$.lang.register('pollsystem.poll.started.notime', '$1 hat eine Umfrage gestartet (Minimale Stimmen: $2): $3! Verwende "!vote [Option]" um abzustimmen. Optionen: $4');
 $.lang.register('pollsystem.poll.running', 'Es läuft gerade für "$1" eine Umfrage. Verwende "!vote [Option]" zum abstimmen. Die Optionen sind "$2".');
 $.lang.register('pollsystem.poll.usage', 'Verwendung: !poll [open | results | close]');
 $.lang.register('pollsystem.results.lastpoll', '[Letzte Umfrage]  - [Frage: "$1"] - [Stimmen gesamt: $2] - [Ergebnis: "$3"] - [Optionen: "$4"] [Stimmen: $5]');

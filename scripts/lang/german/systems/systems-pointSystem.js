@@ -48,3 +48,7 @@ $.lang.register('pointsystem.penalty.set', 'Benutzer: $1 wird für die nächsten
 $.lang.register('pointsystem.reset.all', 'Alle Punkte gelöscht.');
 $.lang.register('pointsystem.message.usage', 'Verwendung: !points setmessage [Nachricht] - Tags: (userprefix), (user), (points), (pointsname), (pointsstring), (time), and (rank)');
 $.lang.register('pointsystem.message.set', 'Punktenachricht festgelegt zu: $1');
+$.lang.register('pointsystem.active.bonus.usage', 'Verwendung: !points setactivebonus [Höhe]');
+$.lang.register('pointsystem.active.bonus.set', 'Aktivitätsbonus auf $1 festgelegt.');
+$.lang.register('pointsystem.bonus.usage', 'Verwendung: !points bonus (Höhe) (für Zeit)');
+$.lang.register('pointsystem.bonus.say', 'Für die nächsten $1 gebe ich dir $2 Extra-$3 bei jeder Auszahlung!');

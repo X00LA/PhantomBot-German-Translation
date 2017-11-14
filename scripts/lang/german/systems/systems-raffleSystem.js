@@ -36,4 +36,3 @@ $.lang.register('rafflesystem.open.keyword-exists', 'Das Schlüsselwort darf kei
 $.lang.register('rafflesystem.winner.404', 'Kann keine/n GewinnerIn ermitteln. Niemand hat bei der Verlosung teilgenommen.');
 $.lang.register('rafflesystem.isfollowing', '[Follower]');
 $.lang.register('rafflesystem.isnotfollowing', '[Kein Follower]');
-$.lang.register('rafflesystem.warningmessages.toggle', 'Warnnachrichten für Verlosungen wurden ');
