@@ -7,3 +7,5 @@ $.lang.register('discord.greetingssystem.part.message.usage', 'Verwendung: !gree
 $.lang.register('discord.greetingssystem.part.message.set', 'Austrittsbenachrichtigungsnachricht wurde festgelegt zu: $1.');
 $.lang.register('discord.greetingssystem.channel.usage', 'Verwendung: !greetingssystem channel [Kanalname]');
 $.lang.register('discord.greetingssystem.channel.set', 'Begrüßungsbenachrichtigungen werden nun im Kanal #$1 ausgegeben!');
+$.lang.register('discord.greetingssystem.joinrole.usage', 'Verwendung: !greetingssystem joinrole [Rollenname]');
+$.lang.register('discord.greetingssystem.joinrole.set', 'Standardrolle wurde zu $1 festgelegt.');

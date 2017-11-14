@@ -1,15 +1,15 @@
-$.lang.register('discord.gambling.need.points', 'you don\'t have that many $1.');
-$.lang.register('discord.gambling.error.max', 'you\'re only allowed to gamble a maximum of $1.');
-$.lang.register('discord.gambling.error.min', 'you\'re only allowed to gamble a minimum of $1.');
-$.lang.register('discord.gambling.lost', '$1 rolled $2 and lost $3. $5'); // Use $4 for the points the user has renaming
-$.lang.register('discord.gambling.won', '$1 rolled $2 and won $3! $5'); // Use $4 for the points the user has renaming
-$.lang.register('discord.gambling.usage', 'Usage: !gamble [amount]');
-$.lang.register('discord.gambling.set.max.usage', 'Usage: !gambling setmax [amount]');
-$.lang.register('discord.gambling.set.max', 'set max gambling to $1!');
-$.lang.register('discord.gambling.set.min.usage', 'Usage: !gambling setmin [amount]');
-$.lang.register('discord.gambling.set.min', 'set minimum gambling to $1!');
-$.lang.register('discord.gambling.win.range.usage', 'Usage: !gambling setwinningrange [range]');
-$.lang.register('discord.gambling.win.range', 'set gambling win range to $1-100 lose range to 1-$2');
-$.lang.register('discord.gambling.percent.usage', 'Usage: !gambling setgainpercent [amount]');
-$.lang.register('discord.gambling.percent', 'set gambling gain percent to $1%');
-$.lang.register('discord.gambling.main.usage', 'Usage: !gambling [setmax / setmin / setwinningrange / setgainpercent]');
+$.lang.register('discord.gambling.need.points', 'Du hast nicht genug $1.');
+$.lang.register('discord.gambling.error.max', 'Der maximal erlaubte Einsatz beträgt $1.');
+$.lang.register('discord.gambling.error.min', 'Der minimal erlaubte Einsatz beträgt $1.');
+$.lang.register('discord.gambling.lost', '$1 würfelte $2 und hat $3 verloren. $5'); // Use $4 for the points the user has remaining
+$.lang.register('discord.gambling.won', '$1 würfelte $2 und hat $3 gewonnen! $5'); // Use $4 for the points the user has remaining
+$.lang.register('discord.gambling.usage', 'Verwendung: !gamble [Einsatz]');
+$.lang.register('discord.gambling.set.max.usage', 'Verwendung: !gambling setmax [Einsatz]');
+$.lang.register('discord.gambling.set.max', 'Maximal erlaubter Einsatz auf $1 festgelegt!');
+$.lang.register('discord.gambling.set.min.usage', 'Verwendung: !gambling setmin [Einsatz]');
+$.lang.register('discord.gambling.set.min', 'Minimal erlaubter Einsatz auf $1 festgelegt!');
+$.lang.register('discord.gambling.win.range.usage', 'Verwendung: !gambling setwinningrange [Gewinnspanne]');
+$.lang.register('discord.gambling.win.range', 'Gewinnspanne auf den Bereich $1-100 und Verlustspanne auf den Bereich von 1-$2 festgelegt.');
+$.lang.register('discord.gambling.percent.usage', 'Verwendung: !gambling setgainpercent [Prozenangabe]');
+$.lang.register('discord.gambling.percent', 'Spielgewinn auf den Prozentsatz von $1% festgelegt.');
+$.lang.register('discord.gambling.main.usage', 'Verwendung: !gambling [setmax / setmin / setwinningrange / setgainpercent]');

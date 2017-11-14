@@ -1,1 +1,0 @@
-$.lang.register('8ball.usage', 'Stelle der magischen 8er-Kugel eine Frage mit !8ball [Frage]');

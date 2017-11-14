@@ -13,9 +13,10 @@ var showChat = false;
 var loadedChat = false;
 var volumeSlider = null;
 var progressSlider = null;
+var lastSkipButtonPress = 0;
 
 var url = window.location.host.split(":");
-var addr = 'ws://' + url[0] + ':' + getPlayerPort();
+var addr = (getProtocol() == 'https://' ? 'wss://' : 'ws://') + url[0] + ':' + getPlayerPort();
 var connection = new WebSocket(addr, []);
 var currentVolume = 0;
 
@@ -165,8 +166,12 @@ function handlePlayList(d) {
         var title = d['playlist'][i]['title'];
         var duration = d['playlist'][i]['duration'];
         tableData += "<tr>" +
-                     "<td width=\"15\"><divclass=\"button\" onclick=\"deletePLSong('" + id + "')\"><i class=\"fa fa-trash-o\" /></div></td>" +
-                     "<td>" + title + "</td><td>" + duration + "</td><td>" + id + "</td></tr>";
+                     "    <td width=\"15\"><divclass=\"button\" onclick=\"deletePLSong('" + id + "')\"><i class=\"fa fa-trash-o\" /></div></td>" +
+                     "    <td> " + (parseInt(i) + 1) + "</td>" +
+                     "    <td>" + title + "</td>" +
+                     "    <td>" + duration + "</td>" +
+                     "    <td>" + id + "</td>" +
+                     "</tr>";
     }
     $("#playlistTable").html(tableData);
 }
@@ -181,7 +186,8 @@ function handleSongList(d) {
         var requester = d['songlist'][i]['requester'];
         tableData += "<tr>" +
                      "    <td width=\"15\"><divclass=\"button\" onclick=\"deleteSong('" + id + "')\"><i class=\"fa fa-trash-o\" /></div></td>" +
-                     "    <td width=\"15\"><divclass=\"button\" onclick=\"stealSong('" + id + "')\"><i class=\"fa fa-bookmark\" /></div></td>" +
+                     "    <td width=\"15\"><divclass=\"button\" onclick=\"stealSong('" + id + "', '" + requester + "')\"><i class=\"fa fa-bookmark\" /></div></td>" +
+                     "    <td> " + (parseInt(i) + 1) + "</td>" +
                      "    <td>" + title + "</td>" +
                      "    <td>" + requester + "</td>" +
                      "    <td>" + duration + "</td>" +
@@ -275,12 +281,13 @@ function deletePLSong(id) {
     debugMsg("deleteSong::connection.send(" + JSON.stringify(jsonObject) + ")");
 }
 
-function stealSong(id) {
+function stealSong(id, requester) {
     debugMsg("stealSong()");
     var jsonObject = {};
     jsonObject["command"] = 'stealsong';
     if (id) {
         jsonObject["youTubeID"] = id;
+        jsonObject["requester"] = requester;
     }
     connection.send(JSON.stringify(jsonObject));
     debugMsg("deleteSong::connection.send(" + JSON.stringify(jsonObject) + ")");
@@ -311,10 +318,18 @@ function randomizePlaylist(d) {
 
 function skipSong(d) {
     debugMsg("skipSong()");
+
+    // This is to stop people from spamming the button and cause a loop.
+    if (Date.now() - lastSkipButtonPress < 1000) {
+        return;
+    }
+
     var jsonObject = {};
     jsonObject["command"] = "skipsong";
     connection.send(JSON.stringify(jsonObject));
     debugMsg("deleteSong::connection.send(" + JSON.stringify(jsonObject) + ")");
+
+    lastSkipButtonPress = Date.now();
 }
 
 function handlePause(d) {

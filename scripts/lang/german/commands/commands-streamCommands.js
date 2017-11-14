@@ -11,6 +11,7 @@ $.lang.register('streamcommand.game.online', 'Aktuelles Spiel: $1, Spielzeit: $2
 $.lang.register('streamcommand.game.offline', 'Aktuelles Spiel: $1');
 $.lang.register('streamcommand.game.no.game', 'Kein Spiel festgelegt.');
 $.lang.register('streamcommand.game.set.usage', 'Verwendung: !game set [Spieltitel]. Aktuell: $1');
+$.lang.register('streamcommand.communities.set.usage', 'Verwendung: !setcommunities [communities]. Aktuell: $1');
 $.lang.register('streamcommand.viewers', 'Aktuell sehen $1 Zuschauer zu.');
 $.lang.register('streamcommand.online.offline', 'Stream ist offline.');
 $.lang.register('streamcommand.online.online', 'Stream ist online.');

@@ -1,0 +1,10 @@
+$.lang.register('discord.rolemanager.usage', 'Verwendung: !rolemanager [togglesyncpermissions / togglesyncranks / blacklist]');
+$.lang.register('discord.rolemanager.permission.sync.on', 'Bot Berechtigungen werden nun mit Benutzern synchronisiert, deren Konto mit dem Bot verknüpft ist.');
+$.lang.register('discord.rolemanager.permission.sync.off', 'Bot Berechtigungen werden nicht mehr synchronisiert.');
+$.lang.register('discord.rolemanager.ranks.sync.on', 'Die Ränge werden nun mit Nutzern synchronisiert, deren Konto mit dem Bot verknüpft ist.');
+$.lang.register('discord.rolemanager.ranks.sync.off', 'Ränge werden nicht mehr synchronisiert.');
+$.lang.register('discord.rolemanager.blacklist.usage', 'Verwendung: !rolemanager blacklist [add / remove] [permission or rank] - Verhindere das Festlegen eines Ranges oder einer Berechtigung.');
+$.lang.register('discord.rolemanager.blacklist.add.usage', 'Verwendung: !rolemanager blacklist add [permission or rank] - Verhindere das Festlegen eines Ranges oder einer Berechtigung.');
+$.lang.register('discord.rolemanager.blacklist.add.success', 'Die Gruppe $1 wurde der schwarzen Liste hinzugefügt!');
+$.lang.register('discord.rolemanager.blacklist.remove.usage', 'Verwendung: !rolemanager blacklist remove [permission or rank]');
+$.lang.register('discord.rolemanager.blacklist.remove.success', 'Die Gruppe $1 wurde von der schwarzen Liste entfernt!');

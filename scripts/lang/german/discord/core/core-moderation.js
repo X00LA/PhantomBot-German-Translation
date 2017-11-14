@@ -42,3 +42,4 @@ $.lang.register('moderation.logs.toggle.usage', 'Verwendung: !moderation logs [t
 $.lang.register('moderation.logs.toggle', 'Twitch Moderations-Logs wurden $1. **[Erfordert Bot Neustart]**');
 $.lang.register('moderation.logs.channel.usage', 'Verwendung: !moderation logs channel [Kanalname]');
 $.lang.register('moderation.logs.channel.set', 'Twitch Moderations-Log Benachrichtigungen werden ab sofort im Kanal #$1 ausgegeben.');
+$.lang.register('moderation.cbenni.toggle', 'Cbenni Link-Anzeige für die Moderation wurde $1.');
