@@ -129,7 +129,7 @@
                         blacklist[i] = JSON.parse(modValue);
                         html += '<tr>' +
                         '<td>' + (modSetting.length > 80 ? modSetting.substring(0, 80) + '...' : modSetting) + '</td>' +
-                        '<td style="float: right;"><button type="button" class="btn btn-default btn-xs" onclick="$.openBlackListModal(\'' + i + '\')"><i class="fa fa-pencil" /> </button>' +
+                        '<td style="float: right;"><button type="button" class="btn btn-default btn-xs" onclick="$.openBlackListModal(\'' + i + '\')"><i class="fa fa-hdd-o" /> </button>' +
                         '<button type="button" id="delete_blackList_' + modSetting.replace(/[^a-zA-Z0-9]/ig, '_') + '" class="btn btn-default btn-xs" onclick="$.deleteBlacklist(\'' + modSetting.replace(/\\/g, '\\\\') + '\')">'+
                         '<i class="fa fa-trash" /> </button></td> ' +
                         '</tr>';
@@ -429,6 +429,12 @@
                             $('#toggleRegularColors').attr('checked', 'checked');
                         }
                     }
+
+                    if (panelMatch(modSetting, 'regularsModerateEmotes')) {
+                        if (panelMatch(modValue, 'false')) {
+                            $('#toggleRegularEmotes').attr('checked', 'checked');
+                        }
+                    }
                     
                     if (panelMatch(modSetting, 'regularsModerateLongMsg')) {
                         if (panelMatch(modValue, 'false')) {
@@ -477,6 +483,12 @@
                             $('#toggleSubscriberColors').attr('checked', 'checked');
                         }
                     }
+
+                    if (panelMatch(modSetting, 'subscribersModerateEmotes')) {
+                        if (panelMatch(modValue, 'false')) {
+                            $('#toggleSubscriberEmotes').attr('checked', 'checked');
+                        }
+                    }
                     
                     if (panelMatch(modSetting, 'subscribersModerateLongMsg')) {
                         if (panelMatch(modValue, 'false')) {
@@ -523,6 +535,12 @@
                     if (panelMatch(modSetting, 'silentTimeoutColors')) {
                         if (panelMatch(modValue, 'true')) {
                             $('#toggleSilentTimeoutColors').attr('checked', 'checked');
+                        }
+                    }
+
+                    if (panelMatch(modSetting, 'silentTimeoutEmotes')) {
+                        if (panelMatch(modValue, 'true')) {
+                            $('#toggleSilentTimeoutEmotes').attr('checked', 'checked');
                         }
                     }
 
@@ -644,7 +662,7 @@
         /* this was giving errors if it contained a symbol other then _ */
         var newkey = key.replace(/[^a-zA-Z0-9]/ig, '_');
 
-        $("#delete_blackList_" + newkey).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#delete_blackList_" + newkey).html("<i style=\"color: var(--main-color)\" class=\"fa fa-spinner fa-spin\" />");
 
         sendDBDelete("commands_delblacklist_" + key, "blackList", key);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
@@ -657,7 +675,7 @@
      */
     function deleteWhitelist(key) {
         var newkey = key.replace(/[^a-z1-9]/ig, '_');
-        $("#delete_whiteList_" + newkey).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#delete_whiteList_" + newkey).html("<i style=\"color: var(--main-color)\" class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("commands_delwhitelist_" + newkey, "whiteList", key);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
@@ -789,10 +807,10 @@
      * @param {String} newValue
      */
     function updateModSetting(tableKey, newValue) {
-        $("#modSetting_" + tableKey).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#modSetting_" + tableKey).html("<i style=\"color: var(--main-color)\" class=\"fa fa-spinner fa-spin\" />");
         sendDBUpdate("moderation_updateSetting_" + tableKey, "chatModerator", tableKey, newValue);
         setTimeout(function() {
-            $("#modSetting_" + tableKey).html("<strong><font style=\"color: #6136b1\">" + modSettingIcon[newValue] + "</font></strong>");
+            $("#modSetting_" + tableKey).html("<strong><font style=\"color: var(--main-color)\">" + modSettingIcon[newValue] + "</font></strong>");
         }, TIMEOUT_WAIT_TIME);
         setTimeout(function() { sendCommand("reloadmod"); }, TIMEOUT_WAIT_TIME);
     }

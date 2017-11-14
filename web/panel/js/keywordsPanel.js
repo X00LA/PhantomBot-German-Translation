@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* 
+/*
  * @author IllusionaryOne
  */
 
@@ -25,7 +25,7 @@
 
 (function() {
 
-    var spinIcon = '<i style="color: #6136b1" class="fa fa-spinner fa-spin" />';
+    var spinIcon = '<i style="color: var(--main-color)" class="fa fa-spinner fa-spin" />';
 
     /**
      * @function onMessage
@@ -55,10 +55,10 @@
                     '    <td style="width: 15%">' + (keyword.length > 15 ? keyword.substring(0, 15) + '..' : keyword) + '</td>' +
                     '    <td style="vertical-align: middle">' +
                     '        <form onkeypress="return event.keyCode != 13">' +
-                    '            <input style="width: 88%;" type="text" id="inlineKeywordEdit_' + keyword.replace(/[^a-z1-9]/ig, '_') + '"' +
+                    '            <input style="width: 88%;" type="text" class="input-control" id="inlineKeywordEdit_' + keyword.replace(/[^a-z1-9]/ig, '_') + '"' +
                     '                   value="' + msgObject['results'][idx]['value'] + '" />' +
                     '              <button style="float: right;" type="button" class="btn btn-default btn-xs" id="deleteKeyword_' + keyword.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyword(\'' + keyword.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S').replace(/\\/g, '\\\\') + '\')"><i class="fa fa-trash" /> </button>' +
-                    '              <button style="float: right;" type="button" class="btn btn-default btn-xs" onclick="$.updateKeyword(\'' + keyword.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
+                    '              <button style="float: right;" type="button" class="btn btn-default btn-xs" onclick="$.updateKeyword(\'' + keyword.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-hdd-o" /> </button> ' +
                     '             </form>' +
                     '        </form>' +
                     '    </td>' +
@@ -83,10 +83,10 @@
                     '    <td style="width: 15%">' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
                     '    <td style="vertical-align: middle">' +
                     '        <form onkeypress="return event.keyCode != 13">' +
-                    '            <input style="width: 88%" type="text" id="editCooldown_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
+                    '            <input style="width: 88%" type="text" class="input-control" id="editCooldown_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
                     '                   value="' + time + '" />' +
                     '              <button style="float: right;" type="button" class="btn btn-default btn-xs" id="deleteCooldown_' + key.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyCooldown(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S').replace(/\\/g, '\\\\')  + '\')"><i class="fa fa-trash" /> </button>' +
-                    '              <button style="float: right;" type="button" class="btn btn-default btn-xs" onclick="$.editKeyCooldown(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
+                    '              <button style="float: right;" type="button" class="btn btn-default btn-xs" onclick="$.editKeyCooldown(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-hdd-o" /> </button> ' +
                     '             </form>' +
                     '        </form>' +
                     '    </td>' +
@@ -110,10 +110,10 @@
                     '    <td style="width: 15%">' + (key.length > 15 ? key.substring(0, 15) + '..' : key) + '</td>' +
                     '    <td style="vertical-align: middle">' +
                     '        <form onkeypress="return event.keyCode != 13">' +
-                    '            <input style="width: 88%" type="text" id="editKeyPrice_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
+                    '            <input style="width: 88%" type="text" class="input-control" id="editKeyPrice_' + key.replace(/[^a-z1-9]/ig, '_') + '"' +
                     '                   value="' + time + '" />' +
                     '              <button style="float: right;" type="button" class="btn btn-default btn-xs" id="deleteKeyPrice_' + key.replace(/[^a-z1-9]/ig, '_') + '" onclick="$.deleteKeyPrice(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S').replace(/\\/g, '\\\\')  + '\')"><i class="fa fa-trash" /> </button>' +
-                    '              <button style="float: right;" type="button" class="btn btn-default btn-xs" onclick="$.updateKeyPrice(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-pencil" /> </button> ' +
+                    '              <button style="float: right;" type="button" class="btn btn-default btn-xs" onclick="$.updateKeyPrice(\'' + key.replace(/\'/g, 'S__S__S').replace(/"/g, 'S___S___S').replace(/\s/g, 'S____S____S') + '\')"><i class="fa fa-hdd-o" /> </button> ' +
                     '             </form>' +
                     '        </form>' +
                     '    </td>' +
@@ -134,7 +134,7 @@
         sendDBKeys('keywords_price', 'pricekey');
     }
 
-    /** 
+    /**
      * @function addKeyword
      */
     function addKeywordnew() {
@@ -198,7 +198,7 @@
      */
     function deleteKeyCooldown(command) {
         command = command.replace(/S__S__S/g, '\'').replace(/S___S___S/g, '"').replace(/S____S____S/g, ' ');
-        $("#deleteCooldown_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteCooldown_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: var(--main-color)\" class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("keyword_cooldown_delete", "coolkey", command);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     }
@@ -208,7 +208,7 @@
     function addKeyCooldown() {
         var input = $("#cooldownKeyInput").val();
         var command = $("#cooldownKeyInputCommand").val();
-        
+
         if (input.length > 0 && command.length != 0) {
             sendDBUpdate("keyword_cooldown_add", "coolkey", String(command.toLowerCase()), String(input));
             $("#cooldownKeyInput").val("Übermittelt");
@@ -238,20 +238,20 @@
     function updateKeyPrice(command) {
         command = command.replace(/S__S__S/g, '\'').replace(/S___S___S/g, '"').replace(/S____S____S/g, ' ');
         var val = $('#editKeyPrice_' + command.replace(/[^a-z1-9]/ig, '_')).val();
-        $('#editKeyPrice_' + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $('#editKeyPrice_' + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: var(--main-color)\" class=\"fa fa-spinner fa-spin\" />");
         if (val > 0) {
             sendDBUpdate("keyword_editprice_" + command, "pricekey", command.toLowerCase(), val);
             setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
         }
     };
 
-    /** 
+    /**
      * @function deleteKeyPrice
      * @param {String} command
      */
     function deleteKeyPrice(command) {
         command = command.replace(/S__S__S/g, '\'').replace(/S___S___S/g, '"').replace(/S____S____S/g, ' ');
-        $("#deleteKeyPrice_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: #6136b1\" class=\"fa fa-spinner fa-spin\" />");
+        $("#deleteKeyPrice_" + command.replace(/[^a-z1-9]/ig, '_')).html("<i style=\"color: var(--main-color)\" class=\"fa fa-spinner fa-spin\" />");
         sendDBDelete("keyword_delcomprice_" + command, "pricekey", command);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME);
     };

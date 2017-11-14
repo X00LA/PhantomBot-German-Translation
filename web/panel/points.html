@@ -83,13 +83,9 @@
         </div>
 
         <div class="form-group" onkeypress="return event.keyCode != 13">
-            <label for="topListAmountPoints">Top Punkte Liste Anzahl</label>
-            <button type="button" class="btn btn-primary inline pull-right" onclick="$.topListPoints()">Aktualisieren</button>
-            <input type="number" min="0" class="form-control" id="topListAmountPoints" placeholder="Anzahl" />
-        </div></br>
-        
-        <div>
-        <p>Befehl um den Punktestand anzeigen zu lassen: <b>!points</b></p>
+            <label for="setActiveBonus">Lege Aktivitätsbonus fest</label>
+            <button type="button" class="btn btn-primary inline pull-right" onclick="$.setPointGain('setactivebonus')">Aktualisieren</button>
+            <input type="number" min="0" class="form-control" id="setPointGainInput_setactivebonus" placeholder="Punkte" />
         </div>
 
         <div class="form-group" onkeypress="return event.keyCode != 13">
@@ -149,11 +145,11 @@
         Die hier definierten Einstellungen überschreiben die globalen Einstellungen. Beachte, dass ein Wert von "-1" anzeigt, dass die 
         globalen Werte verwendet werden.<br><br>
         <strong>Gruppen Punkte Konfiguration - Online</strong><br>
-        <div id="groupPointsTable" style="height: 225px; overflow: auto;" />
+        <div id="groupPointsTable" style="height: 255px; overflow: auto;" />
         <br>
 
         <strong>Gruppen Punkte Konfiguration - Offline</strong><br>
-        <div id="groupPointsOfflineTable" style="height: 225px; overflow: auto;" />
+        <div id="groupPointsOfflineTable" style="height: 255px; overflow: auto;" />
     </div>
     </div>
 </div>
