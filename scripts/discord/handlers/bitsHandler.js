@@ -8,9 +8,9 @@
 	    announce = false;
 
     /**
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/bitsHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'bitsToggle', false);
             message = $.getIniDbString('discordSettings', 'bitsMessage', '(name) hat dir (amount) Bits spendiert!');
@@ -42,9 +42,9 @@
 	});
 
 	/**
-	 * @event discordCommand
+	 * @event discordChannelCommand
 	 */
-	$.bind('discordCommand', function(event) {
+	$.bind('discordChannelCommand', function(event) {
 		var sender = event.getSender(),
             channel = event.getChannel(),
             command = event.getCommand(),

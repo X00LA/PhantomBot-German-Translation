@@ -8,9 +8,9 @@
 	    announce = false;
 
     /**
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/followHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'followToggle', false);
             message = $.getIniDbString('discordSettings', 'followMessage', '(name) folgt dir nun!');
@@ -44,9 +44,9 @@
 	});
 
 	/**
-	 * @event discordCommand
+	 * @event discordChannelCommand
 	 */
-	$.bind('discordCommand', function(event) {
+	$.bind('discordChannelCommand', function(event) {
 		var sender = event.getSender(),
             channel = event.getChannel(),
             command = event.getCommand(),

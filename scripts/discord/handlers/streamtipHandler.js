@@ -8,9 +8,9 @@
         announce = false;
 
     /**
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/streamtipHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'streamtipToggle', false);
             message = $.getIniDbString('discordSettings', 'streamtipMessage', 'Vielen Dank (name), für das Trinkgeld in Höhe von €(amount) (currency)!');
@@ -75,9 +75,9 @@
     });
 
     /**
-     * @event discordCommand
+     * @event discordChannelCommand
      */
-    $.bind('discordCommand', function(event) {
+    $.bind('discordChannelCommand', function(event) {
         var sender = event.getSender(),
             channel = event.getChannel(),
             command = event.getCommand(),

@@ -12,9 +12,9 @@
 	    announce = false;
 
     /**
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/subscribeHandler.js')) {
             subMessage = $.getIniDbString('discordSettings', 'subMessage', '(name) hat dich gerade abonniert!');
             primeMessage = $.getIniDbString('discordSettings', 'primeMessage', '(name) hat dich gerade über Twitch Prime abonniert!');
@@ -27,9 +27,9 @@
     });
 
 	/**
-	 * @event newSubscriber
+	 * @event subscriber
 	 */
-	$.bind('newSubscriber', function(event) {
+	$.bind('subscriber', function(event) {
 		var subscriber = event.getSubscriber(),
 		    s = subMessage;
 
@@ -45,9 +45,9 @@
     });
 
     /**
-	 * @event newPrimeSubscriber
+	 * @event primeSubscriber
 	 */
-	$.bind('newPrimeSubscriber', function(event) {
+	$.bind('primeSubscriber', function(event) {
 		var subscriber = event.getSubscriber(),
 		    s = primeMessage;
 
@@ -63,9 +63,9 @@
     });
 
     /**
-	 * @event newReSubscriber
+	 * @event reSubscriber
 	 */
-	$.bind('newReSubscriber', function(event) {
+	$.bind('reSubscriber', function(event) {
 		var subscriber = event.getReSubscriber(),
 		    months = event.getMonths(),
 		    s = resubMessage;
@@ -86,9 +86,9 @@
     });
 
     /**
-	 * @event discordCommand
+	 * @event discordChannelCommand
 	 */
-	$.bind('discordCommand', function(event) {
+	$.bind('discordChannelCommand', function(event) {
 		var sender = event.getSender(),
             channel = event.getChannel(),
             command = event.getCommand(),

@@ -15,9 +15,9 @@
     }
 
     /**
-     * @event discordCommand
+     * @event discordChannelCommand
      */
-    $.bind('discordCommand', function(event) {
+    $.bind('discordChannelCommand', function(event) {
         var channel = event.getChannel(),
             command = event.getCommand(),
             mention = event.getMention(),
@@ -30,7 +30,7 @@
          */
         if (command.equalsIgnoreCase('8ball')) {
         	if (action === undefined) {
-        		$.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('8ball.usage'));
+        		$.discord.say(channel, $.discord.userPrefix(mention) + 'Verwendung: !8ball [Frage]');
         		return;
         	}
 

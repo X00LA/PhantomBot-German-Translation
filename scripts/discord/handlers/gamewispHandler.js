@@ -12,9 +12,9 @@
         announce = false;
 
     /**
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/gamewispHandler.js')) {
             subMessage = $.getIniDbString('discordSettings', 'gamewispSubMessage', '(name) hat dich gerade auf GameWisp mit dem Rang (tier) abonniert!');
             resubMessage = $.getIniDbString('discordSettings', 'gamewispReSubMessage', '(name) hat dich seit (months) Monaten in Folge via GameWisp abonniert!');
@@ -96,9 +96,9 @@
     });
 
     /**
-     * @event discordCommand
+     * @event discordChannelCommand
      */
-    $.bind('discordCommand', function(event) {
+    $.bind('discordChannelCommand', function(event) {
         var sender = event.getSender(),
             channel = event.getChannel(),
             command = event.getCommand(),

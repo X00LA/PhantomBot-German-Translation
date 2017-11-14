@@ -4,24 +4,26 @@
 	    joinMessage = $.getSetIniDbString('discordSettings', 'joinMessage', '(name) hat gerade den Server betreten!'),
 	    partMessage = $.getSetIniDbString('discordSettings', 'partMessage', '(name) hat gerade den Server verlassen!'),
 	    channelName = $.getSetIniDbString('discordSettings', 'greetingsChannel', '');
+	    joinGroup = $.getSetIniDbString('discordSettings', 'greetingsDefaultGroup', '');
 
 	/**
-     * @event panelWebSocket
+     * @event webPanelSocketUpdate
      */
-    $.bind('panelWebSocket', function(event) {
+    $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/systems/greetingsSystem.js')) {
         	joinToggle = $.getIniDbBoolean('discordSettings', 'joinToggle', false);
 	    	partToggle = $.getIniDbBoolean('discordSettings', 'partToggle', false);
 	    	joinMessage = $.getIniDbString('discordSettings', 'joinMessage', '(name) hat gerade den Server betreten!');
 	    	partMessage = $.getIniDbString('discordSettings', 'partMessage', '(name) hat gerade den Server verlassen!');
 	    	channelName = $.getIniDbString('discordSettings', 'greetingsChannel', '');
+	    	joinGroup = $.getIniDbString('discordSettings', 'greetingsDefaultGroup', '');
         }
     });
 
 	/**
-	 * @event discordJoin
+	 * @event discordChannelJoin
 	 */
-	$.bind('discordJoin', function(event) {
+	$.bind('discordChannelJoin', function(event) {
 		if (joinToggle === false || channelName == '') {
 			return;
 		}
@@ -31,20 +33,28 @@
 		    s = joinMessage;
 
 		if (s.match(/\(@name\)/)) {
-			s = $.replace(s, '(@name)', mention.getAsMention());
+			s = $.replace(s, '(@name)', mention);
 		}
 
 		if (s.match(/\(name\)/)) {
 			s = $.replace(s, '(name)', username);
 		}
 
+		if (s.match(/\(role\)/)) {
+			s = $.replace(s, '(role)', joinGroup);
+		}
+
+		if (joinGroup !== '') {
+			$.discord.setRole(joinGroup, event.getDiscordUser());
+		}
+
 		$.discord.say(channelName, s);
 	});
 
 	/**
-	 * @event discordLeave
+	 * @event discordChannelPart
 	 */
-	$.bind('discordLeave', function(event) {
+	$.bind('discordChannelPart', function(event) {
 		if (partToggle === false || channelName == '') {
 			return;
 		}
@@ -54,7 +64,7 @@
 		    s = partMessage;
 
 		if (s.match(/\(@name\)/)) {
-			s = $.replace(s, '(@name)', mention.getAsMention());
+			s = $.replace(s, '(@name)', mention);
 		}
 
 		if (s.match(/\(name\)/)) {
@@ -65,9 +75,9 @@
 	});
 
 	/**
-	 * @event discordCommand
+	 * @event discordChannelCommand
 	 */
-	$.bind('discordCommand', function(event) {
+	$.bind('discordChannelCommand', function(event) {
 		var sender = event.getSender(),
 			command = event.getCommand(),
 		    channel = event.getChannel(),
@@ -140,6 +150,20 @@
 				channelName = subAction.replace('#', '').toLowerCase();
 				$.setIniDbString('discordSettings', 'greetingsChannel', channelName);
 				$.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('discord.greetingssystem.channel.set', channelName));
+			}
+
+			/**
+			 * @discordcommandpath greetingssystem joinrole [role name] - Sets the default role users will get when joining.
+			 */
+			if (action.equalsIgnoreCase('joinrole')) {
+				if (subAction === undefined) {
+					$.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('discord.greetingssystem.joinrole.usage'));
+					return;
+				}
+
+				joinGroup = subAction;
+				$.setIniDbString('discordSettings', 'greetingsDefaultGroup', joinGroup);
+				$.discord.say(channel, $.discord.userPrefix(mention) + $.lang.get('discord.greetingssystem.joinrole.set', joinGroup));
 			}
 		}
 	});
