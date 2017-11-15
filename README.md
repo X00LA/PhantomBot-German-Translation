@@ -77,6 +77,8 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         Übersetzung Version 2.3.7a --> Update auf Bot-Version 2.3.7.1, ein paar Tippfehler behoben, ein paar Ausdrücke geändert, Konsolenausgaben übersetzt, Genderneutralität erweitert und einige andere Kleinigkeiten.
         Übersetzung Version 2.3.7b --> Bugfix Veröffentlichung! Schreibfehler in der help.html behoben. Update des Twitch Players in den Candy Dateien auf die neue API Version.
         
+    PhantomBot Version 2.3.9.x
+        Übersetzung Version 2.3.9a --> Update auf Bot-Version 2.3.9.1, ein paar Tippfehler behoben, neue Dateien hinzugefügt, nicht mehr benötigte Dateien entfernt, beim letzten Update vergessene Dateien für Discord übersetzt.
 
 # Lizenzinformation
 
