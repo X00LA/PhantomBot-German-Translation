@@ -48,7 +48,7 @@ $.lang.register('ytplayer.command.delrequest.success', 'Song mit der ID [$1], de
 $.lang.register('ytplayer.command.delrequest.404', 'Die Musikwünsche enthalten keinen Song mit der ID [$1].');
 $.lang.register('ytplayer.command.delrequest.usage', 'Verwendung: !ytp delrequest [YouTube ID]');
 $.lang.register('ytplayer.command.ytp.usage', 'Verwendung: !ytp [togglesongrequest | toggleanounce | delrequest | volume | togglerandom | setrequestmax | setmaxvidlength | votecount]');
-$.lang.register('ytplayer.command.wrongsong.success', 'Lezten Musikwunsch, [$1], entfernt.');
+$.lang.register('ytplayer.command.wrongsong.success', 'Letzten Musikwunsch, [$1], entfernt.');
 $.lang.register('ytplayer.command.wrongsong.404', 'Keine Musiktitel gefunden!');
 $.lang.register('ytplayer.command.wrongsong.user.success', 'Letzten Musikwunsch, $2 ,erfolgreich von $1 entfernt.');
 $.lang.register('ytplayer.command.wrongsong.usage', 'Verwendung: !wrongsong [Songtitel] [BenutzerInnenname]. Ohne Angabe von [BenutzerInnenname], wird einfach der letzte Musikwunsch gelöscht.');
