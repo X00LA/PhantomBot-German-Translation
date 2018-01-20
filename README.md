@@ -1,4 +1,4 @@
-[![Discord](https://discordapp.com/api/guilds/240072919722622977/widget.png)](https://discord.gg/JKJU3Zd)   
+[![Discord](https://discordapp.com/api/guilds/240072919722622977/widget.png)](https://discord.gg/JKJU3Zd)  [![Durchschnittlich benötigte Zeit zur Fehlerbehebung](http://isitmaintained.com/badge/resolution/X00LA/PhantomBot-German-Translation.svg)](http://isitmaintained.com/project/X00LA/PhantomBot-German-Translation "Average time to resolve an issue")  [![Offene Fehler in Prozent](http://isitmaintained.com/badge/open/X00LA/PhantomBot-German-Translation.svg)](http://isitmaintained.com/project/X00LA/PhantomBot-German-Translation "Percentage of issues still open")
    
 [![Cup of Coffe](http://i.imgur.com/ycclOX9.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QF69JHHKBYV9A)
 
