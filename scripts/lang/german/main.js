@@ -245,7 +245,7 @@ $.lang.register('common.twitch.no.game', 'nicht sicher, weder von Twitch');
 $.lang.register('console.channel.ishosting', '$1 hostet derzeit $2.');
 $.lang.register('console.received.clearchat', 'Nachricht von jtv über Chat-Säuberung erhalten.');
 $.lang.register('console.received.host.end', 'Nachricht von jtv über Beendigung eines Hostings erhalten.');
-$.lang.register('console.received.host.start', 'Nachricht von jtv erhalten, dass Kanal $1 uns nun hostet.');
+$.lang.register('console.received.host.start', 'Nachricht von jtv erhalten, dass Kanal $1 nun gehostet wird.');
 $.lang.register('console.received.irsprivmsg', 'PM von $1 erhalten: $2');
 $.lang.register('console.received.purgetimeoutban', 'Nachricht von jtv über Reinigung/Timeout/Bann für Benutzer $1 erhalten.');
 $.lang.register('console.received.r9k.end', 'Nachricht von jtv über die Beendigung des R9K-Modus erhalten.');
