@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 phantombot.tv
+ * Copyright (C) 2016-2018 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -229,7 +229,7 @@
                 handlePanel('./discord/systems/greetingsSystem.js', '#_discord_greetingSystem', moduleEnabled);
             }
             if (panelMatch(module, './discord/commands/customCommands.js')) {
-                handlePanel('./discord/games/customCommands.js', '#_discord_customCommands', moduleEnabled);
+                handlePanel('./discord/commands/customCommands.js', '#_discord_customCommands', moduleEnabled);
             }
             if (panelMatch(module, './discord/games/slotMachine.js')) {
                 handlePanel('./discord/games/slotMachine.js', '#_discord_slotMachine', moduleEnabled);

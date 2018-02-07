@@ -50,7 +50,7 @@
     /*
      * @function consoleLn
      *
-     * @param {string} message
+     * @param {String} message
      */
     function consoleLn(message) {
         Packages.com.gmt2001.Console.out.println(java.util.Objects.toString(message));
@@ -59,10 +59,10 @@
     /*
      * @function consoleDebug
      *
-     * @param {string} message
+     * @param {String} message
      */
     function consoleDebug(message) {
-        if (Packages.me.mast3rplan.phantombot.PhantomBot.enableDebugging) {
+        if (Packages.tv.phantombot.PhantomBot.enableDebugging) {
             try {
                 throw new Error();
             } catch (ex) {
@@ -88,7 +88,7 @@
                     for (var i = 0; i < arguments.length; i++) {
                         args.push(arguments[i]);
                     }
-    
+
                     obj[name].save(obj, args);
                 };
             };
@@ -208,7 +208,7 @@
         return modules[scriptName];
     }
 
-     /*
+    /*
      * @function getHook
      *
      * @param  {String} scriptName
@@ -229,7 +229,7 @@
     function getHookIndex(scriptName, hookName) {
         var hook = hooks[hookName],
             i;
-            
+
         if (hook !== undefined) {
             for (i in hook.handlers) {
                 if (hook.handlers[i].scriptName.equalsIgnoreCase(scriptName)) {
@@ -414,7 +414,7 @@
         $api.on($script, 'ircChannelUserMode', function(event) {
             callHook('ircChannelUserMode', event, false);
 
-            if (event.getUser().equalsIgnoreCase($.botName) && event.getMode().equalsIgnoreCase('o')) {
+            if (event.getUser().equalsIgnoreCase($.botName) && event.getMode().equalsIgnoreCase('O')) {
                 if (event.getAdd().toString().equals('true')) {
                     if (isReady === false) {
                         if ($.inidb.exists('settings', 'connectedMsg')) {
@@ -462,23 +462,26 @@
                     }
                 }
                 return;
-            } else 
+            } else
 
             // Check the command permission.
             if ($.permCom(sender, command, subCommand) !== 0) {
                 $.sayWithTimeout($.whisperPrefix(sender) + $.lang.get('cmd.perm.404', (!$.subCommandExists(command, subCommand) ? $.getCommandGroupName(command) : $.getSubCommandGroupName(command, subCommand))), $.getIniDbBoolean('settings', 'permComMsgEnabled', false));
+                consoleDebug('Befehl !' + command + ' wurde nicht gesendet, da der Benutzer keine Berechtigung dafür hatte.');
                 return;
-            } else 
+            } else
 
             // Check the command cooldown.
             if ($.coolDown.get(command, sender, isMod) !== 0) {
                 $.sayWithTimeout($.whisperPrefix(sender) + $.lang.get('init.cooldown.msg', command, $.coolDown.getSecs(sender, command)), $.getIniDbBoolean('settings', 'coolDownMsgEnabled', false));
+                consoleDebug('Befehl !' + command + ' wurde nicht gesendet da er noch in der Abklingphase ist.');
                 return;
-            } else 
+            } else
 
             // Check the command cost.
-            if ($.priceCom(sender, command, subCommand, isMod) !== 0) {
+            if ($.priceCom(sender, command, subCommand, isMod) === 1) {
                 $.sayWithTimeout($.whisperPrefix(sender) + $.lang.get('cmd.needpoints', $.getPointsString($.getCommandPrice(command, subCommand, ''))), $.getIniDbBoolean('settings', 'priceComMsgEnabled', false));
+                consoleDebug('Befehl !' + command + ' wwurde nicht gesendet da der Benutzer nicht genügend Punkte hat');
                 return;
             }
 
@@ -601,6 +604,13 @@
          */
         $api.on($script, 'ircChannelJoin', function(event) {
             callHook('ircChannelJoin', event, false);
+        });
+
+        /*
+         * @event ircChannelUsersUpdate
+         */
+        $api.on($script, 'ircChannelUsersUpdate', function(event) {
+            callHook('ircChannelUsersUpdate', event, false);
         });
 
         /*
@@ -863,31 +873,45 @@
         });
 
         /*
-         * @event subscriber
+         * @event twitchSubscriber
          */
-        $api.on($script, 'subscriber', function(event) {
-            callHook('subscriber', event, false);
+        $api.on($script, 'twitchSubscriber', function(event) {
+            callHook('twitchSubscriber', event, false);
         });
 
         /*
-         * @event primeSubscriber
+         * @event twitchPrimeSubscriber
          */
-        $api.on($script, 'primeSubscriber', function(event) {
-            callHook('primeSubscriber', event, false);
+        $api.on($script, 'twitchPrimeSubscriber', function(event) {
+            callHook('twitchPrimeSubscriber', event, false);
         });
 
         /*
          * @event reSubscriber
          */
-        $api.on($script, 'reSubscriber', function(event) {
-            callHook('reSubscriber', event, false);
+        $api.on($script, 'twitchReSubscriber', function(event) {
+            callHook('twitchReSubscriber', event, false);
         });
 
         /*
-         * @event bits
+         * @event twitchSubscriptionGift
          */
-        $api.on($script, 'bits', function(event) {
-            callHook('bits', event, false);
+        $api.on($script, 'twitchSubscriptionGift', function(event) {
+            callHook('twitchSubscriptionGift', event, false);
+        });
+
+        /*
+         * @event twitchBits
+         */
+        $api.on($script, 'twitchBits', function(event) {
+            callHook('twitchBits', event, false);
+        });
+
+        /*
+         * @event twitchRaid
+         */
+        $api.on($script, 'twitchRaid', function(event) {
+            callHook('twitchRaid', event, false);
         });
 
         /*
@@ -969,7 +993,7 @@
         getModule: getModule,
         getHook: getHook,
         modules: modules,
-        hooks: hooks   
+        hooks: hooks
     };
 
     // Load init.js

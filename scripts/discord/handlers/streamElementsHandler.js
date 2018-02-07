@@ -59,11 +59,11 @@
         }
 
         if (s.match(/\(amount\)/)) {
-            s = $.replace(s, '(amount)', parseInt(donationAmount.toFixed(2)));
+            s = $.replace(s, '(amount)', String(parseInt(donationAmount.toFixed(2))));
         }
 
         if (s.match(/\(amount\.toFixed\(0\)\)/)) {
-            s = $.replace(s, '(amount.toFixed(0))', parseInt(donationAmount.toFixed(0)));
+            s = $.replace(s, '(amount.toFixed(0))', String(parseInt(donationAmount.toFixed(0))));
         }
 
         if (s.match(/\(message\)/)) {
@@ -135,13 +135,9 @@
      * @event initReady
      */
     $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./discord/handlers/streamElementsHandler.js')) {
-            $.discord.registerCommand('./discord/handlers/streamElementsHandler.js', 'streamelementshandler', 1);
-            $.discord.registerSubCommand('streamelementshandler', 'toggle', 1);
-            $.discord.registerSubCommand('streamelementshandler', 'message', 1);
-            $.discord.registerSubCommand('streamelementshandler', 'channel', 1);
-
-            // $.unbind('initReady'); Needed or not?
-        }
+        $.discord.registerCommand('./discord/handlers/streamElementsHandler.js', 'streamelementshandler', 1);
+        $.discord.registerSubCommand('streamelementshandler', 'toggle', 1);
+        $.discord.registerSubCommand('streamelementshandler', 'message', 1);
+        $.discord.registerSubCommand('streamelementshandler', 'channel', 1);
     });
 })();

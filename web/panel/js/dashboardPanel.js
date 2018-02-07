@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 phantombot.tv
+ * Copyright (C) 2016-2018 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -293,7 +293,7 @@
                 if (msgObject['results']['otherChannels'] !== undefined && msgObject['results']['otherChannels'] !== null) {
                     $('#multiLinkInput').val(msgObject['results']['otherChannels'].replace(/\//g, ' '));
                 } else {
-                    $('#multiLinkInput').attr('placeholder', 'Kanal-1 Kanal-2');
+                    $('#multiLinkInput').attr('placeholder', 'Channel-1 Channel-2');
                 }
             }
 
@@ -574,7 +574,7 @@
      * @function clearMultiLink
      */
     function clearMultiLink() {
-        sendDBUpdate("multiLinkClear", "dualStreamCommand", "otherChannels", "Kanal-1 Kanal-2");
+        sendDBUpdate("multiLinkClear", "dualStreamCommand", "otherChannels", "Channel-1 Channel-2");
         sendDBUpdate("multiLinkClear", "dualStreamCommand", "timerToggle", "false");
         setTimeout(function() { sendCommand("reloadmulti"); }, TIMEOUT_WAIT_TIME);
         setTimeout(function() { doQuery(); }, TIMEOUT_WAIT_TIME * 2);
@@ -617,8 +617,16 @@
     function toggleTwitchChat() {
         if ($("#chatsidebar").is(":visible")) {
             $("#chatsidebar").fadeOut(1000);
+            localStorage.setItem('phantombot_chattoggle', 'false');
         } else {
             $("#chatsidebar").fadeIn(1000);
+            // Load the iframe if it isn't there.
+            if ($("#chatsidebar").html().indexOf(getChannelName().toLowerCase()) === -1) {
+                $("#chatsidebar").append("<iframe id=\"chat\" frameborder=\"0\" scrolling=\"no\" onload=\"hideLoadingImage()\"" +
+                                             "src=\"https://www.twitch.tv/" + getChannelName().toLowerCase() + "/chat?popout=\">");
+                $("#chatsidebar").draggable({ iframeFix: true });
+            }
+            localStorage.setItem('phantombot_chattoggle', 'true');
         }
     }
 

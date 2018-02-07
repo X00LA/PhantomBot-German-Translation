@@ -46,11 +46,14 @@
         time = ((time * 1000) + $.systemTime());
         keyword = keyword.toLowerCase();
 
-        cooldown.push({keyword: keyword, time: time});
+        cooldown.push({
+            keyword: keyword,
+            time: time
+        });
         $.consoleDebug('Übergebe Schlüsselwort, ' + keyword + ', an Abklingzeit.');
     };
 
-     /**
+    /**
      * @function get 
      * @export $.coolDownKeywords
      * @param keyword
@@ -100,7 +103,7 @@
             cooldown.splice(i, 1);
         }
     };
-    
+
     /** EXPORT TO $. API*/
     $.coolDownKeywords = {
         set: set,

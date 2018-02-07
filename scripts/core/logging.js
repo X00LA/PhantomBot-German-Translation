@@ -71,8 +71,8 @@
      * @function logfile
      *
      * @export $
-     * @param {string} filePrefix
-     * @param {string} message
+     * @param {String} filePrefix
+     * @param {String} message
      * @param {String} sender
      */
     function logfile(filePrefix, message, sender) {
@@ -121,7 +121,7 @@
      * @function logError
      *
      * @export $
-     * @param {string} message
+     * @param {String} message
      */
     function logError(message) {
         if (logs.error === false) {
@@ -149,7 +149,7 @@
      * @function logWarning
      *
      * @export $
-     * @param {string} message
+     * @param {String} message
      */
     function logWarning(message) {
         if (logs.error === false) {
@@ -180,7 +180,7 @@
         var logFiles,
             idx,
             logFileDate,
-            logDirs = [ 'chat', 'chatModerator', 'core', 'core-debug', 'core-error', 'error', 'event', 'patternDetector', 'pointSystem', 'private-messages' ],
+            logDirs = ['chat', 'chatModerator', 'core', 'core-debug', 'core-error', 'error', 'event', 'patternDetector', 'pointSystem', 'private-messages'],
             logDirIdx,
             datefmt = new java.text.SimpleDateFormat('dd-MM-yyyy'),
             date,
@@ -328,8 +328,8 @@
         }
     });
 
-    var interval = setInterval(function() { 
-        logRotate(); 
+    var interval = setInterval(function() {
+        logRotate();
     }, 24 * 60 * 6e4, 'scripts::core::logging.js');
 
     /*

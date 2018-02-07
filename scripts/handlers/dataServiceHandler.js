@@ -1,22 +1,22 @@
 (function() {
     var reCustomAPI = new RegExp(/\(customapi\s.*\)/),
-        reCustomAPIJson = new RegExp(/\(customapijson\s.*\)/); 
+        reCustomAPIJson = new RegExp(/\(customapijson\s.*\)/);
 
     /**
      * @function drsTimer
      */
     function drsTimer() {
-        var keys, 
+        var keys,
             parts,
             apiStatus,
             commandValue,
             commandHelpData = {},
             commandHelpFileData,
             lastTime = parseInt($.getSetIniDbNumber('datarenderservice', 'last_time', 0)),
-            checkTime = lastTime + parseInt(125 * 6e4),
+            checkTime = lastTime + parseInt(90 * 6e4),
             JSONStringer = Packages.org.json.JSONStringer;
 
-        /* Run only once every 125 minutes. Do not change this. The Data Service has a rate limit
+        /* Run only once every 90 minutes. Do not change this. The Data Service has a rate limit
          * and will reject the data.
          */
         if (lastTime > 0 && checkTime > $.systemTime()) {
@@ -56,7 +56,7 @@
                 if (commandValue.match(reCustomAPI)) {
                     commandValue = commandValue.replace(reCustomAPI, '(customapi)');
                 }
-                if (commandValue.match(reCustomAPIJson)){
+                if (commandValue.match(reCustomAPIJson)) {
                     commandValue = commandValue.replace(reCustomAPIJson, '(customapijson)');
                 }
                 jsonStringer.key('value').value(commandValue);
@@ -81,7 +81,7 @@
         jsonStringer.endArray().endObject();
         apiStatus = $.dataRenderServiceAPI.postData(jsonStringer.toString(), $.channelName, 'quotes');
         $.log.event('DataRenderService: Quotes API status : ' + apiStatus);
-        
+
         keys = $.inidb.GetKeyList('points', '');
         jsonStringer = new JSONStringer();
         jsonStringer.object().key('pointsName').value($.pointNameMultiple).key('points').array();
@@ -129,7 +129,7 @@
      * @event command
      */
     $.bind('command', function(event) {
-        var sender = event.getSender().toLowerCase(),
+        var sender = event.getSender(),
             command = event.getCommand(),
             args = event.getArgs();
 
@@ -148,14 +148,11 @@
      * @event initReady
      */
     $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./handlers/dataServiceHandler.js')) {
-            $.registerChatCommand('./handlers/dataServiceHandler.js', 'terminatedataserviceapi', 1);
+        $.registerChatCommand('./handlers/dataServiceHandler.js', 'terminatedataserviceapi', 1);
 
-            if ($.dataRenderServiceAPI.hasAPIKey()) {
-                $.consoleLn('API für Daten Render Service vorhanden, aktiviere Datenzuführung');
-                setInterval(function() { drsTimer(); }, 6e4); 
-            }
+        if ($.dataRenderServiceAPI.hasAPIKey()) {
+            $.consoleLn('API für Daten Render Service vorhanden, aktiviere Datenzuführung');
+            setInterval(drsTimer, 6e4);
         }
     });
-
 })();
