@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2017 phantombot.tv
+ Copyright (C) 2016-2018 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -366,9 +366,18 @@
                      </div>
                 </td>
             </tr>
+            <tr class="textList">
+                <td>Geschenks-Abonnement Alarm An/Aus</td>
+                <td style="width: 25px"><div id="subscriptiongiftGreetings" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="An/Aus" class="button"
+                         onclick="$.toggleGreetings('subscribeHandler', 'giftSubWelcomeToggle');"><i class="fa fa-refresh" />
+                     </div>
+                </td>
+            </tr>
         </table>
         <br>
-        
+
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="subReward">Abonnement Belohnung</label>
@@ -386,21 +395,30 @@
                 <input type="number" min="0" class="form-control" id="reSubRewardInput" placeholder="Punkte" />
             </div>
         </form>
-
+     
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="subGreeting">Abonnenten Brgüßungsnachricht</label>
+                <label for="giftSubReward">Geschenks-Abonnement Belohnung</label>
                 <button type="button" class="btn btn-primary inline pull-right"
-                        onclick="$.updateGreetingData('subGreetingInput', 'subscribeHandler', 'subscribeMessage')">Übermitteln</button>
-                <input type="text" class="form-control" id="subGreetingInput" placeholder="Begrüßungsnachricht"
-                       data-toggle="tooltip" title="Tags: (name) (reward)"/>
+                        onclick="$.updateGreetingData('giftSubRewardInput', 'subscribeHandler', 'giftSubReward')">Übermitteln</button>
+                <input type="number" min="0" class="form-control" id="giftSubRewardInput" placeholder="Punkte" />
             </div>
         </form>
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="primeSubGreeting">Prime Abonnenten Nachricht</label>
-                <button type="button" class="btn btn-primary inline pull-right" 
+                <label for="subGreeting">Abonnenten Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                        onclick="$.updateGreetingData('subGreetingInput', 'subscribeHandler', 'subscribeMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="subGreetingInput" placeholder="Begrüßungsnachricht"
+                       data-toggle="tooltip" title="Tags: (name) (reward) (plan)"/>
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="primeSubGreeting">Abonnenten Brgüßungsnachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right"
                         onclick="$.updateGreetingData('primeSubGreetingInput', 'subscribeHandler', 'primeSubscribeMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="primeSubGreetingInput" placeholder="Begrüßungsnachricht"
                        data-toggle="tooltip" title="Tags: (name) (reward)"/>
@@ -409,21 +427,61 @@
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="resubGreeting">Re-Abonnement Nachricht</label>
-                <button type="button" class="btn btn-primary inline pull-right"
-                        onclick="$.updateGreetingData('resubGreetingInput', 'subscribeHandler', 'reSubscribeMessage')">Übermitteln</button>
+                <label for="resubGreeting">Prime Abonnenten Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right" 
+                        onclick="$.updateGreetingData('resubGreetingInput', 'subscribeHandler', 'resubscribeMessage')">Übermitteln</button>
                 <input type="text" class="form-control" id="resubGreetingInput" placeholder="Begrüßungsnachricht"
-                       data-toggle="tooltip" title="Tags: (name) (reward) (months) (customemote)" />
+                       data-toggle="tooltip" title="Tags: (name) (reward) (plan) (months) (customemote)" />
             </div>
         </form>
 
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="resubEmote">Re-Abonnenten benutzerdefiniertes Emote</label>
+                <label for="giftsubGreeting">Geschenks-Abonnement Nachricht</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                        onclick="$.updateGreetingData('giftsubGreetingInput', 'subscribeHandler', 'giftSubMessage')">Übermitteln</button>
+                <input type="text" class="form-control" id="giftsubGreetingInput" placeholder="Begrüßungsnachricht"
+                       data-toggle="tooltip" title="Tags: (name) (recipient) (reward) (plan) (months) (customemote)" />
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="resubEmote">Re-Abonnements benutzerdefiniertes Emoji</label>
                 <button type="button" class="btn btn-primary inline pull-right"
                         onclick="$.updateGreetingData('resubEmoteInput', 'subscribeHandler', 'resubEmote')">Übermitteln</button>
-                <input type="text" class="form-control" id="resubEmoteInput" placeholder="Emotename"
-                       data-toggle="tooltip" title="Emote mit dem das (customemote) ersetzt wird. Das Emote wird an die Anzahl an Monaten, die das Abonnement läuft, gebunden." />
+                <input type="text" class="form-control" id="resubEmoteInput" placeholder="Emoji Name"
+                       data-toggle="tooltip" title="Emoji welches mit (customemote) ersetzt wird. Dem Emote wird die Anzahl der Monate hinzugefügt, die der Nutzer abonniert hat." />
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="subPlan1000">Abonnement Plan 1 Name</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                        onclick="$.updateGreetingData('subPlan1000Input', 'subscribeHandler', 'subPlan1000')">Übermitteln</button>
+                <input type="text" class="form-control" id="subPlan1000Input" placeholder="Abonnement Name"
+                       data-toggle="tooltip" title="Name für dieses Abonnement (4,99). " />
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="subPlan2000">Abonnement Plan 2 Name</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                        onclick="$.updateGreetingData('subPlan2000Input', 'subscribeHandler', 'subPlan2000')">Übermitteln</button>
+                <input type="text" class="form-control" id="subPlan2000Input" placeholder="Abonnement Name"
+                       data-toggle="tooltip" title="Name für dieses Abonnement (9,99). " />
+            </div>
+        </form>
+
+        <form role="form">
+            <div class="form-group" onkeypress="return event.keyCode != 13">
+                <label for="subPlan3000">Abonnement Plan 3 Name</label>
+                <button type="button" class="btn btn-primary inline pull-right"
+                        onclick="$.updateGreetingData('subPlan3000Input', 'subscribeHandler', 'subPlan3000')">Übermitteln</button>
+                <input type="text" class="form-control" id="subPlan3000Input" placeholder="Abonnement Name"
+                       data-toggle="tooltip" title="Name für dieses Abonnement (24,99). " />
             </div>
         </form>
     </div>
@@ -542,11 +600,11 @@
     <div id="_gwTierPanel">
         <table style="background: transparent">
             <tr>
-                <td> <strong>Songanfrage Vorteil</strong> <div id="gameWispSongRequests" style="height: 200px; overflow: auto;" /> </td>
-                <td> <strong>Abonnement Bonuspunkte Vorteil</strong> <div id="gameWispBonusPoints" style="height: 200px; overflow: auto;" /> </td>
+                <td> <strong>Songanfrage Vorteil</strong> <div id="gameWispSongRequests" style="height: 220px; overflow: auto;" /> </td>
+                <td> <strong>Abonnement Bonuspunkte Vorteil</strong> <div id="gameWispBonusPoints" style="height: 220px; overflow: auto;" /> </td>
             </tr>
             <tr>
-                <td> <strong>Re-Abonnement Bonuspunkte Vorteil</strong> <div id="gameWispSubBonusPoints" style="height: 200px; overflow: auto;" /> </td>
+                <td> <strong>Re-Abonnement Bonuspunkte Vorteil</strong> <div id="gameWispSubBonusPoints" style="height: 220px; overflow: auto;" /> </td>
             </tr>
         </table>
     </div>

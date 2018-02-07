@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2017 phantombot.tv
+ Copyright (C) 2016-2018 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -218,7 +218,7 @@
             <div class="form-group" onkeypress="return event.keyCode != 13">
                 <label for="defaultCooldownInput">Standard Abklingzeit</label>
                 <button type="button" class="btn btn-primary inline pull-right" onclick="$.setDefaultCooldown()">Übermitteln</button>
-                <input type="number" min="0" class="form-control" id="defaultCooldownInput" placeholder="Sekunden" data-toggle="tooltip" title="Standard Abklingzeit für alle Befehle,
+                <input type="number" min="5" class="form-control" id="defaultCooldownInput" placeholder="Sekunden" data-toggle="tooltip" title="Standard Abklingzeit für alle Befehle,
                 für welche keine Abklingzeit festgelegt wurde."/>
             </div>
         </form>

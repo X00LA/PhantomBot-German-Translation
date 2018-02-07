@@ -1,6 +1,6 @@
 <!--
 
- Copyright (C) 2017 phantombot.tv
+ Copyright (C) 2016-2018 phantombot.tv
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -222,6 +222,20 @@
                 <td style="width: 25px">
                     <div data-toggle="tooltip" title="Deaktiviert" class="button"
                          onclick="$.adventureUpdateSetting('enterMessage', 'false');"><i class="fa fa-circle-o" />
+                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Abenteuer Abkling Zeit</td>
+                <td style="width: 25px"><div id="adventurecoolDownAnnounce" /></td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Aktivieren" class="button"
+                         onclick="$.adventureUpdateSetting('coolDownAnnounce', 'true');"><i class="fa fa-circle" />
+                     </div>
+                </td>
+                <td style="width: 25px">
+                    <div data-toggle="tooltip" title="Deaktivieren" class="button"
+                         onclick="$.adventureUpdateSetting('coolDownAnnounce', 'false');"><i class="fa fa-circle-o" />
                      </div>
                 </td>
             </tr>

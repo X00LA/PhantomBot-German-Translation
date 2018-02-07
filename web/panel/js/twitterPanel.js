@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 phantombot.tv
+ * Copyright (C) 2016-2018 phantombot.tv
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,14 +39,14 @@
         settingMap['poll_retweets'] = "Retweets abfragen";
         settingMap['poll_hometimeline'] = "Startseiten-Zeitleiste abfragen";
         settingMap['poll_usertimeline'] = "Benutzer-Startseiten-Zeitleiste abfragen";
-        
-        settingMap['post_online'] = "Poste wenn Stream Online geht";
-        settingMap['post_gamechange'] = "Poste Spielwechsel";
-        settingMap['post_update'] = "Poste Zeitgesteuerte Aktualisierungen";
 
+        settingMap['post_online'] = "Poste, wenn der Stream online geht";
         settingMap['reward_toggle'] = 'Belohnungen An/Aus';
         settingMap['reward_announce'] = 'Belohnungsbenachrichtigungen An/Aus';
         
+        settingMap['reward_toggle'] = 'Belohnungen An/Aus';
+        settingMap['reward_announce'] = 'Belohnungsbenachrichtigungen An/Aus';
+
 
     /**
      * @function onMessage
