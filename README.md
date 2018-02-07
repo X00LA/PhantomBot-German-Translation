@@ -79,6 +79,9 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
         
     PhantomBot Version 2.3.9.x
         Übersetzung Version 2.3.9a --> Update auf Bot-Version 2.3.9.1, ein paar Tippfehler behoben, neue Dateien hinzugefügt, nicht mehr benötigte Dateien entfernt, beim letzten Update vergessene Dateien für Discord übersetzt.
+        
+    PhantomBot Version 2.4.0
+        Übersetzung Version 2.4.0-PRE --> Update auf PhantomBot Version 2.4.0. Fehler in der HTML-Datei behoben, Danke an Lapotor für die Meldung. Fehler in den Discord Dateien behoben, Danke an MentalIFS für die Meldung.
 
 # Lizenzinformation
 
