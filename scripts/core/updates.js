@@ -104,7 +104,7 @@
             'installedv2.3.3ss', 'installedv2.3.5ss', 'installedv2.3.5.1', 'installedv2.3.5.2', 'installedv2.3.5.3', 'installed2.3.6', 
             'installed2.3.6ss', 'installed2.3.6b', 'installedv2.3.7', 'installedv2.3.7b', 'installedv2.3.9', 'installedv2.3.9.1'];
             'installedv2.4.0'
-        ];
+        
         for (i in versions) {
             $.inidb.set('updates', versions[i], 'true');
         }
