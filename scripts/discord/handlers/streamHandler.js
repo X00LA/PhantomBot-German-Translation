@@ -129,7 +129,14 @@
                     .withColor(100, 65, 164)
                     .withThumbnail($.twitchcache.getLogoLink())
                     .withTitle(s)
-
+                    .appendField($.lang.get('discord.streamhandler.common.game'), $.getGame($.channelName), false)
+                    .appendField($.lang.get('discord.streamhandler.common.title'), $.getStatus($.channelName), false)
+                    .withUrl('https://twitch.tv/' + $.channelName)
+                    .withTimestamp(Date.now())
+                    .withFooterText('Twitch')
+                    .withFooterIcon($.twitchcache.getLogoLink())
+                    .withImage($.twitchcache.getPreviewLink() + '#' + $.randRange(1, 99999)).build());
+                
                 $.setIniDbNumber('discordSettings', 'lastOnlineEvent', $.systemTime());
             }
         }, 6e4);
