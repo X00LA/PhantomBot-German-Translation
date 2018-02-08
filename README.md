@@ -83,6 +83,7 @@ An den beigefügten Scriptdateien wurde nichts anderes als die zu übersetzenden
     PhantomBot Version 2.4.0
         Übersetzung Version 2.4.0-PRE --> Update auf PhantomBot Version 2.4.0. Fehler in der HTML-Datei behoben, Danke an Lapotor für die Meldung. Fehler in den Discord Dateien behoben, Danke an MentalIFS für die Meldung.
         Übersetzung Version 2.4.0a-PRE --> HOTFIX! Behebt Fehler welcher PhantomBot abstürzen lässt. Danke an derrodirik für die Meldung!
+        Übersetzung Version 2.4.0b-PRE --> HOTFIX! Behebt einen Fehler in dem ein fehlender Code Block wieder eingesetzt wird. Danke an Donzii für den Fix!
 
 # Lizenzinformation
 
